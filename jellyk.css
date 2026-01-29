@@ -1,0 +1,737 @@
+/*
+ * Jellyk — Modular, responsive theme for zkBricks
+ * Mobile-first, touch-friendly, soft “jelly” aesthetic
+ */
+
+/* ========== 1. Variables (customize here) ========== */
+:root,
+[data-bs-theme="light"] {
+  --jellyk-radius: 1rem;
+  --jellyk-radius-sm: 0.5rem;
+  --jellyk-radius-lg: 1.5rem;
+  --jellyk-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --jellyk-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --jellyk-transition: 0.2s ease;
+  --jellyk-bg: #f8f6ff;
+  --jellyk-surface: #ffffff;
+  --jellyk-text: #1a1a2e;
+  --jellyk-text-muted: #5c5c7a;
+  --jellyk-accent: #6366f1;
+  --jellyk-accent-hover: #4f46e5;
+  --jellyk-border: rgba(0, 0, 0, 0.06);
+  --jellyk-header-bg: rgba(255, 255, 255, 0.9);
+  --jellyk-header-border: rgba(0, 0, 0, 0.06);
+}
+
+[data-bs-theme="dark"] {
+  --jellyk-bg: #0f0f1a;
+  --jellyk-surface: #1a1a2e;
+  --jellyk-text: #e8e8f0;
+  --jellyk-text-muted: #9898b0;
+  --jellyk-accent: #818cf8;
+  --jellyk-accent-hover: #a5b4fc;
+  --jellyk-border: rgba(255, 255, 255, 0.08);
+  --jellyk-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --jellyk-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --jellyk-header-bg: rgba(15, 15, 26, 0.95);
+  --jellyk-header-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ========== 2. Base & layout (mobile-first) ========== */
+.bd-mode-toggle {
+  z-index: 1050;
+}
+
+.jellyk-skip-link {
+  position: absolute;
+  top: -3rem;
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 1100;
+  padding: 0.5rem 1rem;
+  background: var(--jellyk-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--jellyk-radius-sm);
+  transition: top 0.15s ease;
+}
+
+.jellyk-skip-link:focus {
+  top: max(0.5rem, env(safe-area-inset-top));
+  outline: 2px solid var(--jellyk-text);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-skip-link {
+    transition: none;
+  }
+}
+
+.jellyk-body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--jellyk-bg);
+  color: var(--jellyk-text);
+  text-shadow: none;
+  box-shadow: none;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.jellyk-body *:focus {
+  outline: none;
+}
+
+.jellyk-body *:focus-visible {
+  outline: 2px solid var(--jellyk-accent);
+  outline-offset: 2px;
+}
+
+.jellyk-container {
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* ========== 3. Header & nav (responsive) ========== */
+.jellyk-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background: var(--jellyk-header-bg);
+  border-bottom: 1px solid var(--jellyk-header-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: env(safe-area-inset-top);
+}
+
+.jellyk-header .navbar {
+  padding: 0.75rem max(1rem, env(safe-area-inset-left)) 0.75rem max(1rem, env(safe-area-inset-right));
+  flex-wrap: wrap;
+}
+
+.jellyk-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--jellyk-text) !important;
+  text-decoration: none;
+  border-radius: var(--jellyk-radius-sm);
+  padding: 0.35rem 0.5rem;
+  transition: background var(--jellyk-transition), color var(--jellyk-transition);
+}
+
+.jellyk-brand:hover {
+  color: var(--jellyk-accent) !important;
+  background: var(--jellyk-border);
+}
+
+/* Navbar toggler: hamburger (mobile) */
+.jellyk-header .navbar-toggler {
+  border: 1px solid var(--jellyk-border);
+  border-radius: var(--jellyk-radius-sm);
+  padding: 0.5rem 0.6rem;
+  min-width: 44px;
+  min-height: 44px;
+  transition: background var(--jellyk-transition), border-color var(--jellyk-transition);
+}
+
+.jellyk-header .navbar-toggler:hover {
+  background: var(--jellyk-border);
+}
+
+.jellyk-header .navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--jellyk-accent);
+}
+
+.jellyk-header .navbar-toggler-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Nav links: stacked on mobile, row on desktop */
+.jellyk-nav {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: var(--jellyk-radius);
+  background: var(--jellyk-surface);
+  border: 1px solid var(--jellyk-border);
+  box-shadow: var(--jellyk-shadow);
+}
+
+@media (min-width: 768px) {
+  .jellyk-nav {
+    margin-top: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    flex-direction: row;
+  }
+}
+
+.jellyk-nav .nav-link {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--jellyk-text-muted);
+  font-weight: 500;
+  border-radius: var(--jellyk-radius-sm);
+  transition: color var(--jellyk-transition), background var(--jellyk-transition);
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .jellyk-nav .nav-link {
+    display: inline-flex;
+    padding: 0.35rem 0.6rem;
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+.jellyk-nav .nav-link:hover,
+.jellyk-nav .nav-link:focus {
+  color: var(--jellyk-accent);
+  background: var(--jellyk-border);
+}
+
+.jellyk-nav .nav-link.active {
+  color: var(--jellyk-accent);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+@media (min-width: 768px) {
+  .jellyk-nav .nav-link.active {
+    border-left: 3px solid var(--jellyk-accent);
+    padding-left: calc(0.6rem + 3px);
+    margin-left: 1px;
+  }
+}
+
+.jellyk-nav .nav-link + .nav-link {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .jellyk-nav .nav-link + .nav-link {
+    margin-left: 0.25rem;
+  }
+}
+
+/* ========== 4. Main content ========== */
+.jellyk-main {
+  flex: 1;
+  padding: 1.5rem max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
+}
+
+@media (min-width: 576px) {
+  .jellyk-main {
+    padding-top: 2rem;
+  }
+}
+
+.jellyk-main .lead {
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 576px) {
+  .jellyk-main .lead {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hero block */
+.jellyk-hero {
+  padding: 0.5rem 0 1rem;
+}
+
+.jellyk-hero-title {
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--jellyk-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.jellyk-hero-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--jellyk-accent);
+  margin-bottom: 0.75rem;
+}
+
+.jellyk-hero-desc {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  color: var(--jellyk-text-muted);
+}
+
+.jellyk-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Goals section */
+.jellyk-goals {
+  text-align: left;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jellyk-goals-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--jellyk-text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.jellyk-goals-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--jellyk-text-muted);
+  margin: 0;
+}
+
+/* Value props / feature cards */
+.jellyk-value-props {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jellyk-value-props .row {
+  --bs-gutter-x: 1rem;
+}
+
+.jellyk-value-card {
+  padding: 1.25rem !important;
+  transition: transform var(--jellyk-transition), box-shadow var(--jellyk-transition);
+}
+
+.jellyk-value-card:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-value-card:hover {
+    transform: none;
+  }
+}
+
+.jellyk-value-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--jellyk-radius-sm);
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--jellyk-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.jellyk-value-card h3 {
+  color: var(--jellyk-text);
+  font-weight: 600;
+}
+
+.jellyk-value-card p {
+  color: var(--jellyk-text-muted);
+  line-height: 1.55;
+}
+
+/* ========== 5. Buttons (jelly style) ========== */
+.jellyk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  border-radius: var(--jellyk-radius);
+  border: none;
+  transition: transform var(--jellyk-transition), box-shadow var(--jellyk-transition), background var(--jellyk-transition);
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.jellyk-btn-primary {
+  background: var(--jellyk-accent);
+  color: #fff;
+  box-shadow: var(--jellyk-shadow);
+}
+
+.jellyk-btn-primary:hover {
+  background: var(--jellyk-accent-hover);
+  box-shadow: var(--jellyk-shadow-hover);
+  color: #fff;
+}
+
+.jellyk-btn:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-btn,
+  .jellyk-btn:active {
+    transform: none;
+    transition: none;
+  }
+}
+
+.jellyk-btn-outline {
+  background: transparent;
+  color: var(--jellyk-accent);
+  border: 2px solid var(--jellyk-accent);
+}
+
+.jellyk-btn-outline:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--jellyk-accent-hover);
+  border-color: var(--jellyk-accent-hover);
+}
+
+.jellyk-btn:focus-visible {
+  outline: 2px solid var(--jellyk-accent);
+  outline-offset: 2px;
+}
+
+/* ========== 6. Cards / surfaces ========== */
+.jellyk-card {
+  background: var(--jellyk-surface);
+  border: 1px solid var(--jellyk-border);
+  border-radius: var(--jellyk-radius);
+  box-shadow: var(--jellyk-shadow);
+  padding: 1rem;
+  transition: box-shadow var(--jellyk-transition);
+}
+
+@media (min-width: 576px) {
+  .jellyk-card {
+    padding: 1.25rem;
+  }
+}
+
+.jellyk-card:hover {
+  box-shadow: var(--jellyk-shadow-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-card {
+    transition: none;
+  }
+}
+
+/* ========== 7. Footer ========== */
+.jellyk-footer {
+  padding: 1.25rem max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-right));
+  color: var(--jellyk-text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--jellyk-border);
+}
+
+.jellyk-footer-inner {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.jellyk-footer p {
+  margin-bottom: 0.25rem;
+}
+
+.jellyk-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.jellyk-footer-nav a {
+  color: var(--jellyk-text);
+  text-decoration: none;
+  transition: color var(--jellyk-transition);
+}
+
+.jellyk-footer-nav a:hover {
+  color: var(--jellyk-accent);
+}
+
+.jellyk-footer a:not(.jellyk-footer-nav a) {
+  color: var(--jellyk-text);
+  text-decoration: none;
+  transition: color var(--jellyk-transition);
+}
+
+.jellyk-footer a:not(.jellyk-footer-nav a):hover {
+  color: var(--jellyk-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-footer-nav a,
+  .jellyk-footer a {
+    transition: none;
+  }
+}
+
+/* ========== 8. Theme toggle (position for mobile) ========== */
+.jellyk-theme-toggle {
+  position: fixed;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 1050;
+}
+
+.jellyk-theme-toggle .btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--jellyk-border);
+  background: var(--jellyk-surface) !important;
+  color: var(--jellyk-text) !important;
+  box-shadow: var(--jellyk-shadow);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--jellyk-transition), box-shadow var(--jellyk-transition);
+}
+
+.jellyk-theme-toggle .btn:hover {
+  box-shadow: var(--jellyk-shadow-hover);
+}
+
+.jellyk-theme-toggle .dropdown-menu {
+  border-radius: var(--jellyk-radius);
+  border: 1px solid var(--jellyk-border);
+  box-shadow: var(--jellyk-shadow);
+  padding: 0.25rem;
+}
+
+/* ========== 9. Blog list ========== */
+.jellyk-article-link {
+  display: block;
+  position: relative;
+  padding: 1rem 2.5rem 1rem 1rem;
+  border-radius: var(--jellyk-radius-sm);
+  color: var(--jellyk-text);
+  text-decoration: none;
+  transition: background var(--jellyk-transition), color var(--jellyk-transition);
+  min-height: 44px;
+}
+
+.jellyk-article-link:hover {
+  background: var(--jellyk-border);
+  color: var(--jellyk-accent);
+}
+
+/* Blog list: read-more arrow */
+
+.jellyk-article-link::after {
+  content: "→";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  transition: opacity var(--jellyk-transition), transform var(--jellyk-transition);
+}
+
+.jellyk-article-link:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jellyk-article-link::after,
+  .jellyk-article-link:hover::after {
+    transition: none;
+  }
+  .jellyk-article-link:hover::after {
+    transform: translateY(-50%);
+  }
+}
+
+/* ========== 10. Blog post content ========== */
+.jellyk-article {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jellyk-article h1,
+.jellyk-article h2,
+.jellyk-article h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.jellyk-article p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+}
+
+.jellyk-article hr {
+  border-color: var(--jellyk-border);
+  margin: 2rem 0;
+}
+
+.jellyk-article .lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--jellyk-text-muted);
+}
+
+.jellyk-article h1 {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+.jellyk-article h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.75em;
+}
+
+/* ========== 11. Utility: hide on small, show on md+ ========== */
+.jellyk-mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .jellyk-mobile-only {
+    display: none !important;
+  }
+}
+
+.jellyk-desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .jellyk-desktop-only {
+    display: block;
+  }
+}
+
+/* ========== 12. Team page ========== */
+.jellyk-team-list {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.jellyk-team-card {
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-bottom: 2.5rem !important;
+  border-bottom: 1px solid var(--jellyk-border);
+  border-radius: 0;
+}
+
+.jellyk-team-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0 !important;
+}
+
+.jellyk-team-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 576px) {
+  .jellyk-team-card-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+.jellyk-team-photo-wrap {
+  flex-shrink: 0;
+}
+
+.jellyk-team-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+img.jellyk-team-photo {
+  object-fit: cover;
+  background: var(--jellyk-border);
+}
+
+.jellyk-team-photo circle {
+  transition: fill 0.2s ease;
+}
+
+@media (min-width: 576px) {
+  .jellyk-team-photo {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.jellyk-team-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.jellyk-team-name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--jellyk-text);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.jellyk-team-bio {
+  color: var(--jellyk-text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.jellyk-team-website {
+  color: var(--jellyk-accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color var(--jellyk-transition);
+}
+
+.jellyk-team-website:hover {
+  color: var(--jellyk-accent-hover);
+}
