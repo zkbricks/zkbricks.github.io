@@ -95,7 +95,7 @@
     <!-- Custom styles for this template -->
     <link href="../cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body class="d-flex min-vh-100 text-center text-bg-dark">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -148,7 +148,7 @@
     </div>
 
     
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="cover-container d-flex w-100 min-vh-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
       <h3 class="float-md-start mb-0">zkBricks</h3>
@@ -164,27 +164,75 @@
 
   <main class="px-3 text-start w-100" style="max-width: 800px; margin: 0 auto;">
 
-    <h1 class="fw-bold mb-0">Threshold Cryptography</h1>
+    <h1 class="fw-bold mb-0">A New Vistion for Threshold Cryptography</h1>
     <p class="text-white-50 fs-5 mb-5">28-January-2026</p>
 
     <p class="lead">
-      Intro text
+      In this blog we discuss some recent advances in threshold cryptography, with a particular focus on avoiding distributed key generation in this setting. 
     </p>
 
     <hr class="my-5 border-secondary">
 
-    <h3>Heading</h3>
     <p>
-      Text
+      Consier the posterchild example of threshold cryptography, threshold encryption, where a user wants to encrypt a message to $n$ users such that any set of $t$ users can decrypt the resultant ciphertext, but no set of $t-1$ users can do so. Importantly, the ciphertext is <em>succinct</em>, and does not grow with $n$ (or $t$).
+    </p>
+
+    <p>
+      But such a <em>setup tax</em> is unreasonable especially since it renders the users and threshold to be static.
+    </p>
+
+    <h3>Silent Setup</h3>
+    <p>
+      Textrecent zk-rollup literature <sup id="cite-1"><a href="#ref-1" class="text-white text-decoration-none">[1]</a></sup>
     </p>
     
-    <h3>Heading</h3>
+    <h3>Batched Threshold Encryption</h3>
     <p>
-      Text
+      Text math $(m,t)$
     </p>
 
 
+    <h3>References</h3>
+    <div class="small text-white-50">
+      
+      <p id="ref-1" class="mb-2">
+        <span class="fw-bold text-white">[1]</span> 
+        Sanjam Garg, Dimitris Kolonelos, Guru-Vamsi Policharla, and Mingyuan Wang. <em>Threshold Encryption with Silent Setup.</em> Crypto 2024. 
+        <a href="#cite-1" class="text-decoration-none ms-2" title="Jump back to text">^</a>
+      </p>
+
+      <p id="ref-2" class="mb-2">
+        <span class="fw-bold text-white">[2]</span> 
+        Arka Rai Choudhuri, Sanjam Garg, Julien Piet, and Guru-Vamsi Policharla. <em>Mempool Transaction Privacy via Batched Threshold Encryption: Attacks and Defenses.</em> USENIX Security 2024.
+        <a href="#cite-2" class="text-decoration-none ms-2" title="Jump back to text">^</a>
+      </p>
+
+      <p id="ref-3" class="mb-2">
+        <span class="fw-bold text-white">[3]</span> 
+        Arka Rai Choudhuri, Sanjam Garg, Guru-Vamsi Policharla, and Mingyuan Wang. <em>Practical Mempool Privacy via One-time Setup Batched Threshold Encryption.</em> USENIX Security 2025.
+        <a href="#cite-3" class="text-decoration-none ms-2" title="Jump back to text">^</a>
+      </p>
+
+      <p id="ref-4" class="mb-2">
+        <span class="fw-bold text-white">[4]</span> 
+        Jan Bormet, Arka Rai Choudhuri, Sebastian Faust, Sanjam Garg, Hussien Othman, Guru-Vamsi Policharla, Ziyan Qu, and Mingyuan Wang. <em>BEAST-MEV: Batched Threshold Encryption with Silent Setup for MEV prevention.</em> Preprint.
+        <a href="#cite-4" class="text-decoration-none ms-2" title="Jump back to text">^</a>
+      </p>
+
+    </div>
+
   </main>
+
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <footer class="mt-auto text-white-50">
     <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
