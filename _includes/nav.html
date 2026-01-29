@@ -1,0 +1,20 @@
+{% assign nav_active = page.nav_active | default: '' %}
+<header class="jellyk-header">
+  <nav class="navbar navbar-expand-md" aria-label="Main navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand jellyk-brand" href="{{ '/' | relative_url }}">zkBricks</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#jellyk-nav" aria-controls="jellyk-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="jellyk-nav">
+        <ul class="navbar-nav ms-auto nav jellyk-nav">
+          <li class="nav-item"><a class="nav-link{% if nav_active == 'home' %} active{% endif %}" href="{{ '/' | relative_url }}"{% if nav_active == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+          <li class="nav-item"><a class="nav-link{% if nav_active == 'blog' %} active{% endif %}" href="{{ '/blogs.html' | relative_url }}"{% if nav_active == 'blog' %} aria-current="page"{% endif %}>Blog</a></li>
+          <li class="nav-item"><a class="nav-link{% if nav_active == 'team' %} active{% endif %}" href="{{ '/team.html' | relative_url }}"{% if nav_active == 'team' %} aria-current="page"{% endif %}>Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li class="nav-item"><a class="nav-link" href="mailto:contact@zkbricks.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

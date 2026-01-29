@@ -1,176 +1,28 @@
-<!doctype html>
-<html lang="en" class="h-100" data-bs-theme="auto">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The zkBricks team: researchers and engineers building next-generation zero-knowledge proof systems.">
-    <meta name="author" content="zkBricks">
-    <title>zkBricks | Team</title>
+---
+layout: default
+permalink: /team.html
+title: "zkBricks | Team"
+description: "The zkBricks team: researchers and engineers building next-generation zero-knowledge proof systems."
+nav_active: team
+---
+<header class="mb-4">
+  <h1 class="mb-2">Team</h1>
+  <p class="small mb-0 opacity-75">The people behind zkBricks.</p>
+</header>
 
-    <link rel="canonical" href="https://zkbricks.github.io/team.html">
-    <meta name="theme-color" content="#6366f1">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zkbricks.github.io/team.html">
-    <meta property="og:title" content="zkBricks | Team">
-    <meta property="og:description" content="The team behind zkBricks—zero-knowledge proof systems for blockchain scaling.">
-    <meta property="og:locale" content="en_US">
-
-    <script src="assets/js/color-modes.js"></script>
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="cover.css" rel="stylesheet">
-    <link href="jellyk.css" rel="stylesheet">
-  </head>
-  <body class="d-flex flex-column min-vh-100 jellyk-body">
-    <a href="#main-content" class="jellyk-skip-link">Skip to main content</a>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-      </symbol>
-    </svg>
-
-    <div class="dropdown jellyk-theme-toggle bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
+<div class="jellyk-team-list">
+  {% for member in site.data.team %}
+  <article class="jellyk-team-card">
+    <div class="jellyk-team-card-inner">
+      <div class="jellyk-team-photo-wrap" aria-hidden="true">
+        <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" class="jellyk-team-photo" width="160" height="160" loading="lazy">
+      </div>
+      <div class="jellyk-team-info">
+        <h2 class="h5 jellyk-team-name mb-2">{{ member.name }}</h2>
+        <p class="small jellyk-team-bio mb-2">{{ member.bio }}</p>
+        <a href="{{ member.url }}" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
+      </div>
     </div>
-
-    <header class="jellyk-header">
-      <nav class="navbar navbar-expand-md" aria-label="Main navigation">
-        <div class="container-fluid">
-          <a class="navbar-brand jellyk-brand" href="index.html">zkBricks</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#jellyk-nav" aria-controls="jellyk-nav" aria-expanded="false" aria-label="Toggle menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="jellyk-nav">
-            <ul class="navbar-nav ms-auto nav jellyk-nav">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="team.html">Team</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li class="nav-item"><a class="nav-link" href="mailto:contact@zkbricks.com">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <main id="main-content" class="jellyk-main jellyk-container text-start" tabindex="-1">
-        <header class="mb-4">
-          <h1 class="mb-2">Team</h1>
-          <p class="small mb-0 opacity-75">The people behind zkBricks.</p>
-        </header>
-
-        <div class="jellyk-team-list">
-          <article class="jellyk-team-card">
-            <div class="jellyk-team-card-inner">
-              <div class="jellyk-team-photo-wrap" aria-hidden="true">
-                <img src="assets/team/arka.jpg" alt="Arka Rai Choudhuri" class="jellyk-team-photo" width="160" height="160" loading="lazy">
-              </div>
-              <div class="jellyk-team-info">
-                <h2 class="h5 jellyk-team-name mb-2">Arka Rai Choudhuri</h2>
-                <p class="small jellyk-team-bio mb-2">Senior scientist. Previously postdoc at UC Berkeley and research scientist at Nexus. Works on succinct proofs, threshold encryption, and mempool privacy. Ph.D. from Johns Hopkins University.</p>
-                <a href="https://arka19.github.io/" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="jellyk-team-card">
-            <div class="jellyk-team-card-inner">
-              <div class="jellyk-team-photo-wrap" aria-hidden="true">
-                <img src="assets/team/sanjam.jpg" alt="Sanjam Garg" class="jellyk-team-photo" width="160" height="160" loading="lazy">
-              </div>
-              <div class="jellyk-team-info">
-                <h2 class="h5 jellyk-team-name mb-2">Sanjam Garg</h2>
-                <p class="small jellyk-team-bio mb-2">Associate Professor in Computer Science at UC Berkeley. Research interests in cryptography and its applications to security and privacy. Ph.D. from UCLA; previously Josef Raviv Memorial Postdoctoral Fellow at IBM Research. Recipient of the ACM Doctoral Dissertation Award, Alfred P. Sloan Research Fellowship, Forbes 30 under 30, and multiple best paper awards (EUROCRYPT, CRYPTO).</p>
-                <a href="https://people.eecs.berkeley.edu/~sanjamg/" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="jellyk-team-card">
-            <div class="jellyk-team-card-inner">
-              <div class="jellyk-team-photo-wrap" aria-hidden="true">
-                <img src="assets/team/rohit.jpg" alt="Rohit Sinha" class="jellyk-team-photo" width="160" height="160" loading="lazy">
-              </div>
-              <div class="jellyk-team-info">
-                <h2 class="h5 jellyk-team-name mb-2">Rohit Sinha</h2>
-                <p class="small jellyk-team-bio mb-2">Chief Cryptographer at Hedera Hashgraph. Ph.D. from UC Berkeley. Research on threshold encryption, secure enclaves, and verification. Publications at CCS, USENIX Security, CAV, and PLDI.</p>
-                <a href="https://rsinha.github.io/" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="jellyk-team-card">
-            <div class="jellyk-team-card-inner">
-              <div class="jellyk-team-photo-wrap" aria-hidden="true">
-                <img src="assets/team/mingyuan.jpg" alt="Mingyuan Wang" class="jellyk-team-photo" width="160" height="160" loading="lazy">
-              </div>
-              <div class="jellyk-team-info">
-                <h2 class="h5 jellyk-team-name mb-2">Mingyuan Wang</h2>
-                <p class="small jellyk-team-bio mb-2">Assistant Professor of Computer Science at NYU Shanghai; previously postdoc at UC Berkeley. Research in threshold cryptography, secure multiparty computation, and leakage-resilient crypto. Ph.D. from Purdue University.</p>
-                <a href="https://sites.google.com/view/mingyuan-wang" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </main>
-
-      <footer class="jellyk-footer">
-        <div class="jellyk-footer-inner">
-          <p class="mb-1">&copy; 2026 zkBricks</p>
-          <nav class="jellyk-footer-nav" aria-label="Footer links">
-            <a href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="blogs.html">Blog</a>
-            <a href="team.html">Team</a>
-            <a href="mailto:contact@zkbricks.com">Contact</a>
-          </nav>
-        </div>
-      </footer>
-    </div>
-
-    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+  </article>
+  {% endfor %}
+</div>
