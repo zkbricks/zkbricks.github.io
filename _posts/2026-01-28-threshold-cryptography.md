@@ -6,7 +6,7 @@ permalink: /blogposts/threshold-encryption.html
 description: "A new path to deployable threshold encryption: silent setup to eliminate DKG friction, and batched threshold encryption to keep decryption scalable."
 nav_active: blog
 authors:
-  - Arka Rai Chaudhary
+  - Arka Rai Choudhuri
   - Sanjam Garg
 ---
 

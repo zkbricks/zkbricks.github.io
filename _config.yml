@@ -4,9 +4,6 @@ description: "Translating cutting-edge cryptography into practical tools for pri
 url: "https://zkbricks.github.io"
 baseurl: ""
 author: zkBricks
-authors:
-  - Arka Rai Chaudhary
-  - Sanjam Garg
 
 # Build
 markdown: kramdown
