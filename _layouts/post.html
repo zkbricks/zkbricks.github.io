@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="jellyk-article text-start">
+  <header class="mb-4">
+    <h1 class="fw-bold mb-2">{{ page.title }}</h1>
+    <p class="small mb-0 opacity-75">{{ page.date | date: "%d %B %Y" }}{% if page.authors %} · {{ page.authors | array_to_sentence_string }}{% elsif page.author %} · {{ page.author }}{% endif %}</p>
+  </header>
+  {{ content }}
+  <p class="mt-4"><a href="{{ '/blogs.html' | relative_url }}">&larr; Back to Blog</a></p>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</article>

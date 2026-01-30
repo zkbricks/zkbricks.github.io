@@ -1,0 +1,28 @@
+---
+layout: default
+permalink: /team.html
+title: "zkBricks | Team"
+description: "The zkBricks team: researchers and engineers building next-generation zero-knowledge proof systems."
+nav_active: team
+---
+<header class="mb-4">
+  <h1 class="mb-2">Team</h1>
+  <p class="small mb-0 opacity-75">The people behind zkBricks.</p>
+</header>
+
+<div class="jellyk-team-list">
+  {% for member in site.data.team %}
+  <article class="jellyk-team-card">
+    <div class="jellyk-team-card-inner">
+      <div class="jellyk-team-photo-wrap" aria-hidden="true">
+        <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" class="jellyk-team-photo" width="160" height="160" loading="lazy">
+      </div>
+      <div class="jellyk-team-info">
+        <h2 class="h5 jellyk-team-name mb-2">{{ member.name }}</h2>
+        <p class="small jellyk-team-bio mb-2">{{ member.bio }}</p>
+        <a href="{{ member.url }}" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</div>

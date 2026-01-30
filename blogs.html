@@ -1,0 +1,32 @@
+---
+layout: default
+permalink: /blogs.html
+title: "zkBricks | Blog"
+description: "Blog and technical writing from zkBricks on zero-knowledge proofs, threshold cryptography, and blockchain scaling."
+nav_active: blog
+---
+{% for post in site.posts %}
+<article class="jellyk-card mb-4">
+  <header class="mb-2">
+    <h2 class="h5 mb-1">
+      <a href="{{ post.url | relative_url }}" class="jellyk-article-link text-decoration-none d-block">
+        {{ post.title }}
+      </a>
+    </h2>
+    <p class="small mb-0 opacity-75">
+      {{ post.date | date: "%d %B %Y" }}
+      {% if post.authors %} · {{ post.authors | array_to_sentence_string }}{% elsif post.author %} · {{ post.author }}{% endif %}
+    </p>
+  </header>
+
+  <div class="small text-body-secondary">
+    {{ post.excerpt | markdownify }}
+  </div>
+
+  {% if post.content contains '<!-- more -->' %}
+  <p class="mt-2 mb-0">
+    <a href="{{ post.url | relative_url }}" class="jellyk-article-link">Read more →</a>
+  </p>
+  {% endif %}
+</article>
+{% endfor %}

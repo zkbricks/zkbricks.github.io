@@ -1,0 +1,20 @@
+# Team members, alphabetically by last name
+- name: Arka Rai Choudhuri
+  photo: arka.jpg
+  bio: "Senior scientist. Previously postdoc at UC Berkeley, NTT Research and research scientist at Nexus. Works on succinct proofs, threshold encryption, and mempool privacy. Ph.D. from Johns Hopkins University."
+  url: https://arka19.github.io/
+
+- name: Sanjam Garg
+  photo: sanjam.jpg
+  bio: "Associate Professor in Computer Science at UC Berkeley. Research interests in cryptography and its applications to security and privacy. Ph.D. from UCLA; previously Josef Raviv Memorial Postdoctoral Fellow at IBM Research. Recipient of the ACM Doctoral Dissertation Award, Alfred P. Sloan Research Fellowship, Forbes 30 under 30, and multiple best paper awards (EUROCRYPT, CRYPTO)."
+  url: https://people.eecs.berkeley.edu/~sanjamg/
+
+- name: Rohit Sinha
+  photo: rohit.jpg
+  bio: "Chief Cryptographer at Hedera Hashgraph. Ph.D. from UC Berkeley. Research on threshold encryption, secure enclaves, and verification. Publications at CCS, USENIX Security, CAV, and PLDI."
+  url: https://rsinha.github.io/
+
+- name: Mingyuan Wang
+  photo: mingyuan.jpg
+  bio: "Assistant Professor of Computer Science at NYU Shanghai; previously postdoc at UC Berkeley. Research in threshold cryptography, secure multiparty computation, and leakage-resilient crypto. Ph.D. from Purdue University."
+  url: https://sites.google.com/view/mingyuan-wang
