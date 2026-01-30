@@ -615,6 +615,12 @@
   margin-top: 1.75em;
 }
 
+.jellyk-article img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* ========== 11. Utility: hide on small, show on md+ ========== */
 .jellyk-mobile-only {
   display: block;

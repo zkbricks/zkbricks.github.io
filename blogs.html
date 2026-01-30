@@ -7,6 +7,11 @@ nav_active: blog
 ---
 {% for post in site.posts %}
 <article class="jellyk-card mb-4">
+  {% if post.featured_image %}
+  <a href="{{ post.url | relative_url }}" class="d-block mb-2 text-decoration-none">
+    <img src="{{ post.featured_image | relative_url }}" alt="" class="img-fluid rounded" style="max-width: 100%; max-height: 12rem; width: auto; height: auto; object-fit: contain; display: block; margin: 0 auto;">
+  </a>
+  {% endif %}
   <header class="mb-2">
     <h2 class="h5 mb-1">
       <a href="{{ post.url | relative_url }}" class="jellyk-article-link text-decoration-none d-block">

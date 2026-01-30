@@ -8,9 +8,14 @@ nav_active: blog
 authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
+featured_image: /assets/images/threshold-decryption.png
 ---
 
 Threshold encryption is a foundational primitive for building distributed systems that need confidentiality without relying on any single party. A sender encrypts a message to a *quorum* of $n$ users such that **any** set of $t$ users can decrypt the ciphertext, while **no** set of $t-1$ users can. Importantly, the ciphertext can be *succinct*: it does not grow with $n$ (or $t$).
+
+![Threshold decryption in action: a quorum of nodes; a subset (highlighted) contributes partial decryptions to unlock the ciphertext.](/assets/images/threshold-decryption.png){: .img-fluid }
+
+*The padlock is the ciphertext; the key and light represent successful decryption. The nodes are quorum members; those connected by the active (red) lines are the $t$ participants whose partial decryptions combine to unlock the secret. The others hold shares but do not participate in this decryption.*
 
 As threshold encryption moves from theory into production—especially in systems like blockchains—two practical bottlenecks quickly become dominant:
 
@@ -47,7 +52,6 @@ We’re excited about what silent setup and batched threshold encryption make po
 If you’re interested in deploying silent setup, batched threshold encryption, or related threshold-encryption infrastructure in your application, we’d love to talk—whether you’re exploring early prototypes or preparing for production deployment.
 
 
----
 
 *For more information [contact us](mailto:arka@zkbricks.com).*
 
