@@ -5,6 +5,17 @@ title: "zkBricks | Blog"
 description: "Blog and technical writing from zkBricks on zero-knowledge proofs, threshold cryptography, and blockchain scaling."
 nav_active: blog
 ---
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 {% for post in site.posts %}
 <article class="jellyk-card mb-4">
   {% if post.featured_image %}
@@ -24,14 +35,13 @@ nav_active: blog
     </p>
   </header>
 
-  <div class="small text-body-secondary">
-    {{ post.excerpt | markdownify }}
+  <div class="small text-body-secondary" 
+       style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+    {{ post.excerpt }}
   </div>
 
-  {% if post.content contains '<!-- more -->' %}
   <p class="mt-2 mb-0">
     <a href="{{ post.url | relative_url }}" class="jellyk-article-link">Read more →</a>
   </p>
-  {% endif %}
 </article>
 {% endfor %}
