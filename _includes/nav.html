@@ -10,6 +10,7 @@
         <ul class="navbar-nav ms-auto nav jellyk-nav">
           <li class="nav-item"><a class="nav-link{% if nav_active == 'home' %} active{% endif %}" href="{{ '/' | relative_url }}"{% if nav_active == 'home' %} aria-current="page"{% endif %}>Home</a></li>
           <li class="nav-item"><a class="nav-link{% if nav_active == 'blog' %} active{% endif %}" href="{{ '/blogs.html' | relative_url }}"{% if nav_active == 'blog' %} aria-current="page"{% endif %}>Blog</a></li>
+          <li class="nav-item"><a class="nav-link{% if nav_active == 'research' %} active{% endif %}" href="{{ '/research.html' | relative_url }}"{% if nav_active == 'research' %} aria-current="page"{% endif %}>Research</a></li>
           <li class="nav-item"><a class="nav-link{% if nav_active == 'team' %} active{% endif %}" href="{{ '/team.html' | relative_url }}"{% if nav_active == 'team' %} aria-current="page"{% endif %}>Team</a></li>
           <li class="nav-item"><a class="nav-link" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
