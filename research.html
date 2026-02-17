@@ -30,11 +30,15 @@ content_class: research-page
 
 <script>
 (function() {
+  // 1. Prepare Team Data
   var teamWithDblp = [
     {% for member in site.data.team %}{% if member.dblp %}
     { "name": {{ member.name | jsonify }}, "dblp": {{ member.dblp | jsonify }} }{% unless forloop.last %},{% endunless %}
     {% endif %}{% endfor %}
   ];
+
+  // Create a lookup set for lowercased team names
+  var teamNamesSet = teamWithDblp.map(function(m) { return m.name.toLowerCase().trim(); });
 
   if (!teamWithDblp.length) {
     document.getElementById('research-papers-loading').innerHTML = '<p class="small text-body-secondary">No DBLP authors configured. Add <code>dblp</code> to team members in <code>_data/team.yml</code>.</p>';
@@ -45,6 +49,35 @@ content_class: research-page
   var PAPERS_PER_AUTHOR = 1000;
   var results = [];
   var pending = teamWithDblp.length;
+
+  function escapeHtml(s) {
+    var div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  // 2. HIGHLIGHTING LOGIC: Bold for team members
+  function getAuthorHtml(authors) {
+    if (!authors || !authors.author) return '';
+    var list = Array.isArray(authors.author) ? authors.author : [authors.author];
+    
+    return list.map(function(a) {
+      var rawName = (a && a.text) ? a.text : '';
+      var cleanName = rawName.replace(/\s*\d+\s*$/, '').trim();
+      if (!cleanName) return '';
+
+      var isTeamMember = teamNamesSet.indexOf(cleanName.toLowerCase()) !== -1;
+      var escapedName = escapeHtml(cleanName);
+
+      if (isTeamMember) {
+        // Bold and dark for team members
+        return '<span class="text-body-emphasis">' + escapedName + '</span>';
+      } else {
+        // Lighter and faded for others
+        return '<span class="text-body-secondary opacity-75">' + escapedName + '</span>';
+      }
+    }).filter(Boolean).join(', ');
+  }
 
   function isEprintOrArchive(venue) {
     if (!venue) return false;
@@ -192,6 +225,7 @@ content_class: research-page
     return { primary: raw };
   }
 
+  // --- RESTORED CATEGORY LOGIC START ---
   var categoryOrder = ['Zero-knowledge & proofs', 'Garbled circuits & MPC', 'Encryption', 'Blockchain & consensus', 'Other'];
   var categoryKeywords = {
     'Zero-knowledge & proofs': ['zero-knowledge', 'zk-snark', 'snark', 'stark', 'nizk', 'proof system', 'succinct proof', 'commitment scheme', 'sigma protocol'],
@@ -211,6 +245,7 @@ content_class: research-page
     }
     return 'Other';
   }
+  // --- RESTORED CATEGORY LOGIC END ---
 
   function renderStats(hits) {
     var byVenue = {};
@@ -288,19 +323,19 @@ content_class: research-page
     if (featuredHits.length === 0 && hits.length) featuredHits = [hits[0]];
     var featuredHtml = '';
     featuredHits.forEach(function(f) {
-      var title0, year0, venue0, authors0, readUrl;
+      var title0, year0, venue0, authorsHtml, readUrl;
       if (f.static) {
         title0 = f.title || 'Untitled';
         year0 = f.year || '';
         venue0 = f.venue || '';
-        authors0 = f.authors || '';
+        authorsHtml = '<span class="text-body-secondary">' + escapeHtml(f.authors) + '</span>'; 
         readUrl = f.url || '#';
       } else {
         var info0 = f.info || {};
         title0 = info0.title || 'Untitled';
         year0 = info0.year || '';
         venue0 = info0.venue || '';
-        authors0 = authorList(info0.authors);
+        authorsHtml = getAuthorHtml(info0.authors);
         readUrl = getLinks(info0).primary;
       }
       var featuredLinks = '<a href="' + escapeHtml(readUrl) + '" class="jellyk-research-cta" target="_blank" rel="noopener noreferrer">Read paper →</a>';
@@ -308,7 +343,7 @@ content_class: research-page
         '<a href="' + escapeHtml(readUrl) + '" class="jellyk-research-featured-link text-decoration-none d-block" target="_blank" rel="noopener noreferrer">' +
           '<div class="jellyk-research-featured-badge small text-body-secondary mb-2">Featured paper</div>' +
           '<h2 class="h5 jellyk-research-featured-title mb-2">' + escapeHtml(title0) + '</h2>' +
-          (authors0 ? '<p class="small text-body-secondary mb-2">' + escapeHtml(authors0) + '</p>' : '') +
+          (authorsHtml ? '<p class="small mb-2">' + authorsHtml + '</p>' : '') +
           '<p class="small mb-3 opacity-75">' + (venue0 ? escapeHtml(venue0) : '') + (year0 ? (venue0 ? ' · ' : '') + year0 : '') + '</p>' +
         '</a><div class="jellyk-research-featured-links">' + featuredLinks + '</div></article>';
     });
@@ -320,28 +355,28 @@ content_class: research-page
       var title = info.title || 'Untitled';
       var year = info.year || '';
       var venue = info.venue || '';
+      var authorsHtml = getAuthorHtml(info.authors);
       var links = getLinks(info);
       var num = String(idx + 1).padStart(2, '0');
       var linkBlock = '<a href="' + escapeHtml(links.primary) + '" class="jellyk-research-cta-inline" target="_blank" rel="noopener noreferrer">Read</a>';
-      listHtml += '<li class="jellyk-research-timeline-item">' +
-        '<div class="jellyk-research-timeline-link d-flex align-items-baseline gap-2 flex-wrap">' +
-          '<span class="jellyk-research-timeline-num">' + num + '</span>' +
-          '<span class="jellyk-research-timeline-content flex-grow-1 min-w-0">' +
-            '<a href="' + escapeHtml(links.primary) + '" class="jellyk-research-timeline-title text-decoration-none" target="_blank" rel="noopener noreferrer">' + escapeHtml(title) + '</a>' +
-            ' <span class="small text-body-secondary">' + (venue ? escapeHtml(venue) : '') + (year ? (venue ? ' · ' : '') + year : '') + '</span>' +
-          '</span>' +
-          '<span class="jellyk-research-paper-links">' + linkBlock + '</span>' +
+      
+      listHtml += '<li class="jellyk-research-timeline-item mb-3">' +
+        '<div class="jellyk-research-timeline-link d-flex align-items-start gap-2">' +
+          '<span class="jellyk-research-timeline-num mt-1">' + num + '</span>' +
+          '<div class="jellyk-research-timeline-content flex-grow-1 min-w-0">' +
+            '<div>' +
+              '<a href="' + escapeHtml(links.primary) + '" class="jellyk-research-timeline-title text-decoration-none" target="_blank" rel="noopener noreferrer">' + escapeHtml(title) + '</a>' +
+              ' <span class="small text-body-secondary">' + (venue ? escapeHtml(venue) : '') + (year ? (venue ? ' · ' : '') + year : '') + '</span>' +
+            '</div>' +
+            // Authors displayed on a new line
+            '<div class="small mt-1" style="line-height: 1.4;">' + authorsHtml + '</div>' +
+          '</div>' +
+          '<span class="jellyk-research-paper-links mt-1">' + linkBlock + '</span>' +
         '</div></li>';
     });
     listHtml += '</ul>';
     document.getElementById('research-papers-list').innerHTML = listHtml || '<p class="small text-body-secondary">No publications found.</p>';
     document.getElementById('research-grid').style.display = 'grid';
-  }
-
-  function escapeHtml(s) {
-    var div = document.createElement('div');
-    div.textContent = s;
-    return div.innerHTML;
   }
 
   function onError() {
