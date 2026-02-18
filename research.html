@@ -10,394 +10,74 @@ content_class: research-page
   <h1 class="mb-2">Research</h1>
 </header>
 
-<div id="research-papers-loading" class="mb-4" aria-live="polite">
-  <p class="small text-body-secondary">Loading publications…</p>
-</div>
+{% assign research = site.data.dblp_research %}
 
-<div id="research-papers-error" class="mb-4 d-none" role="alert">
-  <p class="small text-danger">Could not load publications from DBLP. You can browse our team’s work on <a href="https://dblp.org" target="_blank" rel="noopener noreferrer">dblp.org</a>.</p>
-</div>
+{% if research == nil or research.papers == nil or research.papers.size == 0 %}
+  <div class="mb-4">
+    <p class="small text-body-secondary">Research data is generated at build time. Run <code>node scripts/fetch-dblp.js</code> then build the site.</p>
+  </div>
+{% else %}
 
-<div id="research-grid" class="jellyk-research-grid" style="display: none;">
+<div id="research-grid" class="jellyk-research-grid">
   <div class="jellyk-research-left">
-    <div id="research-stats" class="jellyk-research-stats" aria-label="Publication statistics"></div>
-    <div id="research-featured" class="jellyk-research-featured-col" aria-label="Featured paper"></div>
+    {% if research.pie_segments != nil and research.pie_segments.size > 0 %}
+    <div id="research-stats" class="jellyk-research-stats" aria-label="Publication statistics">
+      <h2 class="h6 mb-3">Publication statistics</h2>
+      <div class="jellyk-pie-wrap">
+        {% assign conic_str = "" %}
+        {% for seg in research.pie_segments %}
+          {% if forloop.first %}
+            {% assign conic_str = seg.color | append: " " | append: seg.start_pct | append: "% " | append: seg.end_pct | append: "%" %}
+          {% else %}
+            {% assign conic_str = conic_str | append: ", " | append: seg.color | append: " " | append: seg.start_pct | append: "% " | append: seg.end_pct | append: "%" %}
+          {% endif %}
+        {% endfor %}
+        <div class="jellyk-pie" style="background: conic-gradient({{ conic_str }})"></div>
+        <ul class="jellyk-pie-legend list-unstyled mb-0">
+          {% for seg in research.pie_segments %}
+          <li><span class="jellyk-pie-legend-swatch" style="background:{{ seg.color }}"></span><span class="jellyk-pie-legend-label">{{ seg.venue }} <span class="jellyk-pie-legend-count">({{ seg.count }})</span></span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    <div id="research-featured" class="jellyk-research-featured-col" aria-label="Featured papers">
+      {% for f in research.featured %}
+      <article class="jellyk-research-featured mb-4">
+        <a href="{{ f.url | default: '#' }}" class="jellyk-research-featured-link text-decoration-none d-block" target="_blank" rel="noopener noreferrer">
+          <div class="jellyk-research-featured-badge small text-body-secondary mb-2">Featured paper</div>
+          <h2 class="h5 jellyk-research-featured-title mb-2">{{ f.title | default: 'Untitled' }}</h2>
+          <p class="small mb-2">{% if f.authors_html %}{{ f.authors_html }}{% else %}<span class="text-body-secondary">{{ f.authors | escape }}</span>{% endif %}</p>
+          <p class="small mb-3 opacity-75">{% if f.venue %}{{ f.venue }}{% endif %}{% if f.year %}{% if f.venue %} · {% endif %}{{ f.year }}{% endif %}</p>
+        </a>
+        <div class="jellyk-research-featured-links"><a href="{{ f.url | default: '#' }}" class="jellyk-research-cta" target="_blank" rel="noopener noreferrer">Read paper →</a></div>
+      </article>
+      {% endfor %}
+    </div>
   </div>
+
   <div class="jellyk-research-right">
-    <div id="research-papers-list" class="jellyk-research-list" aria-label="Publications by category"></div>
+    <div id="research-papers-list" class="jellyk-research-list" aria-label="Publications">
+      <ul class="jellyk-research-timeline list-unstyled mb-0">
+        {% for p in research.papers %}
+        <li class="jellyk-research-timeline-item mb-3">
+          <div class="jellyk-research-timeline-link d-flex align-items-start gap-2">
+            <span class="jellyk-research-timeline-num mt-1">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <div class="jellyk-research-timeline-content flex-grow-1 min-w-0">
+              <div>
+                <a href="{{ p.url | default: '#' }}" class="jellyk-research-timeline-title text-decoration-none" target="_blank" rel="noopener noreferrer">{{ p.title | default: 'Untitled' }}</a>
+                <span class="small text-body-secondary">{% if p.venue %}{{ p.venue }}{% endif %}{% if p.year %}{% if p.venue %} · {% endif %}{{ p.year }}{% endif %}</span>
+              </div>
+              <div class="small mt-1" style="line-height: 1.4;">{{ p.authors_html | default: p.authors }}</div>
+            </div>
+            <span class="jellyk-research-paper-links mt-1"><a href="{{ p.url | default: '#' }}" class="jellyk-research-cta-inline" target="_blank" rel="noopener noreferrer">Read</a></span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </div>
 
-<script>
-(function() {
-  // 1. Prepare Team Data
-  var teamWithDblp = [
-    {% for member in site.data.team %}{% if member.dblp %}
-    { "name": {{ member.name | jsonify }}, "dblp": {{ member.dblp | jsonify }} }{% unless forloop.last %},{% endunless %}
-    {% endif %}{% endfor %}
-  ];
-
-  // Create a lookup set for lowercased team names
-  var teamNamesSet = teamWithDblp.map(function(m) { return m.name.toLowerCase().trim(); });
-
-  if (!teamWithDblp.length) {
-    document.getElementById('research-papers-loading').innerHTML = '<p class="small text-body-secondary">No DBLP authors configured. Add <code>dblp</code> to team members in <code>_data/team.yml</code>.</p>';
-    document.getElementById('research-papers-loading').style.display = 'block';
-    return;
-  }
-
-  var PAPERS_PER_AUTHOR = 1000;
-  var results = [];
-  var pending = teamWithDblp.length;
-
-  function escapeHtml(s) {
-    var div = document.createElement('div');
-    div.textContent = s;
-    return div.innerHTML;
-  }
-
-  // 2. HIGHLIGHTING LOGIC: Bold for team members
-  function getAuthorHtml(authors) {
-    if (!authors || !authors.author) return '';
-    var list = Array.isArray(authors.author) ? authors.author : [authors.author];
-    
-    return list.map(function(a) {
-      var rawName = (a && a.text) ? a.text : '';
-      var cleanName = rawName.replace(/\s*\d+\s*$/, '').trim();
-      if (!cleanName) return '';
-
-      var isTeamMember = teamNamesSet.indexOf(cleanName.toLowerCase()) !== -1;
-      var escapedName = escapeHtml(cleanName);
-
-      if (isTeamMember) {
-        // Bold and dark for team members
-        return '<span class="text-body-emphasis">' + escapedName + '</span>';
-      } else {
-        // Lighter and faded for others
-        return '<span class="text-body-secondary opacity-75">' + escapedName + '</span>';
-      }
-    }).filter(Boolean).join(', ');
-  }
-
-  function isEprintOrArchive(venue) {
-    if (!venue) return false;
-    var v = venue.toLowerCase();
-    return v.indexOf('eprint') !== -1 || v.indexOf('corr') !== -1 || v.indexOf('res. repos') !== -1 || v.indexOf('comput. res. repos') !== -1;
-  }
-
-  function done() {
-    pending--;
-    if (pending > 0) return;
-    var allHits = [];
-    var hasAny = results.some(function(r) {
-      return r && r.result && r.result.hits && r.result.hits.hit;
-    });
-    if (!hasAny) {
-      onError();
-      return;
-    }
-    results.forEach(function(r) {
-      if (r && r.result && r.result.hits && r.result.hits.hit) {
-        var hits = r.result.hits.hit;
-        hits = Array.isArray(hits) ? hits : [hits];
-        hits.forEach(function(h) {
-          allHits.push({ hit: h, key: (h.info && h.info.key) ? h.info.key : h['@id'] });
-        });
-      }
-    });
-    function paperId(h) {
-      var title = ((h.info && h.info.title) || '').toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
-      var year = (h.info && h.info.year) || '';
-      return year + '|' + title;
-    }
-    function hasEprintLink(h) {
-      var ee = h.info && h.info.ee;
-      if (!ee) return false;
-      var u = Array.isArray(ee) ? (ee[0] && (ee[0].href || ee[0])) : (ee.href || ee);
-      if (typeof u !== 'string') return false;
-      return u.indexOf('eprint.iacr.org') !== -1 || u.indexOf('arxiv.org') !== -1;
-    }
-    function getEprintUrl(h) {
-      var ee = h.info && h.info.ee;
-      if (!ee) return null;
-      var u = Array.isArray(ee) ? (ee[0] && (ee[0].href || ee[0])) : (ee.href || ee);
-      return typeof u === 'string' && (u.indexOf('eprint.iacr.org') !== -1 || u.indexOf('arxiv.org') !== -1) ? u : null;
-    }
-    var byPaperId = {};
-    allHits.forEach(function(item) {
-      var h = item.hit;
-      var id = paperId(h);
-      if (!byPaperId[id]) byPaperId[id] = [];
-      byPaperId[id].push(h);
-    });
-    var merged = [];
-    var eprintOnlyFeatured = [];
-    Object.keys(byPaperId).forEach(function(id) {
-      var group = byPaperId[id];
-      var eprintHit = null;
-      var conferenceHit = null;
-      for (var i = 0; i < group.length; i++) {
-        if (hasEprintLink(group[i])) eprintHit = group[i];
-        if (!isEprintOrArchive((group[i].info && group[i].info.venue) ? group[i].info.venue : ''))
-          conferenceHit = group[i];
-      }
-      var chosen = conferenceHit || eprintHit || group[0];
-      if (eprintHit && chosen !== eprintHit) {
-        var eprintUrl = getEprintUrl(eprintHit);
-        if (eprintUrl) {
-          chosen = JSON.parse(JSON.stringify(chosen));
-          if (!chosen.info) chosen.info = {};
-          chosen.info.ee = eprintUrl;
-        }
-      }
-      merged.push(chosen);
-      if (!conferenceHit && eprintHit && titleMatchesBabe((eprintHit.info && eprintHit.info.title) || ''))
-        eprintOnlyFeatured.push(eprintHit);
-    });
-    merged = merged.filter(function(h) {
-      return !isEprintOrArchive((h.info && h.info.venue) ? h.info.venue : '');
-    });
-    merged.sort(function(a, b) {
-      var y1 = (a.info && a.info.year) ? parseInt(a.info.year, 10) : 0;
-      var y2 = (b.info && b.info.year) ? parseInt(b.info.year, 10) : 0;
-      if (y2 !== y1) return y2 - y1;
-      var t1 = (a.info && a.info.title) ? a.info.title : '';
-      var t2 = (b.info && b.info.title) ? b.info.title : '';
-      return t1.localeCompare(t2);
-    });
-    renderStats(merged);
-    render(merged, eprintOnlyFeatured);
-  }
-
-  function authorList(authors) {
-    if (!authors || !authors.author) return '';
-    var list = Array.isArray(authors.author) ? authors.author : [authors.author];
-    return list.map(function(a) {
-      var t = (a && a.text) ? a.text : '';
-      return t.replace(/\s*\d+\s*$/, '').trim();
-    }).filter(Boolean).join(', ');
-  }
-
-  function titleNormalizeForMatch(t) {
-    return (t || '').toLowerCase().replace(/\./g, '').replace(/\s+/g, ' ');
-  }
-  function titleMatchesBabe(title) {
-    var n = titleNormalizeForMatch(title);
-    return n.indexOf('babe') !== -1 || n.indexOf('batch attribute-based') !== -1;
-  }
-
-  var forceOtherVenues = ['Privacy Enhancing Technologies', 'Proc. Priv. Enhancing Technol.', 'ISIT', 'ASIACRYPT', 'Asiacrypt', 'Public Key Cryptography', 'INDOCRYPT', 'INCOCRYPT', 'SCN'];
-  function isForceOther(venue) {
-    if (!venue) return true;
-    var v = venue.toLowerCase();
-    return forceOtherVenues.some(function(name) { return v.indexOf(name.toLowerCase()) !== -1; });
-  }
-
-  function getLinks(info) {
-    if (!info) return { primary: '#' };
-    var ee = info.ee;
-    var url = info.url || '';
-    var candidates = [];
-    if (Array.isArray(ee)) {
-      ee.forEach(function(e) {
-        var u = (e && e.href) ? e.href : (typeof e === 'string' ? e : null);
-        if (u) candidates.push(u);
-      });
-    } else if (ee) {
-      var u = (ee && ee.href) ? ee.href : (typeof ee === 'string' ? ee : null);
-      if (u) candidates.push(u);
-    }
-    if (url) candidates.push(url);
-    var raw = candidates[0] || '#';
-    for (var i = 0; i < candidates.length; i++) {
-      var c = candidates[i];
-      if (typeof c !== 'string') continue;
-      if (c.indexOf('eprint.iacr.org') !== -1) {
-        raw = c.indexOf('.pdf') !== -1 ? c : c.replace(/\/$/, '') + '.pdf';
-        return { primary: raw };
-      }
-      if (c.indexOf('arxiv.org') !== -1) {
-        raw = c.replace(/\/abs\//, '/pdf/');
-        if (raw.indexOf('.pdf') === -1) raw += '.pdf';
-        return { primary: raw };
-      }
-    }
-    return { primary: raw };
-  }
-
-  // --- RESTORED CATEGORY LOGIC START ---
-  var categoryOrder = ['Zero-knowledge & proofs', 'Garbled circuits & MPC', 'Encryption', 'Blockchain & consensus', 'Other'];
-  var categoryKeywords = {
-    'Zero-knowledge & proofs': ['zero-knowledge', 'zk-snark', 'snark', 'stark', 'nizk', 'proof system', 'succinct proof', 'commitment scheme', 'sigma protocol'],
-    'Garbled circuits & MPC': ['garbled circuit', 'garbling', 'mpc', 'multiparty', 'secure computation', 'oblivious', 'circuit'],
-    'Encryption': ['encryption', 'aes', 'authenticated encryption', 'threshold encryption', 'pke', 'public-key', 'witness encryption', 'functional encryption'],
-    'Blockchain & consensus': ['blockchain', 'bitcoin', 'consensus', 'rollup', 'mempool', 'smart contract']
-  };
-  function assignCategory(h) {
-    var info = h.info || {};
-    var title = ((info.title) || '').toLowerCase();
-    var venue = ((info.venue) || '').toLowerCase();
-    var text = title + ' ' + venue;
-    for (var i = 0; i < categoryOrder.length - 1; i++) {
-      var cat = categoryOrder[i];
-      var kw = categoryKeywords[cat];
-      if (kw && kw.some(function(k) { return text.indexOf(k) !== -1; })) return cat;
-    }
-    return 'Other';
-  }
-  // --- RESTORED CATEGORY LOGIC END ---
-
-  function renderStats(hits) {
-    var byVenue = {};
-    hits.forEach(function(h) {
-      var venue = (h.info && h.info.venue) ? h.info.venue.trim() : 'Other';
-      if (!venue) venue = 'Other';
-      byVenue[venue] = (byVenue[venue] || 0) + 1;
-    });
-    var minCount = 3;
-    var main = [], otherCount = 0;
-    Object.keys(byVenue).forEach(function(v) {
-      var count = byVenue[v];
-      if (isForceOther(v)) otherCount += count;
-      else if (count >= minCount) main.push({ venue: v, count: count }); else otherCount += count;
-    });
-    main.sort(function(a, b) { return b.count - a.count; });
-    if (otherCount > 0) main.push({ venue: 'Other', count: otherCount });
-    var total = hits.length;
-    var statsEl = document.getElementById('research-stats');
-    if (!main.length) {
-      statsEl.style.display = 'none';
-      return;
-    }
-    var palette = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#64748b', '#84cc16', '#f43f5e', '#0ea5e9'];
-    var segments = [];
-    var cum = 0;
-    main.forEach(function(e, i) {
-      var pct = total > 0 ? (e.count / total * 100) : 0;
-      segments.push({ venue: e.venue, count: e.count, start: cum, end: cum + pct, color: palette[i % palette.length] });
-      cum += pct;
-    });
-    var conic = segments.map(function(s) { return s.color + ' ' + s.start + '% ' + s.end + '%'; }).join(', ');
-    var html = '<h2 class="h6 mb-3">Publication statistics</h2>';
-    html += '<div class="jellyk-pie-wrap">';
-    html += '<div class="jellyk-pie" style="background: conic-gradient(' + conic + ')"></div>';
-    html += '<ul class="jellyk-pie-legend list-unstyled mb-0">';
-    segments.forEach(function(s) {
-      html += '<li><span class="jellyk-pie-legend-swatch" style="background:' + s.color + '"></span><span class="jellyk-pie-legend-label">' + escapeHtml(s.venue) + ' <span class="jellyk-pie-legend-count">(' + s.count + ')</span></span></li>';
-    });
-    html += '</ul></div>';
-    statsEl.innerHTML = html;
-    statsEl.style.display = 'block';
-  }
-
-  var eprintFeaturedStatic = [
-    { title: 'BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper', authors: 'Sanjam Garg, Dimitris Kolonelos, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse', year: '2026', venue: 'IACR ePrint', url: 'https://eprint.iacr.org/2026/065.pdf' },
-    { title: 'Bypassing Prompt Guards in Production with Controlled-Release Prompting', authors: 'Jaiden Fairoze, Sanjam Garg, Keewoo Lee, Mingyuan Wang', year: '2025', venue: 'arXiv', url: 'https://arxiv.org/pdf/2510.01529.pdf' }
-  ];
-
-  function render(hits, eprintOnlyFeatured) {
-    eprintOnlyFeatured = eprintOnlyFeatured || [];
-    document.getElementById('research-papers-loading').style.display = 'none';
-    document.getElementById('research-papers-error').classList.add('d-none');
-    if (!hits.length && !eprintOnlyFeatured.length && !eprintFeaturedStatic.length) {
-      document.getElementById('research-featured').innerHTML = '';
-      document.getElementById('research-papers-list').innerHTML = '<p class="small text-body-secondary">No publications found.</p>';
-      document.getElementById('research-grid').style.display = 'grid';
-      return;
-    }
-    var featuredPatterns = ['BABE', 'B.A.B.E.', 'Mempool privacy', 'Mempool Privacy', 'hinTS', 'HinTS', 'Jigsaw', 'Doubly Private Smart Contracts', 'zkSaaS', 'Zero-Knowledge SNARKs as a Service', 'Batch Attribute-Based'];
-    function matchesFeatured(title) {
-      if (!title) return false;
-      var t = title.toLowerCase();
-      var tn = titleNormalizeForMatch(title);
-      return featuredPatterns.some(function(p) { return t.indexOf(p.toLowerCase()) !== -1 || tn.indexOf(p.toLowerCase().replace(/\./g, '')) !== -1; }) || titleMatchesBabe(title);
-    }
-    var featuredHits = [];
-    eprintFeaturedStatic.forEach(function(p) { featuredHits.push({ static: true, title: p.title, authors: p.authors, year: p.year, venue: p.venue, url: p.url }); });
-    hits.forEach(function(h) {
-      if (matchesFeatured((h.info && h.info.title) || '')) featuredHits.push(h);
-    });
-    eprintOnlyFeatured.forEach(function(h) {
-      featuredHits.push(h);
-    });
-    if (featuredHits.length === 0 && hits.length) featuredHits = [hits[0]];
-    var featuredHtml = '';
-    featuredHits.forEach(function(f) {
-      var title0, year0, venue0, authorsHtml, readUrl;
-      if (f.static) {
-        title0 = f.title || 'Untitled';
-        year0 = f.year || '';
-        venue0 = f.venue || '';
-        authorsHtml = '<span class="text-body-secondary">' + escapeHtml(f.authors) + '</span>'; 
-        readUrl = f.url || '#';
-      } else {
-        var info0 = f.info || {};
-        title0 = info0.title || 'Untitled';
-        year0 = info0.year || '';
-        venue0 = info0.venue || '';
-        authorsHtml = getAuthorHtml(info0.authors);
-        readUrl = getLinks(info0).primary;
-      }
-      var featuredLinks = '<a href="' + escapeHtml(readUrl) + '" class="jellyk-research-cta" target="_blank" rel="noopener noreferrer">Read paper →</a>';
-      featuredHtml += '<article class="jellyk-research-featured mb-4">' +
-        '<a href="' + escapeHtml(readUrl) + '" class="jellyk-research-featured-link text-decoration-none d-block" target="_blank" rel="noopener noreferrer">' +
-          '<div class="jellyk-research-featured-badge small text-body-secondary mb-2">Featured paper</div>' +
-          '<h2 class="h5 jellyk-research-featured-title mb-2">' + escapeHtml(title0) + '</h2>' +
-          (authorsHtml ? '<p class="small mb-2">' + authorsHtml + '</p>' : '') +
-          '<p class="small mb-3 opacity-75">' + (venue0 ? escapeHtml(venue0) : '') + (year0 ? (venue0 ? ' · ' : '') + year0 : '') + '</p>' +
-        '</a><div class="jellyk-research-featured-links">' + featuredLinks + '</div></article>';
-    });
-    document.getElementById('research-featured').innerHTML = featuredHtml;
-
-    var listHtml = '<ul class="jellyk-research-timeline list-unstyled mb-0">';
-    hits.forEach(function(h, idx) {
-      var info = h.info || {};
-      var title = info.title || 'Untitled';
-      var year = info.year || '';
-      var venue = info.venue || '';
-      var authorsHtml = getAuthorHtml(info.authors);
-      var links = getLinks(info);
-      var num = String(idx + 1).padStart(2, '0');
-      var linkBlock = '<a href="' + escapeHtml(links.primary) + '" class="jellyk-research-cta-inline" target="_blank" rel="noopener noreferrer">Read</a>';
-      
-      listHtml += '<li class="jellyk-research-timeline-item mb-3">' +
-        '<div class="jellyk-research-timeline-link d-flex align-items-start gap-2">' +
-          '<span class="jellyk-research-timeline-num mt-1">' + num + '</span>' +
-          '<div class="jellyk-research-timeline-content flex-grow-1 min-w-0">' +
-            '<div>' +
-              '<a href="' + escapeHtml(links.primary) + '" class="jellyk-research-timeline-title text-decoration-none" target="_blank" rel="noopener noreferrer">' + escapeHtml(title) + '</a>' +
-              ' <span class="small text-body-secondary">' + (venue ? escapeHtml(venue) : '') + (year ? (venue ? ' · ' : '') + year : '') + '</span>' +
-            '</div>' +
-            // Authors displayed on a new line
-            '<div class="small mt-1" style="line-height: 1.4;">' + authorsHtml + '</div>' +
-          '</div>' +
-          '<span class="jellyk-research-paper-links mt-1">' + linkBlock + '</span>' +
-        '</div></li>';
-    });
-    listHtml += '</ul>';
-    document.getElementById('research-papers-list').innerHTML = listHtml || '<p class="small text-body-secondary">No publications found.</p>';
-    document.getElementById('research-grid').style.display = 'grid';
-  }
-
-  function onError() {
-    document.getElementById('research-papers-loading').style.display = 'none';
-    document.getElementById('research-papers-error').classList.remove('d-none');
-    document.getElementById('research-grid').style.display = 'none';
-  }
-
-  teamWithDblp.forEach(function(member, i) {
-    var callbackName = '__dblp_cb_' + i;
-    window[callbackName] = function(data) {
-      results[i] = data;
-      done();
-    };
-    var script = document.createElement('script');
-    script.src = 'https://dblp.org/search/publ/api?q=author:' + encodeURIComponent(member.dblp) + ':&format=jsonp&h=' + PAPERS_PER_AUTHOR + '&callback=' + callbackName;
-    script.onerror = function() {
-      results[i] = null;
-      done();
-    };
-    document.head.appendChild(script);
-  });
-})();
-</script>
+{% endif %}
