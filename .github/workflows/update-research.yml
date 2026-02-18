@@ -1,0 +1,38 @@
+name: Update Research Data
+
+on:
+  schedule:
+    # Runs at 08:00 UTC on the 1st and 15th of every month (roughly every 2 weeks)
+    - cron: '0 8 1,15 * *'
+  # Allows you to click "Run workflow" manually in the Actions tab for testing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dblp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Fetch Script
+        # Assumes your file is named 'fetch-dblp.js' inside the 'scripts' folder
+        run: node scripts/fetch-dblp.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          
+          # Stage the generated JSON file
+          git add _data/dblp_research.json
+          
+          # Commit only if there are changes, otherwise exit gracefully
+          git diff --staged --quiet || (git commit -m "chore: update dblp research data [skip ci]" && git push)
