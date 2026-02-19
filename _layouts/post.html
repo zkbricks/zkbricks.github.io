@@ -1,14 +1,198 @@
 ---
 layout: default
 ---
-<article class="jellyk-article text-start">
-  <header class="mb-4">
-    <h1 class="fw-bold mb-2">{{ page.title }}</h1>
-    <p class="small mb-0 opacity-75">{{ page.date | date: "%d %B %Y" }}{% if page.authors %} · {{ page.authors | array_to_sentence_string }}{% elsif page.author %} · {{ page.author }}{% endif %}</p>
-  </header>
-  {{ content }}
-  <p class="mt-4"><a href="{{ '/blogs.html' | relative_url }}">&larr; Back to Blog</a></p>
+<article class="jellyk-post-layout text-start" data-toc-root>
+  <aside class="jellyk-post-toc" data-toc-container aria-label="Table of contents">
+    <button class="jellyk-post-toc-toggle" type="button" aria-expanded="true" aria-controls="jellyk-post-toc-list" data-toc-toggle>
+      On this page
+    </button>
+    <nav id="jellyk-post-toc-list" class="jellyk-post-toc-list" data-toc-list></nav>
+  </aside>
+
+  <div class="jellyk-post-content jellyk-article">
+    <header class="mb-4">
+      <h1 class="fw-bold mb-2">{{ page.title }}</h1>
+      <p class="small mb-0 opacity-75">{{ page.date | date: "%d %B %Y" }}{% if page.authors %} · {{ page.authors | array_to_sentence_string }}{% elsif page.author %} · {{ page.author }}{% endif %}</p>
+    </header>
+
+    <div data-toc-content>
+      {{ content }}
+    </div>
+
+    <p class="mt-4"><a href="{{ '/blogs.html' | relative_url }}">&larr; Back to Blog</a></p>
+  </div>
+
   <script>
+    (function () {
+      var root = document.querySelector('[data-toc-root]');
+      if (!root) return;
+
+      var tocContainer = root.querySelector('[data-toc-container]');
+      var tocList = root.querySelector('[data-toc-list]');
+      var tocToggle = root.querySelector('[data-toc-toggle]');
+      var content = root.querySelector('[data-toc-content]');
+      if (!tocContainer || !tocList || !tocToggle || !content) return;
+
+      var headings = Array.prototype.slice.call(content.querySelectorAll('h2, h3')).filter(function (heading) {
+        return heading.textContent && heading.textContent.trim().length > 0;
+      });
+
+      if (headings.length === 0) {
+        tocContainer.hidden = true;
+        root.classList.add('jellyk-post-layout-no-toc');
+        return;
+      }
+
+      var usedIds = new Set();
+
+      function slugify(text) {
+        return text
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '') || 'section';
+      }
+
+      function ensureId(heading) {
+        if (heading.id && !usedIds.has(heading.id)) {
+          usedIds.add(heading.id);
+          return heading.id;
+        }
+
+        var base = slugify(heading.textContent || 'section');
+        var candidate = base;
+        var i = 2;
+        while (
+          usedIds.has(candidate) ||
+          (document.getElementById(candidate) && document.getElementById(candidate) !== heading)
+        ) {
+          candidate = base + '-' + i;
+          i += 1;
+        }
+
+        heading.id = candidate;
+        usedIds.add(candidate);
+        return candidate;
+      }
+
+      var list = document.createElement('ul');
+      list.className = 'jellyk-post-toc-items';
+      var headingById = {};
+      var linkById = {};
+
+      headings.forEach(function (heading) {
+        var id = ensureId(heading);
+        headingById[id] = heading;
+        var item = document.createElement('li');
+        item.className = 'jellyk-post-toc-item';
+        if (heading.tagName.toLowerCase() === 'h3') {
+          item.classList.add('is-child');
+        }
+
+        var link = document.createElement('a');
+        link.href = '#' + id;
+        link.textContent = heading.textContent.trim();
+        linkById[id] = link;
+        item.appendChild(link);
+        list.appendChild(item);
+      });
+
+      tocList.appendChild(list);
+
+      function setCollapsed(collapsed) {
+        tocContainer.classList.toggle('is-collapsed', collapsed);
+        tocToggle.setAttribute('aria-expanded', String(!collapsed));
+      }
+
+      tocToggle.addEventListener('click', function () {
+        setCollapsed(!tocContainer.classList.contains('is-collapsed'));
+      });
+
+      var currentId = null;
+      var visibleHeadingIds = new Set();
+
+      function setActiveLink(id) {
+        if (id === currentId) return;
+
+        if (currentId && linkById[currentId]) {
+          linkById[currentId].classList.remove('is-active');
+          linkById[currentId].removeAttribute('aria-current');
+        }
+
+        if (id && linkById[id]) {
+          linkById[id].classList.add('is-active');
+          linkById[id].setAttribute('aria-current', 'location');
+          currentId = id;
+          return;
+        }
+
+        currentId = null;
+      }
+
+      function chooseActiveHeading() {
+        var bestId = null;
+        var bestTop = -Infinity;
+
+        visibleHeadingIds.forEach(function (id) {
+          var heading = headingById[id];
+          if (!heading) return;
+
+          var rect = heading.getBoundingClientRect();
+          if (rect.top <= 140 && rect.top > bestTop) {
+            bestTop = rect.top;
+            bestId = id;
+          }
+        });
+
+        if (!bestId) {
+          for (var i = headings.length - 1; i >= 0; i -= 1) {
+            var h = headings[i];
+            if (h.getBoundingClientRect().top <= 140) {
+              bestId = h.id;
+              break;
+            }
+          }
+        }
+
+        if (!bestId && headings.length > 0) {
+          bestId = headings[0].id;
+        }
+
+        setActiveLink(bestId);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              visibleHeadingIds.add(entry.target.id);
+            } else {
+              visibleHeadingIds.delete(entry.target.id);
+            }
+          });
+          chooseActiveHeading();
+        }, {
+          root: null,
+          rootMargin: '-20% 0px -65% 0px',
+          threshold: [0, 1]
+        });
+
+        headings.forEach(function (heading) {
+          observer.observe(heading);
+        });
+      } else {
+        window.addEventListener('scroll', chooseActiveHeading, { passive: true });
+      }
+
+      chooseActiveHeading();
+
+      if (window.matchMedia('(max-width: 991.98px)').matches) {
+        setCollapsed(true);
+      }
+    })();
+
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
