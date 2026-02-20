@@ -21,6 +21,13 @@
   --jellyk-border: rgba(0, 0, 0, 0.06);
   --jellyk-header-bg: rgba(255, 255, 255, 0.9);
   --jellyk-header-border: rgba(0, 0, 0, 0.06);
+  --jellyk-highlight-bg: #eaf3ff;
+  --jellyk-highlight-border: #5f8fda;
+  --jellyk-highlight-text: #163357;
+  --jellyk-figure-bg: #f8fbff;
+  --jellyk-figure-border: #d7e6ff;
+  --jellyk-figure-canvas-bg: #ffffff;
+  --jellyk-figure-canvas-border: #dbe6f7;
 }
 
 [data-bs-theme="dark"] {
@@ -35,6 +42,13 @@
   --jellyk-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
   --jellyk-header-bg: rgba(15, 15, 26, 0.95);
   --jellyk-header-border: rgba(255, 255, 255, 0.08);
+  --jellyk-highlight-bg: #14263f;
+  --jellyk-highlight-border: #6ca0f2;
+  --jellyk-highlight-text: #d9e9ff;
+  --jellyk-figure-bg: #1b2638;
+  --jellyk-figure-border: #334968;
+  --jellyk-figure-canvas-bg: #eef4ff;
+  --jellyk-figure-canvas-border: #93aacd;
 }
 
 /* ========== 2. Base & layout (mobile-first) ========== */
@@ -1122,4 +1136,75 @@ a.jellyk-research-timeline-title:hover {
     max-height: calc(100vh - 5.5rem);
     overflow: auto;
   }
+}
+
+/* ========== 15. Reusable blog code box ========== */
+.jellyk-code-box {
+  max-width: min(34rem, 100%);
+  margin: 1.25rem auto;
+  padding: 0.9rem 1rem;
+  background: var(--jellyk-surface);
+  border: 1px solid var(--jellyk-border);
+  border-radius: var(--jellyk-radius-sm);
+  box-shadow: var(--jellyk-shadow);
+}
+
+.jellyk-code-box pre {
+  margin: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.jellyk-code-box code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  color: var(--jellyk-text);
+}
+
+/* ========== 16. Reusable highlighted callout box ========== */
+.jellyk-highlight-box {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: var(--jellyk-highlight-bg);
+  border: 2px solid var(--jellyk-highlight-border);
+  border-radius: 0;
+  color: var(--jellyk-highlight-text);
+}
+
+.jellyk-highlight-box > :last-child {
+  margin-bottom: 0;
+}
+
+/* ========== 17. Reusable blog image figure ========== */
+.jellyk-figure {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.25rem 0;
+  padding: 0.75rem;
+  background: var(--jellyk-figure-bg);
+  border: 1px solid var(--jellyk-figure-border);
+  border-radius: var(--jellyk-radius-sm);
+}
+
+.jellyk-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.45rem;
+  background: var(--jellyk-figure-canvas-bg);
+  border: 1px solid var(--jellyk-figure-canvas-border);
+  border-radius: calc(var(--jellyk-radius-sm) - 2px);
+  box-sizing: border-box;
+}
+
+.jellyk-figure figcaption {
+  margin-top: 0.6rem;
+  color: var(--jellyk-text-muted);
+  font-size: 0.9rem;
 }
