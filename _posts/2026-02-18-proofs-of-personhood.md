@@ -7,26 +7,58 @@ description: "A new cryptographic framework for proofs of personhood."
 nav_active: blog
 authors:
   - Arka Rai Choudhuri
-featured_image: 
+featured_image: /assets/images/proofs-personhood-trust-badges.png
 ---
 
-I want to briefly discuss our recent work on proofs of personhood. This is joint work with my collaborators Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. You can find the paper [here]().
+<figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
+  <img src="/assets/images/proofs-personhood-nobody-knows-dog.png" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
+  <figcaption class="small text-body-secondary mt-2">Who's on the other side? Sometimes even "verified" isn't.</figcaption>
+</figure>
 
-The motivating question is simple: how does one prove personhood online? Early systems like CAPTCHA[^1] were very influential in attempting to verify humanness, but modern ML systems have significantly weakened their security assumptions. More importantly, personhood is not only about proving "I am human." In many online settings, we also need to prove relationship-backed trust, reputation, or context-specific endorsements. These guarantees should also preserve user privacy.
-
-It would seem that we already have the tools needed for a cryptographic solution. In particular, there has been incredible effort to make both digital credentials and, separately, zero-knowledge (ZK) proofs practical and widely deployable. In light of this, it is natural to combine these tools to prove properties about yourself and your relationships to others. However, an ad-hoc approach can yield an incomplete solution at best, and a privacy-breaking solution at worst. Evaluating proposed solutions is also challenging because there are no standard formal security requirements.
-
-
-
-In our work, we initiate the study of a cryptographic framework for proofs of personhood. The contributions of our work include:
-- Formalizing the security requirements of proofs of personhood. 
-- Constructing proofs of personhood using existing cryptographic tools by identifying the exact properties required from these tools.
-
-In the paper we also present efficient versions of the underlying tools, with experimental evaluations.
+*“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
 
 
-In the rest of this blog, instead of providing the security definition up front, we walk through a typical protocol using a running example. In the process, we also highlight the key ideas and the security requirements for each stage.
 
+<div class="row g-3 my-4">
+  <div class="col-12 col-md-6">
+    <figure class="jellyk-figure mb-0" style="max-width: 18rem; margin-left: auto; margin-right: auto;">
+      <img src="/assets/images/proofs-personhood-phone-calls.png" alt="Phone overwhelmed by unknown calls" class="img-fluid rounded">
+      <figcaption class="small text-body-secondary mt-2">Who's really on the other end? It's getting harder to tell.</figcaption>
+    </figure>
+  </div>
+  <div class="col-12 col-md-6">
+    <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
+      <img src="/assets/images/proofs-personhood-captcha-fails.png" alt="Akirabot passing a human verification" class="img-fluid rounded">
+  <figcaption class="small text-body-secondary mt-2">Bots like Akirabot[^3] can pass the "prove you're human" test. We need something stronger.</figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+Have you noticed more calls and messages from unknown senders—someone “just trying to help”? Often it’s a scammer or an ad-bot that sounds just like a human. We’re at the beginning of a reality where what you see or hear online may not be real. Are we prepared?
+
+
+Early systems like CAPTCHA[^1] (Eurocrypt ’03) were built on a simple idea: give the user a task that’s easy for humans but hard for machines. For a while they worked. Today they’re essentially broken. LLMs and other ML tools can defeat CAPTCHAs at scale—for example, Akirabot[^3], an OpenAI-based tool, was used to hit **420,000 sites** with spam by bypassing CAPTCHAs. We can no longer rely on humans being “smarter” than bots.
+
+And personhood isn’t only “am I human?” Online we also need **relationship-backed trust**, **reputation**, **membership in a community**, or **context-specific endorsements**—age verification, attestations, “who vouches for you”—and all of that should preserve privacy. Yet many current approaches are ad-hoc and privacy-hostile. Mobile driver’s licenses (mDLs) can let the verifier query the DMV on every check, so the DMV can see and record every verification. Discord had **over 70,000 government IDs** stolen, then required government ID for “adult” content. Worldcoin’s global biometric system has been called a “privacy nightmare” and has faced shutdowns or strict limits in Spain, Bavaria, Hong Kong, and Kenya. So: *how do we prove personhood without handing over the keys?*
+
+<div class="row g-3 my-4">
+  <div class="col-12 col-md-6">
+    <figure class="jellyk-figure mb-0" style="max-width: 14rem; margin-left: auto; margin-right: auto;">
+    <img src="/assets/images/proofs-personhood-trust-badges.png" alt="Trust, reputation, and endorsements" class="img-fluid rounded">
+    <figcaption class="small text-body-secondary mt-2">It’s not just “am I human?”—it’s trust, reputation, and who stands behind you.</figcaption>
+    </figure>
+  </div>
+  <div class="col-12 col-md-6">
+    <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
+      <img src="/assets/images/proofs-personhood-handing-keys.png" alt="Handing over the keys" class="img-fluid rounded">
+      <figcaption class="small text-body-secondary mt-2">Proving who you are shouldn't mean handing over the keys.</figcaption>
+    </figure>
+  </div>
+</div>
+
+In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage.
 
 ## Stage I: Personhood Credential Issuance
 
@@ -203,4 +235,8 @@ That viewpoint makes tradeoffs explicit and disciplined: any construction must r
 
 ## References
 
-[^1]: https://link.springer.com/chapter/10.1007/3-540-39200-9_18
+[^1]: Luis von Ahn, Manuel Blum, Nicholas J. Hopper, and John Langford. **CAPTCHA: Using Hard AI Problems for Security.** In *Advances in Cryptology — EUROCRYPT 2003*, pp. 294–311. Springer, 2003. [https://link.springer.com/chapter/10.1007/3-540-39200-9_18](https://link.springer.com/chapter/10.1007/3-540-39200-9_18)
+
+[^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proof of Personhood.**
+
+[^3]: Akirabot — an OpenAI-based tool used to target 420,000 sites with spam by bypassing CAPTCHAs; see e.g. reporting on CAPTCHA-breaking attacks.
