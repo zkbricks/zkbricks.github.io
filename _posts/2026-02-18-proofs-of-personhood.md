@@ -12,36 +12,27 @@ featured_image:
 
 I want to briefly discuss our recent work on proofs of personhood. This is joint work with my collaborators Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. You can find the paper [here]().
 
-The motivating question is simple: how does one prove their personhood online? Early systems like CAPTCHA[^1] were very influential in attempting to prove that the person was human, but modern ML systems have significantly weakened their security assumptions. More importantly, personhood is not only about proving "I am human." In many online settings, we also need to prove relationship-backed trust, reputation, or context-specific endorsements. Further, these need to be done respecting user privacy. 
+The motivating question is simple: how does one prove personhood online? Early systems like CAPTCHA[^1] were very influential in attempting to verify humanness, but modern ML systems have significantly weakened their security assumptions. More importantly, personhood is not only about proving "I am human." In many online settings, we also need to prove relationship-backed trust, reputation, or context-specific endorsements. These guarantees should also preserve user privacy.
 
-It would seem that we already have the tools necessary to provide a cryptographic solution to this problem. In particular continues to be an incredible effort to make both digital credentials, and separately zero-knowledge (ZK) proofs, into systems that are not just practical, but have broad adoption. In light of this, it is natural to combine these tools in some form to prove properties about yourself, and relationships to others. However, an ad-hoc approach to building a solution might provide an incomplete solution at best, and a broken solution leaking privacy at worst. Further evaluating any propsed solution is also challenging because there e no formal security requirements. 
+It would seem that we already have the tools needed for a cryptographic solution. In particular, there has been incredible effort to make both digital credentials and, separately, zero-knowledge (ZK) proofs practical and widely deployable. In light of this, it is natural to combine these tools to prove properties about yourself and your relationships to others. However, an ad-hoc approach can yield an incomplete solution at best, and a privacy-breaking solution at worst. Evaluating proposed solutions is also challenging because there are no standard formal security requirements.
 
 
 
 In our work, we initiate the study of a cryptographic framework for proofs of personhood. The contributions of our work include:
 - Formalizing the security requirements of proofs of personhood. 
-- Constructing proofs of personhood using existing cryptographic tools by identifying the exact properties required from the these tools.
+- Constructing proofs of personhood using existing cryptographic tools by identifying the exact properties required from these tools.
 
-In the paper we also present an efficient versions of the underlying tools to give an improved
-
-
+In the paper we also present efficient versions of the underlying tools, with experimental evaluations.
 
 
-In the rest of this blog, we will walk through a typical flow of the protocol, hi
+In the rest of this blog, instead of providing the security definition up front, we walk through a typical protocol using a running example. In the process, we also highlight the key ideas and the security requirements for each stage.
 
-## Personhood Credential Issuance
 
-The first step is for a user to obtain a **personhood credential** from an issuer.  
-Each issuer has a public key, and the user interacts with the issuer to obtain a credential on their attributes.
+## Stage I: Personhood Credential Issuance
 
-<!-- Insert diagram here if desired -->
-<!-- ![Credential issuance](/assets/img/issuance.png) -->
+At the top level are entities we call **issuers** (or credential authorities), whose identity and public keys are publicly known or easily retrievable. They issue credentials to users and can range from local organizations (for example, a restaurant loyalty program) to government authorities (for example, a passport office).
 
-### Example
-
-Suppose the issuer is a university, **University of X**, with public key `ipk`.
-
-Bob wants a credential on the following attributes:
+The first step in our protocol is for a user to obtain a **personhood credential** from an issuer on selected attributes. In the running example, we have a user Bob who is a professor at **University of X**. Bob wants the university to issue a personhood credential for the following attributes.
 
 <div class="jellyk-code-box">
 <pre><code>att = {
@@ -52,43 +43,45 @@ Bob wants a credential on the following attributes:
 }</code></pre>
 </div>
 
-<div class="jellyk-highlight-box">
-    <p><strong>Key idea.</strong> This is highlighted text across the full column width.</p>
-  </div>
+The university also has a publicly known key `ipk`. Because Bob wants to use this credential online, he reveals a public key `pk` along with `att` to the university. Bob first proves knowledge of the secret key corresponding to `pk`, and then interacts with the issuer as in the figure below to obtain a credential `cred` on the tuple `att || pk`.
 
-
- <figure class="jellyk-figure"  style="max-width: 28rem; margin-left: auto; margin-right: auto;">
+<figure class="jellyk-figure"  style="max-width: 20rem; margin-left: auto; margin-right: auto;">
     <img src="/assets/images/test.png" alt="Describe image">
-    <figcaption>Your caption (optional).</figcaption>
+    <figcaption>PHC Issuance.</figcaption>
   </figure>
 
-Bob:
+Bob is able to locally verify the validity of the credential using the university's public key `ipk`.
 
-- reveals a public key `pk`
-- proves ownership of the corresponding secret key `sk`
-- discloses attributes `att`
 
-The issuer:
+<div class="jellyk-highlight-box">
+    <p><strong>PHC Unforgeability.</strong> The first security requirement is that credentials cannot be forged.</p>
+</div>
 
-- verifies the attributes  
-- generates a user-specific nullifier `null`  
-- issues a credential on
+However, there is already a privacy concern in the above flow: multiple issuers that interact with Bob can link those interactions simply by observing `pk`, even when Bob does not reveal his name in some credential issuances.
 
-    (att || null || pk)
+<div class="jellyk-highlight-box">
+    <p><strong>PHC Receiver Unlinkability.</strong> Multiple issuers cannot link credentials issued to the same user (on different attributes).</p>
+</div>
 
-Bob can verify the credential using `(ipk, att, null, pk)`.
+To fix this, the user derives an **issuer-specific public key** `pk_issuer` as a deterministic function of their secret key `sk` and the issuer public key `ipk`. For example:
 
-### Unlinkability modification
+<div class="jellyk-code-box">
+<pre><code>pk_issuer = PRF_sk(ipk)</code></pre>
+</div>
 
-If Bob always uses the same public key `pk`, colluding issuers could link his credentials.
+The pseudorandomness of the PRF ensures that even colluding issuers cannot link credentials issued to the same user. Finally, rather than proving ownership of `pk` directly, Bob proves in zero knowledge that `pk_issuer` was correctly derived from `(sk, ipk)`.
 
-To prevent this:
+Before moving on to the next stage, we briefly note how one determines the validity of the attributes themselves.
 
-    pk_issuer = PRF_sk(ipk)
+### Sidebar: Attribute Verification Oracles
 
-Bob proves in zero knowledge that this key was correctly derived from `sk`.
+It is a fair question to ask how an issuer determines if Bob's attributes are 'correct'. For the most part this is treated simply outside of the purview of cryptographic modeling, and we simply assume that the issuer will 'use its judgement', and refuse to issue a credential. 
 
-Now different issuers cannot link Bob’s credentials.
+When a user uses a credential by specifying the user that issued it, we also implicitly make a judgement about the 'quality' of the issuer: *Is the issuer likely to be fooled into issuing a credential for an attribute that isn't "true"?*. 
+
+We embed these judgements as confidence (or error) parameters `e_I` for each issuer `I`. We think of each issuance of a credential as a *noisy* process, prone to errors, and `e_I` is roughly a bound on how often an issuer is likely to issue a credential for invalid attributes (lower is better).
+
+This gives a practical way to reason about mis-issuance in real deployments: whenever a credential is checked, the verifier can account for which issuer signed it and calibrate trust based on that issuer's confidence parameter. At the same time, the protocol still provides strong privacy and robustness guarantees at the cryptographic layer.
 
 ---
 
