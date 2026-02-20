@@ -1181,7 +1181,27 @@ a.jellyk-research-timeline-title:hover {
   margin-bottom: 0;
 }
 
-/* ========== 17. Reusable blog image figure ========== */
+/* ========== 17. Reusable claim box ========== */
+.jellyk-claim-box {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--jellyk-surface);
+  border-left: 4px solid var(--jellyk-accent);
+  border-top: 1px solid var(--jellyk-border);
+  border-right: 1px solid var(--jellyk-border);
+  border-bottom: 1px solid var(--jellyk-border);
+  box-shadow: var(--jellyk-shadow);
+}
+
+.jellyk-claim-box p {
+  margin: 0;
+  color: var(--jellyk-text);
+  line-height: 1.55;
+}
+
+/* ========== 18. Reusable blog image figure ========== */
 .jellyk-figure {
   width: 100%;
   box-sizing: border-box;

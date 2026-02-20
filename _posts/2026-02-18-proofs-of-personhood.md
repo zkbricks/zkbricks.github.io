@@ -85,133 +85,121 @@ This gives a practical way to reason about mis-issuance in real deployments: whe
 
 ---
 
-## Verifiable Relationship Credentials (VRCs)
+## Stage II: Verifiable Relationship Credentials (VRCs)
 
 A user with a valid personhood credential can vouch for statements about other users.
 
-Unlike credential issuance, a VRC can be issued in a single message.
+At a high level, a VRC captures a statement endorsed by an issuer-user about a receiver-user. Unlike PHC issuance, this step can be done in a single interaction. In the running example, Alice asks Bob to vouch for the statement:
 
-<!-- Insert diagram here if desired -->
-<!-- ![VRC issuance](/assets/img/vrc.png) -->
+<div class="jellyk-code-box">
+<pre><code>st = "Is a cryptographer."</code></pre>
+</div>
 
-### Example
+However, Bob does not want to reveal the same long-lived key material each time he issues a VRC, since that would make his interactions linkable. Instead, Bob derives a context-specific key for `context = conference`:
 
-Alice asks Bob to vouch for:
+<div class="jellyk-code-box">
+<pre><code>pk_context = PRF_sk(ipk || context)</code></pre>
+</div>
 
-    st = "Is a cryptographer."
+<div class="jellyk-highlight-box">
+    <p><strong>VRC Issuer Cross-Context Unlinkability.</strong> Interactions in different contexts should not be linkable to the same issuer-user.</p>
+</div>
+
+Similarly, as in PHC issuance, we do not want different VRC issuers to link Alice across interactions. Alice therefore uses a fresh receiver key derived from the issuer context key:
+
+<div class="jellyk-code-box">
+<pre><code>pk_vrc = PRF_sk'(pk_context)</code></pre>
+</div>
+
+<div class="jellyk-highlight-box">
+    <p><strong>VRC Receiver Unlinkability.</strong> Multiple VRC issuers should not be able to link VRCs issued to the same receiver.</p>
+</div>
 
 Bob reveals only:
 
-    att' = {
-      Name = Bob
-      Occupation = Cryptographer
-    }
+<div class="jellyk-code-box">
+<pre><code>att' = {
+  Name = Bob
+  Occupation = Cryptographer
+}</code></pre>
+</div>
 
-Using credential `cred`, Bob generates a VRC for `(pk' || st)`.
+Using credential `cred`, Bob generates a VRC bound to `(pk_vrc || st)`.
 
-The VRC contains:
+The issued VRC is bound to the following values:
 
-- issuer key `ipk`
-- selected attributes `att'`
-- nullifier `null`
-- Bob’s key
-- Alice’s key `pk'`
-- statement `st`
+<div class="jellyk-code-box">
+<pre><code>vrc = (
+  ipk,
+  att',
+  pk_context,
+  pk_vrc,
+  st
+)</code></pre>
+</div>
 
-Anyone can verify the VRC.  
-The nullifier can be checked against a revocation list.
+Anyone can verify the VRC against Bob's revealed attributes and keys, together with zero-knowledge proofs that `pk_context` and `pk_vrc` were correctly derived. 
 
-### Unlinkability modifications
+We now have the following requirements from the VRC issuance. 
 
-We want to prevent linkability across VRC interactions.
+<div class="jellyk-highlight-box">
+  <p><strong>VRC Unforgeability.</strong> No one should be able to create a valid VRC without an underlying valid credential and a valid proof flow from the issuer-user.</p>
+</div>
 
-#### Receiver unlinkability
-
-Receivers derive a fresh key for each VRC they obtain.
-
-#### Issuer unlinkability (limited)
-
-Introduce a public context:
-
-    ctxt = "conference"
-
-Issuer derives:
-
-    pk_issuer_ctxt = PRF_sk(ipk || ctxt)
-
-- Within a context → linkable  
-- Across contexts → unlinkable  
-
-This gives practical unlinkability across events or applications.
-
-#### Receiver key derivation
-
-After receiving the issuer’s context key:
-
-    pk_VRC = PRF_sk'(pk_issuer_ctxt)
-
-The receiver proves correct derivation in zero knowledge.
+<div class="jellyk-highlight-box">
+  <p><strong>VRC Issuance Attribute Hiding.</strong> The attributes not revealed during a VRC issuance remain hidden.</p>
+</div>
 
 ---
 
-## Showing VRCs
+## Stage III: Showing VRCs
 
-Users can later prove statements about their collected VRCs.
+Once a user has collected verifiable relationship credentials (VRCs), they can use them to prove complex assertions to a verifier. For both privacy and efficiency reasons, the user does not directly hand over these VRCs. Instead, they produce a **zero-knowledge proof**.
 
-Instead of handing over credentials directly, they produce a **zero-knowledge proof**.
-
-<!-- Insert diagram here if desired -->
-<!-- ![Showing proof](/assets/img/showing.png) -->
-
-### Example
 
 Alice wants to prove:
 
-> Three different cryptographers vouched for me as a cryptographer.
+<div class="jellyk-claim-box">
+  <p><strong>Claim.</strong> Three different cryptographers vouched for me as a cryptographer.</p>
+</div>
 
-She has VRCs:
+Suppose Alice has VRCs of the form:
 
-    (vrc_i, ipk_i, att'_i, null_i, pk_i, pk'_i, st_i)
-    for i in [3]
+<div class="jellyk-code-box">
+<pre><code>(vrc_i, ipk_i, att'_i, pk_context_i, pk_vrc_i, st_i)
+for i in [3]</code></pre>
+</div>
 
-She proves:
+Alice then proves in zero knowledge that:
 
 - all VRCs are valid  
 - all statements equal "Is a cryptographer"  
-- issuer keys are distinct  
-- receiver key corresponds to Alice  
-- nullifiers are not revoked  
+- issuer keys are distinct
+- all receiver keys were correctly derived from Alice's secret key
 
-She sends a zero-knowledge proof Π and the issuer keys.  
-The verifier checks the proof and decides whether to trust the issuers.
+She sends the proof `Pi` and the corresponding issuer identities.
+The verifier checks the proof and decides whether to trust the underlying issuers.
 
-### Unlinkability considerations
+Because receiver keys are derived per interaction:
 
-Because receivers derive different keys per VRC:
+- The proof should show all `pk_vrc_i` values come from the same receiver secret key, without revealing that key.
 
-- The proof must show all keys come from the same secret key  
-  (not that they are identical).
+Because issuer keys are context-derived:
 
-Because issuer keys may depend on context:
+- Distinct issuer-side keys may correspond to different contexts for the same issuer-user.
+- Verifier logic should account for the intended context policy.
 
-- Distinct issuer keys may reflect different contexts rather than different issuers.
-- Verifier logic must account for this.
-
----
-
-## Defining the Security Requirements
+<div class="jellyk-highlight-box">
+  <p><strong>Showing Privacy.</strong> The verifier learns only the claimed aggregate statement (and issuer information needed for trust calibration), not Alice's full VRC set.</p>
+</div>
 
 
-## Summary
 
-The protocol has three stages:
+## Conclusion
 
-1. Personhood credential issuance  
-2. Verifiable relationship credential issuance  
-3. Showing VRCs via zero-knowledge proofs  
+In this blog post, we intentionally stayed informal in describing the protocol and its guarantees. In the paper, however, we capture the entire target behavior in a single ideal functionality, which is important because it requires all security properties to hold simultaneously, not in isolation.
 
-Unlinkability is achieved using PRF-derived keys and zero-knowledge proofs of correct derivation.  
-This enables selective disclosure, revocation support, and privacy across interactions.
+That viewpoint makes tradeoffs explicit and disciplined: any construction must realize one coherent security target, rather than a collection of loosely connected goals. It also enables a modular design strategy, where we identify the exact properties needed from underlying tools so improvements in those tools translate directly into better end-to-end protocols.
 
 ## References
 
