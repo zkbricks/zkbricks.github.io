@@ -32,7 +32,7 @@ In the rest of this blog, instead of providing the security definition up front,
 
 At the top level are entities we call **issuers** (or credential authorities), whose identity and public keys are publicly known or easily retrievable. They issue credentials to users and can range from local organizations (for example, a restaurant loyalty program) to government authorities (for example, a passport office).
 
-The first step in our protocol is for a user to obtain a **personhood credential** from an issuer on selected attributes. In the running example, we have a user Bob who is a professor at **University of X**. Bob wants the university to issue a personhood credential for the following attributes.
+The first step in our protocol is for a user to obtain a **personhood credential** from an issuer on selected attributes. In the running example, Bob is a professor at **University of X** and wants the university to issue a personhood credential on the following attributes.
 
 <div class="jellyk-code-box">
 <pre><code>att = {
@@ -63,7 +63,7 @@ However, there is already a privacy concern in the above flow: multiple issuers 
     <p><strong>PHC Receiver Unlinkability.</strong> Multiple issuers cannot link credentials issued to the same user (on different attributes).</p>
 </div>
 
-To fix this, the user derives an **issuer-specific public key** `pk_issuer` as a deterministic function of their secret key `sk` and the issuer public key `ipk`. For example:
+To fix this, the user derives an **issuer-specific public key** `pk_issuer` as a deterministic function of their secret key `sk` and the issuer's public key `ipk`. For example:
 
 <div class="jellyk-code-box">
 <pre><code>pk_issuer = PRF_sk(ipk)</code></pre>
@@ -75,11 +75,11 @@ Before moving on to the next stage, we briefly note how one determines the valid
 
 ### Sidebar: Attribute Verification Oracles
 
-It is a fair question to ask how an issuer determines if Bob's attributes are 'correct'. For the most part this is treated simply outside of the purview of cryptographic modeling, and we simply assume that the issuer will 'use its judgement', and refuse to issue a credential. 
+A natural question is how an issuer determines whether Bob's attributes are valid. In many systems, this step is handled outside the cryptographic model, and we simply assume the issuer uses its own validation process to decide whether to issue a credential.
 
-When a user uses a credential by specifying the user that issued it, we also implicitly make a judgement about the 'quality' of the issuer: *Is the issuer likely to be fooled into issuing a credential for an attribute that isn't "true"?*. 
+When a user presents a credential together with its issuer, we implicitly make a judgment about the issuer's quality: *How likely is this issuer to be fooled into certifying invalid attributes?*
 
-We embed these judgements as confidence (or error) parameters `e_I` for each issuer `I`. We think of each issuance of a credential as a *noisy* process, prone to errors, and `e_I` is roughly a bound on how often an issuer is likely to issue a credential for invalid attributes (lower is better).
+We embed these judgments as confidence (or error) parameters `e_I` for each issuer `I`. We think of each issuance of a credential as a *noisy* process, prone to errors, and `e_I` is roughly a bound on how often an issuer is likely to issue a credential for invalid attributes (lower is better).
 
 This gives a practical way to reason about mis-issuance in real deployments: whenever a credential is checked, the verifier can account for which issuer signed it and calibrate trust based on that issuer's confidence parameter. At the same time, the protocol still provides strong privacy and robustness guarantees at the cryptographic layer.
 
@@ -138,9 +138,9 @@ The issued VRC is bound to the following values:
 )</code></pre>
 </div>
 
-Anyone can verify the VRC against Bob's revealed attributes and keys, together with zero-knowledge proofs that `pk_context` and `pk_vrc` were correctly derived. 
+Anyone can verify the VRC against Bob's revealed attributes and keys, together with zero-knowledge proofs that `pk_context` and `pk_vrc` were correctly derived.
 
-We now have the following requirements from the VRC issuance. 
+This gives the following requirements for VRC issuance:
 
 <div class="jellyk-highlight-box">
   <p><strong>VRC Unforgeability.</strong> No one should be able to create a valid VRC without an underlying valid credential and a valid proof flow from the issuer-user.</p>
