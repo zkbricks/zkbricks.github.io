@@ -7,7 +7,7 @@ description: "A new cryptographic framework for proofs of personhood."
 nav_active: blog
 authors:
   - Arka Rai Choudhuri
-featured_image: /assets/images/proofs-personhood-trust-badges.png
+featured_image: /assets/images/proofs-personhood-handing-keys.png
 ---
 
 <figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
