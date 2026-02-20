@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Proofs of Personhood"
+title: "Nobody Knows You're a Dog—Proving Personhood Without Handing Over the Keys"
 date: 2026-01-28
 permalink: /blogposts/proofs-of-personhood.html
 description: "A new cryptographic framework for proofs of personhood."
