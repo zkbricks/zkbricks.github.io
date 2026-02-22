@@ -10,7 +10,7 @@
     {% include nav.html %}
 
     <div class="flex-grow-1 d-flex flex-column">
-      <main id="main-content" class="jellyk-main jellyk-container {{ page.content_class | default: 'text-start' }}" tabindex="-1">
+      <main id="main-content" class="jellyk-main jellyk-container {% if page.layout == 'post' %}jellyk-main-post{% endif %} {{ page.content_class | default: 'text-start' }}" tabindex="-1">
         {{ content }}
       </main>
       {% include footer.html %}
