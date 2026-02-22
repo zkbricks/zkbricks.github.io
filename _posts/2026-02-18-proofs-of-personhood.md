@@ -115,14 +115,10 @@ Alex has the same kind of privacy need: he doesn't want every passenger who vouc
     <p><strong>VRC Receiver Unlinkability.</strong> People who issue you VRCs cannot link those VRCs to the same person (you) across different issuers.</p>
 </div>
 
-Carol only reveals what she chooses—for example, just her name—and uses her credential to create a VRC bound to Alex's receiver key and the statement "Is a good driver." Anyone can check that the VRC is valid and that the keys were derived correctly (via zero-knowledge proofs), without learning Carol's or Alex's secrets. We need two more guarantees:
+Carol only reveals what she chooses—for example, just her name—and the rest of her attributes stay hidden. She uses her credential to create a VRC bound to Alex's receiver key and the statement "Is a good driver." Anyone can check that the VRC is valid and that the keys were derived correctly (via zero-knowledge proofs), without learning Carol's or Alex's secrets. One more guarantee:
 
 <div class="jellyk-highlight-box">
   <p><strong>VRC Unforgeability.</strong> No one can create a valid endorsement without holding a real credential and going through the proper issuance flow.</p>
-</div>
-
-<div class="jellyk-highlight-box">
-  <p><strong>VRC Issuance Attribute Hiding.</strong> Any attribute you don't choose to reveal when issuing a VRC stays hidden.</p>
 </div>
 
 ---
