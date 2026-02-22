@@ -58,7 +58,7 @@ And personhood isn’t only “am I human?” Online we also need **relationship
   </div>
 </div>
 
-In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage.
+In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. This work contributes to the vision of the [First Person Network](https://www.firstperson.network/)[^4]: a global infrastructure for real people and real trust, with no intermediaries. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage.
 
 ## Stage I: Getting a Personhood Credential
 
@@ -143,9 +143,7 @@ The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) eac
 
 ## Wrapping Up
 
-We've kept this post informal: we wanted to convey the flow and the guarantees without the full formal machinery. In our paper[^2] we go further: we define a single **ideal functionality** that captures the whole system. That forces every security property to hold at once, not in isolation—so we get one clear target to aim for, and we can build in a modular way. If the underlying crypto gets better, the whole protocol benefits.
-
-If you're interested in the full definitions, constructions, and experiments, check out the paper linked in the references.
+This post conveys the flow and the guarantees of our system without the full formal machinery. We refer the reader to our paper[^2] for the full definitions, constructions, and experiments.
 
 ## References
 
@@ -154,3 +152,5 @@ If you're interested in the full definitions, constructions, and experiments, ch
 [^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proof of Personhood.**
 
 [^3]: Akirabot — an OpenAI-based tool used to target 420,000 sites with spam by bypassing CAPTCHAs; see e.g. reporting on CAPTCHA-breaking attacks.
+
+[^4]: **The First Person Network.** A global digital utility for trusted connections between individuals, communities, and organizations—no intermediaries, no platform, no surveillance. [firstperson.network](https://www.firstperson.network/)
