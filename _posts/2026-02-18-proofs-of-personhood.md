@@ -146,11 +146,19 @@ The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) eac
 
 This post conveys the flow and the guarantees of our system without the full formal machinery. We refer the reader to our paper[^2] for the full definitions, constructions, and experiments.
 
+<div class="jellyk-figure" style="padding: 0.5rem;">
+  <iframe
+    src="/assets/papers/A%20Cryptographic%20Framework%20for%20Proofs%20of%20Personhood.pdf"
+    title="A Cryptographic Framework for Proofs of Personhood (PDF)"
+    style="width: 100%; height: 70vh; border: 0;"
+  ></iframe>
+</div>
+
 ## References
 
 [^1]: Luis von Ahn, Manuel Blum, Nicholas J. Hopper, and John Langford. **CAPTCHA: Using Hard AI Problems for Security.** In *Advances in Cryptology — EUROCRYPT 2003*, pp. 294–311. Springer, 2003. [https://link.springer.com/chapter/10.1007/3-540-39200-9_18](https://link.springer.com/chapter/10.1007/3-540-39200-9_18)
 
-[^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proof of Personhood.**
+[^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proofs of Personhood.** [PDF](/assets/papers/A%20Cryptographic%20Framework%20for%20Proofs%20of%20Personhood.pdf)
 
 [^3]: Akirabot — an OpenAI-based tool used to target 420,000 sites with spam by bypassing CAPTCHAs; see e.g. reporting on CAPTCHA-breaking attacks.
 
