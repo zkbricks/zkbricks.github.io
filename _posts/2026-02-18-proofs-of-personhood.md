@@ -10,13 +10,13 @@ authors:
 featured_image: /assets/images/proofs-personhood-handing-keys.png
 ---
 
+
+
+*“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
 <figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
   <img src="/assets/images/proofs-personhood-nobody-knows-dog.png" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
   <figcaption class="small text-body-secondary mt-2">Who's on the other side? Sometimes even "verified" isn't.</figcaption>
 </figure>
-
-*“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
-
 
 
 <div class="row g-3 my-4">
