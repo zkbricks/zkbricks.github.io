@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proving Personhood Without Handing Over the Keys"
-date: 2026-01-28
+date: 2026-02-22
 permalink: /blogposts/proofs-of-personhood.html
 description: "A new cryptographic framework for proofs of personhood."
 nav_active: blog
