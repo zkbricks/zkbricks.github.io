@@ -59,7 +59,7 @@ And personhood isn’t only “am I human?” Online we also need **relationship
   </div>
 </div>
 
-In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. This work contributes to the vision of the [First Person Network](https://www.firstperson.network/)[^4]: a global infrastructure for real people and real trust, with no intermediaries. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage.
+In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. This work contributes to the vision of the [First Person Network](https://www.firstperson.network/)[^4]: a global infrastructure for real people and real trust, with no intermediaries. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage. No prior work considers the goal of constructing efficient zk proofs for this setting.
 
 ## Stage I: Getting a Personhood Credential
 
@@ -144,7 +144,10 @@ The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) eac
 
 ## Wrapping Up
 
-This post conveys the flow and the guarantees of our system without the full formal machinery. We refer the reader to our paper[^2] for the full definitions, constructions, and experiments.
+This post conveys the flow and the guarantees of our system without the full formal machinery. We refer the reader to our paper[^2] for the full definitions, constructions, and experiments. 
+
+In our paper we present an early prototype showing that zero-knowledge proofs for this setting can be practical. We leave further efficiency improvements for future work. Additionally, going forward, we aim to add support for legacy credentials in our system.
+We also want to support proving membership in a community where trust is defined by being directly connected to a trust anchor or to a sufficient number of other members in the community.
 
 <div class="jellyk-figure" style="padding: 0.5rem;">
   <iframe
