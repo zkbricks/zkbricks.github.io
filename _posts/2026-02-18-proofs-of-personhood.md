@@ -89,7 +89,7 @@ The authority has a public key that anyone can check. Alex provides his own publ
 
 The fix: Alex **derives a different-looking public key for each issuer** from his secret key and that issuer's public key—so each key looks unrelated to the others. To each issuer he only shows this derived key; they can't tell it's the same person going to another issuer. He proves in zero knowledge that the derived key was computed correctly, without revealing his master secret.
 
-**A quick note on trust.** How does the issuer know Alex's details are real? In the real world, that's the issuer's job (e.g. the DMV checks your documents). In our model we allow for the fact that issuers can sometimes be fooled: we attach a **confidence parameter** to each issuer. When someone later checks a credential, they can weigh *who* issued it. The protocol still keeps privacy and security even when we don't assume every issuer is perfect.
+**A quick note on trust.** How does the issuer know Alex's details are real? In the real world, that's the issuer's job (e.g. the DMV checks your documents). For added robustness, we allow for the fact that issuers can sometimes be fooled: we attach a **confidence parameter** to each issuer. When someone later checks a credential, they can weigh *who* issued it. The protocol still keeps privacy and security even when we don't assume every issuer is perfect.
 
 ---
 
@@ -103,7 +103,7 @@ Once you have a personhood credential, you can **vouch for someone else** in a w
 <pre><code>st = "Is a good driver."</code></pre>
 </div>
 
-She doesn't want every endorsement she ever gives to be linkable to the same "Carol." So she uses a **context-specific key** for the ride-share setting. Different contexts (ride-share, work, social) get different keys—so no one can tie all her vouchers together.
+She doesn't want every endorsement be linkable to the same "Carol." So she uses a **context-specific key** for the ride-share setting. Different contexts (ride-share, work, social) get different keys—so no one can tie all her vouchers together.
 
 <div class="jellyk-highlight-box">
     <p><strong>VRC Issuer Cross-Context Unlinkability.</strong> Your endorsements in one context (e.g. ride-share) cannot be linked to you in another context.</p>
@@ -131,7 +131,7 @@ Alex has collected several "good driver" endorsements from passengers. Now he wa
   <p><strong>Claim.</strong> Three different passengers vouched for me as a good driver.</p>
 </div>
 
-The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) each says "Is a good driver," (3) they come from three *different* issuers (so not one person vouching three times), and (4) all of them were issued to the *same* receiver—him—without revealing his secret key. He sends this proof plus the identities of the issuers (so the verifier can decide how much to trust them). The verifier checks the proof and can accept or reject the claim.
+The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) each says "Is a good driver," (3) they come from three *different* vochers (so not one person vouching three times), (4) each of the voucher was itself issued a PHC by a particular (or from among a list of) issuer, and (5) all of them were issued to the *same* receiver—him—without revealing his secret key. He sends this proof plus the identities of the issuers (so the verifier can decide how much to trust them). The verifier checks the proof and can accept or reject the claim.
 
 **Privacy in this step:** The verifier only learns the *claim* ("three passengers said I'm a good driver") and whatever issuer info is needed to calibrate trust. They do *not* learn Alex's full set of VRCs, his keys, or any attributes he didn't choose to reveal.
 
@@ -143,7 +143,7 @@ The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) eac
 
 ## Wrapping Up
 
-We've kept this post informal: we wanted to convey the flow and the guarantees without the full formal machinery. In the paper we go further: we define a single **ideal functionality** that captures the whole system. That forces every security property to hold at once, not in isolation—so we get one clear target to aim for, and we can build in a modular way. If the underlying crypto gets better, the whole protocol benefits.
+We've kept this post informal: we wanted to convey the flow and the guarantees without the full formal machinery. In our paper[^2] we go further: we define a single **ideal functionality** that captures the whole system. That forces every security property to hold at once, not in isolation—so we get one clear target to aim for, and we can build in a modular way. If the underlying crypto gets better, the whole protocol benefits.
 
 If you're interested in the full definitions, constructions, and experiments, check out the paper linked in the references.
 
