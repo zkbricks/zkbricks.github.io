@@ -7,12 +7,13 @@ description: "A new cryptographic framework for proofs of personhood."
 nav_active: blog
 authors:
   - Arka Rai Choudhuri
+  - Sanjam Garg
 featured_image: /assets/images/proofs-personhood-handing-keys.png
 ---
 
 
 
-*“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
+*“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon ([Wikipedia](https://en.wikipedia.org/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog)) was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
 <figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
   <img src="/assets/images/proofs-personhood-nobody-knows-dog.png" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
   <figcaption class="small text-body-secondary mt-2">Who's on the other side? Sometimes even "verified" isn't.</figcaption>
@@ -62,9 +63,9 @@ In this blog we explain our recent work[^2]: we show how to construct proofs of 
 
 ## Stage I: Getting a Personhood Credential
 
-Someone has to vouch that you're a real person before you can vouch for others. We call these vouchers **issuers**: organizations everyone can look up and trust. They might be your local DMV, a passport office, or even a loyalty program. In practice, many personhood systems use **government-issued IDs** (passports, mobile driver's licenses) as the "one person, one credential" anchor—and our protocol supports that.
+Someone has to vouch that you're a real person before you can vouch for others. We call these vouchers **issuers**: organizations everyone can look up and trust. They might be your local DMV, a passport office, or even a loyalty program. In practice, many personhood systems use **government-issued IDs** (passports, mobile driver's licenses) as the "one person, one credential" anchor—and our protocol supports that. 
 
-**Alex** is a ride-share driver. Alex goes to a **government authority** (say, the DMV or a passport office) and gets a **personhood credential** that attests to some facts about him—for example:
+**Alex** is a ride-share driver. Alex goes to a **government authority** (say, the DMV or a passport office) and gets a **personhood credential** (PHC) that attests to some facts about him—for example:
 
 <div class="jellyk-code-box">
 <pre><code>att = {
@@ -75,7 +76,7 @@ Someone has to vouch that you're a real person before you can vouch for others. 
 }</code></pre>
 </div>
 
-The authority has a public key that anyone can check. Alex provides his own public key and these attributes, proves he owns that key, and goes through the issuance flow. At the end he holds a credential that he can verify himself using the authority's public key. No one can fake that credential—that's our first guarantee:
+The authority has a public key that anyone can check. Alex provides his own public key and these attributes, proves he owns the provided key, and goes through the issuance flow. At the end, he holds a credential that he can verify himself using the authority's public key. No one can fake that credential—that's our first guarantee:
 
 <div class="jellyk-highlight-box">
     <p><strong>PHC Unforgeability.</strong> Credentials cannot be forged.</p>
@@ -95,7 +96,7 @@ The fix: Alex **derives a different-looking public key for each issuer** from hi
 
 ## Stage II: Vouching for Others (Verifiable Relationship Credentials)
 
-Once you have a personhood credential, you can **vouch for someone else** in a way that others can check. We call these **verifiable relationship credentials (VRCs)**. Think of them as signed, checkable endorsements.
+Once you have a personhood credential, you can **vouch for someone else** in a way that others can check. We call these **verifiable relationship credentials (VRCs)**. Think of them as signed, checkable endorsements. We refer to these VRC issuers as *vouchers*, to distinguish them from *issuers*, who only issue PHCs. 
 
 **Back to our example.** **Carol** is a passenger who just had a great ride with Alex. She has her own personhood credential (from the government or another issuer). She wants to endorse Alex by saying:
 
@@ -103,16 +104,16 @@ Once you have a personhood credential, you can **vouch for someone else** in a w
 <pre><code>st = "Is a good driver."</code></pre>
 </div>
 
-She doesn't want every endorsement be linkable to the same "Carol." So she uses a **context-specific key** for the ride-share setting. Different contexts (ride-share, work, social) get different keys—so no one can tie all her vouchers together.
+She doesn't want every endorsement to be linkable to the same "Carol." So she uses a **context-specific key** for the ride-share setting. In fact, even issuers cannot link a PHC issuance with an endorsement. Different contexts (ride-share, work, social) get different keys, so no one can tie all her vouchers together.
 
 <div class="jellyk-highlight-box">
-    <p><strong>VRC Issuer Cross-Context Unlinkability.</strong> Your endorsements in one context (e.g. ride-share) cannot be linked to you in another context.</p>
+    <p><strong>Voucher Cross-Context Unlinkability.</strong> Your endorsements in one context (e.g. ride-share) cannot be linked to you in another context.</p>
 </div>
 
 Alex has the same kind of privacy need: he doesn't want every passenger who vouches for him to see that he's the same driver across all of them. So he uses a **fresh receiver key** for this interaction, derived from Carol's context key. Different passengers see different keys; they can't link Alex across his VRCs.
 
 <div class="jellyk-highlight-box">
-    <p><strong>VRC Receiver Unlinkability.</strong> People who issue you VRCs cannot link those VRCs to the same person (you) across different issuers.</p>
+    <p><strong>VRC Receiver Unlinkability.</strong> Vouchers cannot link those VRCs to the same person (you) across different vouchers.</p>
 </div>
 
 Carol only reveals what she chooses—for example, just her name—and the rest of her attributes stay hidden. She uses her credential to create a VRC bound to Alex's receiver key and the statement "Is a good driver." Anyone can check that the VRC is valid and that the keys were derived correctly (via zero-knowledge proofs), without learning Carol's or Alex's secrets. One more guarantee:
@@ -131,12 +132,12 @@ Alex has collected several "good driver" endorsements from passengers. Now he wa
   <p><strong>Claim.</strong> Three different passengers vouched for me as a good driver.</p>
 </div>
 
-The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) each says "Is a good driver," (3) they come from three *different* vochers (so not one person vouching three times), (4) each of the voucher was itself issued a PHC by a particular (or from among a list of) issuer, and (5) all of them were issued to the *same* receiver—him—without revealing his secret key. He sends this proof plus the identities of the issuers (so the verifier can decide how much to trust them). The verifier checks the proof and can accept or reject the claim.
+The proof shows, in zero knowledge, that: (1) he holds three valid VRCs, (2) each says "Is a good driver," (3) they come from three *different* vouchers (so not one person vouching three times), (4) each VRC was issued by a voucher with a valid PHC from a trusted issuer (or approved issuer set), and (5) all of the VRCs were issued to the *same* receiver, namely Alex, without revealing his secret key. He sends this proof plus the identities of the issuers (so the verifier can decide how much to trust them). The verifier checks the proof and can accept or reject the claim.
 
 **Privacy in this step:** The verifier only learns the *claim* ("three passengers said I'm a good driver") and whatever issuer info is needed to calibrate trust. They do *not* learn Alex's full set of VRCs, his keys, or any attributes he didn't choose to reveal.
 
 <div class="jellyk-highlight-box">
-  <p><strong>Showing Privacy.</strong> The verifier learns only the claimed statement and the issuer information needed for trust—not your full credential set or hidden attributes.</p>
+  <p><strong>Showing Privacy.</strong> The verifier learns only the claimed statement and the issuer information needed for trust, not the full set of VRCs or hidden attributes.</p>
 </div>
 
 
