@@ -151,7 +151,7 @@ We also want to support proving membership in a community where trust is defined
 
 <div class="jellyk-figure" style="padding: 0.5rem;">
   <iframe
-    src="/assets/papers/A%20Cryptographic%20Framework%20for%20Proofs%20of%20Personhood.pdf"
+    src="https://eprint.iacr.org/2026/333.pdf"
     title="A Cryptographic Framework for Proofs of Personhood (PDF)"
     style="width: 100%; height: 70vh; border: 0;"
   ></iframe>
@@ -161,7 +161,7 @@ We also want to support proving membership in a community where trust is defined
 
 [^1]: Luis von Ahn, Manuel Blum, Nicholas J. Hopper, and John Langford. **CAPTCHA: Using Hard AI Problems for Security.** In *Advances in Cryptology — EUROCRYPT 2003*, pp. 294–311. Springer, 2003. [https://link.springer.com/chapter/10.1007/3-540-39200-9_18](https://link.springer.com/chapter/10.1007/3-540-39200-9_18)
 
-[^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proofs of Personhood.** [PDF](/assets/papers/A%20Cryptographic%20Framework%20for%20Proofs%20of%20Personhood.pdf)
+[^2]: Arka Rai Choudhuri, Sanjam Garg, Keewoo Lee, Hart Montgomery, Guru Vamsi Policharla, and Rohit Sinha. **A Cryptographic Framework for Proofs of Personhood.** [PDF](https://eprint.iacr.org/2026/333.pdf)
 
 [^3]: Akirabot — an OpenAI-based tool used to target 420,000 sites with spam by bypassing CAPTCHAs; see e.g. reporting on CAPTCHA-breaking attacks.
 
