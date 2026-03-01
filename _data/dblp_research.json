@@ -1585,6 +1585,14 @@
       "venue": "USENIX Security Symposium",
       "year": "2023",
       "url": "https://eprint.iacr.org/2023/905.pdf"
+    },
+    {
+      "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper.",
+      "authors": "Sanjam Garg, Dimitris Kolonelos, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Mikhail Sergeevitch</span>, <span class=\"text-body-secondary opacity-75\">Srivatsan Sridhar</span>, <span class=\"text-body-secondary opacity-75\">David Tse</span>",
+      "venue": "IACR Cryptol. ePrint Arch.",
+      "year": "2026",
+      "url": "https://eprint.iacr.org/2026/065.pdf"
     }
   ]
 }
