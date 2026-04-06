@@ -2,7 +2,18 @@
 <header class="jellyk-header">
   <nav class="navbar navbar-expand-md" aria-label="Main navigation">
     <div class="container-fluid">
-      <a class="navbar-brand jellyk-brand" href="{{ '/' | relative_url }}">zkBricks</a>
+      <a class="navbar-brand jellyk-brand" href="{{ '/' | relative_url }}" aria-label="zkBricks home">
+        <img
+          class="jellyk-brand-logo jellyk-brand-logo-light"
+          src="{{ '/assets/images/logos/zkBricks-horizontal-outline.png' | relative_url }}"
+          alt="zkBricks"
+        >
+        <img
+          class="jellyk-brand-logo jellyk-brand-logo-dark"
+          src="{{ '/assets/images/logos/zkBricks-horizontal-outline-white.png' | relative_url }}"
+          alt="zkBricks"
+        >
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#jellyk-nav" aria-controls="jellyk-nav" aria-expanded="false" aria-label="Toggle menu">
         <span class="navbar-toggler-icon"></span>
       </button>
