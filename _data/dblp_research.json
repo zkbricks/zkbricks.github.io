@@ -462,7 +462,7 @@
       "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Xiao Liang</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>, <span class=\"text-body-secondary opacity-75\">Ivan Visconti</span>",
       "venue": "SCN",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/216.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-57990-6_5"
     },
     {
       "title": "Candidate iO from Homomorphic Encryption Schemes.",
@@ -470,7 +470,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
       "venue": "EUROCRYPT",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/394.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-45721-1_4"
     },
     {
       "title": "Characterizing Deterministic-Prover Zero Knowledge.",
@@ -486,7 +486,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-secondary opacity-75\">Pedro Branco</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
       "venue": "TCC",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/1186.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-64375-1_3"
     },
     {
       "title": "Efficient Range-Trapdoor Functions and Applications: Rate-1 OT and More.",
@@ -502,7 +502,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Rotem Tsabary</span>",
       "venue": "TCC",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/1168.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-64375-1_23"
     },
     {
       "title": "Formalizing Data Deletion in the Context of the Right to Be Forgotten.",
@@ -510,7 +510,7 @@
       "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Shafi Goldwasser</span>, <span class=\"text-body-secondary opacity-75\">Prashant Nalini Vasudevan</span>",
       "venue": "EUROCRYPT",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/254.pdf"
+      "url": "https://arxiv.org/pdf/2002.10635.pdf"
     },
     {
       "title": "Master-Key KDM-Secure IBE from Pairings.",
@@ -518,7 +518,7 @@
       "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Romain Gay</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>",
       "venue": "Public Key Cryptography",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/616.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-45374-9_5"
     },
     {
       "title": "Reusable Two-Round MPC from DDH.",
@@ -526,7 +526,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">James Bartusek</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Daniel Masny</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>",
       "venue": "TCC",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/170.pdf"
+      "url": "https://doi.org/10.1007/978-3-030-64378-2_12"
     },
     {
       "title": "Round Optimal Secure Multiparty Computation from Minimal Assumptions.",
@@ -542,7 +542,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Benny Applebaum</span>, <span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yuval Ishai</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
       "venue": "ITCS",
       "year": "2020",
-      "url": "https://eprint.iacr.org/2020/116.pdf"
+      "url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.71"
     },
     {
       "title": "The Round Complexity of Secure Computation Against Covert Adversaries.",
@@ -601,62 +601,6 @@
       "url": "https://eprint.iacr.org/2019/253.pdf"
     },
     {
-      "title": "Laconic Conditional Disclosure of Secrets and Applications.",
-      "authors": "Nico Döttling, Sanjam Garg, Vipul Goyal, Giulio Malavolta",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Vipul Goyal</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
-      "venue": "FOCS",
-      "year": "2019",
-      "url": "https://eprint.iacr.org/2019/1353.pdf"
-    },
-    {
-      "title": "Leveraging Linear Decryption: Rate-1 Fully-Homomorphic Encryption and Time-Lock Puzzles.",
-      "authors": "Zvika Brakerski, Nico Döttling, Sanjam Garg, Giulio Malavolta",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
-      "venue": "TCC",
-      "year": "2019",
-      "url": "https://eprint.iacr.org/2019/720.pdf"
-    },
-    {
-      "title": "New Techniques for Efficient Trapdoor Functions and Applications.",
-      "authors": "Sanjam Garg, Romain Gay, Mohammad Hajiabadi",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Romain Gay</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>",
-      "venue": "EUROCRYPT",
-      "year": "2019",
-      "url": "https://doi.org/10.1007/978-3-030-17659-4_2"
-    },
-    {
-      "title": "Rate-1 Trapdoor Functions from the Diffie-Hellman Problem.",
-      "authors": "Nico Döttling, Sanjam Garg, Mohammad Hajiabadi, Kevin Liu, Giulio Malavolta",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Kevin Liu</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
-      "venue": "ASIACRYPT",
-      "year": "2019",
-      "url": "https://eprint.iacr.org/2019/1072.pdf"
-    },
-    {
-      "title": "Registration-Based Encryption from Standard Assumptions.",
-      "authors": "Sanjam Garg, Mohammad Hajiabadi, Mohammad Mahmoody, Ahmadreza Rahimi, Sruthi Sekar",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Ahmadreza Rahimi</span>, <span class=\"text-body-secondary opacity-75\">Sruthi Sekar</span>",
-      "venue": "Public Key Cryptography",
-      "year": "2019",
-      "url": "https://doi.org/10.1007/978-3-030-17259-6_3"
-    },
-    {
-      "title": "The Broadcast Message Complexity of Secure Multiparty Computation.",
-      "authors": "Sanjam Garg, Aarushi Goel, Abhishek Jain",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>",
-      "venue": "ASIACRYPT",
-      "year": "2019",
-      "url": "https://doi.org/10.1007/978-3-030-34578-5_16"
-    },
-    {
-      "title": "Trapdoor Hash Functions and Their Applications.",
-      "authors": "Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, Rafail Ostrovsky",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yuval Ishai</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>, <span class=\"text-body-secondary opacity-75\">Tamer Mour</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>",
-      "venue": "CRYPTO",
-      "year": "2019",
-      "url": "https://eprint.iacr.org/2019/639.pdf"
-    },
-    {
       "title": "Two Round Information-Theoretic MPC with Malicious Security.",
       "authors": "Prabhanjan Ananth, Arka Rai Choudhuri, Aarushi Goel, Abhishek Jain",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Prabhanjan Ananth</span>, <span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>",
@@ -665,124 +609,12 @@
       "url": "https://doi.org/10.1007/978-3-030-17656-3_19"
     },
     {
-      "title": "A New Approach to Black-Box Concurrent Secure Computation.",
-      "authors": "Sanjam Garg, Susumu Kiyoshima, Omkant Pandey",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Susumu Kiyoshima</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>",
-      "venue": "EUROCRYPT",
-      "year": "2018",
-      "url": "http://eprint.iacr.org/2018/156.pdf"
-    },
-    {
-      "title": "A Simple Construction of iO for Turing Machines.",
-      "authors": "Sanjam Garg, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "TCC",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/771.pdf"
-    },
-    {
-      "title": "Adaptive Garbled RAM from Laconic Oblivious Transfer.",
-      "authors": "Sanjam Garg, Rafail Ostrovsky, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "CRYPTO",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/549.pdf"
-    },
-    {
-      "title": "Adaptively Secure Garbling with Near Optimal Online Complexity.",
-      "authors": "Sanjam Garg, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "EUROCRYPT",
-      "year": "2018",
-      "url": "http://eprint.iacr.org/2018/151.pdf"
-    },
-    {
-      "title": "Indistinguishability Obfuscation for RAM Programs and Succinct Randomized Encodings.",
-      "authors": "Nir Bitansky, Ran Canetti, Sanjam Garg, Justin Holmgren, Abhishek Jain, Huijia Lin, Rafael Pass, Sidharth Telang, Vinod Vaikuntanathan",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nir Bitansky</span>, <span class=\"text-body-secondary opacity-75\">Ran Canetti</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Justin Holmgren</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Huijia Lin</span>, <span class=\"text-body-secondary opacity-75\">Rafael Pass</span>, <span class=\"text-body-secondary opacity-75\">Sidharth Telang</span>, <span class=\"text-body-secondary opacity-75\">Vinod Vaikuntanathan</span>",
-      "venue": "SIAM J. Comput.",
-      "year": "2018",
-      "url": "https://doi.org/10.1137/15M1050963"
-    },
-    {
-      "title": "Limits on the Power of Garbling Techniques for Public-Key Encryption.",
-      "authors": "Sanjam Garg, Mohammad Hajiabadi, Mohammad Mahmoody, Ameer Mohammed",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Ameer Mohammed</span>",
-      "venue": "CRYPTO",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/555.pdf"
-    },
-    {
-      "title": "New Constructions of Identity-Based and Key-Dependent Message Secure Encryption Schemes.",
-      "authors": "Nico Döttling, Sanjam Garg, Mohammad Hajiabadi, Daniel Masny",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Daniel Masny</span>",
-      "venue": "Public Key Cryptography",
-      "year": "2018",
-      "url": "https://doi.org/10.1007/978-3-319-76578-5_1"
-    },
-    {
-      "title": "Obfuscation from Low Noise Multilinear Maps.",
-      "authors": "Nico Döttling, Sanjam Garg, Divya Gupta, Peihan Miao, Pratyay Mukherjee",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Peihan Miao</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>",
-      "venue": "INDOCRYPT",
-      "year": "2018",
-      "url": "https://doi.org/10.1007/978-3-030-05378-9_18"
-    },
-    {
-      "title": "On the Round Complexity of OT Extension.",
-      "authors": "Sanjam Garg, Mohammad Mahmoody, Daniel Masny, Izaak Meckler",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Daniel Masny</span>, <span class=\"text-body-secondary opacity-75\">Izaak Meckler</span>",
-      "venue": "CRYPTO",
-      "year": "2018",
-      "url": "https://doi.org/10.1007/978-3-319-96878-0_19"
-    },
-    {
-      "title": "Registration-Based Encryption: Removing Private-Key Generator from IBE.",
-      "authors": "Sanjam Garg, Mohammad Hajiabadi, Mohammad Mahmoody, Ahmadreza Rahimi",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Ahmadreza Rahimi</span>",
-      "venue": "TCC",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/919.pdf"
-    },
-    {
       "title": "Round-Optimal Secure Multiparty Computation with Honest Majority.",
       "authors": "Prabhanjan Ananth, Arka Rai Choudhuri, Aarushi Goel, Abhishek Jain",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Prabhanjan Ananth</span>, <span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>",
       "venue": "CRYPTO",
       "year": "2018",
       "url": "https://eprint.iacr.org/2018/572.pdf"
-    },
-    {
-      "title": "Trapdoor Functions from the Computational Diffie-Hellman Assumption.",
-      "authors": "Sanjam Garg, Mohammad Hajiabadi",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>",
-      "venue": "CRYPTO",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/529.pdf"
-    },
-    {
-      "title": "Two-Round MPC: Information-Theoretic and Black-Box.",
-      "authors": "Sanjam Garg, Yuval Ishai, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yuval Ishai</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "TCC",
-      "year": "2018",
-      "url": "https://eprint.iacr.org/2018/909.pdf"
-    },
-    {
-      "title": "Two-Round Multiparty Secure Computation from Minimal Assumptions.",
-      "authors": "Sanjam Garg, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "EUROCRYPT",
-      "year": "2018",
-      "url": "https://doi.org/10.1007/978-3-319-78375-8_16"
-    },
-    {
-      "title": "Two-Round Multiparty Secure Computation Minimizing Public Key Operations.",
-      "authors": "Sanjam Garg, Peihan Miao, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Peihan Miao</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "CRYPTO",
-      "year": "2018",
-      "url": "http://eprint.iacr.org/2018/180.pdf"
     },
     {
       "title": "A compiler and verifier for page access oblivious computation.",
@@ -809,92 +641,12 @@
       "url": "http://eprint.iacr.org/2017/402.pdf"
     },
     {
-      "title": "Breaking the Sub-Exponential Barrier in Obfustopia.",
-      "authors": "Sanjam Garg, Omkant Pandey, Akshayaram Srinivasan, Mark Zhandry",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>, <span class=\"text-body-secondary opacity-75\">Mark Zhandry</span>",
-      "venue": "EUROCRYPT",
-      "year": "2017",
-      "url": "https://doi.org/10.1007/978-3-319-56617-7_6"
-    },
-    {
-      "title": "Cryptanalysis of Indistinguishability Obfuscations of Circuits over GGH13.",
-      "authors": "Daniel Apon, Nico Döttling, Sanjam Garg, Pratyay Mukherjee",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Daniel Apon</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>",
-      "venue": "ICALP",
-      "year": "2017",
-      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2017.38"
-    },
-    {
       "title": "Fairness in an Unfair World: Fair Multiparty Computation from Public Bulletin Boards.",
       "authors": "Arka Rai Choudhuri, Matthew Green, Abhishek Jain, Gabriel Kaptchuk, Ian Miers",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Matthew Green</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Gabriel Kaptchuk</span>, <span class=\"text-body-secondary opacity-75\">Ian Miers</span>",
       "venue": "CCS",
       "year": "2017",
       "url": "http://eprint.iacr.org/2017/1091.pdf"
-    },
-    {
-      "title": "From Selective IBE to Full IBE and Selective HIBE.",
-      "authors": "Nico Döttling, Sanjam Garg",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "TCC",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/957.pdf"
-    },
-    {
-      "title": "Garbled Protocols and Two-Round MPC from Bilinear Maps.",
-      "authors": "Sanjam Garg, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "FOCS",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/1004.pdf"
-    },
-    {
-      "title": "Identity-Based Encryption from the Diffie-Hellman Assumption.",
-      "authors": "Nico Döttling, Sanjam Garg",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "CRYPTO",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/543.pdf"
-    },
-    {
-      "title": "Incremental Program Obfuscation.",
-      "authors": "Sanjam Garg, Omkant Pandey",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>",
-      "venue": "CRYPTO",
-      "year": "2017",
-      "url": "https://doi.org/10.1007/978-3-319-63715-0_7"
-    },
-    {
-      "title": "Laconic Oblivious Transfer and Its Applications.",
-      "authors": "Chongwon Cho, Nico Döttling, Sanjam Garg, Divya Gupta, Peihan Miao, Antigoni Polychroniadou",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Chongwon Cho</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Peihan Miao</span>, <span class=\"text-body-secondary opacity-75\">Antigoni Polychroniadou</span>",
-      "venue": "CRYPTO",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/491.pdf"
-    },
-    {
-      "title": "Lower Bounds on Obfuscation from All-or-Nothing Encryption Primitives.",
-      "authors": "Sanjam Garg, Mohammad Mahmoody, Ameer Mohammed",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Ameer Mohammed</span>",
-      "venue": "CRYPTO",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/541.pdf"
-    },
-    {
-      "title": "On the Exact Round Complexity of Self-composable Two-Party Computation.",
-      "authors": "Sanjam Garg, Susumu Kiyoshima, Omkant Pandey",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Susumu Kiyoshima</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>",
-      "venue": "EUROCRYPT",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/124.pdf"
-    },
-    {
-      "title": "On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Daniel Wichs",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Daniel Wichs</span>",
-      "venue": "Algorithmica",
-      "year": "2017",
-      "url": "https://doi.org/10.1007/s00453-017-0276-6"
     },
     {
       "title": "Secure Computing using Certified Software and Trusted Hardware.",
@@ -905,76 +657,12 @@
       "url": "http://www.escholarship.org/uc/item/54r176n5"
     },
     {
-      "title": "Two-Message Witness Indistinguishability and Secure Computation in the Plain Model from New Assumptions.",
-      "authors": "Saikrishna Badrinarayanan, Sanjam Garg, Yuval Ishai, Amit Sahai, Akshay Wadia",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Saikrishna Badrinarayanan</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yuval Ishai</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Akshay Wadia</span>",
-      "venue": "ASIACRYPT",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/433.pdf"
-    },
-    {
-      "title": "When Does Functional Encryption Imply Obfuscation?",
-      "authors": "Sanjam Garg, Mohammad Mahmoody, Ameer Mohammed",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-secondary opacity-75\">Ameer Mohammed</span>",
-      "venue": "TCC",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/943.pdf"
-    },
-    {
       "title": "A design and verification methodology for secure isolated regions.",
       "authors": "Rohit Sinha, Manuel Costa, Akash Lal, Nuno P. Lopes, Sriram K. Rajamani, Sanjit A. Seshia, Kapil Vaswani",
       "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Manuel Costa</span>, <span class=\"text-body-secondary opacity-75\">Akash Lal</span>, <span class=\"text-body-secondary opacity-75\">Nuno P. Lopes</span>, <span class=\"text-body-secondary opacity-75\">Sriram K. Rajamani</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>, <span class=\"text-body-secondary opacity-75\">Kapil Vaswani</span>",
       "venue": "PLDI",
       "year": "2016",
       "url": "https://doi.org/10.1145/2908080.2908113"
-    },
-    {
-      "title": "Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Mariana Raykova</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "SIAM J. Comput.",
-      "year": "2016",
-      "url": "https://doi.org/10.1137/14095772X"
-    },
-    {
-      "title": "Functional Encryption Without Obfuscation.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mark Zhandry",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Mark Zhandry</span>",
-      "venue": "TCC",
-      "year": "2016",
-      "url": "https://doi.org/10.1007/978-3-662-49099-0_18"
-    },
-    {
-      "title": "Hiding secrets in software: a cryptographic approach to program obfuscation.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Mariana Raykova</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "Commun. ACM",
-      "year": "2016",
-      "url": "https://doi.org/10.1145/2902313"
-    },
-    {
-      "title": "Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium.",
-      "authors": "Sanjam Garg, Omkant Pandey, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "CRYPTO",
-      "year": "2016",
-      "url": "https://doi.org/10.1007/978-3-662-53008-5_20"
-    },
-    {
-      "title": "Secure Multiparty RAM Computation in Constant Rounds.",
-      "authors": "Sanjam Garg, Divya Gupta, Peihan Miao, Omkant Pandey",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Peihan Miao</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>",
-      "venue": "TCC",
-      "year": "2016",
-      "url": "http://eprint.iacr.org/2016/815.pdf"
-    },
-    {
-      "title": "Secure Obfuscation in a Weak Multilinear Map Model.",
-      "authors": "Sanjam Garg, Eric Miles, Pratyay Mukherjee, Amit Sahai, Akshayaram Srinivasan, Mark Zhandry",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Eric Miles</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>, <span class=\"text-body-secondary opacity-75\">Mark Zhandry</span>",
-      "venue": "TCC",
-      "year": "2016",
-      "url": "http://eprint.iacr.org/2016/817.pdf"
     },
     {
       "title": "Significantly Improved Multi-bit Differentials for Reduced Round Salsa and ChaCha.",
@@ -985,60 +673,12 @@
       "url": "http://eprint.iacr.org/2016/1034.pdf"
     },
     {
-      "title": "Single-Key to Multi-Key Functional Encryption with Polynomial Loss.",
-      "authors": "Sanjam Garg, Akshayaram Srinivasan",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
-      "venue": "TCC",
-      "year": "2016",
-      "url": "https://doi.org/10.1007/978-3-662-53644-5_16"
-    },
-    {
-      "title": "The Exact Round Complexity of Secure Computation.",
-      "authors": "Sanjam Garg, Pratyay Mukherjee, Omkant Pandey, Antigoni Polychroniadou",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Omkant Pandey</span>, <span class=\"text-body-secondary opacity-75\">Antigoni Polychroniadou</span>",
-      "venue": "EUROCRYPT",
-      "year": "2016",
-      "url": "http://eprint.iacr.org/2016/252.pdf"
-    },
-    {
-      "title": "TWORAM: Efficient Oblivious RAM in Two Rounds with Applications to Searchable Encryption.",
-      "authors": "Sanjam Garg, Payman Mohassel, Charalampos Papamanthou",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Payman Mohassel</span>, <span class=\"text-body-secondary opacity-75\">Charalampos Papamanthou</span>",
-      "venue": "CRYPTO",
-      "year": "2016",
-      "url": "https://doi.org/10.1007/978-3-662-53015-3_20"
-    },
-    {
       "title": "Automatic Rootcausing for Program Equivalence Failures in Binaries.",
       "authors": "Shuvendu K. Lahiri, Rohit Sinha, Chris Hawblitzel",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Shuvendu K. Lahiri</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Chris Hawblitzel</span>",
       "venue": "CAV",
       "year": "2015",
       "url": "https://doi.org/10.1007/978-3-319-21690-4_21"
-    },
-    {
-      "title": "Black-Box Garbled RAM.",
-      "authors": "Sanjam Garg, Steve Lu, Rafail Ostrovsky",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Steve Lu</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>",
-      "venue": "Electron. Colloquium Comput. Complex.",
-      "year": "2015",
-      "url": "http://eprint.iacr.org/2015/307.pdf"
-    },
-    {
-      "title": "Cryptography with One-Way Communication.",
-      "authors": "Sanjam Garg, Yuval Ishai, Eyal Kushilevitz, Rafail Ostrovsky, Amit Sahai",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yuval Ishai</span>, <span class=\"text-body-secondary opacity-75\">Eyal Kushilevitz</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "CRYPTO",
-      "year": "2015",
-      "url": "https://doi.org/10.1007/978-3-662-48000-7_10"
-    },
-    {
-      "title": "Garbled RAM From One-Way Functions.",
-      "authors": "Sanjam Garg, Steve Lu, Rafail Ostrovsky, Alessandra Scafuro",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Steve Lu</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>, <span class=\"text-body-secondary opacity-75\">Alessandra Scafuro</span>",
-      "venue": "STOC",
-      "year": "2015",
-      "url": "https://doi.org/10.1145/2746539.2746593"
     },
     {
       "title": "Moat: Verifying Confidentiality of Enclave Programs.",
@@ -1049,124 +689,12 @@
       "url": "https://doi.org/10.1145/2810103.2813608"
     },
     {
-      "title": "Succinct Randomized Encodings and their Applications.",
-      "authors": "Nir Bitansky, Sanjam Garg, Huijia Lin, Rafael Pass, Sidharth Telang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nir Bitansky</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Huijia Lin</span>, <span class=\"text-body-secondary opacity-75\">Rafael Pass</span>, <span class=\"text-body-secondary opacity-75\">Sidharth Telang</span>",
-      "venue": "STOC",
-      "year": "2015",
-      "url": "http://eprint.iacr.org/2015/356.pdf"
-    },
-    {
-      "title": "Two-Round Adaptively Secure MPC from Indistinguishability Obfuscation.",
-      "authors": "Sanjam Garg, Antigoni Polychroniadou",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Antigoni Polychroniadou</span>",
-      "venue": "TCC",
-      "year": "2015",
-      "url": "https://doi.org/10.1007/978-3-662-46497-7_24"
-    },
-    {
-      "title": "Balancing Output Length and Query Bound in Hardness Preserving Constructions of Pseudorandom Functions.",
-      "authors": "Nishanth Chandran, Sanjam Garg",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nishanth Chandran</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "INDOCRYPT",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-319-13039-2_6"
-    },
-    {
-      "title": "Cross-Domain Secure Computation.",
-      "authors": "Chongwon Cho, Sanjam Garg, Rafail Ostrovsky",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Chongwon Cho</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>",
-      "venue": "Public Key Cryptography",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-642-54631-0_37"
-    },
-    {
-      "title": "Efficient Round Optimal Blind Signatures.",
-      "authors": "Sanjam Garg, Divya Gupta",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Divya Gupta</span>",
-      "venue": "EUROCRYPT",
-      "year": "2014",
-      "url": "http://eprint.iacr.org/2014/081.pdf"
-    },
-    {
       "title": "Formal Modeling and Verification of CloudProxy.",
       "authors": "Wei Yang Tan, Rohit Sinha, John L. Manferdelli, Sanjit A. Seshia",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Wei Yang Tan</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">John L. Manferdelli</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>",
       "venue": "VSTTE",
       "year": "2014",
       "url": "https://doi.org/10.1007/978-3-319-12154-3_6"
-    },
-    {
-      "title": "On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Daniel Wichs",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Daniel Wichs</span>",
-      "venue": "CRYPTO",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-662-44371-2_29"
-    },
-    {
-      "title": "Program Obfuscation via Multilinear Maps.",
-      "authors": "Sanjam Garg",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "SCN",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-319-10879-7_6"
-    },
-    {
-      "title": "Protecting Obfuscation against Algebraic Attacks.",
-      "authors": "Boaz Barak, Sanjam Garg, Yael Tauman Kalai, Omer Paneth, Amit Sahai",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Boaz Barak</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Yael Tauman Kalai</span>, <span class=\"text-body-secondary opacity-75\">Omer Paneth</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "EUROCRYPT",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-642-55220-5_13"
-    },
-    {
-      "title": "Two-Round Secure MPC from Indistinguishability Obfuscation.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Mariana Raykova</span>",
-      "venue": "TCC",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-642-54242-8_4"
-    },
-    {
-      "title": "Attribute-Based Encryption for Circuits from Multilinear Maps.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "CRYPTO",
-      "year": "2013",
-      "url": "http://eprint.iacr.org/2013/128.pdf"
-    },
-    {
-      "title": "Candidate Indistinguishability Obfuscation and Functional Encryption for all Circuits.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>, <span class=\"text-body-secondary opacity-75\">Mariana Raykova</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "FOCS",
-      "year": "2013",
-      "url": "http://eprint.iacr.org/2013/451.pdf"
-    },
-    {
-      "title": "Candidate Multilinear Maps from Ideal Lattices.",
-      "authors": "Sanjam Garg, Craig Gentry, Shai Halevi",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Shai Halevi</span>",
-      "venue": "EUROCRYPT",
-      "year": "2013",
-      "url": "https://doi.org/10.1007/978-3-642-38348-9_1"
-    },
-    {
-      "title": "Candidate Multilinear Maps.",
-      "authors": "Sanjam Garg",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "",
-      "year": "2013",
-      "url": "https://www.escholarship.org/uc/item/35n7t7r2"
-    },
-    {
-      "title": "Secure Computation against Adaptive Auxiliary Information.",
-      "authors": "Elette Boyle, Sanjam Garg, Abhishek Jain, Yael Tauman Kalai, Amit Sahai",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Elette Boyle</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Yael Tauman Kalai</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "CRYPTO",
-      "year": "2013",
-      "url": "https://doi.org/10.1007/978-3-642-40041-4_18"
     },
     {
       "title": "Symbolic software model validation.",
@@ -1177,60 +705,12 @@
       "url": "https://ieeexplore.ieee.org/document/6670946/"
     },
     {
-      "title": "Why &quot;Fiat-Shamir for Proofs&quot; Lacks a Proof.",
-      "authors": "Nir Bitansky, Dana Dachman-Soled, Sanjam Garg, Abhishek Jain, Yael Tauman Kalai, Adriana López-Alt, Daniel Wichs",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Nir Bitansky</span>, <span class=\"text-body-secondary opacity-75\">Dana Dachman-Soled</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Yael Tauman Kalai</span>, <span class=\"text-body-secondary opacity-75\">Adriana López-Alt</span>, <span class=\"text-body-secondary opacity-75\">Daniel Wichs</span>",
-      "venue": "TCC",
-      "year": "2013",
-      "url": "https://doi.org/10.1007/978-3-642-36594-2_11"
-    },
-    {
-      "title": "Witness encryption and its applications.",
-      "authors": "Sanjam Garg, Craig Gentry, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Craig Gentry</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "STOC",
-      "year": "2013",
-      "url": "http://eprint.iacr.org/2013/258.pdf"
-    },
-    {
-      "title": "Adaptively Secure Multi-Party Computation with Dishonest Majority.",
-      "authors": "Sanjam Garg, Amit Sahai",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "CRYPTO",
-      "year": "2012",
-      "url": "http://eprint.iacr.org/2012/441.pdf"
-    },
-    {
-      "title": "Concurrently Secure Computation in Constant Rounds.",
-      "authors": "Sanjam Garg, Vipul Goyal, Abhishek Jain, Amit Sahai",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Vipul Goyal</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "EUROCRYPT",
-      "year": "2012",
-      "url": "https://doi.org/10.1007/978-3-642-29011-4_8"
-    },
-    {
-      "title": "Impossibility Results for Static Input Secure Computation.",
-      "authors": "Sanjam Garg, Abishek Kumarasubramanian, Rafail Ostrovsky, Ivan Visconti",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abishek Kumarasubramanian</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>, <span class=\"text-body-secondary opacity-75\">Ivan Visconti</span>",
-      "venue": "CRYPTO",
-      "year": "2012",
-      "url": "http://eprint.iacr.org/2012/433.pdf"
-    },
-    {
       "title": "Parallel simulation of mixed-abstraction SystemC models on GPUs and multicore CPUs.",
       "authors": "Rohit Sinha, Aayush Prakash, Hiren D. Patel",
       "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Aayush Prakash</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
       "venue": "ASP-DAC",
       "year": "2012",
       "url": "https://doi.org/10.1109/ASPDAC.2012.6164991"
-    },
-    {
-      "title": "Resettable Statistical Zero Knowledge.",
-      "authors": "Sanjam Garg, Rafail Ostrovsky, Ivan Visconti, Akshay Wadia",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>, <span class=\"text-body-secondary opacity-75\">Ivan Visconti</span>, <span class=\"text-body-secondary opacity-75\">Akshay Wadia</span>",
-      "venue": "TCC",
-      "year": "2012",
-      "url": "https://doi.org/10.1007/978-3-642-28914-9_28"
     },
     {
       "title": "synASM: A High-Level Synthesis Framework With Support for Parallel and Timed Constructs.",
@@ -1257,86 +737,30 @@
       "url": "https://doi.org/10.1109/DATE.2011.5763227"
     },
     {
-      "title": "Bringing People of Different Beliefs Together to Do UC.",
-      "authors": "Sanjam Garg, Vipul Goyal, Abhishek Jain, Amit Sahai",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Vipul Goyal</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "TCC",
-      "year": "2011",
-      "url": "https://doi.org/10.1007/978-3-642-19571-6_19"
-    },
-    {
       "title": "Extending Force-Directed Scheduling with Explicit Parallel and Timed Constructs for High-Level Synthesis.",
       "authors": "Rohit Sinha, Hiren D. Patel",
       "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
       "venue": "FCCM",
       "year": "2011",
       "url": "https://doi.org/10.1109/FCCM.2011.49"
-    },
-    {
-      "title": "Leakage-Resilient Zero Knowledge.",
-      "authors": "Sanjam Garg, Abhishek Jain, Amit Sahai",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>",
-      "venue": "CRYPTO",
-      "year": "2011",
-      "url": "https://doi.org/10.1007/978-3-642-22792-9_17"
-    },
-    {
-      "title": "Round Optimal Blind Signatures.",
-      "authors": "Sanjam Garg, Vanishree Rao, Amit Sahai, Dominique Schröder, Dominique Unruh",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Vanishree Rao</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Dominique Schröder</span>, <span class=\"text-body-secondary opacity-75\">Dominique Unruh</span>",
-      "venue": "CRYPTO",
-      "year": "2011",
-      "url": "https://doi.org/10.1007/978-3-642-22792-9_36"
-    },
-    {
-      "title": "Building efficient fully collusion-resilient traitor tracing and revocation schemes.",
-      "authors": "Sanjam Garg, Abishek Kumarasubramanian, Amit Sahai, Brent Waters",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abishek Kumarasubramanian</span>, <span class=\"text-body-secondary opacity-75\">Amit Sahai</span>, <span class=\"text-body-secondary opacity-75\">Brent Waters</span>",
-      "venue": "CCS",
-      "year": "2010",
-      "url": "https://doi.org/10.1145/1866307.1866322"
-    },
-    {
-      "title": "Anti-DDoS Virtualized Operating System.",
-      "authors": "Sanjam Garg, Huzur Saran",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Huzur Saran</span>",
-      "venue": "ARES",
-      "year": "2008",
-      "url": "https://doi.org/10.1109/ARES.2008.120"
-    },
-    {
-      "title": "Improved Bounds on Security Reductions for Discrete Log Based Signatures.",
-      "authors": "Sanjam Garg, Raghav Bhaskar, Satyanarayana V. Lokam",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Raghav Bhaskar</span>, <span class=\"text-body-secondary opacity-75\">Satyanarayana V. Lokam</span>",
-      "venue": "CRYPTO",
-      "year": "2008",
-      "url": "https://doi.org/10.1007/978-3-540-85174-5_6"
-    },
-    {
-      "title": "Unified Architecture for Large-Scale Attested Metering.",
-      "authors": "Michael LeMay, George Gross, Carl A. Gunter, Sanjam Garg",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Michael LeMay</span>, <span class=\"text-body-secondary opacity-75\">George Gross</span>, <span class=\"text-body-secondary opacity-75\">Carl A. Gunter</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>",
-      "venue": "HICSS",
-      "year": "2007",
-      "url": "https://doi.org/10.1109/HICSS.2007.586"
     }
   ],
   "venue_stats": [
     {
-      "venue": "CRYPTO",
-      "count": 34
+      "venue": "TCC",
+      "count": 14
     },
     {
-      "venue": "TCC",
-      "count": 29
+      "venue": "CRYPTO",
+      "count": 13
     },
     {
       "venue": "EUROCRYPT",
-      "count": 20
+      "count": 9
     },
     {
       "venue": "CCS",
-      "count": 8
+      "count": 7
     },
     {
       "venue": "USENIX Security Symposium",
@@ -1347,84 +771,62 @@
       "count": 4
     },
     {
-      "venue": "FOCS",
-      "count": 4
-    },
-    {
-      "venue": "STOC",
-      "count": 3
-    },
-    {
       "venue": "Other",
-      "count": 59
+      "count": 42
     }
   ],
   "pie_segments": [
     {
-      "venue": "CRYPTO",
-      "count": 34,
+      "venue": "TCC",
+      "count": 14,
       "start_pct": 0,
-      "end_pct": 20.606060606060606,
+      "end_pct": 15.053763440860216,
       "color": "#6366f1"
     },
     {
-      "venue": "TCC",
-      "count": 29,
-      "start_pct": 20.606060606060606,
-      "end_pct": 38.18181818181818,
+      "venue": "CRYPTO",
+      "count": 13,
+      "start_pct": 15.053763440860216,
+      "end_pct": 29.032258064516128,
       "color": "#8b5cf6"
     },
     {
       "venue": "EUROCRYPT",
-      "count": 20,
-      "start_pct": 38.18181818181818,
-      "end_pct": 50.3030303030303,
+      "count": 9,
+      "start_pct": 29.032258064516128,
+      "end_pct": 38.70967741935484,
       "color": "#06b6d4"
     },
     {
       "venue": "CCS",
-      "count": 8,
-      "start_pct": 50.3030303030303,
-      "end_pct": 55.15151515151515,
+      "count": 7,
+      "start_pct": 38.70967741935484,
+      "end_pct": 46.236559139784944,
       "color": "#10b981"
     },
     {
       "venue": "USENIX Security Symposium",
       "count": 4,
-      "start_pct": 55.15151515151515,
-      "end_pct": 57.57575757575757,
+      "start_pct": 46.236559139784944,
+      "end_pct": 50.53763440860215,
       "color": "#f59e0b"
     },
     {
       "venue": "SP",
       "count": 4,
-      "start_pct": 57.57575757575757,
-      "end_pct": 59.99999999999999,
+      "start_pct": 50.53763440860215,
+      "end_pct": 54.83870967741936,
       "color": "#ec4899"
     },
     {
-      "venue": "FOCS",
-      "count": 4,
-      "start_pct": 59.99999999999999,
-      "end_pct": 62.424242424242415,
-      "color": "#64748b"
-    },
-    {
-      "venue": "STOC",
-      "count": 3,
-      "start_pct": 62.424242424242415,
-      "end_pct": 64.24242424242424,
-      "color": "#84cc16"
-    },
-    {
       "venue": "Other",
-      "count": 59,
-      "start_pct": 64.24242424242424,
+      "count": 42,
+      "start_pct": 54.83870967741936,
       "end_pct": 100,
-      "color": "#f43f5e"
+      "color": "#64748b"
     }
   ],
-  "total_papers": 165,
+  "total_papers": 93,
   "featured": [
     {
       "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper",
