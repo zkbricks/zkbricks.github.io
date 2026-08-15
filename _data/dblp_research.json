@@ -14,7 +14,7 @@
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Maya Farber Brodsky</span>, <span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Omer Paneth</span>",
       "venue": "EUROCRYPT",
       "year": "2026",
-      "url": "https://doi.org/10.1007/978-3-032-25324-8_20"
+      "url": "https://eprint.iacr.org/2026/909.pdf"
     },
     {
       "title": "A Framework for Witness Encryption from Linearly Verifiable SNARKs and Applications.",
@@ -63,14 +63,6 @@
       "venue": "CRYPTO",
       "year": "2025",
       "url": "https://eprint.iacr.org/2025/1026.pdf"
-    },
-    {
-      "title": "Multiparty Distributed Point Functions.",
-      "authors": "Aarushi Goel, Mingyuan Wang, Zhiheng Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Zhiheng Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2025",
-      "url": "https://eprint.iacr.org/2025/1074.pdf"
     },
     {
       "title": "Policy Compliant Secure Messaging.",
@@ -151,14 +143,6 @@
       "venue": "EUROCRYPT",
       "year": "2024",
       "url": "https://eprint.iacr.org/2024/899.pdf"
-    },
-    {
-      "title": "On the Black-Box Complexity of Private-Key Inner-Product Functional Encryption.",
-      "authors": "Mohammad Hajiabadi, Roman Langrehr, Adam O&apos;Neill, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Roman Langrehr</span>, <span class=\"text-body-secondary opacity-75\">Adam O&amp;apos;Neill</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "TCC",
-      "year": "2024",
-      "url": "https://eprint.iacr.org/2024/1877.pdf"
     },
     {
       "title": "Publicly-Detectable Watermarking for Language Models.",
@@ -249,14 +233,6 @@
       "url": "https://doi.org/10.1007/978-981-99-7563-1_16"
     },
     {
-      "title": "Reusable Secure Computation in the Plain Model.",
-      "authors": "Vipul Goyal, Akshayaram Srinivasan, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Vipul Goyal</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2023",
-      "url": "https://eprint.iacr.org/2023/1006.pdf"
-    },
-    {
       "title": "Threshold Signatures in the Multiverse.",
       "authors": "Leemon Baird, Sanjam Garg, Abhishek Jain, Pratyay Mukherjee, Rohit Sinha, Mingyuan Wang, Yinuo Zhang",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Leemon Baird</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
@@ -321,22 +297,6 @@
       "url": "https://eprint.iacr.org/2022/649.pdf"
     },
     {
-      "title": "Improved Bound on the Local Leakage-resilience of Shamir&apos;s Secret Sharing.",
-      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "ISIT",
-      "year": "2022",
-      "url": "https://doi.org/10.1109/ISIT50566.2022.9834695"
-    },
-    {
-      "title": "Leakage-resilient Linear Secret-sharing Against Arbitrary Bounded-size Leakage Family.",
-      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang, Xiuyu Ye, Albert Yu",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Xiuyu Ye</span>, <span class=\"text-body-secondary opacity-75\">Albert Yu</span>",
-      "venue": "TCC",
-      "year": "2022",
-      "url": "https://doi.org/10.1007/978-3-031-22318-1_13"
-    },
-    {
       "title": "On the Worst-Case Inefficiency of CGKA.",
       "authors": "Alexander Bienstock, Yevgeniy Dodis, Sanjam Garg, Garrison Grogan, Mohammad Hajiabadi, Paul Rösler",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Alexander Bienstock</span>, <span class=\"text-body-secondary opacity-75\">Yevgeniy Dodis</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Garrison Grogan</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Paul Rösler</span>",
@@ -375,14 +335,6 @@
       "venue": "CCS",
       "year": "2022",
       "url": "https://doi.org/10.1145/3548606.3560653"
-    },
-    {
-      "title": "Tight Estimate of the Local Leakage Resilience of the Additive Secret-Sharing Scheme &amp; Its Consequences.",
-      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang, Xiuyu Ye, Albert Yu",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Xiuyu Ye</span>, <span class=\"text-body-secondary opacity-75\">Albert Yu</span>",
-      "venue": "ITC",
-      "year": "2022",
-      "url": "https://doi.org/10.4230/LIPIcs.ITC.2022.16"
     },
     {
       "title": "Two-round Multiparty Secure Computation from Minimal Assumptions.",
@@ -425,30 +377,6 @@
       "url": "https://eprint.iacr.org/2021/942.pdf"
     },
     {
-      "title": "Computational Hardness of Optimal Fair Computation: Beyond Minicrypt.",
-      "authors": "Hemanta K. Maji, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2021",
-      "url": "https://doi.org/10.1007/978-3-030-84245-1_2"
-    },
-    {
-      "title": "Constructing Locally Leakage-Resilient Linear Secret-Sharing Schemes.",
-      "authors": "Hemanta K. Maji, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2021",
-      "url": "https://doi.org/10.1007/978-3-030-84252-9_26"
-    },
-    {
-      "title": "Efficient Distributed Coin-tossing Protocols.",
-      "authors": "Hamidreza Amini Khorasgani, Hemanta K. Maji, Himanshi K. Mehta, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hamidreza Amini Khorasgani</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Himanshi K. Mehta</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "ISIT",
-      "year": "2021",
-      "url": "https://doi.org/10.1109/ISIT45174.2021.9518000"
-    },
-    {
       "title": "Fluid MPC: Secure Multiparty Computation with Dynamic Participants.",
       "authors": "Arka Rai Choudhuri, Aarushi Goel, Matthew Green, Abhishek Jain, Gabriel Kaptchuk",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Matthew Green</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Gabriel Kaptchuk</span>",
@@ -489,22 +417,6 @@
       "url": "https://eprint.iacr.org/2021/728.pdf"
     },
     {
-      "title": "Leakage-Resilience of the Shamir Secret-Sharing Scheme Against Physical-Bit Leakages.",
-      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "EUROCRYPT",
-      "year": "2021",
-      "url": "https://eprint.iacr.org/2021/186.pdf"
-    },
-    {
-      "title": "Lower Bounds for Leakage-Resilient Secret-Sharing Schemes against Probing Attacks.",
-      "authors": "Donald Q. Adams, Hemanta K. Maji, Hai H. Nguyen, Minh L. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Donald Q. Adams</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Minh L. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "ISIT",
-      "year": "2021",
-      "url": "https://doi.org/10.1109/ISIT45174.2021.9518230"
-    },
-    {
       "title": "Non-interactive Batch Arguments for NP from Standard Assumptions.",
       "authors": "Arka Rai Choudhuri, Abhishek Jain, Zhengzhong Jin",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Zhengzhong Jin</span>",
@@ -519,14 +431,6 @@
       "venue": "TCC",
       "year": "2021",
       "url": "https://eprint.iacr.org/2021/1433.pdf"
-    },
-    {
-      "title": "Optimally-secure Coin-tossing against a Byzantine Adversary.",
-      "authors": "Hamidreza Amini Khorasgani, Hemanta K. Maji, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hamidreza Amini Khorasgani</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "ISIT",
-      "year": "2021",
-      "url": "https://doi.org/10.1109/ISIT45174.2021.9518276"
     },
     {
       "title": "Reducing HSM Reliance in Payments through Proxy Re-Encryption.",
@@ -569,14 +473,6 @@
       "url": "https://doi.org/10.1007/978-3-030-57990-6_5"
     },
     {
-      "title": "Black-Box Use of One-Way Functions is Useless for Optimal Fair Coin-Tossing.",
-      "authors": "Hemanta K. Maji, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2020",
-      "url": "https://eprint.iacr.org/2020/253.pdf"
-    },
-    {
       "title": "Candidate iO from Homomorphic Encryption Schemes.",
       "authors": "Zvika Brakerski, Nico Döttling, Sanjam Garg, Giulio Malavolta",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
@@ -599,14 +495,6 @@
       "venue": "TCC",
       "year": "2020",
       "url": "https://doi.org/10.1007/978-3-030-64375-1_3"
-    },
-    {
-      "title": "Efficient Range-Trapdoor Functions and Applications: Rate-1 OT and More.",
-      "authors": "Sanjam Garg, Mohammad Hajiabadi, Rafail Ostrovsky",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Rafail Ostrovsky</span>",
-      "venue": "TCC",
-      "year": "2020",
-      "url": "https://doi.org/10.1007/978-3-030-64375-1_4"
     },
     {
       "title": "FHE-Based Bootstrapping of Designated-Prover NIZK.",
@@ -697,14 +585,6 @@
       "url": "https://arxiv.org/pdf/2005.04606.pdf"
     },
     {
-      "title": "Explicit Rate-1 Non-malleable Codes for Local Tampering.",
-      "authors": "Divya Gupta, Hemanta K. Maji, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "CRYPTO",
-      "year": "2019",
-      "url": "https://doi.org/10.1007/978-3-030-26948-7_16"
-    },
-    {
       "title": "Finding a Nash Equilibrium Is No Easier Than Breaking Fiat-Shamir.",
       "authors": "Arka Rai Choudhuri, Pavel Hubácek, Chethan Kamath, Krzysztof Pietrzak, Alon Rosen, Guy N. Rothblum",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Pavel Hubácek</span>, <span class=\"text-body-secondary opacity-75\">Chethan Kamath</span>, <span class=\"text-body-secondary opacity-75\">Krzysztof Pietrzak</span>, <span class=\"text-body-secondary opacity-75\">Alon Rosen</span>, <span class=\"text-body-secondary opacity-75\">Guy N. Rothblum</span>",
@@ -727,14 +607,6 @@
       "venue": "EUROCRYPT",
       "year": "2019",
       "url": "https://doi.org/10.1007/978-3-030-17656-3_19"
-    },
-    {
-      "title": "Non-malleable Codes Against Lookahead Tampering.",
-      "authors": "Divya Gupta, Hemanta K. Maji, Mingyuan Wang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
-      "venue": "INDOCRYPT",
-      "year": "2018",
-      "url": "https://doi.org/10.1007/978-3-030-05378-9_17"
     },
     {
       "title": "Round-Optimal Secure Multiparty Computation with Honest Majority.",
@@ -876,15 +748,15 @@
   "venue_stats": [
     {
       "venue": "CRYPTO",
-      "count": 19
+      "count": 13
     },
     {
       "venue": "TCC",
-      "count": 16
+      "count": 13
     },
     {
       "venue": "EUROCRYPT",
-      "count": 10
+      "count": 9
     },
     {
       "venue": "CCS",
@@ -900,61 +772,61 @@
     },
     {
       "venue": "Other",
-      "count": 48
+      "count": 42
     }
   ],
   "pie_segments": [
     {
       "venue": "CRYPTO",
-      "count": 19,
+      "count": 13,
       "start_pct": 0,
-      "end_pct": 17.431192660550458,
+      "end_pct": 13.978494623655912,
       "color": "#6366f1"
     },
     {
       "venue": "TCC",
-      "count": 16,
-      "start_pct": 17.431192660550458,
-      "end_pct": 32.11009174311927,
+      "count": 13,
+      "start_pct": 13.978494623655912,
+      "end_pct": 27.956989247311824,
       "color": "#8b5cf6"
     },
     {
       "venue": "EUROCRYPT",
-      "count": 10,
-      "start_pct": 32.11009174311927,
-      "end_pct": 41.284403669724774,
+      "count": 9,
+      "start_pct": 27.956989247311824,
+      "end_pct": 37.634408602150536,
       "color": "#06b6d4"
     },
     {
       "venue": "CCS",
       "count": 7,
-      "start_pct": 41.284403669724774,
-      "end_pct": 47.706422018348626,
+      "start_pct": 37.634408602150536,
+      "end_pct": 45.16129032258064,
       "color": "#10b981"
     },
     {
       "venue": "SP",
       "count": 5,
-      "start_pct": 47.706422018348626,
-      "end_pct": 52.29357798165138,
+      "start_pct": 45.16129032258064,
+      "end_pct": 50.537634408602145,
       "color": "#f59e0b"
     },
     {
       "venue": "USENIX Security Symposium",
       "count": 4,
-      "start_pct": 52.29357798165138,
-      "end_pct": 55.963302752293586,
+      "start_pct": 50.537634408602145,
+      "end_pct": 54.83870967741935,
       "color": "#ec4899"
     },
     {
       "venue": "Other",
-      "count": 48,
-      "start_pct": 55.963302752293586,
-      "end_pct": 100.00000000000001,
+      "count": 42,
+      "start_pct": 54.83870967741935,
+      "end_pct": 100,
       "color": "#64748b"
     }
   ],
-  "total_papers": 109,
+  "total_papers": 93,
   "featured": [
     {
       "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper",
