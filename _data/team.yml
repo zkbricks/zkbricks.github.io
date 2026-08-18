@@ -14,13 +14,6 @@
   url: https://people.eecs.berkeley.edu/~sanjamg/
   dblp: Sanjam_Garg
 
-- name: Rohit Sinha
-  group: consultant
-  photo: rohit.jpg
-  bio: "Chief Cryptographer at Hedera Hashgraph. Ph.D. from UC Berkeley. Research on threshold encryption, secure enclaves, and verification. Publications at CCS, USENIX Security, CAV, and PLDI."
-  url: https://rsinha.github.io/
-  dblp: Rohit_Sinha_0001
-
 - name: Mingyuan Wang
   group: consultant
   photo: mingyuan.jpg
