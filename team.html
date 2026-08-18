@@ -23,7 +23,7 @@ nav_active: team
       <article class="jellyk-team-card">
         <div class="jellyk-team-card-inner">
           <div class="jellyk-team-photo-wrap">
-            <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" class="jellyk-team-photo" width="160" height="160" loading="lazy">
+            <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" class="jellyk-team-photo" width="160" height="160" loading="lazy"{% if member.photo_position %} style="object-position: {{ member.photo_position }};"{% endif %}>
           </div>
           <div class="jellyk-team-info">
             <h3 class="h5 jellyk-team-name mb-2">{{ member.name }}</h3>
