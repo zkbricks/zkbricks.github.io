@@ -701,6 +701,18 @@
 }
 
 /* ========== 12. Team page ========== */
+.jellyk-team-section + .jellyk-team-section {
+  margin-top: 3rem;
+}
+
+.jellyk-team-section-title {
+  margin-bottom: 1.25rem;
+  color: var(--jellyk-text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 .jellyk-team-list {
   max-width: 52rem;
   margin-left: auto;
