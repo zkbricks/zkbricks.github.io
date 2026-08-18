@@ -20,7 +20,7 @@ const PAPERS_PER_AUTHOR = 1000;
 function parseTeamYml(content) {
   const members = [];
   let current = {};
-  for (const line of content.split('\n')) {
+  for (const line of content.split(/\r?\n/)) {
     const nameMatch = line.match(/^-\s+name:\s*(.+)$/);
     const dblpMatch = line.match(/^\s+dblp:\s*(.+)$/);
     if (nameMatch) {

@@ -3,7 +3,7 @@
     {
       "title": "Jigsaw: Doubly Private Smart Contracts.",
       "authors": "Sanjam Garg, Aarushi Goel, Dimitris Kolonelos, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>",
       "venue": "SP",
       "year": "2026",
       "url": "https://doi.org/10.1109/SP63933.2026.00109"
@@ -41,14 +41,6 @@
       "url": "https://doi.org/10.1007/978-3-031-91134-7_3"
     },
     {
-      "title": "HiSE: Hierarchical (Threshold) Symmetric-key Encryption.",
-      "authors": "Pousali Dey, Pratyay Mukherjee, Swagata Sasmal, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Pousali Dey</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Swagata Sasmal</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "IACR Commun. Cryptol.",
-      "year": "2025",
-      "url": "https://doi.org/10.62056/akgy11fgx"
-    },
-    {
       "title": "Laconic PSI on Authenticated Inputs and Applications.",
       "authors": "James Bartusek, Sanjam Garg, Abhishek Jain, Guru-Vamsi Policharla",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">James Bartusek</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Guru-Vamsi Policharla</span>",
@@ -63,6 +55,14 @@
       "venue": "CRYPTO",
       "year": "2025",
       "url": "https://eprint.iacr.org/2025/1026.pdf"
+    },
+    {
+      "title": "Multiparty Distributed Point Functions.",
+      "authors": "Aarushi Goel, Mingyuan Wang, Zhiheng Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Zhiheng Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2025",
+      "url": "https://eprint.iacr.org/2025/1074.pdf"
     },
     {
       "title": "Policy Compliant Secure Messaging.",
@@ -91,7 +91,7 @@
     {
       "title": "Split Prover Zero-Knowledge SNARKs.",
       "authors": "Sanjam Garg, Aarushi Goel, Dimitris Kolonelos, Sina Shiehian, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Sina Shiehian</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Sina Shiehian</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>",
       "venue": "PKC",
       "year": "2025",
       "url": "https://eprint.iacr.org/2025/373.pdf"
@@ -99,7 +99,7 @@
     {
       "title": "hinTS: Threshold Signatures with Silent Setup.",
       "authors": "Sanjam Garg, Abhishek Jain, Pratyay Mukherjee, Rohit Sinha, Mingyuan Wang, Yinuo Zhang",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
       "venue": "SP",
       "year": "2024",
       "url": "https://doi.org/10.1109/SP54263.2024.00057"
@@ -145,6 +145,14 @@
       "url": "https://eprint.iacr.org/2024/899.pdf"
     },
     {
+      "title": "On the Black-Box Complexity of Private-Key Inner-Product Functional Encryption.",
+      "authors": "Mohammad Hajiabadi, Roman Langrehr, Adam O&apos;Neill, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Roman Langrehr</span>, <span class=\"text-body-secondary opacity-75\">Adam O&amp;apos;Neill</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "TCC",
+      "year": "2024",
+      "url": "https://eprint.iacr.org/2024/1877.pdf"
+    },
+    {
       "title": "Publicly-Detectable Watermarking for Language Models.",
       "authors": "Jaiden Fairoze, Sanjam Garg, Somesh Jha, Saeed Mahloujifar, Mohammad Mahmoody, Mingyuan Wang",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Jaiden Fairoze</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Somesh Jha</span>, <span class=\"text-body-secondary opacity-75\">Saeed Mahloujifar</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Mahmoody</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
@@ -163,7 +171,7 @@
     {
       "title": "SublonK: Sublinear Prover PlonK.",
       "authors": "Arka Rai Choudhuri, Sanjam Garg, Aarushi Goel, Sruthi Sekar, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Sruthi Sekar</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Sruthi Sekar</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>",
       "venue": "Proc. Priv. Enhancing Technol.",
       "year": "2024",
       "url": "https://doi.org/10.56553/popets-2024-0080"
@@ -203,7 +211,7 @@
     {
       "title": "Cryptography with Weights: MPC, Encryption and Signatures.",
       "authors": "Sanjam Garg, Abhishek Jain, Pratyay Mukherjee, Rohit Sinha, Mingyuan Wang, Yinuo Zhang",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
       "venue": "CRYPTO",
       "year": "2023",
       "url": "https://doi.org/10.1007/978-3-031-38557-5_10"
@@ -225,17 +233,17 @@
       "url": "https://eprint.iacr.org/2023/1345.pdf"
     },
     {
-      "title": "LucidiTEE: Scalable Policy-Based Multiparty Computation with Fairness.",
-      "authors": "Sivanarayana Gaddam, Ranjit Kumaresan, Srinivasan Raghuraman, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Sivanarayana Gaddam</span>, <span class=\"text-body-secondary opacity-75\">Ranjit Kumaresan</span>, <span class=\"text-body-secondary opacity-75\">Srinivasan Raghuraman</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "CANS",
+      "title": "Reusable Secure Computation in the Plain Model.",
+      "authors": "Vipul Goyal, Akshayaram Srinivasan, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Vipul Goyal</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
       "year": "2023",
-      "url": "https://doi.org/10.1007/978-981-99-7563-1_16"
+      "url": "https://eprint.iacr.org/2023/1006.pdf"
     },
     {
       "title": "Threshold Signatures in the Multiverse.",
       "authors": "Leemon Baird, Sanjam Garg, Abhishek Jain, Pratyay Mukherjee, Rohit Sinha, Mingyuan Wang, Yinuo Zhang",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Leemon Baird</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Leemon Baird</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
       "venue": "SP",
       "year": "2023",
       "url": "https://eprint.iacr.org/2023/063.pdf"
@@ -281,20 +289,28 @@
       "url": "https://doi.org/10.4230/LIPIcs.ICALP.2022.28"
     },
     {
-      "title": "i-TiRE: Incremental Timed-Release Encryption or How to use Timed-Release Encryption on Blockchains?",
-      "authors": "Leemon Baird, Pratyay Mukherjee, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Leemon Baird</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "CCS",
-      "year": "2022",
-      "url": "https://doi.org/10.1145/3548606.3560704"
-    },
-    {
       "title": "IBE with Incompressible Master Secret and Small Identity Secrets.",
       "authors": "Nico Döttling, Sanjam Garg, Sruthi Sekar, Mingyuan Wang",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Sruthi Sekar</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
       "venue": "TCC",
       "year": "2022",
       "url": "https://eprint.iacr.org/2022/649.pdf"
+    },
+    {
+      "title": "Improved Bound on the Local Leakage-resilience of Shamir&apos;s Secret Sharing.",
+      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "ISIT",
+      "year": "2022",
+      "url": "https://doi.org/10.1109/ISIT50566.2022.9834695"
+    },
+    {
+      "title": "Leakage-resilient Linear Secret-sharing Against Arbitrary Bounded-size Leakage Family.",
+      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang, Xiuyu Ye, Albert Yu",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Xiuyu Ye</span>, <span class=\"text-body-secondary opacity-75\">Albert Yu</span>",
+      "venue": "TCC",
+      "year": "2022",
+      "url": "https://doi.org/10.1007/978-3-031-22318-1_13"
     },
     {
       "title": "On the Worst-Case Inefficiency of CGKA.",
@@ -337,6 +353,14 @@
       "url": "https://doi.org/10.1145/3548606.3560653"
     },
     {
+      "title": "Tight Estimate of the Local Leakage Resilience of the Additive Secret-Sharing Scheme &amp; Its Consequences.",
+      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang, Xiuyu Ye, Albert Yu",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Xiuyu Ye</span>, <span class=\"text-body-secondary opacity-75\">Albert Yu</span>",
+      "venue": "ITC",
+      "year": "2022",
+      "url": "https://doi.org/10.4230/LIPIcs.ITC.2022.16"
+    },
+    {
       "title": "Two-round Multiparty Secure Computation from Minimal Assumptions.",
       "authors": "Sanjam Garg, Akshayaram Srinivasan",
       "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Akshayaram Srinivasan</span>",
@@ -353,14 +377,6 @@
       "url": "https://proceedings.neurips.cc/paper/2021/hash/5a499f6e26313e19bd4049009bbed5bd-Abstract.html"
     },
     {
-      "title": "Amortized Threshold Symmetric-key Encryption.",
-      "authors": "Mihai Christodorescu, Sivanarayana Gaddam, Pratyay Mukherjee, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Mihai Christodorescu</span>, <span class=\"text-body-secondary opacity-75\">Sivanarayana Gaddam</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "CCS",
-      "year": "2021",
-      "url": "https://eprint.iacr.org/2021/1176.pdf"
-    },
-    {
       "title": "Amortizing Rate-1 OT and Applications to PIR and PSI.",
       "authors": "Melissa Chase, Sanjam Garg, Mohammad Hajiabadi, Jialin Li, Peihan Miao",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Melissa Chase</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Jialin Li</span>, <span class=\"text-body-secondary opacity-75\">Peihan Miao</span>",
@@ -375,6 +391,30 @@
       "venue": "CRYPTO",
       "year": "2021",
       "url": "https://eprint.iacr.org/2021/942.pdf"
+    },
+    {
+      "title": "Computational Hardness of Optimal Fair Computation: Beyond Minicrypt.",
+      "authors": "Hemanta K. Maji, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2021",
+      "url": "https://doi.org/10.1007/978-3-030-84245-1_2"
+    },
+    {
+      "title": "Constructing Locally Leakage-Resilient Linear Secret-Sharing Schemes.",
+      "authors": "Hemanta K. Maji, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2021",
+      "url": "https://doi.org/10.1007/978-3-030-84252-9_26"
+    },
+    {
+      "title": "Efficient Distributed Coin-tossing Protocols.",
+      "authors": "Hamidreza Amini Khorasgani, Hemanta K. Maji, Himanshi K. Mehta, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hamidreza Amini Khorasgani</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Himanshi K. Mehta</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "ISIT",
+      "year": "2021",
+      "url": "https://doi.org/10.1109/ISIT45174.2021.9518000"
     },
     {
       "title": "Fluid MPC: Secure Multiparty Computation with Dynamic Participants.",
@@ -417,6 +457,22 @@
       "url": "https://eprint.iacr.org/2021/728.pdf"
     },
     {
+      "title": "Leakage-Resilience of the Shamir Secret-Sharing Scheme Against Physical-Bit Leakages.",
+      "authors": "Hemanta K. Maji, Hai H. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "EUROCRYPT",
+      "year": "2021",
+      "url": "https://eprint.iacr.org/2021/186.pdf"
+    },
+    {
+      "title": "Lower Bounds for Leakage-Resilient Secret-Sharing Schemes against Probing Attacks.",
+      "authors": "Donald Q. Adams, Hemanta K. Maji, Hai H. Nguyen, Minh L. Nguyen, Anat Paskin-Cherniavsky, Tom Suad, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Donald Q. Adams</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-secondary opacity-75\">Hai H. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Minh L. Nguyen</span>, <span class=\"text-body-secondary opacity-75\">Anat Paskin-Cherniavsky</span>, <span class=\"text-body-secondary opacity-75\">Tom Suad</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "ISIT",
+      "year": "2021",
+      "url": "https://doi.org/10.1109/ISIT45174.2021.9518230"
+    },
+    {
       "title": "Non-interactive Batch Arguments for NP from Standard Assumptions.",
       "authors": "Arka Rai Choudhuri, Abhishek Jain, Zhengzhong Jin",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Zhengzhong Jin</span>",
@@ -433,12 +489,12 @@
       "url": "https://eprint.iacr.org/2021/1433.pdf"
     },
     {
-      "title": "Reducing HSM Reliance in Payments through Proxy Re-Encryption.",
-      "authors": "Sivanarayana Gaddam, Atul Luykx, Rohit Sinha, Gaven J. Watson",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Sivanarayana Gaddam</span>, <span class=\"text-body-secondary opacity-75\">Atul Luykx</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Gaven J. Watson</span>",
-      "venue": "USENIX Security Symposium",
+      "title": "Optimally-secure Coin-tossing against a Byzantine Adversary.",
+      "authors": "Hamidreza Amini Khorasgani, Hemanta K. Maji, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hamidreza Amini Khorasgani</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "ISIT",
       "year": "2021",
-      "url": "https://eprint.iacr.org/2021/094.pdf"
+      "url": "https://doi.org/10.1109/ISIT45174.2021.9518276"
     },
     {
       "title": "SNARGs for $\\mathcal{P}$ from LWE.",
@@ -473,6 +529,14 @@
       "url": "https://doi.org/10.1007/978-3-030-57990-6_5"
     },
     {
+      "title": "Black-Box Use of One-Way Functions is Useless for Optimal Fair Coin-Tossing.",
+      "authors": "Hemanta K. Maji, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2020",
+      "url": "https://eprint.iacr.org/2020/253.pdf"
+    },
+    {
       "title": "Candidate iO from Homomorphic Encryption Schemes.",
       "authors": "Zvika Brakerski, Nico Döttling, Sanjam Garg, Giulio Malavolta",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-secondary opacity-75\">Nico Döttling</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Giulio Malavolta</span>",
@@ -495,14 +559,6 @@
       "venue": "TCC",
       "year": "2020",
       "url": "https://doi.org/10.1007/978-3-030-64375-1_3"
-    },
-    {
-      "title": "FHE-Based Bootstrapping of Designated-Prover NIZK.",
-      "authors": "Zvika Brakerski, Sanjam Garg, Rotem Tsabary",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Zvika Brakerski</span>, <span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Rotem Tsabary</span>",
-      "venue": "TCC",
-      "year": "2020",
-      "url": "https://doi.org/10.1007/978-3-030-64375-1_23"
     },
     {
       "title": "Formalizing Data Deletion in the Context of the Right to Be Forgotten.",
@@ -577,12 +633,12 @@
       "url": "https://doi.org/10.1007/978-3-030-45724-2_26"
     },
     {
-      "title": "Verification of Quantitative Hyperproperties Using Trace Enumeration Relations.",
-      "authors": "Shubham Sahai, Pramod Subramanyan, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Shubham Sahai</span>, <span class=\"text-body-secondary opacity-75\">Pramod Subramanyan</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "CAV",
-      "year": "2020",
-      "url": "https://arxiv.org/pdf/2005.04606.pdf"
+      "title": "Explicit Rate-1 Non-malleable Codes for Local Tampering.",
+      "authors": "Divya Gupta, Hemanta K. Maji, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2019",
+      "url": "https://doi.org/10.1007/978-3-030-26948-7_16"
     },
     {
       "title": "Finding a Nash Equilibrium Is No Easier Than Breaking Fiat-Shamir.",
@@ -609,28 +665,20 @@
       "url": "https://doi.org/10.1007/978-3-030-17656-3_19"
     },
     {
+      "title": "Non-malleable Codes Against Lookahead Tampering.",
+      "authors": "Divya Gupta, Hemanta K. Maji, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Divya Gupta</span>, <span class=\"text-body-secondary opacity-75\">Hemanta K. Maji</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "INDOCRYPT",
+      "year": "2018",
+      "url": "https://doi.org/10.1007/978-3-030-05378-9_17"
+    },
+    {
       "title": "Round-Optimal Secure Multiparty Computation with Honest Majority.",
       "authors": "Prabhanjan Ananth, Arka Rai Choudhuri, Aarushi Goel, Abhishek Jain",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Prabhanjan Ananth</span>, <span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>",
       "venue": "CRYPTO",
       "year": "2018",
       "url": "https://eprint.iacr.org/2018/572.pdf"
-    },
-    {
-      "title": "A compiler and verifier for page access oblivious computation.",
-      "authors": "Rohit Sinha, Sriram K. Rajamani, Sanjit A. Seshia",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Sriram K. Rajamani</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>",
-      "venue": "ESEC/SIGSOFT FSE",
-      "year": "2017",
-      "url": "https://doi.org/10.1145/3106237.3106248"
-    },
-    {
-      "title": "A Formal Foundation for Secure Remote Execution of Enclaves.",
-      "authors": "Pramod Subramanyan, Rohit Sinha, Ilia A. Lebedev, Srinivas Devadas, Sanjit A. Seshia",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Pramod Subramanyan</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Ilia A. Lebedev</span>, <span class=\"text-body-secondary opacity-75\">Srinivas Devadas</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>",
-      "venue": "CCS",
-      "year": "2017",
-      "url": "http://eprint.iacr.org/2017/565.pdf"
     },
     {
       "title": "A New Approach to Round-Optimal Secure Multiparty Computation.",
@@ -649,118 +697,26 @@
       "url": "http://eprint.iacr.org/2017/1091.pdf"
     },
     {
-      "title": "Secure Computing using Certified Software and Trusted Hardware.",
-      "authors": "Rohit Sinha",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>",
-      "venue": "",
-      "year": "2017",
-      "url": "http://www.escholarship.org/uc/item/54r176n5"
-    },
-    {
-      "title": "A design and verification methodology for secure isolated regions.",
-      "authors": "Rohit Sinha, Manuel Costa, Akash Lal, Nuno P. Lopes, Sriram K. Rajamani, Sanjit A. Seshia, Kapil Vaswani",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Manuel Costa</span>, <span class=\"text-body-secondary opacity-75\">Akash Lal</span>, <span class=\"text-body-secondary opacity-75\">Nuno P. Lopes</span>, <span class=\"text-body-secondary opacity-75\">Sriram K. Rajamani</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>, <span class=\"text-body-secondary opacity-75\">Kapil Vaswani</span>",
-      "venue": "PLDI",
-      "year": "2016",
-      "url": "https://doi.org/10.1145/2908080.2908113"
-    },
-    {
       "title": "Significantly Improved Multi-bit Differentials for Reduced Round Salsa and ChaCha.",
       "authors": "Arka Rai Choudhuri, Subhamoy Maitra",
       "authors_html": "<span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Subhamoy Maitra</span>",
       "venue": "IACR Trans. Symmetric Cryptol.",
       "year": "2016",
       "url": "http://eprint.iacr.org/2016/1034.pdf"
-    },
-    {
-      "title": "Automatic Rootcausing for Program Equivalence Failures in Binaries.",
-      "authors": "Shuvendu K. Lahiri, Rohit Sinha, Chris Hawblitzel",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Shuvendu K. Lahiri</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Chris Hawblitzel</span>",
-      "venue": "CAV",
-      "year": "2015",
-      "url": "https://doi.org/10.1007/978-3-319-21690-4_21"
-    },
-    {
-      "title": "Moat: Verifying Confidentiality of Enclave Programs.",
-      "authors": "Rohit Sinha, Sriram K. Rajamani, Sanjit A. Seshia, Kapil Vaswani",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Sriram K. Rajamani</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>, <span class=\"text-body-secondary opacity-75\">Kapil Vaswani</span>",
-      "venue": "CCS",
-      "year": "2015",
-      "url": "https://doi.org/10.1145/2810103.2813608"
-    },
-    {
-      "title": "Formal Modeling and Verification of CloudProxy.",
-      "authors": "Wei Yang Tan, Rohit Sinha, John L. Manferdelli, Sanjit A. Seshia",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Wei Yang Tan</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">John L. Manferdelli</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>",
-      "venue": "VSTTE",
-      "year": "2014",
-      "url": "https://doi.org/10.1007/978-3-319-12154-3_6"
-    },
-    {
-      "title": "Symbolic software model validation.",
-      "authors": "Cynthia Sturton, Rohit Sinha, Thurston H. Y. Dang, Sakshi Jain, Michael McCoyd, Wei Yang Tan, Petros Maniatis, Sanjit A. Seshia, David A. Wagner",
-      "authors_html": "<span class=\"text-body-secondary opacity-75\">Cynthia Sturton</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Thurston H. Y. Dang</span>, <span class=\"text-body-secondary opacity-75\">Sakshi Jain</span>, <span class=\"text-body-secondary opacity-75\">Michael McCoyd</span>, <span class=\"text-body-secondary opacity-75\">Wei Yang Tan</span>, <span class=\"text-body-secondary opacity-75\">Petros Maniatis</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>, <span class=\"text-body-secondary opacity-75\">David A. Wagner</span>",
-      "venue": "MEMOCODE",
-      "year": "2013",
-      "url": "https://ieeexplore.ieee.org/document/6670946/"
-    },
-    {
-      "title": "Parallel simulation of mixed-abstraction SystemC models on GPUs and multicore CPUs.",
-      "authors": "Rohit Sinha, Aayush Prakash, Hiren D. Patel",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Aayush Prakash</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
-      "venue": "ASP-DAC",
-      "year": "2012",
-      "url": "https://doi.org/10.1109/ASPDAC.2012.6164991"
-    },
-    {
-      "title": "synASM: A High-Level Synthesis Framework With Support for Parallel and Timed Constructs.",
-      "authors": "Rohit Sinha, Hiren D. Patel",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
-      "venue": "IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.",
-      "year": "2012",
-      "url": "https://doi.org/10.1109/TCAD.2012.2198474"
-    },
-    {
-      "title": "Verification with small and short worlds.",
-      "authors": "Rohit Sinha, Cynthia Sturton, Petros Maniatis, Sanjit A. Seshia, David A. Wagner",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Cynthia Sturton</span>, <span class=\"text-body-secondary opacity-75\">Petros Maniatis</span>, <span class=\"text-body-secondary opacity-75\">Sanjit A. Seshia</span>, <span class=\"text-body-secondary opacity-75\">David A. Wagner</span>",
-      "venue": "FMCAD",
-      "year": "2012",
-      "url": "https://ieeexplore.ieee.org/document/6462557/"
-    },
-    {
-      "title": "Abstract state machines as an intermediate representation for high-level synthesis.",
-      "authors": "Rohit Sinha, Hiren D. Patel",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
-      "venue": "DATE",
-      "year": "2011",
-      "url": "https://doi.org/10.1109/DATE.2011.5763227"
-    },
-    {
-      "title": "Extending Force-Directed Scheduling with Explicit Parallel and Timed Constructs for High-Level Synthesis.",
-      "authors": "Rohit Sinha, Hiren D. Patel",
-      "authors_html": "<span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-secondary opacity-75\">Hiren D. Patel</span>",
-      "venue": "FCCM",
-      "year": "2011",
-      "url": "https://doi.org/10.1109/FCCM.2011.49"
     }
   ],
   "venue_stats": [
     {
       "venue": "CRYPTO",
-      "count": 13
+      "count": 19
     },
     {
       "venue": "TCC",
-      "count": 13
+      "count": 14
     },
     {
       "venue": "EUROCRYPT",
-      "count": 9
-    },
-    {
-      "venue": "CCS",
-      "count": 7
+      "count": 10
     },
     {
       "venue": "SP",
@@ -768,65 +724,69 @@
     },
     {
       "venue": "USENIX Security Symposium",
-      "count": 4
+      "count": 3
+    },
+    {
+      "venue": "CCS",
+      "count": 3
     },
     {
       "venue": "Other",
-      "count": 42
+      "count": 34
     }
   ],
   "pie_segments": [
     {
       "venue": "CRYPTO",
-      "count": 13,
+      "count": 19,
       "start_pct": 0,
-      "end_pct": 13.978494623655912,
+      "end_pct": 21.59090909090909,
       "color": "#6366f1"
     },
     {
       "venue": "TCC",
-      "count": 13,
-      "start_pct": 13.978494623655912,
-      "end_pct": 27.956989247311824,
+      "count": 14,
+      "start_pct": 21.59090909090909,
+      "end_pct": 37.5,
       "color": "#8b5cf6"
     },
     {
       "venue": "EUROCRYPT",
-      "count": 9,
-      "start_pct": 27.956989247311824,
-      "end_pct": 37.634408602150536,
+      "count": 10,
+      "start_pct": 37.5,
+      "end_pct": 48.86363636363636,
       "color": "#06b6d4"
-    },
-    {
-      "venue": "CCS",
-      "count": 7,
-      "start_pct": 37.634408602150536,
-      "end_pct": 45.16129032258064,
-      "color": "#10b981"
     },
     {
       "venue": "SP",
       "count": 5,
-      "start_pct": 45.16129032258064,
-      "end_pct": 50.537634408602145,
-      "color": "#f59e0b"
+      "start_pct": 48.86363636363636,
+      "end_pct": 54.54545454545454,
+      "color": "#10b981"
     },
     {
       "venue": "USENIX Security Symposium",
-      "count": 4,
-      "start_pct": 50.537634408602145,
-      "end_pct": 54.83870967741935,
+      "count": 3,
+      "start_pct": 54.54545454545454,
+      "end_pct": 57.954545454545446,
+      "color": "#f59e0b"
+    },
+    {
+      "venue": "CCS",
+      "count": 3,
+      "start_pct": 57.954545454545446,
+      "end_pct": 61.36363636363635,
       "color": "#ec4899"
     },
     {
       "venue": "Other",
-      "count": 42,
-      "start_pct": 54.83870967741935,
-      "end_pct": 100,
+      "count": 34,
+      "start_pct": 61.36363636363635,
+      "end_pct": 99.99999999999999,
       "color": "#64748b"
     }
   ],
-  "total_papers": 93,
+  "total_papers": 88,
   "featured": [
     {
       "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper",
@@ -847,7 +807,7 @@
     {
       "title": "Jigsaw: Doubly Private Smart Contracts.",
       "authors": "Sanjam Garg, Aarushi Goel, Dimitris Kolonelos, Rohit Sinha",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>",
       "venue": "SP",
       "year": "2026",
       "url": "https://doi.org/10.1109/SP63933.2026.00109"
@@ -863,7 +823,7 @@
     {
       "title": "hinTS: Threshold Signatures with Silent Setup.",
       "authors": "Sanjam Garg, Abhishek Jain, Pratyay Mukherjee, Rohit Sinha, Mingyuan Wang, Yinuo Zhang",
-      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-emphasis\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
+      "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Pratyay Mukherjee</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>, <span class=\"text-body-secondary opacity-75\">Yinuo Zhang</span>",
       "venue": "SP",
       "year": "2024",
       "url": "https://doi.org/10.1109/SP54263.2024.00057"
