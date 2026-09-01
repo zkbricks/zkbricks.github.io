@@ -1,6 +1,14 @@
 {
   "papers": [
     {
+      "title": "Generic-Group Barriers for Function-Hiding and Multi-input Functional Encryption.",
+      "authors": "Mohammad Hajiabadi, Roman Langrehr, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Mohammad Hajiabadi</span>, <span class=\"text-body-secondary opacity-75\">Roman Langrehr</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2026",
+      "url": "https://eprint.iacr.org/2026/1149.pdf"
+    },
+    {
       "title": "Jigsaw: Doubly Private Smart Contracts.",
       "authors": "Sanjam Garg, Aarushi Goel, Dimitris Kolonelos, Rohit Sinha",
       "authors_html": "<span class=\"text-body-emphasis\">Sanjam Garg</span>, <span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Dimitris Kolonelos</span>, <span class=\"text-body-secondary opacity-75\">Rohit Sinha</span>",
@@ -9,12 +17,28 @@
       "url": "https://doi.org/10.1109/SP63933.2026.00109"
     },
     {
+      "title": "Multiparty Computation with Minimal Overhead Without Circuit Transformation.",
+      "authors": "Aditya Hegde, Phuoc Pham Van Long, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Aditya Hegde</span>, <span class=\"text-body-secondary opacity-75\">Phuoc Pham Van Long</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2026",
+      "url": "https://doi.org/10.1007/978-3-032-35418-1_5"
+    },
+    {
       "title": "On Succinct Non-interactive Secure Computation with Malicious Security.",
       "authors": "Maya Farber Brodsky, Arka Rai Choudhuri, Abhishek Jain, Omer Paneth",
       "authors_html": "<span class=\"text-body-secondary opacity-75\">Maya Farber Brodsky</span>, <span class=\"text-body-emphasis\">Arka Rai Choudhuri</span>, <span class=\"text-body-secondary opacity-75\">Abhishek Jain</span>, <span class=\"text-body-secondary opacity-75\">Omer Paneth</span>",
       "venue": "EUROCRYPT",
       "year": "2026",
       "url": "https://eprint.iacr.org/2026/909.pdf"
+    },
+    {
+      "title": "Weighted Cryptography with Weight-Independent Complexity.",
+      "authors": "Aarushi Goel, Swagata Sasmal, Mingyuan Wang",
+      "authors_html": "<span class=\"text-body-secondary opacity-75\">Aarushi Goel</span>, <span class=\"text-body-secondary opacity-75\">Swagata Sasmal</span>, <span class=\"text-body-emphasis\">Mingyuan Wang</span>",
+      "venue": "CRYPTO",
+      "year": "2026",
+      "url": "https://eprint.iacr.org/2026/273.pdf"
     },
     {
       "title": "A Framework for Witness Encryption from Linearly Verifiable SNARKs and Applications.",
@@ -708,7 +732,7 @@
   "venue_stats": [
     {
       "venue": "CRYPTO",
-      "count": 19
+      "count": 22
     },
     {
       "venue": "TCC",
@@ -738,55 +762,55 @@
   "pie_segments": [
     {
       "venue": "CRYPTO",
-      "count": 19,
+      "count": 22,
       "start_pct": 0,
-      "end_pct": 21.59090909090909,
+      "end_pct": 24.175824175824175,
       "color": "#6366f1"
     },
     {
       "venue": "TCC",
       "count": 14,
-      "start_pct": 21.59090909090909,
-      "end_pct": 37.5,
+      "start_pct": 24.175824175824175,
+      "end_pct": 39.56043956043956,
       "color": "#8b5cf6"
     },
     {
       "venue": "EUROCRYPT",
       "count": 10,
-      "start_pct": 37.5,
-      "end_pct": 48.86363636363636,
+      "start_pct": 39.56043956043956,
+      "end_pct": 50.549450549450555,
       "color": "#06b6d4"
     },
     {
       "venue": "SP",
       "count": 5,
-      "start_pct": 48.86363636363636,
-      "end_pct": 54.54545454545454,
+      "start_pct": 50.549450549450555,
+      "end_pct": 56.04395604395605,
       "color": "#10b981"
     },
     {
       "venue": "USENIX Security Symposium",
       "count": 3,
-      "start_pct": 54.54545454545454,
-      "end_pct": 57.954545454545446,
+      "start_pct": 56.04395604395605,
+      "end_pct": 59.34065934065935,
       "color": "#f59e0b"
     },
     {
       "venue": "CCS",
       "count": 3,
-      "start_pct": 57.954545454545446,
-      "end_pct": 61.36363636363635,
+      "start_pct": 59.34065934065935,
+      "end_pct": 62.63736263736265,
       "color": "#ec4899"
     },
     {
       "venue": "Other",
       "count": 34,
-      "start_pct": 61.36363636363635,
-      "end_pct": 99.99999999999999,
+      "start_pct": 62.63736263736265,
+      "end_pct": 100.00000000000001,
       "color": "#64748b"
     }
   ],
-  "total_papers": 88,
+  "total_papers": 91,
   "featured": [
     {
       "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper",
