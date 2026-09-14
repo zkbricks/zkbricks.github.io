@@ -15,7 +15,7 @@
   dblp: Sanjam_Garg
 
 - name: Mingyuan Wang
-  group: consultant
+  group: affiliate
   photo: mingyuan.jpg
   photo_position: "center 24%"
   bio: "Assistant Professor of Computer Science at NYU Shanghai; previously postdoc at UC Berkeley. Research in threshold cryptography, secure multiparty computation, and leakage-resilient crypto. Ph.D. from Purdue University."

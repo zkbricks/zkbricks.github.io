@@ -10,7 +10,7 @@ nav_active: team
   <p class="small mb-0 opacity-75">The people behind zkBricks.</p>
 </header>
 
-{% assign team_groups = "core|Core Team,consultant|Consultants" | split: "," %}
+{% assign team_groups = "core|Core Team,affiliate|Affiliated Researchers" | split: "," %}
 {% for team_group in team_groups %}
   {% assign group_parts = team_group | split: "|" %}
   {% assign group_key = group_parts[0] %}
