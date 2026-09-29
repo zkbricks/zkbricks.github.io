@@ -2,82 +2,130 @@
 layout: default
 permalink: /research.html
 title: "zkBricks | Research"
-description: "Latest publications from the zkBricks team from DBLP."
+description: "Peer-reviewed research from the zkBricks team in cryptography, security, and privacy, from foundations to deployed systems."
 nav_active: research
-content_class: research-page
 ---
-<header class="mb-4">
-  <h1 class="mb-2">Research</h1>
-</header>
-
 {% assign research = site.data.dblp_research %}
+{% assign area_names = "crypto|Cryptography,security|Security & Privacy,theory|Theory,ml|Machine Learning,other|Other" | split: "," %}
 
-{% if research == nil or research.papers == nil or research.papers.size == 0 %}
-  <div class="mb-4">
-    <p class="small text-body-secondary">Research data is generated at build time. Run <code>node scripts/fetch-dblp.js</code> then build the site.</p>
-  </div>
-{% else %}
-
-<div id="research-grid" class="jellyk-research-grid">
-  <div class="jellyk-research-left">
-    {% if research.pie_segments != nil and research.pie_segments.size > 0 %}
-    <div id="research-stats" class="jellyk-research-stats" aria-label="Publication statistics">
-      <h2 class="h6 mb-3">Publication statistics</h2>
-      <div class="jellyk-pie-wrap">
-        {% assign conic_str = "" %}
-        {% for seg in research.pie_segments %}
-          {% if forloop.first %}
-            {% assign conic_str = seg.color | append: " " | append: seg.start_pct | append: "% " | append: seg.end_pct | append: "%" %}
-          {% else %}
-            {% assign conic_str = conic_str | append: ", " | append: seg.color | append: " " | append: seg.start_pct | append: "% " | append: seg.end_pct | append: "%" %}
-          {% endif %}
-        {% endfor %}
-        <div class="jellyk-pie" style="background: conic-gradient({{ conic_str }})"></div>
-        <ul class="jellyk-pie-legend list-unstyled mb-0">
-          {% for seg in research.pie_segments %}
-          <li><span class="jellyk-pie-legend-swatch" style="background:{{ seg.color }}"></span><span class="jellyk-pie-legend-label">{{ seg.venue }} <span class="jellyk-pie-legend-count">({{ seg.count }})</span></span></li>
-          {% endfor %}
-        </ul>
-      </div>
+<header class="page-head wrap">
+  <p class="kicker" data-reveal data-scramble>Research</p>
+  <h1 class="display" data-reveal="lines">
+    <span class="line"><span>Every brick,</span></span>
+    <span class="line"><span><em>peer reviewed.</em></span></span>
+  </h1>
+  <div class="page-head-grid">
+    <p class="lede" data-reveal>Our team publishes at the top venues in cryptography and security, from foundational theory to systems built for practice.</p>
+    {% if research.total_papers > 0 %}
+    <div class="stats-inline" data-reveal style="--d:.1s">
+      <div class="stat-inline"><b data-count="{{ research.total_papers }}">{{ research.total_papers }}</b><span>Papers</span></div>
+      <div class="stat-inline"><b data-count="{{ research.venue_stats.size }}">{{ research.venue_stats.size }}</b><span>Venues</span></div>
+      <div class="stat-inline"><b>{{ research.first_year }}–{{ research.last_year | slice: 2, 2 }}</b><span>Years</span></div>
     </div>
     {% endif %}
-
-    <div id="research-featured" class="jellyk-research-featured-col" aria-label="Featured papers">
-      {% for f in research.featured %}
-      <article class="jellyk-research-featured mb-4">
-        <a href="{{ f.url | default: '#' }}" class="jellyk-research-featured-link text-decoration-none d-block" target="_blank" rel="noopener noreferrer">
-          <div class="jellyk-research-featured-badge small text-body-secondary mb-2">Featured paper</div>
-          <h2 class="h5 jellyk-research-featured-title mb-2">{{ f.title | default: 'Untitled' }}</h2>
-          <p class="small mb-2">{% if f.authors_html %}{{ f.authors_html }}{% else %}<span class="text-body-secondary">{{ f.authors | escape }}</span>{% endif %}</p>
-          <p class="small mb-3 opacity-75">{% if f.venue %}{{ f.venue }}{% endif %}{% if f.year %}{% if f.venue %} · {% endif %}{{ f.year }}{% endif %}</p>
-        </a>
-        <div class="jellyk-research-featured-links"><a href="{{ f.url | default: '#' }}" class="jellyk-research-cta" target="_blank" rel="noopener noreferrer">Read paper →</a></div>
-      </article>
-      {% endfor %}
-    </div>
   </div>
+</header>
 
-  <div class="jellyk-research-right">
-    <div id="research-papers-list" class="jellyk-research-list" aria-label="Publications">
-      <ul class="jellyk-research-timeline list-unstyled mb-0">
-        {% for p in research.papers %}
-        <li class="jellyk-research-timeline-item mb-3">
-          <div class="jellyk-research-timeline-link d-flex align-items-start gap-2">
-            <span class="jellyk-research-timeline-num mt-1">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
-            <div class="jellyk-research-timeline-content flex-grow-1 min-w-0">
-              <div>
-                <a href="{{ p.url | default: '#' }}" class="jellyk-research-timeline-title text-decoration-none" target="_blank" rel="noopener noreferrer">{{ p.title | default: 'Untitled' }}</a>
-                <span class="small text-body-secondary">{% if p.venue %}{{ p.venue }}{% endif %}{% if p.year %}{% if p.venue %} · {% endif %}{{ p.year }}{% endif %}</span>
-              </div>
-              <div class="small mt-1" style="line-height: 1.4;">{{ p.authors_html | default: p.authors }}</div>
-            </div>
-            <span class="jellyk-research-paper-links mt-1"><a href="{{ p.url | default: '#' }}" class="jellyk-research-cta-inline" target="_blank" rel="noopener noreferrer">Read</a></span>
-          </div>
-        </li>
+{% if research == nil or research.papers == nil or research.papers.size == 0 %}
+<section class="section wrap">
+  <p class="lede">Publication data is generated at build time. Run <code>node scripts/fetch-dblp.js</code>, then build the site.</p>
+</section>
+{% else %}
+
+<section class="section wrap" aria-labelledby="wall-title" style="padding-top:0">
+  <div class="section-head">
+    <p class="kicker" data-reveal>§ 01 — The wall</p>
+    <div class="section-head-end">
+      <h2 class="h-section" id="wall-title" data-reveal="lines">
+        <span class="line"><span>One brick</span></span>
+        <span class="line"><span><em>per paper.</em></span></span>
+      </h2>
+      <ul class="legend" aria-label="Filter by area" data-reveal>
+        {% for a in area_names %}
+          {% assign parts = a | split: "|" %}
+          {% assign stat = research.area_stats | where: "name", parts[0] | first %}
+          {% if stat %}
+          <li><button class="chip" type="button" data-area="{{ parts[0] }}" aria-pressed="false"><span class="sw area-{{ parts[0] }}"></span>{{ parts[1] }} <span class="ct">{{ stat.count }}</span></button></li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>
   </div>
-</div>
 
+  <div class="wall-wrap">
+    {% assign by_year = research.papers | group_by: "year" | reverse %}
+    <div class="wall" data-wall role="list" aria-label="Publications by year">
+      {% for g in by_year %}
+      <div class="wall-col" role="listitem">
+        <span class="wall-year"><span class="long">{{ g.name }}</span><span class="short">’{{ g.name | slice: 2, 2 }}</span></span>
+        {% for p in g.items %}
+        <a class="brick area-{{ p.area }}" href="#{{ p.title | slugify | truncate: 64, '' }}-{{ p.year }}" data-area="{{ p.area }}" data-title="{{ p.title | escape }}" data-meta="{{ p.venue_short }} · {{ p.year }}" aria-label="{{ p.title | escape }} ({{ p.venue_short }} {{ p.year }})"></a>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="wall-tip" data-wall-tip aria-hidden="true"><div class="wall-tip-meta"></div><div class="wall-tip-title"></div></div>
+  </div>
+</section>
+
+{% if research.featured.size > 0 %}
+<section class="section wrap" aria-labelledby="featured-title">
+  <div class="section-head">
+    <p class="kicker" data-reveal>§ 02 — Selected</p>
+    <h2 class="h-section" id="featured-title" data-reveal="lines">
+      <span class="line"><span>Work we are</span></span>
+      <span class="line"><span><em>building on now.</em></span></span>
+    </h2>
+  </div>
+  <div class="featured-grid">
+    {% for f in research.featured %}
+    <a class="feat" href="{{ f.url }}" target="_blank" rel="noopener noreferrer" data-reveal style="--d:{{ forloop.index0 | modulo: 3 | times: 0.08 }}s">
+      <div class="feat-top"><span class="feat-venue">{{ f.venue_short | default: f.venue }}</span><span>{{ f.year }}</span></div>
+      <h3 class="feat-title">{{ f.title | escape }}</h3>
+      <p class="feat-authors">{{ f.authors_html | default: f.authors }}</p>
+      <span class="feat-arrow" aria-hidden="true">↗</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section wrap" aria-labelledby="all-title">
+  <div class="section-head" style="margin-bottom:24px">
+    <p class="kicker" data-reveal>§ 03 — Index</p>
+    <h2 class="h-section" id="all-title" data-reveal="lines">
+      <span class="line"><span>All publications</span></span>
+    </h2>
+  </div>
+
+  <div class="pub-tools">
+    <label class="search">
+      <span class="visually-hidden">Search publications</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5"/></svg>
+      <input type="search" placeholder="Search title, author, venue" autocomplete="off" data-pub-search>
+    </label>
+    <span class="pub-count" data-pub-count aria-live="polite">{{ research.papers.size }} papers</span>
+  </div>
+
+  <div data-pub-list>
+    {% assign by_year_desc = research.papers | group_by: "year" %}
+    {% for g in by_year_desc %}
+    <div class="year-group" data-year-group>
+      <h3 class="year-label">{{ g.name }}</h3>
+      <ul class="pubs">
+        {% for p in g.items %}
+        <li class="pub" id="{{ p.title | slugify | truncate: 64, '' }}-{{ p.year }}" data-area="{{ p.area }}" data-search="{{ p.title | downcase | escape }} {{ p.authors | downcase | escape }} {{ p.venue_short | downcase | escape }} {{ p.venue | downcase | escape }}">
+          <div class="pub-title"><a href="{{ p.url }}" target="_blank" rel="noopener noreferrer">{{ p.title | escape }}</a></div>
+          <div class="pub-authors">{{ p.authors_html | default: p.authors }}</div>
+          <div class="pub-venue"><span class="tag"><span class="sw area-{{ p.area }}"></span>{{ p.venue_short | default: p.venue }}</span></div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+    <p class="pubs-empty" data-pub-empty hidden>Nothing matches that search.</p>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/research.js' | relative_url }}" defer></script>
 {% endif %}

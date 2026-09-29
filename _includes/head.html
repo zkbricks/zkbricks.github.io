@@ -1,30 +1,41 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.title | default: site.title }}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 <meta name="author" content="{{ site.author }}">
-<title>{{ page.title | default: site.title }}</title>
-
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<meta name="theme-color" content="#6366f1">
+<meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-black.png' | relative_url }}" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-white.png' | relative_url }}" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-black.png' | relative_url }}">
-
-{% if page.layout == 'post' %}
-<meta property="og:type" content="article">
-{% else %}
-<meta property="og:type" content="website">
-{% endif %}
+{% assign og_image = page.featured_image | default: '/assets/images/logos/zkBricks-vertical-outline.png' %}
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:image" content="{{ og_image | absolute_url }}">
 <meta property="og:locale" content="en_US">
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ og_image | absolute_url }}">
 
-<script src="{{ '/assets/js/color-modes.js' | relative_url }}"></script>
-<link href="{{ '/assets/dist/css/bootstrap.min.css' | relative_url }}" rel="stylesheet">
-<link href="{{ '/cover.css' | relative_url }}" rel="stylesheet">
-<link href="{{ '/jellyk.css' | relative_url }}" rel="stylesheet">
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.remove('no-js');
+    d.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+{% if site.plugins contains 'jekyll-feed' %}{% feed_meta %}{% endif %}

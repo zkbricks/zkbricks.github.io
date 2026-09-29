@@ -2,37 +2,53 @@
 layout: default
 permalink: /team.html
 title: "zkBricks | Team"
-description: "The zkBricks team: researchers and engineers building next-generation zero-knowledge proof systems."
+description: "The zkBricks team: cryptographers and engineers turning research into deployable systems for privacy, safety, and trust."
 nav_active: team
 ---
-<header class="mb-4">
-  <h1 class="mb-2">Team</h1>
-  <p class="small mb-0 opacity-75">The people behind zkBricks.</p>
+{% assign papers = site.data.dblp_research.papers %}
+{% assign fetched_members = site.data.dblp_research.members | default: empty %}
+
+<header class="page-head wrap">
+  <p class="kicker" data-reveal data-scramble>Team</p>
+  <h1 class="display" data-reveal="lines">
+    <span class="line"><span>The people</span></span>
+    <span class="line"><span><em>behind the proofs.</em></span></span>
+  </h1>
+  <div class="page-head-grid">
+    <p class="lede" data-reveal>Cryptographers who publish at the field’s top venues, and who stay with their ideas all the way to working code.</p>
+  </div>
 </header>
 
-{% assign team_groups = "core|Core Team,affiliate|Affiliated Researchers" | split: "," %}
+<div class="wrap">
+{% assign team_groups = "core|Core team,affiliate|Affiliated researchers" | split: "," %}
 {% for team_group in team_groups %}
   {% assign group_parts = team_group | split: "|" %}
   {% assign group_key = group_parts[0] %}
-  {% assign group_title = group_parts[1] %}
   {% assign group_members = site.data.team | where: "group", group_key %}
-  <section class="jellyk-team-section" aria-labelledby="team-{{ group_key }}">
-    <h2 id="team-{{ group_key }}" class="jellyk-team-section-title">{{ group_title }}</h2>
-    <div class="jellyk-team-list">
-      {% for member in group_members %}
-      <article class="jellyk-team-card">
-        <div class="jellyk-team-card-inner">
-          <div class="jellyk-team-photo-wrap">
-            <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" class="jellyk-team-photo" width="160" height="160" loading="lazy"{% if member.photo_position %} style="object-position: {{ member.photo_position }};"{% endif %}>
-          </div>
-          <div class="jellyk-team-info">
-            <h3 class="h5 jellyk-team-name mb-2">{{ member.name }}</h3>
-            <p class="small jellyk-team-bio mb-2">{{ member.bio }}</p>
-            <a href="{{ member.url }}" class="jellyk-team-website small" target="_blank" rel="noopener noreferrer">Website →</a>
-          </div>
-        </div>
-      </article>
-      {% endfor %}
+  {% if group_members.size > 0 %}
+  <section class="people" aria-labelledby="team-{{ group_key }}">
+    <div class="group-label" data-reveal>
+      <h2 class="kicker" id="team-{{ group_key }}">{{ group_parts[1] }}</h2>
+      <span class="kicker no-dot">{{ group_members.size | prepend: '0' | slice: -2, 2 }}</span>
     </div>
+    {% for member in group_members %}
+    {% assign member_papers = papers | where_exp: "p", "p.authors contains member.name" %}
+    <article class="person" id="{{ member.name | slugify }}">
+      <div class="person-img">
+        <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="Portrait of {{ member.name }}" loading="lazy"{% if member.photo_position %} style="object-position: {{ member.photo_position }};"{% endif %}>
+      </div>
+      <div class="person-text" data-reveal>
+        <h3 class="person-name">{{ member.name }}</h3>
+        {% if member.tagline %}<p class="person-role">{{ member.tagline }}</p>{% endif %}
+        <p class="person-bio">{{ member.bio }}</p>
+        <div class="person-foot">
+          {% if member_papers.size > 0 and fetched_members contains member.name %}<span class="person-stat"><b>{{ member_papers.size }}</b>peer-reviewed papers</span>{% endif %}
+          <a class="link" href="{{ member.url }}" target="_blank" rel="noopener noreferrer">Personal website <span class="arrow-ne" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
   </section>
+  {% endif %}
 {% endfor %}
+</div>

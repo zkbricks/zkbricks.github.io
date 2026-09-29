@@ -22,4 +22,6 @@ exclude:
   - README.md
   - .gitignore
   - vendor
+  - scripts
+  - .github
 

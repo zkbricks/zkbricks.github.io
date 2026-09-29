@@ -3,6 +3,8 @@
 - name: Arka Rai Choudhuri
   group: core
   photo: arka.jpg
+  photo_position: "50% 30%"
+  tagline: "Senior Scientist"
   bio: "Senior scientist. Previously postdoc at UC Berkeley, NTT Research and research scientist at Nexus. Works on succinct proofs, threshold encryption, and mempool privacy. Ph.D. from Johns Hopkins University."
   url: https://arka19.github.io/
   dblp: Arka_Rai_Choudhuri
@@ -10,14 +12,26 @@
 - name: Sanjam Garg
   group: core
   photo: sanjam.jpg
+  photo_position: "58% 30%"
+  tagline: "Associate Professor, UC Berkeley"
   bio: "Associate Professor in Computer Science at UC Berkeley. Research interests in cryptography and its applications to security and privacy. Ph.D. from UCLA; previously Josef Raviv Memorial Postdoctoral Fellow at IBM Research. Recipient of the ACM Doctoral Dissertation Award, Alfred P. Sloan Research Fellowship, Forbes 30 under 30, and multiple best paper awards (EUROCRYPT, CRYPTO)."
   url: https://people.eecs.berkeley.edu/~sanjamg/
   dblp: Sanjam_Garg
+
+- name: Dimitris Kolonelos
+  group: affiliate
+  photo: dimitris.jpg
+  photo_position: "48% 20%"
+  tagline: "Postdoctoral Researcher, UC Berkeley"
+  bio: "Postdoctoral researcher in cryptography at UC Berkeley. Works on succinct cryptographic primitives, proof systems, and advanced encryption schemes, motivated by blockchain technology and privacy. Ph.D. from IMDEA Software Institute and Universidad Politécnica de Madrid, recipient of the UPM Extraordinary Doctoral Thesis Award."
+  url: https://dimkolonelos.github.io/
+  dblp: Dimitris_Kolonelos
 
 - name: Mingyuan Wang
   group: affiliate
   photo: mingyuan.jpg
   photo_position: "center 24%"
-  bio: "Assistant Professor of Computer Science at NYU Shanghai; previously postdoc at UC Berkeley. Research in threshold cryptography, secure multiparty computation, and leakage-resilient crypto. Ph.D. from Purdue University."
+  tagline: "Assistant Professor, University of Delaware"
+  bio: "Assistant Professor of Computer and Information Sciences at the University of Delaware. Previously Assistant Professor at NYU Shanghai and postdoc at UC Berkeley. Research in threshold cryptography, secure multiparty computation, and leakage-resilient crypto. Ph.D. from Purdue University."
   url: https://sites.google.com/view/mingyuan-wang
   dblp: Mingyuan_Wang_0001

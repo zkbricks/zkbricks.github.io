@@ -1,11 +1,37 @@
-<footer class="jellyk-footer">
-  <div class="jellyk-footer-inner">
-    <p class="mb-1">&copy; {{ 'now' | date: '%Y' }} zkBricks</p>
-    <nav class="jellyk-footer-nav" aria-label="Footer links">
-      <a href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="{{ '/blogs.html' | relative_url }}">Blog</a>
-      <a href="{{ '/research.html' | relative_url }}">Research</a>
-      <a href="{{ '/team.html' | relative_url }}">Team</a>
-    </nav>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <p class="footer-statement">Cryptography for privacy, safety, and trust, <em>built as open infrastructure.</em></p>
+      <div class="footer-col">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="{{ '/research.html' | relative_url }}">Research</a></li>
+          <li><a href="{{ '/blogs.html' | relative_url }}">Blog</a></li>
+          <li><a href="{{ '/team.html' | relative_url }}">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Build</h2>
+        <ul>
+          <li><a href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Focus</h2>
+        <ul class="muted">
+          <li>Threshold encryption</li>
+          <li>Succinct proofs</li>
+          <li>Private identity</li>
+        </ul>
+      </div>
+    </div>
+    <span class="footer-mark" aria-hidden="true" data-footer-mark></span>
+  </div>
+  <div class="footer-base">
+    <div class="wrap">
+      <span>&copy; {{ 'now' | date: '%Y' }} zkBricks</span>
+      <span>Open-source public goods</span>
+    </div>
   </div>
 </footer>

@@ -8,12 +8,12 @@ nav_active: blog
 authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
-featured_image: /assets/images/threshold-decryption.png
+featured_image: /assets/images/threshold-decryption.webp
 ---
 
 Threshold encryption is a foundational primitive for building distributed systems that need confidentiality without relying on any single party. A sender encrypts a message to a *quorum* of $n$ users such that **any** set of $t$ users can decrypt the ciphertext, while **no** set of $t-1$ users can. Importantly, the ciphertext can be *succinct*: it does not grow with $n$ (or $t$).
 
-![Threshold decryption in action: a quorum of nodes; a subset (highlighted) contributes partial decryptions to unlock the ciphertext.](/assets/images/threshold-decryption.png){: .img-fluid }
+![Threshold decryption in action: a quorum of nodes; a subset (highlighted) contributes partial decryptions to unlock the ciphertext.](/assets/images/threshold-decryption.webp){: .img-fluid }
 
 *The padlock is the ciphertext; the key and light represent successful decryption. The nodes are quorum members; those connected by the active (red) lines are the $t$ participants whose partial decryptions combine to unlock the secret. The others hold shares but do not participate in this decryption.*
 
