@@ -22,8 +22,8 @@
   group: affiliate
   photo: dimitris.jpg
   photo_position: "48% 20%"
-  tagline: "Postdoctoral Researcher, UC Berkeley"
-  bio: "Postdoctoral researcher in cryptography at UC Berkeley. Works on succinct cryptographic primitives, proof systems, and advanced encryption schemes, motivated by blockchain technology and privacy. Ph.D. from IMDEA Software Institute and Universidad Politécnica de Madrid, recipient of the UPM Extraordinary Doctoral Thesis Award."
+  tagline: "Cryptography Researcher"
+  bio: "Cryptography researcher working on succinct cryptographic primitives, proof systems, and advanced encryption schemes, motivated by blockchain technology and privacy. Previously a postdoctoral researcher at UC Berkeley. Ph.D. from IMDEA Software Institute and Universidad Politécnica de Madrid, recipient of the UPM Extraordinary Doctoral Thesis Award."
   url: https://dimkolonelos.github.io/
   dblp: Dimitris_Kolonelos
 
