@@ -1,21 +1,15 @@
 <!doctype html>
-<html lang="en" class="h-100" data-bs-theme="auto">
+<html lang="en" class="no-js">
   <head>
     {% include head.html %}
   </head>
-  <body class="d-flex flex-column min-vh-100 jellyk-body">
-    <a href="#main-content" class="jellyk-skip-link">Skip to main content</a>
-    {% include svg-symbols.html %}
-    {% include theme-toggle.html %}
+  <body class="page-{{ page.nav_active | default: 'page' }}">
+    <a href="#main" class="skip-link">Skip to content</a>
     {% include nav.html %}
-
-    <div class="flex-grow-1 d-flex flex-column">
-      <main id="main-content" class="jellyk-main jellyk-container {% if page.layout == 'post' %}jellyk-main-post{% endif %} {{ page.content_class | default: 'text-start' }}" tabindex="-1">
-        {{ content }}
-      </main>
-      {% include footer.html %}
-    </div>
-
-    <script src="{{ '/assets/dist/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+    <main id="main" tabindex="-1">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   </body>
 </html>

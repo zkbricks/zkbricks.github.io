@@ -3,44 +3,161 @@ layout: default
 title: "zkBricks | Cryptography for Privacy, Safety & Trust"
 description: "zkBricks translates cutting-edge advances in cryptography into practical tools that enhance privacy, safety, and trust in digital systems. Open-source public goods."
 nav_active: home
-content_class: text-center
 ---
-<section class="jellyk-hero">
-  <h1 class="jellyk-hero-title" aria-label="zkBricks">
-  <img class="jellyk-hero-logo jellyk-hero-logo-light" src="{{ '/assets/images/logos/zkBricks-vertical-outline.png' | relative_url }}" alt="zkBricks">
-  <img class="jellyk-hero-logo jellyk-hero-logo-dark" src="{{ '/assets/images/logos/zkBricks-vertical-outline-white.png' | relative_url }}" alt="zkBricks">
-</h1>
-  <p class="jellyk-hero-tagline">Cryptography for privacy, safety, and trust in digital systems.</p>
-  <p class="lead jellyk-hero-desc">We translate cutting-edge advances in cryptography into practical tools. By working at the boundary between theory and deployment, we aim to ensure that financial applications and AI systems are built with privacy, security, and safety at their core. </p>
-  <div class="jellyk-hero-ctas">
-    <a href="https://github.com/zkbricks" class="btn btn-lg jellyk-btn jellyk-btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-    <a href="{{ '/blogs.html' | relative_url }}" class="btn btn-lg jellyk-btn jellyk-btn-outline">Read the Blog</a>
+{% assign research = site.data.dblp_research %}
+{% assign flagship = 0 %}
+{% for v in research.venue_stats %}{% if v.name == 'CRYPTO' or v.name == 'EUROCRYPT' or v.name == 'ASIACRYPT' or v.name == 'TCC' %}{% assign flagship = flagship | plus: v.count %}{% endif %}{% endfor %}
+{% assign top_security = 0 %}
+{% for v in research.venue_stats %}{% if v.name == 'IEEE S&P' or v.name == 'USENIX Security' or v.name == 'CCS' or v.name == 'PETS' %}{% assign top_security = top_security | plus: v.count %}{% endif %}{% endfor %}
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="kicker" data-reveal>Applied cryptography, open source</p>
+      <h1 class="display" id="hero-title" data-reveal="lines">
+        <span class="line"><span>Cryptography,</span></span>
+        <span class="line"><span>laid <em class="accent">brick</em></span></span>
+        <span class="line"><span>by brick.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="lede" data-reveal style="--d:.35s">We translate cutting-edge advances in cryptography into practical tools for privacy, safety, and trust in digital systems.</p>
+        <div class="hero-ctas" data-reveal style="--d:.5s">
+          <a class="btn btn-solid" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">View on GitHub <span class="arrow-ne" aria-hidden="true">↗</span></a>
+          <a class="btn" href="{{ '/research.html' | relative_url }}">Our research <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    {% include hero-figures.html %}
+  </div>
+
+</section>
+
+{% if research.total_papers > 0 %}
+<section class="section" aria-labelledby="numbers-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker" data-reveal>Track record</p>
+      <h2 class="h-section" id="numbers-title" data-reveal="lines">
+        <span class="line"><span>Research that holds up</span></span>
+        <span class="line"><span><em>under peer review.</em></span></span>
+      </h2>
+    </div>
+    <div class="numbers">
+      <div class="number" data-reveal>
+        <span class="number-value" data-count="{{ research.total_papers }}">{{ research.total_papers }}</span>
+        <span class="number-label">Peer-reviewed papers by the team since {{ research.first_year }}</span>
+      </div>
+      <div class="number" data-reveal style="--d:.08s">
+        <span class="number-value" data-count="{{ flagship }}">{{ flagship }}</span>
+        <span class="number-label">At IACR flagship venues: CRYPTO, EUROCRYPT, ASIACRYPT, TCC</span>
+      </div>
+      <div class="number" data-reveal style="--d:.16s">
+        <span class="number-value" data-count="{{ top_security }}">{{ top_security }}</span>
+        <span class="number-label">At top security venues: IEEE S&amp;P, USENIX Security, CCS, PETS</span>
+      </div>
+      <div class="number" data-reveal style="--d:.24s">
+        <span class="number-value" data-count="{{ research.venue_stats.size }}">{{ research.venue_stats.size }}</span>
+        <span class="number-label">Distinct venues, from FOCS to NeurIPS</span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if research.featured.size > 0 %}
+<section class="section" aria-labelledby="selected-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker" data-reveal>Selected work</p>
+      <div class="section-head-end">
+        <h2 class="h-section" id="selected-title" data-reveal="lines">
+          <span class="line"><span>Research at the</span></span>
+          <span class="line"><span><em>frontier of practice.</em></span></span>
+        </h2>
+        <a class="link" href="{{ '/research.html' | relative_url }}" data-reveal>All publications <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="rows">
+      {% for f in research.featured limit: 5 %}
+      <a class="row-link" href="{{ f.url }}" target="_blank" rel="noopener noreferrer" data-reveal style="--d:{{ forloop.index0 | times: 0.06 }}s">
+        <span class="row-year">{{ f.year }}</span>
+        <span class="row-title">{{ f.title | escape }}</span>
+        <span class="row-meta"><span class="tag">{{ f.venue_short | default: f.venue }}</span></span>
+        <span class="row-arrow" aria-hidden="true">↗</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if site.posts.size > 0 %}
+<section class="section" aria-labelledby="writing-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker" data-reveal>Writing</p>
+      <div class="section-head-end">
+        <h2 class="h-section" id="writing-title" data-reveal="lines">
+          <span class="line"><span>Ideas, explained</span></span>
+          <span class="line"><span><em>from first principles.</em></span></span>
+        </h2>
+        <a class="link" href="{{ '/blogs.html' | relative_url }}" data-reveal>All posts <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="posts-grid">
+      {% for post in site.posts limit: 2 %}
+      <a class="post-card" href="{{ post.url | relative_url }}" data-reveal style="--d:{{ forloop.index0 | times: 0.1 }}s">
+        {% if post.featured_image %}
+        <div class="post-card-img"><img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy"></div>
+        {% endif %}
+        <div class="post-card-meta"><span>{{ post.date | date: "%b %Y" }}</span>{% if post.authors %}<span>{{ post.authors | size }} authors</span>{% endif %}</div>
+        <h3 class="post-card-title">{{ post.title }}</h3>
+        <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 32 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section" aria-labelledby="people-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker" data-reveal>People</p>
+      <div class="section-head-end">
+        <h2 class="h-section" id="people-title" data-reveal="lines">
+          <span class="line"><span>Built by the people</span></span>
+          <span class="line"><span><em>who wrote the papers.</em></span></span>
+        </h2>
+        <a class="link" href="{{ '/team.html' | relative_url }}" data-reveal>Meet the team <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="people-strip">
+      {% for member in site.data.team %}
+      <a class="person-mini" href="{{ '/team.html' | relative_url }}#{{ member.name | slugify }}" data-reveal style="--d:{{ forloop.index0 | times: 0.08 }}s">
+        <div class="person-mini-img"><img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy"{% if member.photo_position %} style="object-position: {{ member.photo_position }}"{% endif %}></div>
+        <div class="person-mini-name">{{ member.name }}</div>
+        <div class="person-mini-role">{{ member.tagline }}</div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
-<section class="jellyk-value-props mt-5">
-  <h2 class="h5 mb-3">What we build</h2>
-  <div class="row g-3 justify-content-center">
-    <div class="col-12 col-md-4">
-      <div class="jellyk-card jellyk-value-card h-100 text-start">
-        <span class="jellyk-value-icon" aria-hidden="true">◆</span>
-        <h3 class="h6 mb-2">Open-source building blocks</h3>
-        <p class="small mb-0">Production-grade libraries for threshold encryption, succinct proofs, and private identity. Free on GitHub.</p>
-      </div>
-    </div>
-    <div class="col-12 col-md-4">
-      <div class="jellyk-card jellyk-value-card h-100 text-start">
-        <span class="jellyk-value-icon" aria-hidden="true">⊕</span>
-        <h3 class="h6 mb-2">Verified, not just tested</h3>
-        <p class="small mb-0">Every component comes with a formal security proof, and we verify the systems you build on it.</p>
-      </div>
-    </div>
-    <div class="col-12 col-md-4">
-      <div class="jellyk-card jellyk-value-card h-100 text-start">
-        <span class="jellyk-value-icon" aria-hidden="true">◈</span>
-        <h3 class="h6 mb-2">Built for deployment</h3>
-        <p class="small mb-0">New cryptographic systems, designed, built, and integrated into your product.</p>
-      </div>
+<section class="section closer" aria-labelledby="closer-title">
+  <div class="wrap">
+    <p class="kicker" data-reveal>Open by default</p>
+    <h2 class="display" id="closer-title" data-reveal="lines" style="margin-top:28px">
+      <span class="line"><span>Trust,</span></span>
+      <span class="line"><span><em>by construction.</em></span></span>
+    </h2>
+    <p class="lede" data-reveal style="margin-top:32px">Our libraries are open source and our research is public. Build on both.</p>
+    <div class="closer-actions" data-reveal>
+      <a class="btn btn-solid" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">Explore the code <span class="arrow-ne" aria-hidden="true">↗</span></a>
+      <a class="btn" href="{{ '/blogs.html' | relative_url }}">Read the blog <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
+
+<script src="{{ '/assets/js/hero.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/hero-stories.js' | relative_url }}" defer></script>

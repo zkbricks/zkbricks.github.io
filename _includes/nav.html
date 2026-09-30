@@ -1,31 +1,22 @@
 {% assign nav_active = page.nav_active | default: '' %}
-<header class="jellyk-header">
-  <nav class="navbar navbar-expand-md" aria-label="Main navigation">
-    <div class="container-fluid">
-      <a class="navbar-brand jellyk-brand" href="{{ '/' | relative_url }}" aria-label="zkBricks home">
-        <img
-          class="jellyk-brand-logo jellyk-brand-logo-light"
-          src="{{ '/assets/images/logos/zkBricks-horizontal-outline.png' | relative_url }}"
-          alt="zkBricks"
-        >
-        <img
-          class="jellyk-brand-logo jellyk-brand-logo-dark"
-          src="{{ '/assets/images/logos/zkBricks-horizontal-outline-white.png' | relative_url }}"
-          alt="zkBricks"
-        >
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#jellyk-nav" aria-controls="jellyk-nav" aria-expanded="false" aria-label="Toggle menu">
-        <span class="navbar-toggler-icon"></span>
+<header class="site-header" data-header>
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="zkBricks home">
+      <span class="logo" aria-hidden="true"></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="{{ '/research.html' | relative_url }}"{% if nav_active == 'research' %} aria-current="page"{% endif %}>Research</a></li>
+        <li><a href="{{ '/blogs.html' | relative_url }}"{% if nav_active == 'blog' %} aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="{{ '/team.html' | relative_url }}"{% if nav_active == 'team' %} aria-current="page"{% endif %}>Team</a></li>
+        <li><a href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow-ne" aria-hidden="true">↗</span></a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
       </button>
-      <div class="collapse navbar-collapse" id="jellyk-nav">
-        <ul class="navbar-nav ms-auto nav jellyk-nav">
-          <li class="nav-item"><a class="nav-link{% if nav_active == 'home' %} active{% endif %}" href="{{ '/' | relative_url }}"{% if nav_active == 'home' %} aria-current="page"{% endif %}>Home</a></li>
-          <li class="nav-item"><a class="nav-link{% if nav_active == 'blog' %} active{% endif %}" href="{{ '/blogs.html' | relative_url }}"{% if nav_active == 'blog' %} aria-current="page"{% endif %}>Blog</a></li>
-          <li class="nav-item"><a class="nav-link{% if nav_active == 'research' %} active{% endif %}" href="{{ '/research.html' | relative_url }}"{% if nav_active == 'research' %} aria-current="page"{% endif %}>Research</a></li>
-          <li class="nav-item"><a class="nav-link{% if nav_active == 'team' %} active{% endif %}" href="{{ '/team.html' | relative_url }}"{% if nav_active == 'team' %} aria-current="page"{% endif %}>Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>

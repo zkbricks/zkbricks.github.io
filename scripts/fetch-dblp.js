@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Fetches DBLP publication data for team members and writes _data/dblp_research.json.
+ * Fetches DBLP publication data for team members (by DBLP person id, via the DBLP SPARQL
+ * endpoint) and writes _data/dblp_research.json.
  * Run before `jekyll build` (e.g. in CI or locally) so the research page is static.
  *
  * Usage: node scripts/fetch-dblp.js
@@ -14,7 +15,9 @@ const https = require('https');
 const ROOT = path.resolve(__dirname, '..');
 const TEAM_YML = path.join(ROOT, '_data', 'team.yml');
 const OUT_JSON = path.join(ROOT, '_data', 'dblp_research.json');
-const PAPERS_PER_AUTHOR = 1000;
+const SPARQL_ENDPOINT = 'https://sparql.dblp.org/sparql';
+// Abort instead of writing if the paper count falls below this share of the existing file.
+const MIN_RETAINED_SHARE = 0.8;
 
 // ----- Parse team.yml (no YAML dep) -----
 function parseTeamYml(content) {
@@ -34,27 +37,195 @@ function parseTeamYml(content) {
   return members;
 }
 
-// ----- Fetch DBLP API -----
-function fetch(url) {
+// ----- Fetch DBLP (SPARQL endpoint; the HTML/search API sits behind a bot check) -----
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function fetchOnce(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
+    const req = https.get(url, { headers: { 'User-Agent': 'zkbricks-site-builder/1.0 (+https://zkbricks.com)', Accept: 'application/json' }, timeout: 30000 }, (res) => {
       let body = '';
       res.on('data', (ch) => (body += ch));
       res.on('end', () => {
+        if (res.statusCode !== 200) return reject(new Error('HTTP ' + res.statusCode));
         try {
           resolve(JSON.parse(body));
         } catch (e) {
-          reject(e);
+          // DBLP sometimes serves an HTML bot-check page instead of JSON.
+          reject(new Error('Non-JSON response (' + body.slice(0, 60).replace(/\s+/g, ' ') + '...)'));
         }
       });
-    }).on('error', reject);
+    });
+    req.on('timeout', () => req.destroy(new Error('timeout')));
+    req.on('error', reject);
   });
 }
 
-function isEprintOrArchive(venue) {
-  if (!venue) return false;
-  const v = venue.toLowerCase();
-  return v.includes('eprint') || v.includes('corr') || v.includes('res. repos') || v.includes('comput. res. repos');
+async function fetch(url, attempts = 4) {
+  for (let i = 1; ; i++) {
+    try {
+      return await fetchOnce(url);
+    } catch (e) {
+      if (i >= attempts) throw e;
+      console.warn(`  attempt ${i} failed (${e.message}); retrying...`);
+      await sleep(5000 * i);
+    }
+  }
+}
+
+const PEER_REVIEWED_TYPES = ['Inproceedings', 'Article'];
+
+// One row per (publication, author signature, document page); grouped back into records below.
+function publicationsQuery(pid) {
+  return `PREFIX dblp: <https://dblp.org/rdf/schema#>
+SELECT ?pub ?type ?title ?year ?eventYear ?venue ?primary ?page ?ord ?name WHERE {
+  ?pub dblp:authoredBy <https://dblp.org/pid/${pid}> ;
+       a ?type ; dblp:title ?title ; dblp:yearOfPublication ?year ; dblp:hasSignature ?sig .
+  VALUES ?type { dblp:Inproceedings dblp:Article dblp:Informal }
+  ?sig a dblp:AuthorSignature ; dblp:signatureOrdinal ?ord ; dblp:signatureDblpName ?name .
+  OPTIONAL { ?pub dblp:yearOfEvent ?eventYear }
+  OPTIONAL { ?pub dblp:publishedIn ?venue }
+  OPTIONAL { ?pub dblp:primaryDocumentPage ?primary }
+  OPTIONAL { ?pub dblp:documentPage ?page }
+}`;
+}
+
+// Returns records shaped like the DBLP search API's `hit.info`, which the merge logic below expects.
+async function fetchMemberPublications(pid) {
+  const data = await fetch(`${SPARQL_ENDPOINT}?query=${encodeURIComponent(publicationsQuery(pid))}`);
+  const byPub = new Map();
+  for (const row of data.results.bindings) {
+    const v = (k) => (row[k] ? row[k].value : '');
+    let rec = byPub.get(v('pub'));
+    if (!rec) {
+      rec = { key: v('pub'), types: new Set(), title: v('title'),
+        // Cite conferences by the year they were held; proceedings can appear the following year.
+        year: v('eventYear') || v('year'), venue: '', primary: new Set(), pages: new Set(), authors: new Map() };
+      byPub.set(v('pub'), rec);
+    }
+    rec.types.add(v('type').replace(/^.*#/, ''));
+    if (!rec.venue && v('venue')) rec.venue = v('venue');
+    if (v('primary')) rec.primary.add(v('primary'));
+    if (v('page')) rec.pages.add(v('page'));
+    rec.authors.set(parseInt(v('ord'), 10), v('name'));
+  }
+  return [...byPub.values()].map((rec) => ({
+    key: rec.key,
+    info: {
+      title: rec.title,
+      year: rec.year,
+      venue: rec.venue,
+      peerReviewed: !rec.types.has('Informal') && PEER_REVIEWED_TYPES.some((t) => rec.types.has(t)),
+      ee: [...new Set([...rec.primary, ...rec.pages])],
+      authors: { author: [...rec.authors.keys()].sort((a, b) => a - b).map((k) => ({ text: rec.authors.get(k) })) }
+    }
+  }));
+}
+
+// ----- Presentation helpers (applied to every paper we write) -----
+const VENUE_SHORT = {
+  'SP': 'IEEE S&P',
+  'USENIX Security Symposium': 'USENIX Security',
+  'Proc. Priv. Enhancing Technol.': 'PETS',
+  'Public Key Cryptography': 'PKC',
+  'Financial Cryptography': 'FC',
+  'Des. Codes Cryptogr.': 'DCC',
+  'Electron. Colloquium Comput. Complex.': 'ECCC',
+  'IACR Commun. Cryptol.': 'IACR CiC',
+  'J. Cryptol.': 'J. Cryptology',
+  'IACR Trans. Symmetric Cryptol.': 'ToSC',
+  'IACR Cryptol. ePrint Arch.': 'IACR ePrint',
+  'CoRR': 'arXiv'
+};
+
+const AREAS = {
+  crypto: ['CRYPTO', 'EUROCRYPT', 'ASIACRYPT', 'TCC', 'PKC', 'J. Cryptology', 'IACR CiC', 'ToSC', 'SCN', 'INDOCRYPT', 'ITC', 'CHES', 'DCC', 'IACR ePrint'],
+  security: ['IEEE S&P', 'USENIX Security', 'CCS', 'PETS', 'NDSS', 'EuroS&P', 'AFT', 'FC', 'ESORICS', 'ARES', 'HICSS'],
+  theory: ['J. ACM', 'SIAM J. Comput.', 'Algorithmica', 'Commun. ACM', 'ITCS', 'ICALP', 'FOCS', 'STOC', 'SODA', 'ECCC', 'ISIT'],
+  ml: ['NeurIPS', 'ALT', 'ICML', 'ICLR', 'arXiv']
+};
+
+function venueShort(venue) {
+  // DBLP appends proceedings volumes, e.g. "CRYPTO (2)" or "TCC (B1)".
+  const v = (venue || '').trim().replace(/\s*\([A-Z]?\d+\)$/, '');
+  return VENUE_SHORT[v] || v;
+}
+
+function venueArea(short) {
+  for (const area of Object.keys(AREAS)) {
+    if (AREAS[area].includes(short)) return area;
+  }
+  return 'other';
+}
+
+// DBLP returns XML-escaped text (e.g. "O&apos;Neill"); store plain text and escape on output.
+function decodeEntities(s) {
+  return String(s || '')
+    .replace(/&(amp;)+/g, '&')
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#(\d+);/g, (m, n) => String.fromCharCode(parseInt(n, 10)));
+}
+
+function cleanTitle(t) {
+  return decodeEntities(t || 'Untitled')
+    // DBLP keeps inline TeX, e.g. "SNARGs for $\mathcal{P}$ from LWE".
+    .replace(/\$([^$]*)\$/g, (m, tex) => tex.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1').replace(/\\([a-zA-Z]+)/g, '$1'))
+    .replace(/\.\s*$/, '').trim();
+}
+
+function authorsHtmlFromString(authors, teamNamesSet) {
+  return String(authors || '').split(/\s*,\s*/).filter(Boolean).map((name) => {
+    const esc = escapeHtml(name);
+    return teamNamesSet.has(name.toLowerCase()) ? `<span class="is-team">${esc}</span>` : esc;
+  }).join(', ');
+}
+
+function decorate(p, teamNamesSet) {
+  const venue_short = venueShort(p.venue);
+  return {
+    title: cleanTitle(p.title),
+    authors: decodeEntities(p.authors),
+    authors_html: authorsHtmlFromString(decodeEntities(p.authors), teamNamesSet),
+    venue: p.venue || '',
+    venue_short,
+    area: venueArea(venue_short),
+    year: String(p.year || ''),
+    url: p.url || '#'
+  };
+}
+
+// Normalises papers and featured entries and recomputes the summary stats.
+function finalize(papers, featured, teamNamesSet, members) {
+  const outPapers = papers.map((p) => decorate(p, teamNamesSet));
+  const seen = new Set();
+  const outFeatured = [];
+  featured.map((p) => decorate(p, teamNamesSet)).forEach((f) => {
+    const key = titleNormalizeForMatch(f.title).replace(/[^\w ]/g, '');
+    if (seen.has(key)) return;
+    seen.add(key);
+    outFeatured.push(f);
+  });
+
+  const count = (key) => {
+    const m = {};
+    outPapers.forEach((p) => { m[p[key]] = (m[p[key]] || 0) + 1; });
+    return Object.keys(m).map((k) => ({ name: k, count: m[k] })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  };
+  const years = outPapers.map((p) => parseInt(p.year, 10)).filter(Boolean);
+
+  return {
+    // Team members whose DBLP records are included; the Team page only shows paper counts for these.
+    members,
+    papers: outPapers,
+    featured: outFeatured,
+    venue_stats: count('venue_short'),
+    area_stats: count('area'),
+    total_papers: outPapers.length,
+    first_year: years.length ? Math.min(...years) : null,
+    last_year: years.length ? Math.max(...years) : null
+  };
 }
 
 function paperId(h) {
@@ -83,13 +254,6 @@ function titleNormalizeForMatch(t) {
 function titleMatchesBabe(title) {
   const n = titleNormalizeForMatch(title);
   return n.includes('babe') || n.includes('batch attribute-based');
-}
-
-const forceOtherVenues = ['Privacy Enhancing Technologies', 'Proc. Priv. Enhancing Technol.', 'ISIT', 'ASIACRYPT', 'Asiacrypt', 'Public Key Cryptography', 'INDOCRYPT', 'INCOCRYPT', 'SCN'];
-function isForceOther(venue) {
-  if (!venue) return true;
-  const v = venue.toLowerCase();
-  return forceOtherVenues.some((name) => v.includes(name.toLowerCase()));
 }
 
 function getLinks(info) {
@@ -141,19 +305,6 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-function getAuthorHtml(authors, teamNamesSet) {
-  if (!authors || !authors.author) return '';
-  const list = Array.isArray(authors.author) ? authors.author : [authors.author];
-  return list.map((a) => {
-    const rawName = (a && a.text) ? a.text : '';
-    const cleanName = rawName.replace(/\s*\d+\s*$/, '').trim();
-    if (!cleanName) return '';
-    const isTeam = teamNamesSet.has(cleanName.toLowerCase());
-    const esc = escapeHtml(cleanName);
-    return isTeam ? `<span class="text-body-emphasis">${esc}</span>` : `<span class="text-body-secondary opacity-75">${esc}</span>`;
-  }).filter(Boolean).join(', ');
-}
-
 const featuredPatterns = ['BABE', 'B.A.B.E.', 'Mempool privacy', 'Mempool Privacy', 'hinTS', 'HinTS', 'Jigsaw', 'Doubly Private Smart Contracts', 'zkSaaS', 'Zero-Knowledge SNARKs as a Service', 'Batch Attribute-Based'];
 function matchesFeatured(title) {
   if (!title) return false;
@@ -178,19 +329,36 @@ async function main() {
 
   const teamNamesSet = new Set(teamWithDblp.map((m) => m.name.toLowerCase().trim()));
 
+  // `--redecorate` re-applies the presentation helpers to the existing JSON without hitting DBLP.
+  if (process.argv.includes('--redecorate')) {
+    const existing = JSON.parse(fs.readFileSync(OUT_JSON, 'utf8'));
+    const out = finalize(existing.papers || [], existing.featured || [], teamNamesSet, existing.members || []);
+    fs.writeFileSync(OUT_JSON, JSON.stringify(out, null, 2) + '\n', 'utf8');
+    console.log('Redecorated', OUT_JSON, '| papers:', out.papers.length, '| featured:', out.featured.length);
+    return;
+  }
+
   const allHits = [];
+  const seenPubs = new Set();
+  const failures = [];
   for (const member of teamWithDblp) {
-    const url = `https://dblp.org/search/publ/api?q=author:${encodeURIComponent(member.dblp)}:&format=json&h=${PAPERS_PER_AUTHOR}`;
     try {
-      const data = await fetch(url);
-      if (data && data.result && data.result.hits && data.result.hits.hit) {
-        const hits = data.result.hits.hit;
-        const arr = Array.isArray(hits) ? hits : [hits];
-        arr.forEach((h) => allHits.push({ hit: h }));
-      }
+      const pubs = await fetchMemberPublications(member.dblp);
+      if (!pubs.length) throw new Error('no publications returned');
+      console.log(`  ${member.name} (${member.dblp}): ${pubs.filter((h) => h.info.peerReviewed).length} peer-reviewed of ${pubs.length} records`);
+      // Co-authored papers come back once per team member; keep one copy.
+      pubs.forEach((h) => { if (!seenPubs.has(h.key)) { seenPubs.add(h.key); allHits.push({ hit: h }); } });
     } catch (e) {
-      console.warn('DBLP fetch failed for', member.dblp, e.message);
+      console.warn('DBLP fetch failed for', member.name, `(${member.dblp})`, e.message);
+      failures.push(member.name);
     }
+    await sleep(1000);
+  }
+
+  // Never replace good data with a partial or empty result.
+  if (failures.length || !allHits.length) {
+    console.error(`Aborting: DBLP fetch failed for ${failures.join(', ') || 'all members'}. Keeping existing ${path.relative(ROOT, OUT_JSON)}.`);
+    process.exit(1);
   }
 
   const byPaperId = {};
@@ -208,7 +376,7 @@ async function main() {
     let conferenceHit = null;
     for (let i = 0; i < group.length; i++) {
       if (hasEprintLink(group[i])) eprintHit = group[i];
-      if (!isEprintOrArchive((group[i].info && group[i].info.venue) ? group[i].info.venue : '')) conferenceHit = group[i];
+      if (group[i].info.peerReviewed) conferenceHit = group[i];
     }
     let chosen = conferenceHit || eprintHit || group[0];
     if (eprintHit && chosen !== eprintHit) {
@@ -223,7 +391,7 @@ async function main() {
     if (!conferenceHit && eprintHit && titleMatchesBabe((eprintHit.info && eprintHit.info.title) || '')) eprintOnlyFeatured.push(eprintHit);
   }
 
-  const filtered = merged.filter((h) => !isEprintOrArchive((h.info && h.info.venue) ? h.info.venue : ''));
+  const filtered = merged.filter((h) => h.info.peerReviewed);
   filtered.sort((a, b) => {
     const y1 = (a.info && a.info.year) ? parseInt(a.info.year, 10) : 0;
     const y2 = (b.info && b.info.year) ? parseInt(b.info.year, 10) : 0;
@@ -232,25 +400,6 @@ async function main() {
     const t2 = (b.info && b.info.title) ? b.info.title : '';
     return t1.localeCompare(t2);
   });
-
-  // Venue stats for pie
-  const byVenue = {};
-  filtered.forEach((h) => {
-    let venue = (h.info && h.info.venue) ? h.info.venue.trim() : 'Other';
-    if (!venue) venue = 'Other';
-    byVenue[venue] = (byVenue[venue] || 0) + 1;
-  });
-  const minCount = 3;
-  const main = [];
-  let otherCount = 0;
-  Object.keys(byVenue).forEach((v) => {
-    const count = byVenue[v];
-    if (isForceOther(v)) otherCount += count;
-    else if (count >= minCount) main.push({ venue: v, count }); else otherCount += count;
-  });
-  main.sort((a, b) => b.count - a.count);
-  if (otherCount > 0) main.push({ venue: 'Other', count: otherCount });
-  const venueStats = main;
 
   // Featured list
   const featured = [];
@@ -261,57 +410,22 @@ async function main() {
   eprintOnlyFeatured.forEach((h) => featured.push(h));
   if (featured.length === 0 && filtered.length) featured.push(filtered[0]);
 
-  // Output papers for list (with authors_html)
-  const papers = filtered.map((h) => {
+  const toPaper = (h) => {
+    if (h.static) return { title: h.title, authors: h.authors, venue: h.venue, year: h.year, url: h.url };
     const info = h.info || {};
-    const links = getLinks(info);
-    return {
-      title: info.title || 'Untitled',
-      authors: authorList(info.authors),
-      authors_html: getAuthorHtml(info.authors, teamNamesSet),
-      venue: info.venue || '',
-      year: info.year || '',
-      url: links.primary
-    };
-  });
+    return { title: info.title, authors: authorList(info.authors), venue: info.venue || '', year: info.year || '', url: getLinks(info).primary };
+  };
 
-  // Output featured for cards (with authors_html where applicable)
-  const featuredOut = featured.map((f) => {
-    if (f.static) {
-      return {
-        title: f.title || 'Untitled',
-        authors: f.authors || '',
-        authors_html: null,
-        venue: f.venue || '',
-        year: f.year || '',
-        url: f.url || '#'
-      };
+  const out = finalize(filtered.map(toPaper), featured.map(toPaper), teamNamesSet, teamWithDblp.map((m) => m.name));
+  if (fs.existsSync(OUT_JSON)) {
+    const previous = JSON.parse(fs.readFileSync(OUT_JSON, 'utf8')).total_papers || 0;
+    if (out.total_papers < previous * MIN_RETAINED_SHARE) {
+      console.error(`Aborting: only ${out.total_papers} papers versus ${previous} in the existing file. Keeping it.`);
+      process.exit(1);
     }
-    const info = f.info || {};
-    const links = getLinks(info);
-    return {
-      title: info.title || 'Untitled',
-      authors: authorList(info.authors),
-      authors_html: getAuthorHtml(info.authors, teamNamesSet),
-      venue: info.venue || '',
-      year: info.year || '',
-      url: links.primary
-    };
-  });
-
-  const totalPapers = filtered.length;
-  const palette = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#64748b', '#84cc16', '#f43f5e', '#0ea5e9'];
-  let cum = 0;
-  const pie_segments = venueStats.map((e, i) => {
-    const pct = totalPapers > 0 ? (e.count / totalPapers * 100) : 0;
-    const seg = { venue: e.venue, count: e.count, start_pct: cum, end_pct: cum + pct, color: palette[i % palette.length] };
-    cum += pct;
-    return seg;
-  });
-
-  const out = { papers, venue_stats: venueStats, pie_segments, total_papers: totalPapers, featured: featuredOut };
-  fs.writeFileSync(OUT_JSON, JSON.stringify(out, null, 2), 'utf8');
-  console.log('Wrote', OUT_JSON, '| papers:', papers.length, '| featured:', featuredOut.length, '| venue segments:', venueStats.length);
+  }
+  fs.writeFileSync(OUT_JSON, JSON.stringify(out, null, 2) + '\n', 'utf8');
+  console.log('Wrote', OUT_JSON, '| papers:', out.papers.length, '| featured:', out.featured.length);
 }
 
 main().catch((e) => {

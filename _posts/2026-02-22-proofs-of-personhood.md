@@ -8,14 +8,14 @@ nav_active: blog
 authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
-featured_image: /assets/images/proofs-personhood-handing-keys.png
+featured_image: /assets/images/proofs-personhood-handing-keys.webp
 ---
 
 
 
 *“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon ([Wikipedia](https://en.wikipedia.org/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog)) was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
 <figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
-  <img src="/assets/images/proofs-personhood-nobody-knows-dog.png" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
+  <img src="/assets/images/proofs-personhood-nobody-knows-dog.webp" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
   <figcaption class="small text-body-secondary mt-2">Who's on the other side? Sometimes even "verified" isn't.</figcaption>
 </figure>
 
@@ -23,13 +23,13 @@ featured_image: /assets/images/proofs-personhood-handing-keys.png
 <div class="row g-3 my-4">
   <div class="col-12 col-md-6">
     <figure class="jellyk-figure mb-0" style="max-width: 18rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-phone-calls.png" alt="Phone overwhelmed by unknown calls" class="img-fluid rounded">
+      <img src="/assets/images/proofs-personhood-phone-calls.webp" alt="Phone overwhelmed by unknown calls" class="img-fluid rounded">
       <figcaption class="small text-body-secondary mt-2">Who's really on the other end? It's getting harder to tell.</figcaption>
     </figure>
   </div>
   <div class="col-12 col-md-6">
     <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-captcha-fails.png" alt="Akirabot passing a human verification" class="img-fluid rounded">
+      <img src="/assets/images/proofs-personhood-captcha-fails.webp" alt="Akirabot passing a human verification" class="img-fluid rounded">
   <figcaption class="small text-body-secondary mt-2">Bots like Akirabot[^3] can pass the "prove you're human" test. We need something stronger.</figcaption>
     </figure>
   </div>
@@ -47,13 +47,13 @@ And personhood isn’t only “am I human?” Online we also need **relationship
 <div class="row g-3 my-4">
   <div class="col-12 col-md-6">
     <figure class="jellyk-figure mb-0" style="max-width: 14rem; margin-left: auto; margin-right: auto;">
-    <img src="/assets/images/proofs-personhood-trust-badges.png" alt="Trust, reputation, and endorsements" class="img-fluid rounded">
+    <img src="/assets/images/proofs-personhood-trust-badges.webp" alt="Trust, reputation, and endorsements" class="img-fluid rounded">
     <figcaption class="small text-body-secondary mt-2">It’s not just “am I human?”—it’s trust, reputation, and who stands behind you.</figcaption>
     </figure>
   </div>
   <div class="col-12 col-md-6">
     <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-handing-keys.png" alt="Handing over the keys" class="img-fluid rounded">
+      <img src="/assets/images/proofs-personhood-handing-keys.webp" alt="Handing over the keys" class="img-fluid rounded">
       <figcaption class="small text-body-secondary mt-2">Proving who you are shouldn't mean handing over the keys.</figcaption>
     </figure>
   </div>
@@ -151,7 +151,7 @@ We also want to support proving membership in a community where trust is defined
 
 <div class="jellyk-figure" style="padding: 0.5rem;">
   <iframe
-    src="https://eprint.iacr.org/2026/333.pdf"
+    src="/assets/papers/A%20Cryptographic%20Framework%20for%20Proofs%20of%20Personhood.pdf"
     title="A Cryptographic Framework for Proofs of Personhood (PDF)"
     style="width: 100%; height: 70vh; border: 0;"
   ></iframe>

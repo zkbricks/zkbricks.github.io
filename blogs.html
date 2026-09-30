@@ -2,46 +2,38 @@
 layout: default
 permalink: /blogs.html
 title: "zkBricks | Blog"
-description: "Blog and technical writing from zkBricks on zero-knowledge proofs, threshold cryptography, and blockchain scaling."
+description: "Writing from zkBricks on threshold cryptography, zero-knowledge proofs, private identity, and the systems built on them."
 nav_active: blog
 ---
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-{% for post in site.posts %}
-<article class="jellyk-card mb-4">
-  {% if post.featured_image %}
-  <a href="{{ post.url | relative_url }}" class="d-block mb-2 text-decoration-none">
-    <img src="{{ post.featured_image | relative_url }}" alt="" class="img-fluid rounded" style="max-width: 100%; max-height: 12rem; width: auto; height: auto; object-fit: contain; display: block; margin: 0 auto;">
-  </a>
-  {% endif %}
-  <header class="mb-2">
-    <h2 class="h5 mb-1">
-      <a href="{{ post.url | relative_url }}" class="jellyk-article-link text-decoration-none d-block">
-        {{ post.title }}
-      </a>
-    </h2>
-    <p class="small mb-0 opacity-75">
-      {{ post.date | date: "%d %B %Y" }}
-      {% if post.authors %} · {{ post.authors | array_to_sentence_string }}{% elsif post.author %} · {{ post.author }}{% endif %}
-    </p>
-  </header>
-
-  <div class="small text-body-secondary" 
-       style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-    {{ post.excerpt }}
+<header class="page-head wrap">
+  <p class="kicker" data-reveal>Blog</p>
+  <h1 class="display" data-reveal="lines">
+    <span class="line"><span>Notes from</span></span>
+    <span class="line"><span><em>the lab.</em></span></span>
+  </h1>
+  <div class="page-head-grid">
+    <p class="lede" data-reveal>Long-form explanations of the ideas behind our work: what problem they solve, why they are secure, and how they get deployed.</p>
   </div>
+</header>
 
-  <p class="mt-2 mb-0">
-    <a href="{{ post.url | relative_url }}" class="jellyk-article-link">Read more →</a>
-  </p>
-</article>
-{% endfor %}
+<section class="wrap" style="padding-bottom: clamp(80px, 12vw, 180px)">
+  <div class="post-list">
+    {% for post in site.posts %}
+    <article class="post-item" data-reveal>
+      <div class="post-item-body">
+        <h2 class="post-item-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="post-item-excerpt"><p>{{ post.description | default: post.excerpt | strip_html }}</p></div>
+        <div class="post-item-meta">
+          <span>{{ post.date | date: "%d %B %Y" }}</span>
+          {% if post.authors %}<span>{{ post.authors | array_to_sentence_string }}</span>{% elsif post.author %}<span>{{ post.author }}</span>{% endif %}
+          {% assign words = post.content | strip_html | number_of_words %}
+          <span>{{ words | divided_by: 220 | at_least: 1 }} min read</span>
+        </div>
+      </div>
+      {% if post.featured_image %}
+      <div class="post-item-thumb"><img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy"></div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

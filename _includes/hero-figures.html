@@ -1,0 +1,164 @@
+<div class="hero-stories" data-hero-stories>
+  <div class="story-topline">
+    <p class="kicker">Cryptography at work</p>
+    <button class="story-motion" type="button" data-story-motion aria-pressed="false">Pause motion</button>
+  </div>
+  <div class="story-tabs" role="tablist" aria-label="Explore our work">
+    <button type="button" id="story-tab-threshold" role="tab" aria-selected="true" aria-controls="story-threshold" data-story-tab="threshold" data-label="Threshold encryption">Threshold encryption</button>
+    <button type="button" id="story-tab-personhood" role="tab" aria-selected="false" aria-controls="story-personhood" tabindex="-1" data-story-tab="personhood" data-label="Proofs of personhood">Proofs of personhood</button>
+    <button type="button" id="story-tab-safety" role="tab" aria-selected="false" aria-controls="story-safety" tabindex="-1" data-story-tab="safety" data-label="AI safety">AI safety</button>
+    <button type="button" id="story-tab-systems" role="tab" aria-selected="false" aria-controls="story-systems" tabindex="-1" data-story-tab="systems" data-label="Real-world systems">Real-world systems</button>
+  </div>
+  <section class="story-panel" id="story-threshold" role="tabpanel" aria-labelledby="story-tab-threshold" tabindex="0" data-story-panel="threshold">
+    <div class="story-stage"><canvas class="hero-canvas" data-bricks aria-hidden="true"></canvas><noscript><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path class="diagram-accent-line" d="M112 220L270 126L420 220M270 267V126"/><g class="diagram-body"><circle cx="112" cy="220" r="23"/><circle cx="420" cy="220" r="23"/><circle cx="270" cy="267" r="23"/></g><path class="diagram-body" d="M235 95L270 75L305 95V135L270 155L235 135Z"/><path d="M235 95L270 115L305 95M270 115V155"/><text class="diagram-label" x="270" y="320" text-anchor="middle">THREE SHARES · ONE SHARED SECRET</text></svg></noscript></div>
+    <div class="story-caption">
+      <p class="story-category">Threshold cryptography</p>
+      <h2>Shared control.<br><em>No single keyholder.</em></h2>
+      <p>Independent keyholders contribute shares. Only a sufficient group can unlock the protected information.</p>
+      <a class="link" href="{{ '/blogposts/threshold-encryption.html' | relative_url }}">Explore threshold encryption <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="story-panel" id="story-personhood" role="tabpanel" aria-labelledby="story-tab-personhood" tabindex="0" data-story-panel="personhood" hidden>
+    <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- The passport sits beside the person, with the original portrait and detail lines. -->
+  <g class="personhood-passport" transform="translate(50 32) scale(.85)">
+    <path class="diagram-body" d="M59 87L201 107.5V232.5L59 212Z"/>
+    <path class="diagram-top" d="M48 99L190 119.5V244.5L48 224Z"/>
+    <circle cx="78" cy="146" r="11" stroke="var(--accent)"/>
+    <path d="M60 183V177Q60 162 78 163Q96 165 96 179V185" stroke="var(--accent)"/>
+    <path d="M112 148L173 157M112 162L173 171M112 176L159 183M64 205L172 221" stroke="var(--muted)" stroke-width="3"/>
+  </g>
+  <!-- The circular head rests directly on the hemispherical body; both use flat fills. -->
+  <g class="personhood-person" transform="translate(4 52) scale(.8)" fill="var(--accent-surface)">
+    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z" fill="var(--paper)" stroke="none"/>
+    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z"/>
+    <!-- Mask the body after drawing it, before adding the translucent head fill. -->
+    <circle cx="89" cy="147" r="28" fill="var(--paper)" stroke="none"/>
+    <circle cx="89" cy="147" r="28"/>
+  </g>
+  <path class="diagram-guide" d="M225 180C265 155 316 155 373 180" stroke-dasharray="2 6"/>
+  <g class="personhood-proof">
+    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" fill="var(--paper)" stroke="none"/>
+    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" class="diagram-badge"/>
+    <path class="diagram-check" d="M250 166L259 175L274 157"/>
+  </g>
+  <!-- The verifier is an upright slab, with visible top and side thickness. -->
+  <path class="diagram-body" d="M373 123L385 116L458 158V241L446 248L373 206Z"/>
+  <path class="diagram-top" d="M373 123L446 165V248L373 206Z"/>
+  <path d="M373 123L385 116L458 158L446 165M446 165V248"/>
+  <g transform="matrix(.866025 .5 0 1 373 123)">
+    <path d="M14 16H69M14 69H69" class="diagram-guide"/>
+    <g class="personhood-verified"><path class="isometric-check" d="M19 40L33 54L66.6 23.2"/></g>
+  </g>
+  <text class="diagram-label" x="122" y="307" text-anchor="middle">PERSON + CREDENTIALS</text>
+  <text class="diagram-label diagram-accent-text" x="263" y="226" text-anchor="middle">ZK PROOF</text>
+  <text class="diagram-label" x="420" y="307" text-anchor="middle">VERIFIED CLAIM</text>
+</svg></div>
+    <div class="story-caption">
+      <p class="story-category">Proofs of personhood</p>
+      <h2>Prove what matters.<br><em>Keep the rest private.</em></h2>
+      <p>Prove credentials and relationships with zero knowledge, keeping personal details private.</p>
+      <a class="link" href="{{ '/blogposts/proofs-of-personhood.html' | relative_url }}">Explore proofs of personhood <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="story-panel" id="story-safety" role="tabpanel" aria-labelledby="story-tab-safety" tabindex="0" data-story-panel="safety" hidden>
+    <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- The agent holds a secret in context, refuses to reveal it, yet its benign replies let an observer rebuild it. -->
+  <path class="diagram-body" d="M44 112L56 105L125 145V223L113 230L44 190Z"/>
+  <path class="diagram-top" d="M44 112L113 152V230L44 190Z"/>
+  <path d="M44 112L56 105L125 145L113 152M113 152V230"/>
+  <g transform="matrix(.866025 .5 0 1 44 112)">
+    <path d="M10 18H62M10 30H46" stroke="var(--muted)" stroke-width="3"/>
+    <g class="diagram-badge"><rect x="10" y="44" width="11" height="14"/><rect x="24" y="44" width="11" height="14"/><rect x="38" y="44" width="11" height="14"/><rect x="52" y="44" width="11" height="14"/></g>
+  </g>
+  <path class="diagram-guide" d="M128 182C156 170 178 168 198 174" stroke-dasharray="2 6"/>
+  <g transform="translate(262 186)">
+    <path class="diagram-body" d="M0 -60L62.352 -24L62.352 36L0 72L-62.352 36L-62.352 -24Z"/>
+    <path class="diagram-top" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
+    <path class="diagram-blue" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
+    <path d="M-62.352 -24L0 12L62.352 -24M0 12V72"/>
+  </g>
+  <g class="leak-refuse">
+    <circle cx="262" cy="84" r="17" fill="var(--paper)" stroke="var(--rule-strong)"/>
+    <path d="M256 78L268 90M268 78L256 90" stroke="var(--ink-2)" stroke-width="2"/>
+  </g>
+  <path class="diagram-guide" d="M404 196H510"/>
+  <g class="diagram-top"><rect x="404" y="148" width="22" height="30"/><rect x="432" y="148" width="22" height="30"/><rect x="460" y="148" width="22" height="30"/><rect x="488" y="148" width="22" height="30"/></g>
+  <g class="leak-digits" text-anchor="middle">
+    <text class="leak-digit" x="415" y="170">7</text>
+    <text class="leak-digit" x="443" y="170">2</text>
+    <text class="leak-digit" x="471" y="170">4</text>
+    <text class="leak-digit" x="499" y="170">9</text>
+  </g>
+  <!-- Ordinary replies, each carrying a faint trace of the secret. -->
+  <g transform="translate(334 163)">
+    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
+    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
+    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
+    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
+  </g>
+  <text class="diagram-label" x="84" y="307" text-anchor="middle">PRIVATE CONTEXT</text>
+  <text class="diagram-label" x="262" y="307" text-anchor="middle">AI AGENT</text>
+  <text class="diagram-label diagram-accent-text" x="457" y="307" text-anchor="middle">RECONSTRUCTED</text>
+</svg></div>
+    <div class="story-caption">
+      <p class="story-category">AI safety</p>
+      <h2>Agents that refuse to tell<br><em>can still leak secrets.</em></h2>
+      <p>Credentials and health records in an agent’s context shape its ordinary answers enough to reconstruct them, across eight production models.</p>
+      <a class="link" href="https://arxiv.org/abs/2608.19857" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="story-panel" id="story-systems" role="tabpanel" aria-labelledby="story-tab-systems" tabindex="0" data-story-panel="systems" hidden>
+    <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Logo geometry as the deployed system: a lens inspects it and one component is flagged. -->
+  <defs>
+    <g id="systems-base-shape">
+      <path d="M0 -36L62.352 0L62.352 36L0 72L-62.352 36L-62.352 0Z" class="diagram-body"/>
+      <path d="M0 -36L62.352 0L0 36L-62.352 0Z" class="diagram-top"/>
+      <path d="M-62.352 0L0 36L62.352 0M0 36L0 72"/>
+    </g>
+    <g id="systems-long-shape">
+      <path d="M0 -36L31.176 -18L31.176 18L-31.176 54L-62.352 36L-62.352 0Z" class="diagram-body"/>
+      <path d="M0 -36L31.176 -18L-31.176 18L-62.352 0Z" class="diagram-top"/>
+      <path d="M-62.352 0L-31.176 18L31.176 -18M-31.176 18L-31.176 54"/>
+    </g>
+    <g id="systems-top-shape">
+      <path d="M0 -36L31.176 -18L31.176 18L0 36L-31.176 18L-31.176 -18Z" class="diagram-body"/>
+      <path d="M0 -36L31.176 -18L0 0L-31.176 -18Z" class="diagram-top"/>
+      <path d="M-31.176 -18L0 0L31.176 -18M0 0L0 36"/>
+    </g>
+  </defs>
+  <use href="#systems-base-shape" transform="translate(140 192)"/>
+  <!-- Paint the rear cube (and its flag) before the front brick so shared edges are occluded correctly. -->
+  <use href="#systems-top-shape" transform="translate(140 156)"/>
+  <path class="diagram-blue systems-flag" d="M140 120L171.176 138L140 156L108.824 138Z"/>
+  <use href="#systems-long-shape" transform="translate(171.176 174)"/>
+  <path class="diagram-guide" d="M236 176C290 150 330 150 372 168" stroke-dasharray="2 6"/>
+  <!-- The analysis is a written document: model, proof, and findings. -->
+  <path class="diagram-body" d="M380 118L392 111L461 151V229L449 236L380 196Z"/>
+  <path class="diagram-top" d="M380 118L449 158V236L380 196Z"/>
+  <path d="M380 118L392 111L461 151L449 158M449 158V236"/>
+  <g transform="matrix(.866025 .5 0 1 380 118)" stroke-width="3">
+    <path d="M10 18H62M10 32H52M10 46H58M10 60H38" stroke="var(--muted)"/>
+  </g>
+  <g class="systems-proof">
+    <circle cx="420" cy="90" r="19" fill="var(--paper)" stroke="none"/>
+    <circle cx="420" cy="90" r="19" class="diagram-badge"/>
+    <path d="M411 90L417 96L429 83" class="diagram-check"/>
+  </g>
+  <g transform="translate(140 150)"><g class="systems-lens">
+    <circle r="30" fill="var(--paper)" fill-opacity=".35"/>
+    <circle r="24" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 5"/>
+    <path d="M21 21L42 42" stroke-width="4"/>
+  </g></g>
+  <text class="diagram-label" x="140" y="307" text-anchor="middle">DEPLOYED PROTOCOL</text>
+  <text class="diagram-label" x="420" y="307" text-anchor="middle">SECURITY ANALYSIS</text>
+</svg></div>
+    <div class="story-caption">
+      <p class="story-category">Real-world systems</p>
+      <h2>Protocols people rely on,<br><em>analyzed rigorously.</em></h2>
+      <p>We model deployed systems, from Signal’s double ratchet to encrypted mempools, and pin down what they guarantee and where they break.</p>
+      <a class="link" href="https://eprint.iacr.org/2022/355" target="_blank" rel="noopener noreferrer">Read the Signal analysis <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</div>
