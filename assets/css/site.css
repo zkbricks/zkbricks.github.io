@@ -660,10 +660,16 @@ main { flex: 1 0 auto; }
   .story-caption > p:not(.story-category) { min-height: 0; }
 }
 @media (max-width: 600px) {
-  .story-tabs button { font-size: 13px; padding: 10px 4px 12px; }
+  .story-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .story-tabs button { min-width: 0; min-height: 56px; font-size: 13px; padding: 10px 4px 12px; text-align: center; }
   .story-topline .kicker { font-size: 10px; letter-spacing: .1em; }
   .story-caption h2 { font-size: 1.8rem; }
   .diagram-label { font-size: 15px; letter-spacing: .5px; }
+}
+/* Keep the longer labels readable on narrow phones. */
+@media (max-width: 360px) {
+  .story-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story-tabs button { min-height: 48px; border-bottom: 1px solid var(--rule); }
 }
 @media (prefers-reduced-motion: reduce) {
   .js .personhood-proof, .js .personhood-verified, .js .leak-digit, .js .systems-flag, .js .systems-proof { animation: none !important; transform: none; opacity: 1; }
