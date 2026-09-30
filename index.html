@@ -7,7 +7,8 @@ nav_active: home
 {% assign research = site.data.dblp_research %}
 {% assign flagship = 0 %}
 {% for v in research.venue_stats %}{% if v.name == 'CRYPTO' or v.name == 'EUROCRYPT' or v.name == 'ASIACRYPT' or v.name == 'TCC' %}{% assign flagship = flagship | plus: v.count %}{% endif %}{% endfor %}
-{% assign security = research.area_stats | where: 'name', 'security' | first %}
+{% assign top_security = 0 %}
+{% for v in research.venue_stats %}{% if v.name == 'IEEE S&P' or v.name == 'USENIX Security' or v.name == 'CCS' or v.name == 'PETS' %}{% assign top_security = top_security | plus: v.count %}{% endif %}{% endfor %}
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-inner">
@@ -51,7 +52,7 @@ nav_active: home
         <span class="number-label">At IACR flagship venues: CRYPTO, EUROCRYPT, ASIACRYPT, TCC</span>
       </div>
       <div class="number" data-reveal style="--d:.16s">
-        <span class="number-value" data-count="{{ security.count }}">{{ security.count }}</span>
+        <span class="number-value" data-count="{{ top_security }}">{{ top_security }}</span>
         <span class="number-label">At top security venues: IEEE S&amp;P, USENIX Security, CCS, PETS</span>
       </div>
       <div class="number" data-reveal style="--d:.24s">

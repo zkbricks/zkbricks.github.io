@@ -30,7 +30,7 @@ Landing page and blog for [zkBricks](https://zkbricks.github.io). Built with [Je
 - **Home** – `index.html` (hero, mission, capabilities, track record, selected work, writing, people)
 - **Blog list** – `blogs.html`
 - **Blog posts** – add a file in `_posts/` with name `YYYY-MM-DD-slug.md` and front matter (`layout: post`, `title`, `date`, `description`, `authors`, `featured_image`). Use `permalink` if you want a custom URL (e.g. `/blogposts/your-post.html`). Prefer `.webp` images around 1400px wide.
-- **Team** – `_data/team.yml` (names, `tagline`, bios, photos, `photo_position`, URLs, optional `dblp` author token). Photos live in `assets/team/`.
+- **Team** – `_data/team.yml` (names, `tagline`, bios, photos, `photo_position`, URLs, optional `dblp` person id, e.g. `33/5817` from `https://dblp.org/pid/33/5817`). Photos live in `assets/team/`.
 - **Research** – publications are loaded from DBLP at **build time** by `scripts/fetch-dblp.js`, which writes `_data/dblp_research.json`. The Research page is static and does not call DBLP when the site loads.
   - If DBLP fails or rate-limits, the script exits with an error and **keeps the existing data** rather than overwriting it with an empty list.
   - After changing venue names or areas in the script, run `node scripts/fetch-dblp.js --redecorate` to reapply them to the existing JSON without fetching.

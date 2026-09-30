@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Fetches DBLP publication data for team members and writes _data/dblp_research.json.
+ * Fetches DBLP publication data for team members (by DBLP person id, via the DBLP SPARQL
+ * endpoint) and writes _data/dblp_research.json.
  * Run before `jekyll build` (e.g. in CI or locally) so the research page is static.
  *
  * Usage: node scripts/fetch-dblp.js
@@ -14,7 +15,9 @@ const https = require('https');
 const ROOT = path.resolve(__dirname, '..');
 const TEAM_YML = path.join(ROOT, '_data', 'team.yml');
 const OUT_JSON = path.join(ROOT, '_data', 'dblp_research.json');
-const PAPERS_PER_AUTHOR = 1000;
+const SPARQL_ENDPOINT = 'https://sparql.dblp.org/sparql';
+// Abort instead of writing if the paper count falls below this share of the existing file.
+const MIN_RETAINED_SHARE = 0.8;
 
 // ----- Parse team.yml (no YAML dep) -----
 function parseTeamYml(content) {
@@ -34,7 +37,7 @@ function parseTeamYml(content) {
   return members;
 }
 
-// ----- Fetch DBLP API -----
+// ----- Fetch DBLP (SPARQL endpoint; the HTML/search API sits behind a bot check) -----
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function fetchOnce(url) {
@@ -69,12 +72,60 @@ async function fetch(url, attempts = 4) {
   }
 }
 
+const PEER_REVIEWED_TYPES = ['Inproceedings', 'Article'];
+
+// One row per (publication, author signature, document page); grouped back into records below.
+function publicationsQuery(pid) {
+  return `PREFIX dblp: <https://dblp.org/rdf/schema#>
+SELECT ?pub ?type ?title ?year ?venue ?primary ?page ?ord ?name WHERE {
+  ?pub dblp:authoredBy <https://dblp.org/pid/${pid}> ;
+       a ?type ; dblp:title ?title ; dblp:yearOfPublication ?year ; dblp:hasSignature ?sig .
+  VALUES ?type { dblp:Inproceedings dblp:Article dblp:Informal }
+  ?sig a dblp:AuthorSignature ; dblp:signatureOrdinal ?ord ; dblp:signatureDblpName ?name .
+  OPTIONAL { ?pub dblp:publishedIn ?venue }
+  OPTIONAL { ?pub dblp:primaryDocumentPage ?primary }
+  OPTIONAL { ?pub dblp:documentPage ?page }
+}`;
+}
+
+// Returns records shaped like the DBLP search API's `hit.info`, which the merge logic below expects.
+async function fetchMemberPublications(pid) {
+  const data = await fetch(`${SPARQL_ENDPOINT}?query=${encodeURIComponent(publicationsQuery(pid))}`);
+  const byPub = new Map();
+  for (const row of data.results.bindings) {
+    const v = (k) => (row[k] ? row[k].value : '');
+    let rec = byPub.get(v('pub'));
+    if (!rec) {
+      rec = { key: v('pub'), types: new Set(), title: v('title'), year: v('year'), venue: '', primary: new Set(), pages: new Set(), authors: new Map() };
+      byPub.set(v('pub'), rec);
+    }
+    rec.types.add(v('type').replace(/^.*#/, ''));
+    if (!rec.venue && v('venue')) rec.venue = v('venue');
+    if (v('primary')) rec.primary.add(v('primary'));
+    if (v('page')) rec.pages.add(v('page'));
+    rec.authors.set(parseInt(v('ord'), 10), v('name'));
+  }
+  return [...byPub.values()].map((rec) => ({
+    key: rec.key,
+    info: {
+      title: rec.title,
+      year: rec.year,
+      venue: rec.venue,
+      peerReviewed: !rec.types.has('Informal') && PEER_REVIEWED_TYPES.some((t) => rec.types.has(t)),
+      ee: [...new Set([...rec.primary, ...rec.pages])],
+      authors: { author: [...rec.authors.keys()].sort((a, b) => a - b).map((k) => ({ text: rec.authors.get(k) })) }
+    }
+  }));
+}
+
 // ----- Presentation helpers (applied to every paper we write) -----
 const VENUE_SHORT = {
   'SP': 'IEEE S&P',
   'USENIX Security Symposium': 'USENIX Security',
   'Proc. Priv. Enhancing Technol.': 'PETS',
   'Public Key Cryptography': 'PKC',
+  'Financial Cryptography': 'FC',
+  'Des. Codes Cryptogr.': 'DCC',
   'Electron. Colloquium Comput. Complex.': 'ECCC',
   'IACR Commun. Cryptol.': 'IACR CiC',
   'J. Cryptol.': 'J. Cryptology',
@@ -84,14 +135,15 @@ const VENUE_SHORT = {
 };
 
 const AREAS = {
-  crypto: ['CRYPTO', 'EUROCRYPT', 'ASIACRYPT', 'TCC', 'PKC', 'J. Cryptology', 'IACR CiC', 'ToSC', 'SCN', 'INDOCRYPT', 'ITC', 'CHES', 'IACR ePrint'],
-  security: ['IEEE S&P', 'USENIX Security', 'CCS', 'PETS', 'NDSS', 'EuroS&P', 'AFT', 'FC'],
-  theory: ['J. ACM', 'ITCS', 'ICALP', 'FOCS', 'STOC', 'SODA', 'ECCC', 'ISIT'],
+  crypto: ['CRYPTO', 'EUROCRYPT', 'ASIACRYPT', 'TCC', 'PKC', 'J. Cryptology', 'IACR CiC', 'ToSC', 'SCN', 'INDOCRYPT', 'ITC', 'CHES', 'DCC', 'IACR ePrint'],
+  security: ['IEEE S&P', 'USENIX Security', 'CCS', 'PETS', 'NDSS', 'EuroS&P', 'AFT', 'FC', 'ESORICS', 'ARES', 'HICSS'],
+  theory: ['J. ACM', 'SIAM J. Comput.', 'Algorithmica', 'Commun. ACM', 'ITCS', 'ICALP', 'FOCS', 'STOC', 'SODA', 'ECCC', 'ISIT'],
   ml: ['NeurIPS', 'ALT', 'ICML', 'ICLR', 'arXiv']
 };
 
 function venueShort(venue) {
-  const v = (venue || '').trim();
+  // DBLP appends proceedings volumes, e.g. "CRYPTO (2)" or "TCC (B1)".
+  const v = (venue || '').trim().replace(/\s*\([A-Z]?\d+\)$/, '');
   return VENUE_SHORT[v] || v;
 }
 
@@ -168,12 +220,6 @@ function finalize(papers, featured, teamNamesSet, members) {
     first_year: years.length ? Math.min(...years) : null,
     last_year: years.length ? Math.max(...years) : null
   };
-}
-
-function isEprintOrArchive(venue) {
-  if (!venue) return false;
-  const v = venue.toLowerCase();
-  return v.includes('eprint') || v.includes('corr') || v.includes('res. repos') || v.includes('comput. res. repos');
 }
 
 function paperId(h) {
@@ -287,21 +333,20 @@ async function main() {
   }
 
   const allHits = [];
+  const seenPubs = new Set();
   const failures = [];
   for (const member of teamWithDblp) {
-    const url = `https://dblp.org/search/publ/api?q=author:${encodeURIComponent(member.dblp)}:&format=json&h=${PAPERS_PER_AUTHOR}`;
     try {
-      const data = await fetch(url);
-      if (data && data.result && data.result.hits && data.result.hits.hit) {
-        const hits = data.result.hits.hit;
-        const arr = Array.isArray(hits) ? hits : [hits];
-        arr.forEach((h) => allHits.push({ hit: h }));
-      }
+      const pubs = await fetchMemberPublications(member.dblp);
+      if (!pubs.length) throw new Error('no publications returned');
+      console.log(`  ${member.name} (${member.dblp}): ${pubs.filter((h) => h.info.peerReviewed).length} peer-reviewed of ${pubs.length} records`);
+      // Co-authored papers come back once per team member; keep one copy.
+      pubs.forEach((h) => { if (!seenPubs.has(h.key)) { seenPubs.add(h.key); allHits.push({ hit: h }); } });
     } catch (e) {
-      console.warn('DBLP fetch failed for', member.dblp, e.message);
-      failures.push(member.dblp);
+      console.warn('DBLP fetch failed for', member.name, `(${member.dblp})`, e.message);
+      failures.push(member.name);
     }
-    await sleep(2000);
+    await sleep(1000);
   }
 
   // Never replace good data with a partial or empty result.
@@ -325,7 +370,7 @@ async function main() {
     let conferenceHit = null;
     for (let i = 0; i < group.length; i++) {
       if (hasEprintLink(group[i])) eprintHit = group[i];
-      if (!isEprintOrArchive((group[i].info && group[i].info.venue) ? group[i].info.venue : '')) conferenceHit = group[i];
+      if (group[i].info.peerReviewed) conferenceHit = group[i];
     }
     let chosen = conferenceHit || eprintHit || group[0];
     if (eprintHit && chosen !== eprintHit) {
@@ -340,7 +385,7 @@ async function main() {
     if (!conferenceHit && eprintHit && titleMatchesBabe((eprintHit.info && eprintHit.info.title) || '')) eprintOnlyFeatured.push(eprintHit);
   }
 
-  const filtered = merged.filter((h) => !isEprintOrArchive((h.info && h.info.venue) ? h.info.venue : ''));
+  const filtered = merged.filter((h) => h.info.peerReviewed);
   filtered.sort((a, b) => {
     const y1 = (a.info && a.info.year) ? parseInt(a.info.year, 10) : 0;
     const y2 = (b.info && b.info.year) ? parseInt(b.info.year, 10) : 0;
@@ -366,6 +411,13 @@ async function main() {
   };
 
   const out = finalize(filtered.map(toPaper), featured.map(toPaper), teamNamesSet, teamWithDblp.map((m) => m.name));
+  if (fs.existsSync(OUT_JSON)) {
+    const previous = JSON.parse(fs.readFileSync(OUT_JSON, 'utf8')).total_papers || 0;
+    if (out.total_papers < previous * MIN_RETAINED_SHARE) {
+      console.error(`Aborting: only ${out.total_papers} papers versus ${previous} in the existing file. Keeping it.`);
+      process.exit(1);
+    }
+  }
   fs.writeFileSync(OUT_JSON, JSON.stringify(out, null, 2) + '\n', 'utf8');
   console.log('Wrote', OUT_JSON, '| papers:', out.papers.length, '| featured:', out.featured.length);
 }
