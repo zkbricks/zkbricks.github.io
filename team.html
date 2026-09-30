@@ -9,7 +9,7 @@ nav_active: team
 {% assign fetched_members = site.data.dblp_research.members | default: empty %}
 
 <header class="page-head wrap">
-  <p class="kicker" data-reveal data-scramble>Team</p>
+  <p class="kicker" data-reveal>Team</p>
   <h1 class="display" data-reveal="lines">
     <span class="line"><span>The people</span></span>
     <span class="line"><span><em>behind the proofs.</em></span></span>
@@ -29,7 +29,7 @@ nav_active: team
   <section class="people" aria-labelledby="team-{{ group_key }}">
     <div class="group-label" data-reveal>
       <h2 class="kicker" id="team-{{ group_key }}">{{ group_parts[1] }}</h2>
-      <span class="kicker no-dot">{{ group_members.size | prepend: '0' | slice: -2, 2 }}</span>
+      <span class="kicker">{{ group_members.size }} {% if group_members.size == 1 %}member{% else %}members{% endif %}</span>
     </div>
     {% for member in group_members %}
     {% assign member_papers = papers | where_exp: "p", "p.authors contains member.name" %}

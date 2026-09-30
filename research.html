@@ -9,7 +9,7 @@ nav_active: research
 {% assign area_names = "crypto|Cryptography,security|Security & Privacy,theory|Theory,ml|Machine Learning,other|Other" | split: "," %}
 
 <header class="page-head wrap">
-  <p class="kicker" data-reveal data-scramble>Research</p>
+  <p class="kicker" data-reveal>Research</p>
   <h1 class="display" data-reveal="lines">
     <span class="line"><span>Every brick,</span></span>
     <span class="line"><span><em>peer reviewed.</em></span></span>
@@ -34,7 +34,7 @@ nav_active: research
 
 <section class="section wrap" aria-labelledby="wall-title" style="padding-top:0">
   <div class="section-head">
-    <p class="kicker" data-reveal>§ 01 — The wall</p>
+    <p class="kicker" data-reveal>The wall</p>
     <div class="section-head-end">
       <h2 class="h-section" id="wall-title" data-reveal="lines">
         <span class="line"><span>One brick</span></span>
@@ -45,25 +45,41 @@ nav_active: research
           {% assign parts = a | split: "|" %}
           {% assign stat = research.area_stats | where: "name", parts[0] | first %}
           {% if stat %}
-          <li><button class="chip" type="button" data-area="{{ parts[0] }}" aria-pressed="false"><span class="sw area-{{ parts[0] }}"></span>{{ parts[1] }} <span class="ct">{{ stat.count }}</span></button></li>
+          <li><button class="chip" type="button" data-area="{{ parts[0] }}" aria-pressed="false">{{ parts[1] }} <span class="ct">{{ stat.count }}</span></button></li>
           {% endif %}
         {% endfor %}
       </ul>
     </div>
   </div>
 
+  <p class="wall-note">Each tower is a year; each cube is a paper, colored by research area. Select an area to filter, or a cube for publication details.</p>
   <div class="wall-wrap">
     {% assign by_year = research.papers | group_by: "year" | reverse %}
-    <div class="wall" data-wall role="list" aria-label="Publications by year">
-      {% for g in by_year %}
-      <div class="wall-col" role="listitem">
-        <span class="wall-year"><span class="long">{{ g.name }}</span><span class="short">’{{ g.name | slice: 2, 2 }}</span></span>
-        {% for p in g.items %}
-        <a class="brick area-{{ p.area }}" href="#{{ p.title | slugify | truncate: 64, '' }}-{{ p.year }}" data-area="{{ p.area }}" data-title="{{ p.title | escape }}" data-meta="{{ p.venue_short }} · {{ p.year }}" aria-label="{{ p.title | escape }} ({{ p.venue_short }} {{ p.year }})"></a>
+    <div class="wall-scroll" tabindex="0" role="region" aria-label="Publication towers by year, scroll horizontally for more years">
+      <div class="wall" data-wall role="list" aria-label="Publications by year" style="--wall-years: {{ by_year.size }}">
+        {% for g in by_year %}
+        {% assign tower_height = g.items.size | times: 24 | plus: 24 %}
+        <div class="wall-col" role="listitem">
+          <svg class="paper-tower" viewBox="0 0 60 {{ tower_height }}" width="60" height="{{ tower_height }}" aria-label="{{ g.name }}: {{ g.items.size }} papers">
+            {% for p in g.items %}
+            {% assign cube_y = forloop.rindex0 | times: 24 %}
+            <a class="brick" tabindex="0" href="#{{ p.title | slugify | truncate: 64, '' }}-{{ p.year }}" data-area="{{ p.area }}" data-title="{{ p.title | escape }}" data-meta="{{ p.venue_short }} · {{ p.year }}" aria-label="{{ p.title | escape }} ({{ p.venue_short }} {{ p.year }})" transform="translate(0 {{ cube_y }})">
+              <path class="paper-cube-body" d="M30 0L50.784 12V36L30 48L9.216 36V12Z"/>
+              <g class="paper-cube-faces" stroke="none">
+                <path class="paper-cube-left" d="M9.216 12L30 24V48L9.216 36Z"/>
+                <path class="paper-cube-right" d="M30 24L50.784 12V36L30 48Z"/>
+                <path class="paper-cube-top" d="M30 0L50.784 12L30 24L9.216 12Z"/>
+              </g>
+              <path class="paper-cube-edge" d="M30 0L50.784 12V36L30 48L9.216 36V12ZM9.216 12L30 24L50.784 12M30 24V48"/>
+            </a>
+            {% endfor %}
+          </svg>
+          <span class="wall-year">{{ g.name }}</span>
+        </div>
         {% endfor %}
       </div>
-      {% endfor %}
     </div>
+    <p class="wall-scroll-hint">Scroll across years ↔</p>
     <div class="wall-tip" data-wall-tip aria-hidden="true"><div class="wall-tip-meta"></div><div class="wall-tip-title"></div></div>
   </div>
 </section>
@@ -71,7 +87,7 @@ nav_active: research
 {% if research.featured.size > 0 %}
 <section class="section wrap" aria-labelledby="featured-title">
   <div class="section-head">
-    <p class="kicker" data-reveal>§ 02 — Selected</p>
+    <p class="kicker" data-reveal>Selected</p>
     <h2 class="h-section" id="featured-title" data-reveal="lines">
       <span class="line"><span>Work we are</span></span>
       <span class="line"><span><em>building on now.</em></span></span>
@@ -92,7 +108,7 @@ nav_active: research
 
 <section class="section wrap" aria-labelledby="all-title">
   <div class="section-head" style="margin-bottom:24px">
-    <p class="kicker" data-reveal>§ 03 — Index</p>
+    <p class="kicker" data-reveal>Index</p>
     <h2 class="h-section" id="all-title" data-reveal="lines">
       <span class="line"><span>All publications</span></span>
     </h2>
@@ -117,7 +133,7 @@ nav_active: research
         <li class="pub" id="{{ p.title | slugify | truncate: 64, '' }}-{{ p.year }}" data-area="{{ p.area }}" data-search="{{ p.title | downcase | escape }} {{ p.authors | downcase | escape }} {{ p.venue_short | downcase | escape }} {{ p.venue | downcase | escape }}">
           <div class="pub-title"><a href="{{ p.url }}" target="_blank" rel="noopener noreferrer">{{ p.title | escape }}</a></div>
           <div class="pub-authors">{{ p.authors_html | default: p.authors }}</div>
-          <div class="pub-venue"><span class="tag"><span class="sw area-{{ p.area }}"></span>{{ p.venue_short | default: p.venue }}</span></div>
+          <div class="pub-venue"><span class="tag">{{ p.venue_short | default: p.venue }}</span></div>
         </li>
         {% endfor %}
       </ul>

@@ -6,7 +6,7 @@ description: "Writing from zkBricks on threshold cryptography, zero-knowledge pr
 nav_active: blog
 ---
 <header class="page-head wrap">
-  <p class="kicker" data-reveal data-scramble>Blog</p>
+  <p class="kicker" data-reveal>Blog</p>
   <h1 class="display" data-reveal="lines">
     <span class="line"><span>Notes from</span></span>
     <span class="line"><span><em>the lab.</em></span></span>
@@ -20,7 +20,6 @@ nav_active: blog
   <div class="post-list">
     {% for post in site.posts %}
     <article class="post-item" data-reveal>
-      <span class="post-item-num">{% if forloop.rindex < 10 %}0{% endif %}{{ forloop.rindex }}</span>
       <div class="post-item-body">
         <h2 class="post-item-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <div class="post-item-excerpt"><p>{{ post.description | default: post.excerpt | strip_html }}</p></div>

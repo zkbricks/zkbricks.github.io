@@ -55,33 +55,6 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
-  /* ---------- Scramble ("decrypt") text ---------- */
-
-  var GLYPHS = '0123456789abcdef#%&*+=<>/\\';
-  function scramble(el) {
-    if (reduceMotion || el.dataset.scrambled) return;
-    el.dataset.scrambled = '1';
-    var target = el.textContent;
-    var len = target.length;
-    var start = performance.now();
-    var dur = Math.min(1400, 450 + len * 28);
-    el.setAttribute('aria-label', target);
-    function frame(now) {
-      var p = Math.min(1, (now - start) / dur);
-      var out = '';
-      for (var i = 0; i < len; i++) {
-        var ch = target[i];
-        var settle = (i / len) * 0.75 + 0.25;
-        if (ch === ' ' || p >= settle) out += ch;
-        else out += GLYPHS[(Math.random() * GLYPHS.length) | 0];
-      }
-      el.textContent = out;
-      if (p < 1) requestAnimationFrame(frame);
-      else { el.textContent = target; el.removeAttribute('aria-label'); }
-    }
-    requestAnimationFrame(frame);
-  }
-
   /* ---------- Count-up numbers ---------- */
 
   function countUp(el) {
@@ -103,13 +76,11 @@
 
   function reveal(el) {
     el.classList.add('is-in');
-    if (el.hasAttribute('data-scramble')) scramble(el);
-    $$('[data-scramble]', el).forEach(scramble);
     $$('[data-count]', el).forEach(countUp);
     if (el.hasAttribute('data-count')) countUp(el);
   }
 
-  var revealables = $$('[data-reveal], .cap, .person, [data-scramble]:not([data-reveal] [data-scramble])');
+  var revealables = $$('[data-reveal], .cap, .person');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

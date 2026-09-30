@@ -15,28 +15,19 @@
   var groups = $$('[data-year-group]');
   var bricks = wall ? $$('.brick', wall) : [];
 
-  /* ----- Build the wall when it scrolls into view: bricks drop in, oldest first ----- */
-  if (wall) {
-    var cols = $$('.wall-col', wall);
-    cols.forEach(function (col, ci) {
-      $$('.brick', col).forEach(function (b, bi) {
-        b.style.setProperty('--bd', (ci * 0.07 + bi * 0.035).toFixed(3) + 's');
-      });
-    });
-    var build = function () {
-      wall.classList.add('is-built');
-      var longest = 0;
-      bricks.forEach(function (b) { longest = Math.max(longest, parseFloat(b.style.getPropertyValue('--bd')) || 0); });
-      setTimeout(function () { wall.classList.add('is-settled'); }, (longest + 1) * 1000);
-    };
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var io = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { build(); io.disconnect(); }
-      }, { threshold: 0.25 });
-      io.observe(wall);
-    } else {
-      build();
-    }
+  var wallScroll = document.querySelector('.wall-scroll');
+  if (wallScroll) {
+    // Show recent years first when the larger towers need horizontal scrolling.
+    wallScroll.scrollLeft = wallScroll.scrollWidth - wallScroll.clientWidth;
+    wallScroll.addEventListener('scroll', function () {
+      var active = document.activeElement;
+      if (active && wall.contains(active) && active.classList.contains('brick')) {
+        var r = active.getBoundingClientRect();
+        var viewport = wallScroll.getBoundingClientRect();
+        if (r.right > viewport.left && r.left < viewport.right) { showTip(active); return; }
+      }
+      hideTip();
+    }, { passive: true });
   }
 
   /* ----- Tooltip ----- */
