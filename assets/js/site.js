@@ -80,7 +80,7 @@
     if (el.hasAttribute('data-count')) countUp(el);
   }
 
-  var revealables = $$('[data-reveal], .cap, .person');
+  var revealables = $$('[data-reveal], .person');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -93,48 +93,6 @@
     revealables.forEach(function (el) { io.observe(el); });
   } else {
     revealables.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* ---------- Manifesto: words light up with scroll ---------- */
-
-  var litBlocks = $$('[data-litwords]');
-  litBlocks.forEach(function (block) {
-    var words = [];
-    function wrap(node) {
-      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-        if (child.nodeType === 3) {
-          var frag = document.createDocumentFragment();
-          child.textContent.split(/(\s+)/).forEach(function (part) {
-            if (!part) return;
-            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-            var s = document.createElement('span');
-            s.className = 'w';
-            s.textContent = part;
-            words.push(s);
-            frag.appendChild(s);
-          });
-          node.replaceChild(frag, child);
-        } else if (child.nodeType === 1) {
-          wrap(child);
-        }
-      });
-    }
-    wrap(block);
-    block._words = words;
-    if (reduceMotion) words.forEach(function (w) { w.classList.add('on'); });
-  });
-
-  function updateLit() {
-    if (reduceMotion) return;
-    var vh = window.innerHeight;
-    litBlocks.forEach(function (block) {
-      var r = block.getBoundingClientRect();
-      // 0 when the block's top hits 85% of the viewport, 1 when its bottom reaches 45%.
-      var p = (vh * 0.85 - r.top) / (r.height + vh * 0.4);
-      p = Math.max(0, Math.min(1, p));
-      var n = Math.round(p * block._words.length);
-      block._words.forEach(function (w, i) { w.classList.toggle('on', i < n); });
-    });
   }
 
   /* ---------- Reading progress ---------- */
@@ -157,7 +115,6 @@
     ticking = true;
     requestAnimationFrame(function () {
       onScrollHeader();
-      updateLit();
       updateProgress();
       ticking = false;
     });

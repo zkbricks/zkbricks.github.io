@@ -1,4 +1,4 @@
-/* Three explorable stories. Switching is deliberate; scenes never auto-advance. */
+/* Explorable stories. Switching is deliberate; scenes never auto-advance. */
 (function () {
   'use strict';
   var root = document.querySelector('[data-hero-stories]');
@@ -7,7 +7,7 @@
   var panels = Array.from(root.querySelectorAll('[data-story-panel]'));
   var motion = root.querySelector('[data-story-motion]');
   var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var active = 'build', paused = false, visible = true;
+  var active = null, paused = false, visible = true;
 
   function sync(reset) {
     var frozen = paused || preference.matches;
