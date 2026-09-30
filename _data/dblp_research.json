@@ -7,16 +7,6 @@
   ],
   "papers": [
     {
-      "title": "Black-Box Crypto Is Useless for Pseudorandom Codes",
-      "authors": "Sanjam Garg, Sam Gunn, Mingyuan Wang",
-      "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, Sam Gunn, <span class=\"is-team\">Mingyuan Wang</span>",
-      "venue": "TCC (4)",
-      "venue_short": "TCC",
-      "area": "crypto",
-      "year": "2026",
-      "url": "https://doi.org/10.1007/978-3-032-12290-2_7"
-    },
-    {
       "title": "Generic-Group Barriers for Function-Hiding and Multi-input Functional Encryption",
       "authors": "Mohammad Hajiabadi, Roman Langrehr, Mingyuan Wang",
       "authors_html": "Mohammad Hajiabadi, Roman Langrehr, <span class=\"is-team\">Mingyuan Wang</span>",
@@ -35,16 +25,6 @@
       "area": "security",
       "year": "2026",
       "url": "https://doi.org/10.1109/SP63933.2026.00109"
-    },
-    {
-      "title": "Laconic PSI on Authenticated Inputs and Applications",
-      "authors": "James Bartusek, Sanjam Garg, Abhishek Jain, Guru-Vamsi Policharla",
-      "authors_html": "James Bartusek, <span class=\"is-team\">Sanjam Garg</span>, Abhishek Jain, Guru-Vamsi Policharla",
-      "venue": "ASIACRYPT (5)",
-      "venue_short": "ASIACRYPT",
-      "area": "crypto",
-      "year": "2026",
-      "url": "https://doi.org/10.1007/978-981-95-5116-3_9"
     },
     {
       "title": "Multiparty Computation with Minimal Overhead Without Circuit Transformation",
@@ -67,16 +47,6 @@
       "url": "https://eprint.iacr.org/2026/909.pdf"
     },
     {
-      "title": "Policy Compliant Secure Messaging",
-      "authors": "Joël Alwen, Xiaohui Ding, Sanjam Garg, Yiannis Tselekounis",
-      "authors_html": "Joël Alwen, Xiaohui Ding, <span class=\"is-team\">Sanjam Garg</span>, Yiannis Tselekounis",
-      "venue": "ASIACRYPT (2)",
-      "venue_short": "ASIACRYPT",
-      "area": "crypto",
-      "year": "2026",
-      "url": "https://doi.org/10.1007/978-981-95-5096-8_2"
-    },
-    {
       "title": "Weighted Cryptography with Weight-Independent Complexity",
       "authors": "Aarushi Goel, Swagata Sasmal, Mingyuan Wang",
       "authors_html": "Aarushi Goel, Swagata Sasmal, <span class=\"is-team\">Mingyuan Wang</span>",
@@ -97,6 +67,16 @@
       "url": "https://eprint.iacr.org/2025/1364.pdf"
     },
     {
+      "title": "Black-Box Crypto Is Useless for Pseudorandom Codes",
+      "authors": "Sanjam Garg, Sam Gunn, Mingyuan Wang",
+      "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, Sam Gunn, <span class=\"is-team\">Mingyuan Wang</span>",
+      "venue": "TCC (4)",
+      "venue_short": "TCC",
+      "area": "crypto",
+      "year": "2025",
+      "url": "https://eprint.iacr.org/2025/1021.pdf"
+    },
+    {
       "title": "Black-Box Non-interactive Zero Knowledge from Vector Trapdoor Hash",
       "authors": "Pedro Branco, Arka Rai Choudhuri, Nico Döttling, Abhishek Jain, Giulio Malavolta, Akshayaram Srinivasan",
       "authors_html": "Pedro Branco, <span class=\"is-team\">Arka Rai Choudhuri</span>, Nico Döttling, Abhishek Jain, Giulio Malavolta, Akshayaram Srinivasan",
@@ -107,14 +87,14 @@
       "url": "https://doi.org/10.1007/978-3-031-91134-7_3"
     },
     {
-      "title": "Homomorphic Secret Sharing with Verifiable Evaluation",
-      "authors": "Arka Rai Choudhuri, Aarushi Goel, Aditya Hegde, Abhishek Jain",
-      "authors_html": "<span class=\"is-team\">Arka Rai Choudhuri</span>, Aarushi Goel, Aditya Hegde, Abhishek Jain",
-      "venue": "TCC (4)",
-      "venue_short": "TCC",
+      "title": "Laconic PSI on Authenticated Inputs and Applications",
+      "authors": "James Bartusek, Sanjam Garg, Abhishek Jain, Guru-Vamsi Policharla",
+      "authors_html": "James Bartusek, <span class=\"is-team\">Sanjam Garg</span>, Abhishek Jain, Guru-Vamsi Policharla",
+      "venue": "ASIACRYPT (5)",
+      "venue_short": "ASIACRYPT",
       "area": "crypto",
       "year": "2025",
-      "url": "https://eprint.iacr.org/2025/1491.pdf"
+      "url": "https://eprint.iacr.org/2025/1108.pdf"
     },
     {
       "title": "Malicious Security in Collaborative zk-SNARKs: More than Meets the Eye",
@@ -137,14 +117,14 @@
       "url": "https://eprint.iacr.org/2025/1074.pdf"
     },
     {
-      "title": "On the Black-Box Complexity of Private-Key Inner-Product Functional Encryption",
-      "authors": "Mohammad Hajiabadi, Roman Langrehr, Adam O'Neill, Mingyuan Wang",
-      "authors_html": "Mohammad Hajiabadi, Roman Langrehr, Adam O'Neill, <span class=\"is-team\">Mingyuan Wang</span>",
-      "venue": "TCC (3)",
-      "venue_short": "TCC",
+      "title": "Policy Compliant Secure Messaging",
+      "authors": "Joël Alwen, Xiaohui Ding, Sanjam Garg, Yiannis Tselekounis",
+      "authors_html": "Joël Alwen, Xiaohui Ding, <span class=\"is-team\">Sanjam Garg</span>, Yiannis Tselekounis",
+      "venue": "ASIACRYPT (2)",
+      "venue_short": "ASIACRYPT",
       "area": "crypto",
       "year": "2025",
-      "url": "https://doi.org/10.1007/978-3-031-78020-2_11"
+      "url": "https://eprint.iacr.org/2025/2179.pdf"
     },
     {
       "title": "Practical Mempool Privacy via One-time Setup Batched Threshold Encryption",
@@ -187,6 +167,16 @@
       "url": "https://doi.org/10.1109/SP54263.2024.00057"
     },
     {
+      "title": "Homomorphic Secret Sharing with Verifiable Evaluation",
+      "authors": "Arka Rai Choudhuri, Aarushi Goel, Aditya Hegde, Abhishek Jain",
+      "authors_html": "<span class=\"is-team\">Arka Rai Choudhuri</span>, Aarushi Goel, Aditya Hegde, Abhishek Jain",
+      "venue": "TCC (4)",
+      "venue_short": "TCC",
+      "area": "crypto",
+      "year": "2024",
+      "url": "https://doi.org/10.1007/978-3-031-78023-3_20"
+    },
+    {
       "title": "How to Prove Statements Obliviously?",
       "authors": "Sanjam Garg, Aarushi Goel, Mingyuan Wang",
       "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, Aarushi Goel, <span class=\"is-team\">Mingyuan Wang</span>",
@@ -225,6 +215,16 @@
       "area": "crypto",
       "year": "2024",
       "url": "https://eprint.iacr.org/2024/899.pdf"
+    },
+    {
+      "title": "On the Black-Box Complexity of Private-Key Inner-Product Functional Encryption",
+      "authors": "Mohammad Hajiabadi, Roman Langrehr, Adam O'Neill, Mingyuan Wang",
+      "authors_html": "Mohammad Hajiabadi, Roman Langrehr, Adam O'Neill, <span class=\"is-team\">Mingyuan Wang</span>",
+      "venue": "TCC (3)",
+      "venue_short": "TCC",
+      "area": "crypto",
+      "year": "2024",
+      "url": "https://eprint.iacr.org/2024/1877.pdf"
     },
     {
       "title": "Publicly-Detectable Watermarking for Language Models",
@@ -547,16 +547,6 @@
       "url": "https://eprint.iacr.org/2022/1743.pdf"
     },
     {
-      "title": "SNARGs for $\\mathcal{P}$ from LWE",
-      "authors": "Arka Rai Choudhuri, Abhishek Jain, Zhengzhong Jin",
-      "authors_html": "<span class=\"is-team\">Arka Rai Choudhuri</span>, Abhishek Jain, Zhengzhong Jin",
-      "venue": "FOCS",
-      "venue_short": "FOCS",
-      "area": "theory",
-      "year": "2022",
-      "url": "https://doi.org/10.1109/FOCS52979.2021.00016"
-    },
-    {
       "title": "Succinct Zero Knowledge for Floating Point Computations",
       "authors": "Sanjam Garg, Abhishek Jain, Zhengzhong Jin, Yinuo Zhang",
       "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, Abhishek Jain, Zhengzhong Jin, Yinuo Zhang",
@@ -755,6 +745,16 @@
       "area": "theory",
       "year": "2021",
       "url": "https://doi.org/10.1109/ISIT45174.2021.9518276"
+    },
+    {
+      "title": "SNARGs for P from LWE",
+      "authors": "Arka Rai Choudhuri, Abhishek Jain, Zhengzhong Jin",
+      "authors_html": "<span class=\"is-team\">Arka Rai Choudhuri</span>, Abhishek Jain, Zhengzhong Jin",
+      "venue": "FOCS",
+      "venue_short": "FOCS",
+      "area": "theory",
+      "year": "2021",
+      "url": "https://doi.org/10.1109/FOCS52979.2021.00016"
     },
     {
       "title": "Zero-Knowledge Proofs for Set Membership: Efficient, Succinct, Modular",

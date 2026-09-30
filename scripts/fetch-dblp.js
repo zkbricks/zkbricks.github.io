@@ -77,11 +77,12 @@ const PEER_REVIEWED_TYPES = ['Inproceedings', 'Article'];
 // One row per (publication, author signature, document page); grouped back into records below.
 function publicationsQuery(pid) {
   return `PREFIX dblp: <https://dblp.org/rdf/schema#>
-SELECT ?pub ?type ?title ?year ?venue ?primary ?page ?ord ?name WHERE {
+SELECT ?pub ?type ?title ?year ?eventYear ?venue ?primary ?page ?ord ?name WHERE {
   ?pub dblp:authoredBy <https://dblp.org/pid/${pid}> ;
        a ?type ; dblp:title ?title ; dblp:yearOfPublication ?year ; dblp:hasSignature ?sig .
   VALUES ?type { dblp:Inproceedings dblp:Article dblp:Informal }
   ?sig a dblp:AuthorSignature ; dblp:signatureOrdinal ?ord ; dblp:signatureDblpName ?name .
+  OPTIONAL { ?pub dblp:yearOfEvent ?eventYear }
   OPTIONAL { ?pub dblp:publishedIn ?venue }
   OPTIONAL { ?pub dblp:primaryDocumentPage ?primary }
   OPTIONAL { ?pub dblp:documentPage ?page }
@@ -96,7 +97,9 @@ async function fetchMemberPublications(pid) {
     const v = (k) => (row[k] ? row[k].value : '');
     let rec = byPub.get(v('pub'));
     if (!rec) {
-      rec = { key: v('pub'), types: new Set(), title: v('title'), year: v('year'), venue: '', primary: new Set(), pages: new Set(), authors: new Map() };
+      rec = { key: v('pub'), types: new Set(), title: v('title'),
+        // Cite conferences by the year they were held; proceedings can appear the following year.
+        year: v('eventYear') || v('year'), venue: '', primary: new Set(), pages: new Set(), authors: new Map() };
       byPub.set(v('pub'), rec);
     }
     rec.types.add(v('type').replace(/^.*#/, ''));
@@ -166,7 +169,10 @@ function decodeEntities(s) {
 }
 
 function cleanTitle(t) {
-  return decodeEntities(t || 'Untitled').replace(/\.\s*$/, '').trim();
+  return decodeEntities(t || 'Untitled')
+    // DBLP keeps inline TeX, e.g. "SNARGs for $\mathcal{P}$ from LWE".
+    .replace(/\$([^$]*)\$/g, (m, tex) => tex.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1').replace(/\\([a-zA-Z]+)/g, '$1'))
+    .replace(/\.\s*$/, '').trim();
 }
 
 function authorsHtmlFromString(authors, teamNamesSet) {
