@@ -10,25 +10,23 @@ nav_active: home
 {% assign security = research.area_stats | where: 'name', 'security' | first %}
 
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-canvas-wrap" aria-hidden="true">
-    <canvas class="hero-canvas" data-bricks></canvas>
-    <p class="hero-fig"><span class="dot"></span>Fig. 01 — any <i>t</i> of <i>n</i> bricks unlock the secret</p>
-  </div>
-
   <div class="wrap hero-inner">
-    <p class="kicker" data-reveal data-scramble>Applied cryptography, open source</p>
-    <h1 class="display" id="hero-title" data-reveal="lines">
-      <span class="line"><span>Cryptography,</span></span>
-      <span class="line"><span>laid <em class="accent">brick</em></span></span>
-      <span class="line"><span>by brick.</span></span>
-    </h1>
-    <div class="hero-foot">
-      <p class="lede" data-reveal style="--d:.35s">We translate cutting-edge advances in cryptography into practical tools for privacy, safety, and trust in digital systems.</p>
-      <div class="hero-ctas" data-reveal style="--d:.5s">
-        <a class="btn btn-solid" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">View on GitHub <span class="arrow-ne" aria-hidden="true">↗</span></a>
-        <a class="btn" href="{{ '/research.html' | relative_url }}">Our research <span class="arrow" aria-hidden="true">→</span></a>
+    <div class="hero-copy">
+      <p class="kicker" data-reveal data-scramble>Applied cryptography, open source</p>
+      <h1 class="display" id="hero-title" data-reveal="lines">
+        <span class="line"><span>Cryptography,</span></span>
+        <span class="line"><span>laid <em class="accent">brick</em></span></span>
+        <span class="line"><span>by brick.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="lede" data-reveal style="--d:.35s">We translate cutting-edge advances in cryptography into practical tools for privacy, safety, and trust in digital systems.</p>
+        <div class="hero-ctas" data-reveal style="--d:.5s">
+          <a class="btn btn-solid" href="https://github.com/zkbricks" target="_blank" rel="noopener noreferrer">View on GitHub <span class="arrow-ne" aria-hidden="true">↗</span></a>
+          <a class="btn" href="{{ '/research.html' | relative_url }}">Our research <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
+    {% include hero-figures.html %}
   </div>
 
   <div class="hero-bar">
@@ -36,7 +34,7 @@ nav_active: home
       <ul class="hero-topics" aria-label="Focus areas">
         <li data-scramble>Threshold encryption</li>
         <li data-scramble>Succinct proofs</li>
-        <li data-scramble>Private identity</li>
+        <li data-scramble>Proofs of personhood</li>
         <li data-scramble>AI safety</li>
       </ul>
       <span class="scroll-cue" aria-hidden="true"><i></i>Scroll</span>
@@ -69,9 +67,18 @@ nav_active: home
         </div>
         <div>
           <p class="cap-body">Production-grade libraries for threshold encryption, succinct proofs, and private identity. Free on GitHub.</p>
-          <ul class="cap-tags"><li class="tag">Threshold encryption</li><li class="tag">SNARKs</li><li class="tag">Private identity</li></ul>
+          <ul class="cap-tags"><li class="tag">Threshold encryption</li><li class="tag">SNARKs</li><li class="tag">Proofs of personhood</li></ul>
         </div>
-        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="66.0 19.0 118.0 49.0 118.0 70.0 92.0 85.0 40.0 55.0 40.0 34.0" fill="var(--paper)" stroke="none"/><path class="draw" pathLength="1" d="M66.0 19.0L118.0 49.0L92.0 64.0L40.0 34.0ZM118.0 49.0L118.0 70.0L92.0 85.0L92.0 64.0M40.0 34.0L40.0 55.0L92.0 85.0"/><polygon points="40.0 34.0 92.0 64.0 92.0 85.0 66.0 100.0 14.0 70.0 14.0 49.0" fill="var(--paper)" stroke="none"/><path class="draw" pathLength="1" d="M40.0 34.0L92.0 64.0L66.0 79.0L14.0 49.0ZM92.0 64.0L92.0 85.0L66.0 100.0L66.0 79.0M14.0 49.0L14.0 70.0L66.0 100.0"/><g class="lift"><polygon points="66.0 -2.0 92.0 13.0 92.0 34.0 40.0 64.0 14.0 49.0 14.0 28.0" fill="var(--paper)" stroke="none"/><polygon class="fill-accent" points="66.0 -2.0 92.0 13.0 40.0 43.0 14.0 28.0"/><path class="draw" pathLength="1" d="M66.0 -2.0L92.0 13.0L40.0 43.0L14.0 28.0ZM92.0 13.0L92.0 34.0L40.0 64.0L40.0 43.0M14.0 28.0L14.0 49.0L40.0 64.0"/></g></svg>
+        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+          <!-- One continuous base, with the upper brick running front to back. -->
+          <polygon points="66 30 118 60 118 90 66 120 14 90 14 60" fill="var(--paper)" stroke="none"/>
+          <path class="draw" pathLength="1" d="M66 30L118 60L66 90L14 60ZM118 60L118 90L66 120L66 90M14 60L14 90L66 120"/>
+          <g class="lift">
+            <polygon points="92 15 118 30 118 60 66 90 40 75 40 45" fill="var(--paper)" stroke="none"/>
+            <polygon class="fill-accent" points="92 15 118 30 66 60 40 45"/>
+            <path class="draw" pathLength="1" d="M92 15L118 30L66 60L40 45ZM118 30L118 60L66 90L66 60M40 45L40 75L66 90"/>
+          </g>
+        </svg>
       </article>
       <article class="cap" data-reveal>
         <span class="cap-num">02</span>
@@ -82,7 +89,7 @@ nav_active: home
           <p class="cap-body">Every component comes with a formal security proof, and we verify the systems you build on it.</p>
           <ul class="cap-tags"><li class="tag">Security proofs</li><li class="tag">System verification</li></ul>
         </div>
-        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="66.0 24.5 118.0 54.5 118.0 86.0 92.0 101.0 40.0 71.0 40.0 39.5" fill="var(--paper)" stroke="none"/><path class="draw" pathLength="1" d="M66.0 24.5L118.0 54.5L92.0 69.5L40.0 39.5ZM118.0 54.5L118.0 86.0L92.0 101.0L92.0 69.5M40.0 39.5L40.0 71.0L92.0 101.0"/><polyline class="draw" pathLength="1" stroke="var(--accent)" stroke-width="2.25" points="51.7 59.8 60.8 74.6 81.6 65.0"/></svg>
+        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="66.0 24.5 118.0 54.5 118.0 86.0 92.0 101.0 40.0 71.0 40.0 39.5" fill="var(--paper)" stroke="none"/><path class="draw" pathLength="1" d="M66.0 24.5L118.0 54.5L92.0 69.5L40.0 39.5ZM118.0 54.5L118.0 86.0L92.0 101.0L92.0 69.5M40.0 39.5L40.0 71.0L92.0 101.0"/><g transform="matrix(.866025 .5 0 1 40 39.5)"><path class="draw isometric-check" pathLength="1" d="M17.76 16.47L24.96 23.67L42.24 7.83"/></g></svg>
       </article>
       <article class="cap" data-reveal>
         <span class="cap-num">03</span>
@@ -93,7 +100,19 @@ nav_active: home
           <p class="cap-body">New cryptographic systems, designed, built, and integrated into your product.</p>
           <ul class="cap-tags"><li class="tag">Design</li><li class="tag">Engineering</li><li class="tag">Integration</li></ul>
         </div>
-        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><polygon points="66.0 56.0 114.5 84.0 66.0 112.0 17.5 84.0" stroke-dasharray="3 3.5" opacity=".7"/><polygon class="fill-accent" points="66.0 67.2 95.1 84.0 66.0 100.8 36.9 84.0" opacity=".25"/><line x1="95.1" y1="53.2" x2="95.1" y2="82.6" stroke-dasharray="2 3" opacity=".6"/><line x1="66.0" y1="70.0" x2="66.0" y2="99.4" stroke-dasharray="2 3" opacity=".6"/><line x1="36.9" y1="53.2" x2="36.9" y2="82.6" stroke-dasharray="2 3" opacity=".6"/><g class="lift"><polygon points="66.0 18.2 95.1 35.0 95.1 53.2 66.0 70.0 36.9 53.2 36.9 35.0" fill="var(--paper)" stroke="none"/><polygon class="fill-accent" points="66.0 18.2 95.1 35.0 66.0 51.8 36.9 35.0"/><path class="draw" pathLength="1" d="M66.0 18.2L95.1 35.0L66.0 51.8L36.9 35.0ZM95.1 35.0L95.1 53.2L66.0 70.0L66.0 51.8M36.9 35.0L36.9 53.2L66.0 70.0"/></g></svg>
+        <svg class="cap-glyph" viewBox="0 0 132 132" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+          <!-- Equal 40-unit edges, projected at 30 degrees. -->
+          <polygon points="66 64 100.64 84 66 104 31.36 84" stroke-dasharray="3 3.5" opacity=".7"/>
+          <polygon class="fill-accent" points="66 64 100.64 84 66 104 31.36 84"/>
+          <line x1="100.64" y1="70" x2="100.64" y2="84" stroke-dasharray="2 3" opacity=".6"/>
+          <line x1="66" y1="90" x2="66" y2="104" stroke-dasharray="2 3" opacity=".6"/>
+          <line x1="31.36" y1="70" x2="31.36" y2="84" stroke-dasharray="2 3" opacity=".6"/>
+          <g class="lift">
+            <polygon points="66 10 100.64 30 100.64 70 66 90 31.36 70 31.36 30" fill="var(--paper)" stroke="none"/>
+            <polygon class="fill-accent" points="66 10 100.64 30 66 50 31.36 30"/>
+            <path class="draw" pathLength="1" d="M66 10L100.64 30L66 50L31.36 30ZM100.64 30L100.64 70L66 90L66 50M31.36 30L31.36 70L66 90"/>
+          </g>
+        </svg>
       </article>
     </div>
   </div>
@@ -227,3 +246,4 @@ nav_active: home
 </section>
 
 <script src="{{ '/assets/js/hero.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/hero-stories.js' | relative_url }}" defer></script>

@@ -1,0 +1,110 @@
+<div class="hero-stories" data-hero-stories>
+  <div class="story-topline">
+    <p class="kicker no-dot">Cryptography at work</p>
+    <button class="story-motion" type="button" data-story-motion aria-pressed="false">Pause motion</button>
+  </div>
+  <div class="story-tabs" role="tablist" aria-label="Explore our work">
+    <button type="button" id="story-tab-build" role="tab" aria-selected="true" aria-controls="story-build" data-story-tab="build"><span>01</span> Build systems</button>
+    <button type="button" id="story-tab-threshold" role="tab" aria-selected="false" aria-controls="story-threshold" tabindex="-1" data-story-tab="threshold"><span>02</span> Share control</button>
+    <button type="button" id="story-tab-personhood" role="tab" aria-selected="false" aria-controls="story-personhood" tabindex="-1" data-story-tab="personhood"><span>03</span> Prove privately</button>
+  </div>
+  <section class="story-panel" id="story-build" role="tabpanel" aria-labelledby="story-tab-build" tabindex="0" data-story-panel="build">
+    <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Logo geometry: one 2×2×1 base, with a 1×1×1 rear cube and a 1×2×1 right-hand brick on top. -->
+  <defs>
+    <g id="system-base-shape">
+      <path d="M0 -36L62.352 0L62.352 36L0 72L-62.352 36L-62.352 0Z" class="diagram-body"/>
+      <path d="M0 -36L62.352 0L0 36L-62.352 0Z" class="diagram-top"/>
+      <path d="M0 -36L62.352 0L0 36L-62.352 0Z" class="diagram-blue"/>
+      <path d="M-62.352 0L0 36L62.352 0M0 36L0 72"/>
+    </g>
+    <g id="system-long-shape">
+      <path d="M0 -36L31.176 -18L31.176 18L-31.176 54L-62.352 36L-62.352 0Z" class="diagram-body"/>
+      <path d="M0 -36L31.176 -18L-31.176 18L-62.352 0Z" class="diagram-top"/>
+      <path d="M0 -36L31.176 -18L-31.176 18L-62.352 0Z" class="diagram-blue"/>
+      <path d="M-62.352 0L-31.176 18L31.176 -18M-31.176 18L-31.176 54"/>
+    </g>
+    <g id="system-top-shape">
+      <path d="M0 -36L31.176 -18L31.176 18L0 36L-31.176 18L-31.176 -18Z" class="diagram-body"/>
+      <path d="M0 -36L31.176 -18L0 0L-31.176 -18Z" class="diagram-top"/>
+      <path d="M0 -36L31.176 -18L0 0L-31.176 -18Z" class="diagram-blue"/>
+      <path d="M-31.176 -18L0 0L31.176 -18M0 0L0 36"/>
+    </g>
+  </defs>
+  <g class="diagram-ghost">
+    <use href="#system-base-shape" transform="translate(100 188)"/>
+    <use href="#system-long-shape" transform="translate(160 92)"/>
+    <use href="#system-top-shape" transform="translate(58 98)"/>
+  </g>
+  <g transform="translate(356 192)"><g class="system-piece piece-base"><use href="#system-base-shape"/></g></g>
+  <!-- Paint the rear cube before the front brick so their shared edges are occluded correctly. -->
+  <g transform="translate(356 156)"><g class="system-piece piece-top"><use href="#system-top-shape"/></g></g>
+  <g transform="translate(387.176 174)"><g class="system-piece piece-long"><use href="#system-long-shape"/></g></g>
+  <g class="system-seal">
+    <circle cx="421" cy="120" r="23" fill="var(--paper)" stroke="none"/>
+    <circle cx="421" cy="120" r="23" class="diagram-badge"/>
+    <path d="M410 120L418 128L433 112" class="diagram-check"/>
+  </g>
+  <text class="diagram-label" x="114" y="304" text-anchor="middle">PRIMITIVES</text>
+  <text class="diagram-label" x="356" y="304" text-anchor="middle">WORKING SYSTEM</text>
+</svg></div>
+    <div class="story-caption">
+      <p class="story-category">Fig. 01 / Cryptographic engineering</p>
+      <h2>From building blocks<br>to <em>working systems.</em></h2>
+      <p>We bring cryptographic primitives, security proofs, and engineering together to build systems you can deploy.</p>
+      <a class="link" href="#build-title">How we build <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="story-panel" id="story-threshold" role="tabpanel" aria-labelledby="story-tab-threshold" tabindex="0" data-story-panel="threshold" hidden>
+    <div class="story-stage"><canvas class="hero-canvas" data-bricks aria-hidden="true"></canvas><noscript><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path class="diagram-accent-line" d="M112 220L270 126L420 220M270 267V126"/><g class="diagram-body"><circle cx="112" cy="220" r="23"/><circle cx="420" cy="220" r="23"/><circle cx="270" cy="267" r="23"/></g><path class="diagram-body" d="M235 95L270 75L305 95V135L270 155L235 135Z"/><path d="M235 95L270 115L305 95M270 115V155"/><text class="diagram-label" x="270" y="320" text-anchor="middle">THREE SHARES · ONE SHARED SECRET</text></svg></noscript></div>
+    <div class="story-caption">
+      <p class="story-category">Fig. 02 / Threshold cryptography</p>
+      <h2>Shared control.<br><em>No single keyholder.</em></h2>
+      <p>Independent keyholders contribute shares. Only a sufficient group can unlock the protected information.</p>
+      <a class="link" href="{{ '/blogposts/threshold-encryption.html' | relative_url }}">Explore threshold encryption <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="story-panel" id="story-personhood" role="tabpanel" aria-labelledby="story-tab-personhood" tabindex="0" data-story-panel="personhood" hidden>
+    <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- The passport sits beside the person, with the original portrait and detail lines. -->
+  <g class="personhood-passport" transform="translate(50 32) scale(.85)">
+    <path class="diagram-body" d="M59 87L201 107.5V232.5L59 212Z"/>
+    <path class="diagram-top" d="M48 99L190 119.5V244.5L48 224Z"/>
+    <circle cx="78" cy="146" r="11" stroke="var(--accent)"/>
+    <path d="M60 183V177Q60 162 78 163Q96 165 96 179V185" stroke="var(--accent)"/>
+    <path d="M112 148L173 157M112 162L173 171M112 176L159 183M64 205L172 221" stroke="var(--muted)" stroke-width="3"/>
+  </g>
+  <!-- The circular head rests directly on the hemispherical body; both use flat fills. -->
+  <g class="personhood-person" transform="translate(4 52) scale(.8)" fill="var(--accent-surface)">
+    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z" fill="var(--paper)" stroke="none"/>
+    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z"/>
+    <!-- Mask the body after drawing it, before adding the translucent head fill. -->
+    <circle cx="89" cy="147" r="28" fill="var(--paper)" stroke="none"/>
+    <circle cx="89" cy="147" r="28"/>
+  </g>
+  <path class="diagram-guide" d="M225 180C265 155 316 155 373 180" stroke-dasharray="2 6"/>
+  <g class="personhood-proof">
+    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" fill="var(--paper)" stroke="none"/>
+    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" class="diagram-badge"/>
+    <path class="diagram-check" d="M250 166L259 175L274 157"/>
+  </g>
+  <!-- The verifier is an upright slab, with visible top and side thickness. -->
+  <path class="diagram-body" d="M373 123L385 116L458 158V241L446 248L373 206Z"/>
+  <path class="diagram-top" d="M373 123L446 165V248L373 206Z"/>
+  <path d="M373 123L385 116L458 158L446 165M446 165V248"/>
+  <g transform="matrix(.866025 .5 0 1 373 123)">
+    <path d="M14 16H69M14 69H69" class="diagram-guide"/>
+    <g class="personhood-verified"><path class="isometric-check" d="M19 40L33 54L66.6 23.2"/></g>
+  </g>
+  <text class="diagram-label" x="122" y="307" text-anchor="middle">PERSON + CREDENTIALS</text>
+  <text class="diagram-label diagram-accent-text" x="263" y="226" text-anchor="middle">ZK PROOF</text>
+  <text class="diagram-label" x="420" y="307" text-anchor="middle">VERIFIED CLAIM</text>
+</svg></div>
+    <div class="story-caption">
+      <p class="story-category">Fig. 03 / Proofs of personhood</p>
+      <h2>Prove what matters.<br><em>Keep the rest private.</em></h2>
+      <p>Prove credentials and relationships with zero knowledge, keeping personal details private.</p>
+      <a class="link" href="{{ '/blogposts/proofs-of-personhood.html' | relative_url }}">Explore proofs of personhood <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</div>

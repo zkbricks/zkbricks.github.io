@@ -38,9 +38,9 @@ Landing page and blog for [zkBricks](https://zkbricks.github.io). Built with [Je
 
 ## Design system
 
-- **Styles** – `assets/css/site.css` (no framework). Colour tokens live on `:root` with a dark set under `[data-theme="dark"]` and `prefers-color-scheme`.
-- **Type** – Instrument Serif (display), Geist (text), Geist Mono (labels/data), loaded from Google Fonts.
-- **Scripts** – `assets/js/site.js` (theme, nav, scroll reveals, manifesto, counters, post TOC and progress), `assets/js/hero.js` (isometric brick field on the home page), `assets/js/research.js` (publication wall, filters, search).
+- **Styles** – `assets/css/site.css` (no framework). Plain white in light mode, neutral charcoal in dark mode, and one cornflower-blue accent with translucent illustration fills. Colour tokens live on `:root` with a dark set under `[data-theme="dark"]` and `prefers-color-scheme`.
+- **Type** – Aileron throughout, self-hosted in `assets/fonts/aileron/`: UltraLight for the expanded menu, Light for display text and desktop navigation, Regular for reading, and SemiBold/Bold for emphasis. Emphasized headline phrases are slightly larger; dark mode steps section, capability, mission, and footer emphasis up to Bold for clearer contrast. Code uses the system monospace font. Aileron comes from [dot colon](https://dotcolon.net/fonts/aileron/); source and redistribution details are in `assets/fonts/aileron/LICENSE.txt`.
+- **Scripts** – `assets/js/site.js` (theme, nav, scroll reveals, manifesto, counters, post TOC and progress), `assets/js/hero.js` (threshold scene with a stationary box), `assets/js/hero-stories.js` (three selectable hero stories and motion controls; markup in `_includes/hero-figures.html`), `assets/js/research.js` (publication wall, filters, search).
 - All motion respects `prefers-reduced-motion`.
 
 After editing, run the build command above to regenerate `_site/`. Pushing to the repo triggers a fresh build on GitHub Pages.

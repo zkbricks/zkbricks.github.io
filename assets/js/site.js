@@ -166,17 +166,6 @@
     });
   }
 
-  /* ---------- Footer mark parallax ---------- */
-
-  var footMark = $('[data-footer-mark]');
-  function updateFooter() {
-    if (!footMark || reduceMotion) return;
-    var r = footMark.getBoundingClientRect();
-    var vh = window.innerHeight;
-    var p = Math.max(0, Math.min(1, (vh - r.top) / (r.height + 80)));
-    footMark.style.setProperty('--fy', ((1 - p) * 30).toFixed(2) + '%');
-  }
-
   /* ---------- Reading progress ---------- */
 
   var progress = $('[data-progress]');
@@ -198,7 +187,6 @@
     requestAnimationFrame(function () {
       onScrollHeader();
       updateLit();
-      updateFooter();
       updateProgress();
       ticking = false;
     });
