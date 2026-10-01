@@ -4,17 +4,26 @@
     <button class="story-motion" type="button" data-story-motion aria-pressed="false">Pause motion</button>
   </div>
   <div class="story-tabs" role="tablist" aria-label="Explore our work">
-    <button type="button" id="story-tab-threshold" role="tab" aria-selected="true" aria-controls="story-threshold" data-story-tab="threshold" data-label="Threshold encryption">Threshold encryption</button>
+    <button type="button" id="story-tab-threshold" role="tab" aria-selected="true" aria-controls="story-threshold" data-story-tab="threshold" data-label="Threshold cryptography">Threshold cryptography</button>
     <button type="button" id="story-tab-personhood" role="tab" aria-selected="false" aria-controls="story-personhood" tabindex="-1" data-story-tab="personhood" data-label="Proofs of personhood">Proofs of personhood</button>
     <button type="button" id="story-tab-safety" role="tab" aria-selected="false" aria-controls="story-safety" tabindex="-1" data-story-tab="safety" data-label="AI safety">AI safety</button>
-    <button type="button" id="story-tab-systems" role="tab" aria-selected="false" aria-controls="story-systems" tabindex="-1" data-story-tab="systems" data-label="Real-world systems">Real-world systems</button>
+    <button type="button" id="story-tab-systems" role="tab" aria-selected="false" aria-controls="story-systems" tabindex="-1" data-story-tab="systems" data-label="Build &amp; analyze">Build &amp; analyze</button>
   </div>
   <section class="story-panel" id="story-threshold" role="tabpanel" aria-labelledby="story-tab-threshold" tabindex="0" data-story-panel="threshold">
     <div class="story-stage"><canvas class="hero-canvas" data-bricks aria-hidden="true"></canvas><noscript><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path class="diagram-accent-line" d="M112 220L270 126L420 220M270 267V126"/><g class="diagram-body"><circle cx="112" cy="220" r="23"/><circle cx="420" cy="220" r="23"/><circle cx="270" cy="267" r="23"/></g><path class="diagram-body" d="M235 95L270 75L305 95V135L270 155L235 135Z"/><path d="M235 95L270 115L305 95M270 115V155"/><text class="diagram-label" x="270" y="320" text-anchor="middle">THREE SHARES · ONE SHARED SECRET</text></svg></noscript></div>
     <div class="story-caption">
-      <p class="story-category">Threshold cryptography</p>
+      <p class="story-category">Mempool privacy</p>
       <h2>Shared control.<br><em>No single keyholder.</em></h2>
-      <p>Independent keyholders contribute shares. Only a sufficient group can unlock the protected information.</p>
+      <p>Our team, with collaborators, introduced batched threshold encryption: validators decrypt a whole block of encrypted transactions with one short share each, while every transaction left out stays private.</p>
+      <div class="story-impact">
+        <p class="story-impact-label">Adopted and extended by</p>
+        <ul>
+          <li><a href="https://eprint.iacr.org/2025/2032" target="_blank" rel="noopener noreferrer"><b>Aptos Labs</b><span>Encrypted mempool for the Aptos blockchain</span></a></li>
+          <li><a href="https://category-labs.github.io/category-research/BTX-paper.pdf" target="_blank" rel="noopener noreferrer"><b>Category Labs</b><span>BTX batched threshold encryption</span></a></li>
+          <li><a href="https://commonware.xyz/blogs/bte" target="_blank" rel="noopener noreferrer"><b>Commonware</b><span>Batched threshold encryption in Rust</span></a></li>
+          <li><a href="https://blog.shutter.network/breaking-encrypted-mempool-limitations-with-advanced-cryptography/" target="_blank" rel="noopener noreferrer"><b>Shutter Network</b><span>Next step for its encrypted mempool</span></a></li>
+        </ul>
+      </div>
       <a class="link" href="{{ '/blogposts/threshold-encryption.html' | relative_url }}">Explore threshold encryption <span aria-hidden="true">↗</span></a>
     </div>
   </section>
@@ -63,102 +72,117 @@
   </section>
   <section class="story-panel" id="story-safety" role="tabpanel" aria-labelledby="story-tab-safety" tabindex="0" data-story-panel="safety" hidden>
     <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- The agent holds a secret in context, refuses to reveal it, yet its benign replies let an observer rebuild it. -->
-  <path class="diagram-body" d="M44 112L56 105L125 145V223L113 230L44 190Z"/>
-  <path class="diagram-top" d="M44 112L113 152V230L44 190Z"/>
-  <path d="M44 112L56 105L125 145L113 152M113 152V230"/>
-  <g transform="matrix(.866025 .5 0 1 44 112)">
-    <path d="M10 18H62M10 30H46" stroke="var(--muted)" stroke-width="3"/>
-    <g class="diagram-badge"><rect x="10" y="44" width="11" height="14"/><rect x="24" y="44" width="11" height="14"/><rect x="38" y="44" width="11" height="14"/><rect x="52" y="44" width="11" height="14"/></g>
+  <!-- The agent refuses to reveal the secret in its context, but its ordinary replies each shift the
+       attacker's estimate of every digit until the secret locks in. -->
+  <g transform="translate(-8 0)">
+    <path class="diagram-body" d="M44 112L56 105L125 145V223L113 230L44 190Z"/>
+    <path class="diagram-top" d="M44 112L113 152V230L44 190Z"/>
+    <path d="M44 112L56 105L125 145L113 152M113 152V230"/>
+    <g transform="matrix(.866025 .5 0 1 44 112)">
+      <path d="M10 18H62M10 30H46" stroke="var(--muted)" stroke-width="3"/>
+      <g class="diagram-badge"><rect x="10" y="44" width="11" height="14"/><rect x="24" y="44" width="11" height="14"/><rect x="38" y="44" width="11" height="14"/><rect x="52" y="44" width="11" height="14"/></g>
+      <!-- The secret is present but faint: it is in context, never shown. -->
+      <g class="leak-secret" text-anchor="middle"><text x="15.5" y="55">7</text><text x="29.5" y="55">2</text><text x="43.5" y="55">4</text><text x="57.5" y="55">9</text></g>
+    </g>
   </g>
-  <path class="diagram-guide" d="M128 182C156 170 178 168 198 174" stroke-dasharray="2 6"/>
-  <g transform="translate(262 186)">
+  <path class="diagram-guide" d="M120 182C138 174 150 172 162 174" stroke-dasharray="2 6"/>
+  <g transform="translate(222 186)">
     <path class="diagram-body" d="M0 -60L62.352 -24L62.352 36L0 72L-62.352 36L-62.352 -24Z"/>
     <path class="diagram-top" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
     <path class="diagram-blue" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
     <path d="M-62.352 -24L0 12L62.352 -24M0 12V72"/>
   </g>
   <g class="leak-refuse">
-    <circle cx="262" cy="84" r="17" fill="var(--paper)" stroke="var(--rule-strong)"/>
-    <path d="M256 78L268 90M268 78L256 90" stroke="var(--ink-2)" stroke-width="2"/>
+    <circle cx="222" cy="84" r="17" fill="var(--paper)" stroke="var(--rule-strong)"/>
+    <path d="M216 78L228 90M228 78L216 90" stroke="var(--ink-2)" stroke-width="2"/>
   </g>
-  <path class="diagram-guide" d="M404 196H510"/>
-  <g class="diagram-top"><rect x="404" y="148" width="22" height="30"/><rect x="432" y="148" width="22" height="30"/><rect x="460" y="148" width="22" height="30"/><rect x="488" y="148" width="22" height="30"/></g>
-  <g class="leak-digits" text-anchor="middle">
-    <text class="leak-digit" x="415" y="170">7</text>
-    <text class="leak-digit" x="443" y="170">2</text>
-    <text class="leak-digit" x="471" y="170">4</text>
-    <text class="leak-digit" x="499" y="170">9</text>
+  <g class="leak-stream" transform="translate(296 160)"><g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g></g>
+  <g class="leak-board">
+    <g class="leak-rows" text-anchor="end"><text x="384" y="56">0</text><text x="384" y="74">1</text><text x="384" y="92">2</text><text x="384" y="110">3</text><text x="384" y="128">4</text><text x="384" y="146">5</text><text x="384" y="164">6</text><text x="384" y="182">7</text><text x="384" y="200">8</text><text x="384" y="218">9</text></g>
+    <g class="diagram-top" stroke="var(--rule-strong)" stroke-width="1"><rect x="392" y="46" width="22" height="13"/><rect x="392" y="64" width="22" height="13"/><rect x="392" y="82" width="22" height="13"/><rect x="392" y="100" width="22" height="13"/><rect x="392" y="118" width="22" height="13"/><rect x="392" y="136" width="22" height="13"/><rect x="392" y="154" width="22" height="13"/><rect x="392" y="172" width="22" height="13"/><rect x="392" y="190" width="22" height="13"/><rect x="392" y="208" width="22" height="13"/><rect x="420" y="46" width="22" height="13"/><rect x="420" y="64" width="22" height="13"/><rect x="420" y="82" width="22" height="13"/><rect x="420" y="100" width="22" height="13"/><rect x="420" y="118" width="22" height="13"/><rect x="420" y="136" width="22" height="13"/><rect x="420" y="154" width="22" height="13"/><rect x="420" y="172" width="22" height="13"/><rect x="420" y="190" width="22" height="13"/><rect x="420" y="208" width="22" height="13"/><rect x="448" y="46" width="22" height="13"/><rect x="448" y="64" width="22" height="13"/><rect x="448" y="82" width="22" height="13"/><rect x="448" y="100" width="22" height="13"/><rect x="448" y="118" width="22" height="13"/><rect x="448" y="136" width="22" height="13"/><rect x="448" y="154" width="22" height="13"/><rect x="448" y="172" width="22" height="13"/><rect x="448" y="190" width="22" height="13"/><rect x="448" y="208" width="22" height="13"/><rect x="476" y="46" width="22" height="13"/><rect x="476" y="64" width="22" height="13"/><rect x="476" y="82" width="22" height="13"/><rect x="476" y="100" width="22" height="13"/><rect x="476" y="118" width="22" height="13"/><rect x="476" y="136" width="22" height="13"/><rect x="476" y="154" width="22" height="13"/><rect x="476" y="172" width="22" height="13"/><rect x="476" y="190" width="22" height="13"/><rect x="476" y="208" width="22" height="13"/></g>
+    <g fill="var(--accent)" stroke="none"><rect class="heat-noise" style="--d:0.2s" x="392" y="100" width="22" height="13"/><rect class="heat-noise" style="--d:0.9s" x="392" y="190" width="22" height="13"/><rect class="heat-noise" style="--d:0.4s" x="420" y="136" width="22" height="13"/><rect class="heat-noise" style="--d:1.1s" x="420" y="172" width="22" height="13"/><rect class="heat-noise" style="--d:0.6s" x="448" y="64" width="22" height="13"/><rect class="heat-noise" style="--d:0.1s" x="448" y="154" width="22" height="13"/><rect class="heat-noise" style="--d:0.8s" x="476" y="82" width="22" height="13"/><rect class="heat-noise" style="--d:0.3s" x="476" y="154" width="22" height="13"/><rect class="heat-hit" style="--d:0.00s" x="392" y="172" width="22" height="13"/><rect class="heat-hit" style="--d:0.15s" x="420" y="82" width="22" height="13"/><rect class="heat-hit" style="--d:0.30s" x="448" y="118" width="22" height="13"/><rect class="heat-hit" style="--d:0.45s" x="476" y="208" width="22" height="13"/></g>
   </g>
-  <!-- Ordinary replies, each carrying a faint trace of the secret. -->
-  <g transform="translate(334 163)">
-    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
-    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
-    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
-    <g class="leak-output"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g>
-  </g>
-  <text class="diagram-label" x="84" y="307" text-anchor="middle">PRIVATE CONTEXT</text>
-  <text class="diagram-label" x="262" y="307" text-anchor="middle">AI AGENT</text>
-  <text class="diagram-label diagram-accent-text" x="457" y="307" text-anchor="middle">RECONSTRUCTED</text>
+  <path class="diagram-guide" d="M392 250H498"/>
+  <g text-anchor="middle"><text class="leak-digit" x="403" y="268">7</text><text class="leak-digit" x="431" y="268">2</text><text class="leak-digit" x="459" y="268">4</text><text class="leak-digit" x="487" y="268">9</text></g>
+  <text class="diagram-label" x="76" y="307" text-anchor="middle">PRIVATE CONTEXT</text>
+  <text class="diagram-label" x="222" y="307" text-anchor="middle">AI AGENT</text>
+  <text class="diagram-label diagram-accent-text" x="445" y="307" text-anchor="middle">RECONSTRUCTED</text>
 </svg></div>
     <div class="story-caption">
       <p class="story-category">AI safety</p>
-      <h2>Agents that refuse to tell<br><em>can still leak secrets.</em></h2>
-      <p>Credentials and health records in an agent’s context shape its ordinary answers enough to reconstruct them, across eight production models.</p>
-      <a class="link" href="https://arxiv.org/abs/2608.19857" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+      <h2>Agents leak what they<br><em>refuse to reveal.</em></h2>
+      <p>Secrets in an agent’s context, such as credentials or health records, shape its ordinary answers. From those answers alone, the attack recovers 4-digit secrets exactly 82% of the time across eight proprietary models.</p>
+      <div class="story-impact">
+        <ul>
+          <li><a href="https://arxiv.org/abs/2608.19857" target="_blank" rel="noopener noreferrer"><b>NeurIPS 2026</b><span>Inadvertent context leakage in language models</span></a></li>
+          <li><a href="https://arxiv.org/abs/2510.01529" target="_blank" rel="noopener noreferrer"><b>USENIX Security 2026</b><span>Prompt guards bypassed on Gemini, DeepSeek, Grok and Le Chat</span></a></li>
+          <li><a href="https://www.quantamagazine.org/cryptographers-show-that-ai-protections-will-always-have-holes-20251210/" target="_blank" rel="noopener noreferrer"><b>Quanta Magazine</b><span>“AI protections will always have holes”</span></a></li>
+          <li><a href="https://coefficientgiving.org/funds/navigating-transformative-ai/" target="_blank" rel="noopener noreferrer"><b>Coefficient Giving</b><span>Supported by funding from Coefficient Giving</span></a></li>
+        </ul>
+      </div>
+      <a class="link" href="https://arxiv.org/abs/2608.19857" target="_blank" rel="noopener noreferrer">Read the context-leakage paper <span aria-hidden="true">↗</span></a>
     </div>
   </section>
   <section class="story-panel" id="story-systems" role="tabpanel" aria-labelledby="story-tab-systems" tabindex="0" data-story-panel="systems" hidden>
     <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Logo geometry as the deployed system: a lens inspects it and one component is flagged. -->
-  <defs>
-    <g id="systems-base-shape">
-      <path d="M0 -36L62.352 0L62.352 36L0 72L-62.352 36L-62.352 0Z" class="diagram-body"/>
-      <path d="M0 -36L62.352 0L0 36L-62.352 0Z" class="diagram-top"/>
-      <path d="M-62.352 0L0 36L62.352 0M0 36L0 72"/>
-    </g>
-    <g id="systems-long-shape">
-      <path d="M0 -36L31.176 -18L31.176 18L-31.176 54L-62.352 36L-62.352 0Z" class="diagram-body"/>
-      <path d="M0 -36L31.176 -18L-31.176 18L-62.352 0Z" class="diagram-top"/>
-      <path d="M-62.352 0L-31.176 18L31.176 -18M-31.176 18L-31.176 54"/>
-    </g>
-    <g id="systems-top-shape">
-      <path d="M0 -36L31.176 -18L31.176 18L0 36L-31.176 18L-31.176 -18Z" class="diagram-body"/>
-      <path d="M0 -36L31.176 -18L0 0L-31.176 -18Z" class="diagram-top"/>
-      <path d="M-31.176 -18L0 0L31.176 -18M0 0L0 36"/>
-    </g>
-  </defs>
-  <use href="#systems-base-shape" transform="translate(140 192)"/>
-  <!-- Paint the rear cube (and its flag) before the front brick so shared edges are occluded correctly. -->
-  <use href="#systems-top-shape" transform="translate(140 156)"/>
-  <path class="diagram-blue systems-flag" d="M140 120L171.176 138L140 156L108.824 138Z"/>
-  <use href="#systems-long-shape" transform="translate(171.176 174)"/>
-  <path class="diagram-guide" d="M236 176C290 150 330 150 372 168" stroke-dasharray="2 6"/>
-  <!-- The analysis is a written document: model, proof, and findings. -->
-  <path class="diagram-body" d="M380 118L392 111L461 151V229L449 236L380 196Z"/>
-  <path class="diagram-top" d="M380 118L449 158V236L380 196Z"/>
-  <path d="M380 118L392 111L461 151L449 158M449 158V236"/>
-  <g transform="matrix(.866025 .5 0 1 380 118)" stroke-width="3">
-    <path d="M10 18H62M10 32H52M10 46H58M10 60H38" stroke="var(--muted)"/>
+  <!-- Build: a succinct proof is checked inside a Bitcoin block, and BABE's off-chain cost collapses next to BitVM3's. -->
+  <g transform="translate(150 120)">
+    <path class="diagram-body" d="M0 -40L34.64 -20V20L0 40L-34.64 20V-20Z"/>
+    <path class="diagram-top" d="M0 -40L34.64 -20L0 0L-34.64 -20Z"/>
+    <path d="M-34.64 -20L0 0L34.64 -20M0 0V40"/>
+    <g transform="matrix(.866025 .5 0 1 -34.64 -20)"><text class="babe-coin" x="20" y="29" text-anchor="middle">₿</text></g>
   </g>
-  <g class="systems-proof">
-    <circle cx="420" cy="90" r="19" fill="var(--paper)" stroke="none"/>
-    <circle cx="420" cy="90" r="19" class="diagram-badge"/>
-    <path d="M411 90L417 96L429 83" class="diagram-check"/>
-  </g>
-  <g transform="translate(140 150)"><g class="systems-lens">
-    <circle r="30" fill="var(--paper)" fill-opacity=".35"/>
-    <circle r="24" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 5"/>
-    <path d="M21 21L42 42" stroke-width="4"/>
+  <g transform="translate(150 98)"><g class="babe-proof">
+    <path d="M-14 -8L0 -16L14 -8V8L0 16L-14 8Z" fill="var(--paper)" stroke="none"/>
+    <path d="M-14 -8L0 -16L14 -8V8L0 16L-14 8Z" class="diagram-badge"/>
+    <text class="babe-pi" x="0" y="5" text-anchor="middle">π</text>
   </g></g>
-  <text class="diagram-label" x="140" y="307" text-anchor="middle">DEPLOYED PROTOCOL</text>
-  <text class="diagram-label" x="420" y="307" text-anchor="middle">SECURITY ANALYSIS</text>
+  <g class="babe-check">
+    <circle cx="196" cy="72" r="14" fill="var(--paper)" stroke="none"/>
+    <circle cx="196" cy="72" r="14" class="diagram-badge"/>
+    <path d="M189 72L194 77L203 67" class="diagram-check"/>
+  </g>
+  <text class="cost-label" x="40" y="196">BitVM3 · 42 GB off-chain</text>
+  <rect class="diagram-body" x="40" y="203" width="190" height="10"/>
+  <text class="cost-label cost-accent" x="40" y="236">BABE</text>
+  <text class="cost-label cost-accent babe-gain" x="230" y="236" text-anchor="end">≈1000× less</text>
+  <rect class="babe-bar" x="40" y="243" width="190" height="10" fill="var(--accent)" stroke="var(--accent)"/>
+  <path class="diagram-guide" d="M270 56V280" stroke-dasharray="2 6"/>
+  <!-- Analyze: messages ratchet between two phones while the analysis inspects the channel. -->
+  <path class="diagram-guide" d="M342 135H468" stroke-dasharray="2 6"/>
+  <g class="diagram-top"><rect x="298" y="98" width="40" height="72" rx="7"/><rect x="472" y="98" width="40" height="72" rx="7"/></g>
+  <path d="M311 104H325M485 104H499" stroke="var(--muted)"/>
+  <g class="sig-ratchet" style="transform-origin: 318px 140px"><circle cx="318" cy="140" r="9"/><path d="M318 128V132M318 148V152M306 140H310M326 140H330"/></g>
+  <g class="sig-ratchet" style="transform-origin: 492px 140px"><circle cx="492" cy="140" r="9"/><path d="M492 128V132M492 148V152M480 140H484M500 140H504"/></g>
+  <g class="sig-msg sig-msg-a"><rect x="344" y="128" width="20" height="14" rx="2" fill="var(--paper)"/><path d="M344 130L354 137L364 130"/></g>
+  <g class="sig-msg sig-msg-b"><rect x="446" y="128" width="20" height="14" rx="2" fill="var(--paper)"/><path d="M446 130L456 137L466 130"/></g>
+  <text class="cost-label" x="405" y="200" text-anchor="middle">DOUBLE RATCHET</text>
+  <g class="sig-check">
+    <circle cx="405" cy="76" r="14" fill="var(--paper)" stroke="none"/>
+    <circle cx="405" cy="76" r="14" class="diagram-badge"/>
+    <path d="M398 76L403 81L412 71" class="diagram-check"/>
+  </g>
+  <g transform="translate(405 135)"><g class="sig-lens">
+    <circle r="22" fill="var(--paper)" fill-opacity=".35"/>
+    <circle r="17" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 5"/>
+    <path d="M16 16L30 30" stroke-width="4"/>
+  </g></g>
+  <text class="diagram-label" x="135" y="307" text-anchor="middle">BUILD · BITCOIN</text>
+  <text class="diagram-label" x="405" y="307" text-anchor="middle">ANALYZE · SIGNAL</text>
 </svg></div>
     <div class="story-caption">
       <p class="story-category">Real-world systems</p>
-      <h2>Protocols people rely on,<br><em>analyzed rigorously.</em></h2>
-      <p>We model deployed systems, from Signal’s double ratchet to encrypted mempools, and pin down what they guarantee and where they break.</p>
-      <a class="link" href="https://eprint.iacr.org/2022/355" target="_blank" rel="noopener noreferrer">Read the Signal analysis <span aria-hidden="true">↗</span></a>
+      <h2>Our team builds new protocols<br><em>and analyzes the ones in use.</em></h2>
+      <p>BABE lets Bitcoin verify succinct proofs with about 1000× less off-chain storage than BitVM3. Work co-authored by our team analyzes Signal’s double ratchet and pins down what it guarantees.</p>
+      <div class="story-impact">
+        <ul>
+          <li><a href="https://eprint.iacr.org/2026/065" target="_blank" rel="noopener noreferrer"><b>CCS 2026</b><span>BABE: verifying proofs on Bitcoin, 1000× cheaper</span></a></li>
+          <li><a href="https://eprint.iacr.org/2022/355" target="_blank" rel="noopener noreferrer"><b>CRYPTO 2022</b><span>A more complete analysis of Signal’s double ratchet</span></a></li>
+          <li><a href="https://eprint.iacr.org/2024/669" target="_blank" rel="noopener noreferrer"><b>USENIX Security 2024</b><span>Attacks on a deployed encrypted mempool</span></a></li>
+          <li><a href="https://doi.org/10.1109/SP63933.2026.00109" target="_blank" rel="noopener noreferrer"><b>IEEE S&amp;P 2026</b><span>Jigsaw: doubly private smart contracts</span></a></li>
+        </ul>
+      </div>
+      <a class="link" href="https://eprint.iacr.org/2026/065" target="_blank" rel="noopener noreferrer">Read the BABE paper <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 </div>
