@@ -595,8 +595,9 @@ main { flex: 1 0 auto; }
 .diagram-label { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 1.1px; fill: var(--ink-2); stroke: none; }
 .diagram-accent-text { fill: var(--accent); }
 .diagram-accent-line { stroke: var(--accent); }
-.js .is-playing .personhood-proof { animation: send-private-proof 7s var(--ease) infinite both; }
-.js .is-playing .personhood-verified { animation: verify-claim 7s var(--ease) infinite both; }
+.js .is-playing .pp-vrc { animation: pp-vouch 9s var(--ease) infinite both; }
+.js .is-playing .pp-proof { animation: pp-prove 9s var(--ease) infinite both; }
+.js .is-playing .pp-tick { animation: pp-tick 9s var(--ease) infinite both; }
 .leak-digit { font-family: var(--sans); font-size: 17px; font-weight: 600; fill: var(--accent); stroke: none; }
 .leak-secret text { font-family: var(--sans); font-size: 10px; font-weight: 600; fill: var(--accent); fill-opacity: .4; stroke: none; }
 .leak-rows text { font-family: var(--sans); font-size: 9px; fill: var(--muted); stroke: none; }
@@ -624,13 +625,20 @@ main { flex: 1 0 auto; }
 .js .is-playing .sig-lens { animation: sig-inspect 8s var(--ease) infinite both; }
 .js .is-playing .sig-check { animation: sig-check 8s var(--ease) infinite both; }
 .hero-stories.is-paused *, .hero-stories.is-suspended * { animation-play-state: paused !important; }
-@keyframes send-private-proof {
-  0%, 8% { transform: translateX(-50px); opacity: 0; }
-  24%, 42% { transform: translateX(0); opacity: 1; }
-  66%, 85% { transform: translate(145px, 18px); opacity: 0; }
-  100% { transform: translateX(-50px); opacity: 0; }
+/* Each endorsement travels from its voucher to the person's stack, then the stack is replaced by one proof. */
+@keyframes pp-vouch {
+  0%, 4% { transform: translate(var(--fx), var(--fy)); opacity: 0; }
+  8% { transform: translate(var(--fx), var(--fy)); opacity: 1; }
+  24%, 46% { transform: translate(0, 0); opacity: 1; }
+  52%, 100% { transform: translate(0, 0); opacity: 0; }
 }
-@keyframes verify-claim { 0%, 48%, 100% { opacity: 0; } 60%, 88% { opacity: 1; } }
+@keyframes pp-prove {
+  0%, 48% { transform: translateX(-44px); opacity: 0; }
+  54% { transform: translateX(-44px); opacity: 1; }
+  68% { transform: translateX(44px); opacity: 1; }
+  72%, 100% { transform: translateX(44px); opacity: 0; }
+}
+@keyframes pp-tick { 0%, 70%, 100% { opacity: 0; } 74%, 94% { opacity: 1; } }
 @keyframes refuse-request { 0%, 3%, 24%, 100% { opacity: 0; } 7%, 18% { opacity: 1; } }
 @keyframes stream-replies { 0%, 18%, 76%, 100% { opacity: 0; } 22%, 72% { opacity: 1; } }
 @keyframes leak-output {
@@ -689,9 +697,10 @@ main { flex: 1 0 auto; }
   .story-tabs button { min-height: 48px; border-bottom: 1px solid var(--rule); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .personhood-proof, .js .personhood-verified, .js .leak-digit, .js .heat-hit, .js .babe-check, .js .babe-gain, .js .sig-check { animation: none !important; transform: none; opacity: 1; }
+  .js .pp-tick, .js .leak-digit, .js .heat-hit, .js .babe-check, .js .babe-gain, .js .sig-check { animation: none !important; transform: none; opacity: 1; }
   .js .leak-refuse, .js .sig-lens, .js .sig-ratchet { animation: none !important; }
-  .js .babe-proof, .js .sig-msg { animation: none !important; opacity: 0; }
+  .js .babe-proof, .js .sig-msg, .js .pp-proof { animation: none !important; opacity: 0; }
+  .js .pp-vrc { animation: none !important; transform: none; opacity: 1; }
   .js .babe-bar { animation: none !important; }
   .js .leak-stream, .js .heat-noise { animation: none !important; opacity: 0; }
 }

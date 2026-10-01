@@ -5,7 +5,7 @@
   </div>
   <div class="story-tabs" role="tablist" aria-label="Explore our work">
     <button type="button" id="story-tab-threshold" role="tab" aria-selected="true" aria-controls="story-threshold" data-story-tab="threshold" data-label="Threshold cryptography">Threshold cryptography</button>
-    <button type="button" id="story-tab-personhood" role="tab" aria-selected="false" aria-controls="story-personhood" tabindex="-1" data-story-tab="personhood" data-label="Proofs of personhood">Proofs of personhood</button>
+    <button type="button" id="story-tab-personhood" role="tab" aria-selected="false" aria-controls="story-personhood" tabindex="-1" data-story-tab="personhood" data-label="Identity &amp; provenance">Identity &amp; provenance</button>
     <button type="button" id="story-tab-safety" role="tab" aria-selected="false" aria-controls="story-safety" tabindex="-1" data-story-tab="safety" data-label="AI safety">AI safety</button>
     <button type="button" id="story-tab-systems" role="tab" aria-selected="false" aria-controls="story-systems" tabindex="-1" data-story-tab="systems" data-label="Build &amp; analyze">Build &amp; analyze</button>
   </div>
@@ -29,44 +29,43 @@
   </section>
   <section class="story-panel" id="story-personhood" role="tabpanel" aria-labelledby="story-tab-personhood" tabindex="0" data-story-panel="personhood" hidden>
     <div class="story-stage"><svg class="scene-svg" viewBox="0 0 540 340" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- The passport sits beside the person, with the original portrait and detail lines. -->
-  <g class="personhood-passport" transform="translate(50 32) scale(.85)">
-    <path class="diagram-body" d="M59 87L201 107.5V232.5L59 212Z"/>
-    <path class="diagram-top" d="M48 99L190 119.5V244.5L48 224Z"/>
-    <circle cx="78" cy="146" r="11" stroke="var(--accent)"/>
-    <path d="M60 183V177Q60 162 78 163Q96 165 96 179V185" stroke="var(--accent)"/>
-    <path d="M112 148L173 157M112 162L173 171M112 176L159 183M64 205L172 221" stroke="var(--muted)" stroke-width="3"/>
+  <!-- Three distinct people, each holding a personhood credential, vouch for the person. One zero-knowledge
+       proof then convinces the verifier of all three endorsements without revealing who gave them. -->
+  <g class="pp-voucher"><path d="M48 112C48 100 55 93 62 93C69 93 76 100 76 112Z" fill="var(--paper)"/><circle cx="62" cy="84" r="8" fill="var(--paper)"/><circle cx="77" cy="106" r="6" class="diagram-badge"/><path d="M74 106L76.5 108.5L80.5 103.5" stroke="var(--accent)" stroke-width="1.5"/></g><g class="pp-voucher"><path d="M48 188C48 176 55 169 62 169C69 169 76 176 76 188Z" fill="var(--paper)"/><circle cx="62" cy="160" r="8" fill="var(--paper)"/><circle cx="77" cy="182" r="6" class="diagram-badge"/><path d="M74 182L76.5 184.5L80.5 179.5" stroke="var(--accent)" stroke-width="1.5"/></g><g class="pp-voucher"><path d="M48 264C48 252 55 245 62 245C69 245 76 252 76 264Z" fill="var(--paper)"/><circle cx="62" cy="236" r="8" fill="var(--paper)"/><circle cx="77" cy="258" r="6" class="diagram-badge"/><path d="M74 258L76.5 260.5L80.5 255.5" stroke="var(--accent)" stroke-width="1.5"/></g>
+  <g class="pp-person" fill="var(--accent-surface)">
+    <path d="M190 206C190 182 204 166 222 166C240 166 254 182 254 206Z" fill="var(--paper)" stroke="none"/>
+    <path d="M190 206C190 182 204 166 222 166C240 166 254 182 254 206Z"/>
+    <circle cx="222" cy="144" r="17" fill="var(--paper)" stroke="none"/>
+    <circle cx="222" cy="144" r="17"/>
   </g>
-  <!-- The circular head rests directly on the hemispherical body; both use flat fills. -->
-  <g class="personhood-person" transform="translate(4 52) scale(.8)" fill="var(--accent-surface)">
-    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z" fill="var(--paper)" stroke="none"/>
-    <path d="M42 226C42 197 64 173 89 173C114 173 136 197 136 226A47 23.5 0 0 1 42 226Z"/>
-    <!-- Mask the body after drawing it, before adding the translucent head fill. -->
-    <circle cx="89" cy="147" r="28" fill="var(--paper)" stroke="none"/>
-    <circle cx="89" cy="147" r="28"/>
-  </g>
-  <path class="diagram-guide" d="M225 180C265 155 316 155 373 180" stroke-dasharray="2 6"/>
-  <g class="personhood-proof">
-    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" fill="var(--paper)" stroke="none"/>
-    <path d="M239 153L262 140L285 153V181L262 194L239 181Z" class="diagram-badge"/>
-    <path class="diagram-check" d="M250 166L259 175L274 157"/>
-  </g>
-  <!-- The verifier is an upright slab, with visible top and side thickness. -->
-  <path class="diagram-body" d="M373 123L385 116L458 158V241L446 248L373 206Z"/>
-  <path class="diagram-top" d="M373 123L446 165V248L373 206Z"/>
-  <path d="M373 123L385 116L458 158L446 165M446 165V248"/>
-  <g transform="matrix(.866025 .5 0 1 373 123)">
-    <path d="M14 16H69M14 69H69" class="diagram-guide"/>
-    <g class="personhood-verified"><path class="isometric-check" d="M19 40L33 54L66.6 23.2"/></g>
-  </g>
-  <text class="diagram-label" x="122" y="307" text-anchor="middle">PERSON + CREDENTIALS</text>
-  <text class="diagram-label diagram-accent-text" x="263" y="226" text-anchor="middle">ZK PROOF</text>
-  <text class="diagram-label" x="420" y="307" text-anchor="middle">VERIFIED CLAIM</text>
+  <g class="pp-vrc" style="--fx:-176px; --fy:-60px; animation-delay:0.00s"><rect x="258" y="148" width="28" height="19" rx="2" fill="var(--paper)"/><path d="M263 154H274M263 160H270" stroke="var(--muted)"/><path d="M276 159L278.5 161.5L282 156" stroke="var(--accent)"/></g><g class="pp-vrc" style="--fx:-181px; --fy:9px; animation-delay:0.45s"><rect x="263" y="155" width="28" height="19" rx="2" fill="var(--paper)"/><path d="M268 161H279M268 167H275" stroke="var(--muted)"/><path d="M281 166L283.5 168.5L287 163" stroke="var(--accent)"/></g><g class="pp-vrc" style="--fx:-186px; --fy:78px; animation-delay:0.90s"><rect x="268" y="162" width="28" height="19" rx="2" fill="var(--paper)"/><path d="M273 168H284M273 174H280" stroke="var(--muted)"/><path d="M286 173L288.5 175.5L292 170" stroke="var(--accent)"/></g>
+  <path class="diagram-guide" d="M300 178C326 166 350 166 372 176" stroke-dasharray="2 6"/>
+  <g transform="translate(336 172)"><g class="pp-proof">
+    <path d="M-14 -8L0 -16L14 -8V8L0 16L-14 8Z" fill="var(--paper)" stroke="none"/>
+    <path d="M-14 -8L0 -16L14 -8V8L0 16L-14 8Z" class="diagram-badge"/>
+    <path class="diagram-check" d="M-6 0L-2 4L6 -5"/>
+  </g></g>
+  <text class="diagram-label diagram-accent-text" x="336" y="220" text-anchor="middle">ZK PROOF</text>
+  <path class="diagram-body" d="M380 118L392 111L465 153V236L453 243L380 201Z"/>
+  <path class="diagram-top" d="M380 118L453 160V243L380 201Z"/>
+  <path d="M380 118L392 111L465 153L453 160M453 160V243"/>
+  <g transform="matrix(.866025 .5 0 1 380 118)"><path d="M10 20H38" stroke="var(--muted)" stroke-width="3" stroke-dasharray="3 4"/><path class="pp-tick" style="animation-delay:0.0s" d="M50 20L55 25L66 14" stroke="var(--accent)" stroke-width="2.5"/><path d="M10 40H38" stroke="var(--muted)" stroke-width="3" stroke-dasharray="3 4"/><path class="pp-tick" style="animation-delay:0.3s" d="M50 40L55 45L66 34" stroke="var(--accent)" stroke-width="2.5"/><path d="M10 60H38" stroke="var(--muted)" stroke-width="3" stroke-dasharray="3 4"/><path class="pp-tick" style="animation-delay:0.6s" d="M50 60L55 65L66 54" stroke="var(--accent)" stroke-width="2.5"/></g>
+  <text class="diagram-label" x="62" y="307" text-anchor="middle">VOUCHERS</text>
+  <text class="diagram-label" x="228" y="307" text-anchor="middle">PERSON</text>
+  <text class="diagram-label" x="424" y="307" text-anchor="middle">VERIFIER</text>
 </svg></div>
     <div class="story-caption">
       <p class="story-category">Proofs of personhood</p>
-      <h2>Prove what matters.<br><em>Keep the rest private.</em></h2>
-      <p>Prove credentials and relationships with zero knowledge, keeping personal details private.</p>
+      <h2>Prove you are real and trusted.<br><em>Reveal nothing else.</em></h2>
+      <p>Credentials from trusted issuers and endorsements from other people combine into one zero-knowledge proof: enough to show a person is real, unique and vouched for, without revealing who they or their vouchers are.</p>
+      <div class="story-impact">
+        <ul>
+          <li><a href="https://eprint.iacr.org/2026/333" target="_blank" rel="noopener noreferrer"><b>IACR ePrint 2026</b><span>A cryptographic framework for proof of personhood</span></a></li>
+          <li><a href="https://eprint.iacr.org/2026/333" target="_blank" rel="noopener noreferrer"><b>Co-authors</b><span>With researchers at the Linux Foundation, Ethereum Foundation and Swirlds Labs</span></a></li>
+          <li><a href="https://www.firstperson.network/" target="_blank" rel="noopener noreferrer"><b>First Person Network</b><span>Building toward its trust layer for real people</span></a></li>
+          <li><a href="https://coefficientgiving.org/funds/navigating-transformative-ai/" target="_blank" rel="noopener noreferrer"><b>Coefficient Giving</b><span>Supported by funding from Coefficient Giving</span></a></li>
+        </ul>
+      </div>
       <a class="link" href="{{ '/blogposts/proofs-of-personhood.html' | relative_url }}">Explore proofs of personhood <span aria-hidden="true">↗</span></a>
     </div>
   </section>
