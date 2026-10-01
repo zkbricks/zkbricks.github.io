@@ -101,7 +101,7 @@
   --tower-right-tint: 48%;
   --on-accent: #fff;
 
-  --emphasis-weight: 600;
+  --emphasis-weight: 700;
 
   --sans: "Aileron", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -139,7 +139,6 @@
   --tower-left-tint: 40%;
   --tower-right-tint: 30%;
   --on-accent: #0e0e0e;
-  --emphasis-weight: 700;
   color-scheme: dark;
 }
 
@@ -169,7 +168,6 @@
     --tower-left-tint: 40%;
     --tower-right-tint: 30%;
     --on-accent: #0e0e0e;
-    --emphasis-weight: 700;
     color-scheme: dark;
   }
 }
@@ -845,7 +843,12 @@ main { flex: 1 0 auto; }
 .stat-inline { flex: 1 1 0; min-width: 120px; padding: 18px 20px 0 0; }
 .stat-inline + .stat-inline { padding-left: 20px; border-left: 1px solid var(--rule); }
 .stat-inline b { display: block; font-family: var(--sans); font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -0.03em; }
-.stat-inline span { display: block; margin-top: 8px; font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.stat-inline > span { display: block; margin-top: 8px; font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+/* Align the abbreviated end year with the final digits of the start year. */
+.stat-inline .stat-year-range { display: inline-grid; justify-items: end; font-variant-numeric: tabular-nums; }
+.stat-year-range > span { white-space: nowrap; }
+.stat-year-dash { opacity: .3; }
 
 /* ---------- Research: publication wall ---------- */
 

@@ -20,7 +20,7 @@ nav_active: research
     <div class="stats-inline">
       <div class="stat-inline"><b>{{ research.total_papers }}</b><span>Papers</span></div>
       <div class="stat-inline"><b>{{ research.venue_stats.size }}</b><span>Venues</span></div>
-      <div class="stat-inline"><b>{{ research.first_year }}–{{ research.last_year | slice: 2, 2 }}</b><span>Years</span></div>
+      <div class="stat-inline"><b class="stat-year-range"><span>{{ research.first_year }}</span><span><span class="stat-year-dash">–</span>{{ research.last_year | slice: 2, 2 }}</span></b><span>Years</span></div>
     </div>
     {% endif %}
   </div>
