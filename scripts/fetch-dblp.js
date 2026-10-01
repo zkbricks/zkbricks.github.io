@@ -314,7 +314,7 @@ function matchesFeatured(title) {
 }
 
 const eprintFeaturedStatic = [
-  { title: 'BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper', authors: 'Sanjam Garg, Dimitris Kolonelos, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse', year: '2026', venue: 'IACR ePrint', url: 'https://eprint.iacr.org/2026/065.pdf' },
+  { title: 'BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper', authors: 'Sanjam Garg, Dimitris Kolonelos, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse', year: '2026', venue: 'CCS', url: 'https://eprint.iacr.org/2026/065.pdf' },
   { title: 'Bypassing Prompt Guards in Production with Controlled-Release Prompting', authors: 'Jaiden Fairoze, Sanjam Garg, Keewoo Lee, Mingyuan Wang', year: '2025', venue: 'arXiv', url: 'https://arxiv.org/pdf/2510.01529.pdf' }
 ];
 

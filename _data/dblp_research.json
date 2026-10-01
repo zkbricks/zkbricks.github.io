@@ -1762,9 +1762,9 @@
       "title": "BABE: Verifying Proofs on Bitcoin Made 1000x Cheaper",
       "authors": "Sanjam Garg, Dimitris Kolonelos, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse",
       "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, <span class=\"is-team\">Dimitris Kolonelos</span>, Mikhail Sergeevitch, Srivatsan Sridhar, David Tse",
-      "venue": "IACR ePrint",
-      "venue_short": "IACR ePrint",
-      "area": "crypto",
+      "venue": "CCS",
+      "venue_short": "CCS",
+      "area": "security",
       "year": "2026",
       "url": "https://eprint.iacr.org/2026/065.pdf"
     },

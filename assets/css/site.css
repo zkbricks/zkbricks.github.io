@@ -572,6 +572,18 @@ main { flex: 1 0 auto; }
 .story-caption h2 em { font-style: normal; font-weight: var(--emphasis-weight); }
 .story-caption > p:not(.story-category) { font-size: 15px; line-height: 1.55; color: var(--ink-2); max-width: 34em; min-height: 4.65em; margin-bottom: 18px; }
 .story-caption .link { font-size: 11px; }
+.story-impact { margin: -2px 0 22px; }
+.story-impact-label { margin-bottom: 10px; color: var(--muted); font-size: 10.5px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+.story-impact ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--rule); border: 1px solid var(--rule); }
+.story-impact a { display: flex; flex-direction: column; gap: 3px; height: 100%; padding: 10px 12px; background: var(--paper); color: var(--ink); text-decoration: none; }
+.story-impact b { font-size: 13.5px; font-weight: 700; }
+.story-impact b::after { content: " ↗"; font-weight: 400; color: var(--muted); }
+.story-impact span { font-size: 12.5px; line-height: 1.35; color: var(--ink-2); }
+.story-impact a:hover b, .story-impact a:hover b::after { color: var(--accent); }
+/* Stack the panels in one cell so switching stories never changes the hero's height. */
+.js .hero-stories { display: grid; grid-template-columns: minmax(0, 1fr); }
+.js .story-panel { grid-row: 3; grid-column: 1; }
+.js .story-panel[hidden] { display: block; visibility: hidden; }
 .diagram-body { fill: var(--paper-2); }
 .diagram-top { fill: var(--paper); }
 .diagram-blue { fill: var(--accent-surface); stroke: var(--accent); }
@@ -586,18 +598,31 @@ main { flex: 1 0 auto; }
 .js .is-playing .personhood-proof { animation: send-private-proof 7s var(--ease) infinite both; }
 .js .is-playing .personhood-verified { animation: verify-claim 7s var(--ease) infinite both; }
 .leak-digit { font-family: var(--sans); font-size: 17px; font-weight: 600; fill: var(--accent); stroke: none; }
-.js .is-playing .leak-refuse { animation: refuse-request 9s var(--ease) infinite both; }
-.js .is-playing .leak-output { animation: leak-output 9s var(--ease) infinite both; }
-.js .is-playing .leak-output:nth-child(2) { animation-delay: .8s; }
-.js .is-playing .leak-output:nth-child(3) { animation-delay: 1.6s; }
-.js .is-playing .leak-output:nth-child(4) { animation-delay: 2.4s; }
-.js .is-playing .leak-digit:nth-child(1) { animation: reveal-digit-1 9s var(--ease) infinite both; }
-.js .is-playing .leak-digit:nth-child(2) { animation: reveal-digit-2 9s var(--ease) infinite both; }
-.js .is-playing .leak-digit:nth-child(3) { animation: reveal-digit-3 9s var(--ease) infinite both; }
-.js .is-playing .leak-digit:nth-child(4) { animation: reveal-digit-4 9s var(--ease) infinite both; }
-.js .is-playing .systems-lens { animation: inspect-system 9s var(--ease) infinite both; }
-.js .is-playing .systems-flag { animation: flag-component 9s var(--ease) infinite both; }
-.js .is-playing .systems-proof { animation: publish-analysis 9s var(--ease) infinite both; }
+.leak-secret text { font-family: var(--sans); font-size: 10px; font-weight: 600; fill: var(--accent); fill-opacity: .4; stroke: none; }
+.leak-rows text { font-family: var(--sans); font-size: 9px; fill: var(--muted); stroke: none; }
+.heat-hit, .heat-noise { opacity: 0; }
+.js .is-playing .leak-refuse { animation: refuse-request 10s var(--ease) infinite both; }
+.js .is-playing .leak-stream { animation: stream-replies 10s linear infinite both; }
+.js .is-playing .leak-output { animation: leak-output 1.5s var(--ease) infinite both; }
+.js .is-playing .leak-output:nth-child(2) { animation-delay: .5s; }
+.js .is-playing .leak-output:nth-child(3) { animation-delay: 1s; }
+.js .is-playing .heat-hit { animation: heat-lock 10s var(--ease) infinite both; animation-delay: var(--d, 0s); }
+.js .is-playing .heat-noise { animation: heat-noise 10s var(--ease) infinite both; animation-delay: var(--d, 0s); }
+.js .is-playing .leak-digit { animation: reveal-secret 10s var(--ease) infinite both; }
+.babe-coin { font-family: var(--sans); font-size: 22px; font-weight: 600; fill: var(--accent); stroke: none; }
+.babe-pi { font-family: var(--serif, serif); font-size: 15px; fill: var(--accent); stroke: none; }
+.cost-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .4px; fill: var(--ink-2); stroke: none; }
+.cost-accent { fill: var(--accent); }
+.babe-bar { transform-origin: 40px 248px; transform: scaleX(.012); }
+.js .is-playing .babe-proof { animation: babe-proof 8s var(--ease) infinite both; }
+.js .is-playing .babe-check { animation: babe-check 8s var(--ease) infinite both; }
+.js .is-playing .babe-bar { animation: babe-shrink 8s var(--ease) infinite both; }
+.js .is-playing .babe-gain { animation: babe-gain 8s var(--ease) infinite both; }
+.js .is-playing .sig-msg-a { animation: sig-send 8s var(--ease) infinite both; }
+.js .is-playing .sig-msg-b { animation: sig-reply 8s var(--ease) infinite both; }
+.js .is-playing .sig-ratchet { animation: sig-ratchet 8s var(--ease) infinite both; }
+.js .is-playing .sig-lens { animation: sig-inspect 8s var(--ease) infinite both; }
+.js .is-playing .sig-check { animation: sig-check 8s var(--ease) infinite both; }
 .hero-stories.is-paused *, .hero-stories.is-suspended * { animation-play-state: paused !important; }
 @keyframes send-private-proof {
   0%, 8% { transform: translateX(-50px); opacity: 0; }
@@ -606,27 +631,39 @@ main { flex: 1 0 auto; }
   100% { transform: translateX(-50px); opacity: 0; }
 }
 @keyframes verify-claim { 0%, 48%, 100% { opacity: 0; } 60%, 88% { opacity: 1; } }
-@keyframes refuse-request { 0%, 4%, 36%, 100% { opacity: 0; } 10%, 28% { opacity: 1; } }
-/* Each reply leaves the agent and fades into the observer; its digit appears on arrival (0.8s = 9% apart). */
+@keyframes refuse-request { 0%, 3%, 24%, 100% { opacity: 0; } 7%, 18% { opacity: 1; } }
+@keyframes stream-replies { 0%, 18%, 76%, 100% { opacity: 0; } 22%, 72% { opacity: 1; } }
 @keyframes leak-output {
-  0%, 32% { transform: translateX(0); opacity: 0; }
-  36% { transform: translateX(0); opacity: 1; }
-  50% { transform: translateX(34px); opacity: 1; }
-  54%, 100% { transform: translateX(34px); opacity: 0; }
+  0% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(44px); opacity: 0; }
 }
-@keyframes reveal-digit-1 { 0%, 50%, 100% { opacity: 0; } 54%, 94% { opacity: 1; } }
-@keyframes reveal-digit-2 { 0%, 59%, 100% { opacity: 0; } 63%, 94% { opacity: 1; } }
-@keyframes reveal-digit-3 { 0%, 68%, 100% { opacity: 0; } 72%, 94% { opacity: 1; } }
-@keyframes reveal-digit-4 { 0%, 77%, 100% { opacity: 0; } 81%, 94% { opacity: 1; } }
-@keyframes inspect-system {
-  0%, 4% { transform: translate(-56px, 44px); opacity: 0; }
-  12% { transform: translate(-56px, 44px); opacity: 1; }
-  28% { transform: translate(44px, 30px); opacity: 1; }
-  42%, 70% { transform: translate(0, -12px); opacity: 1; }
-  80%, 100% { transform: translate(0, -12px); opacity: 0; }
+/* Each reply sharpens the estimate: wrong guesses flicker out while the true digit in each column locks in. */
+@keyframes heat-lock { 0%, 20% { opacity: 0; } 34% { opacity: .25; } 48% { opacity: .5; } 62% { opacity: .8; } 72%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes heat-noise { 0%, 20% { opacity: 0; } 32% { opacity: .4; } 46% { opacity: .22; } 60% { opacity: .08; } 68%, 100% { opacity: 0; } }
+@keyframes reveal-secret { 0%, 72%, 100% { opacity: 0; } 77%, 94% { opacity: 1; } }
+@keyframes babe-proof {
+  0%, 6% { transform: translate(-96px, 24px); opacity: 0; }
+  14% { transform: translate(-96px, 24px); opacity: 1; }
+  36% { transform: translate(0, 0); opacity: 1; }
+  44%, 100% { transform: translate(0, 0); opacity: 0; }
 }
-@keyframes flag-component { 0%, 42%, 100% { opacity: 0; } 50%, 90% { opacity: 1; } }
-@keyframes publish-analysis { 0%, 56%, 100% { opacity: 0; } 64%, 90% { opacity: 1; } }
+@keyframes babe-check { 0%, 42%, 100% { opacity: 0; } 48%, 92% { opacity: 1; } }
+/* BABE's bar starts at BitVM3's length and collapses to roughly a thousandth of it. */
+@keyframes babe-shrink { 0%, 48% { transform: scaleX(1); } 66%, 94% { transform: scaleX(.012); } 100% { transform: scaleX(1); } }
+@keyframes babe-gain { 0%, 62%, 100% { opacity: 0; } 68%, 92% { opacity: 1; } }
+@keyframes sig-send { 0%, 4% { transform: translateX(0); opacity: 0; } 8% { opacity: 1; } 28% { transform: translateX(102px); opacity: 1; } 32%, 100% { transform: translateX(102px); opacity: 0; } }
+@keyframes sig-reply { 0%, 36% { transform: translateX(0); opacity: 0; } 40% { opacity: 1; } 60% { transform: translateX(-102px); opacity: 1; } 64%, 100% { transform: translateX(-102px); opacity: 0; } }
+/* Both parties advance their ratchet with every message. */
+@keyframes sig-ratchet { 0%, 28% { transform: rotate(0); } 34%, 60% { transform: rotate(45deg); } 66%, 94% { transform: rotate(90deg); } 100% { transform: rotate(90deg); } }
+@keyframes sig-inspect {
+  0%, 4% { transform: translateX(-40px); opacity: 0; }
+  10% { transform: translateX(-40px); opacity: 1; }
+  66% { transform: translateX(40px); opacity: 1; }
+  74%, 100% { transform: translateX(40px); opacity: 0; }
+}
+@keyframes sig-check { 0%, 68%, 100% { opacity: 0; } 74%, 94% { opacity: 1; } }
 .no-js .story-tabs, .no-js .story-motion, .no-js .hero-canvas { display: none; }
 .no-js .story-panel[hidden] { display: block; }
 .no-js .story-panel + .story-panel { margin-top: 40px; }
@@ -652,9 +689,11 @@ main { flex: 1 0 auto; }
   .story-tabs button { min-height: 48px; border-bottom: 1px solid var(--rule); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .personhood-proof, .js .personhood-verified, .js .leak-digit, .js .systems-flag, .js .systems-proof { animation: none !important; transform: none; opacity: 1; }
-  .js .leak-refuse, .js .systems-lens { animation: none !important; }
-  .js .leak-output { animation: none !important; opacity: 0; }
+  .js .personhood-proof, .js .personhood-verified, .js .leak-digit, .js .heat-hit, .js .babe-check, .js .babe-gain, .js .sig-check { animation: none !important; transform: none; opacity: 1; }
+  .js .leak-refuse, .js .sig-lens, .js .sig-ratchet { animation: none !important; }
+  .js .babe-proof, .js .sig-msg { animation: none !important; opacity: 0; }
+  .js .babe-bar { animation: none !important; }
+  .js .leak-stream, .js .heat-noise { animation: none !important; opacity: 0; }
 }
 
 /* ---------- Home: numbers ---------- */
