@@ -9,17 +9,17 @@ nav_active: research
 {% assign area_names = "crypto|Cryptography,security|Security & Privacy,theory|Theory,ml|Machine Learning,other|Other" | split: "," %}
 
 <header class="page-head wrap">
-  <p class="kicker" data-reveal>Research</p>
-  <h1 class="display" data-reveal="lines">
+  <p class="kicker">Research</p>
+  <h1 class="display">
     <span class="line"><span>Every brick,</span></span>
     <span class="line"><span><em>peer reviewed.</em></span></span>
   </h1>
   <div class="page-head-grid">
-    <p class="lede" data-reveal>Our team publishes at the top venues in cryptography and security, from foundational theory to systems built for practice.</p>
+    <p class="lede">Our team publishes at the top venues in cryptography and security, from foundational theory to systems built for practice.</p>
     {% if research.total_papers > 0 %}
-    <div class="stats-inline" data-reveal style="--d:.1s">
-      <div class="stat-inline"><b data-count="{{ research.total_papers }}">{{ research.total_papers }}</b><span>Papers</span></div>
-      <div class="stat-inline"><b data-count="{{ research.venue_stats.size }}">{{ research.venue_stats.size }}</b><span>Venues</span></div>
+    <div class="stats-inline">
+      <div class="stat-inline"><b>{{ research.total_papers }}</b><span>Papers</span></div>
+      <div class="stat-inline"><b>{{ research.venue_stats.size }}</b><span>Venues</span></div>
       <div class="stat-inline"><b>{{ research.first_year }}–{{ research.last_year | slice: 2, 2 }}</b><span>Years</span></div>
     </div>
     {% endif %}
@@ -34,13 +34,13 @@ nav_active: research
 
 <section class="section wrap" aria-labelledby="wall-title" style="padding-top:0">
   <div class="section-head">
-    <p class="kicker" data-reveal>The wall</p>
+    <p class="kicker">The wall</p>
     <div class="section-head-end">
-      <h2 class="h-section" id="wall-title" data-reveal="lines">
+      <h2 class="h-section" id="wall-title">
         <span class="line"><span>One brick</span></span>
         <span class="line"><span><em>per paper.</em></span></span>
       </h2>
-      <ul class="legend" aria-label="Filter by area" data-reveal>
+      <ul class="legend" aria-label="Filter by area">
         {% for a in area_names %}
           {% assign parts = a | split: "|" %}
           {% assign stat = research.area_stats | where: "name", parts[0] | first %}
@@ -87,15 +87,15 @@ nav_active: research
 {% if research.featured.size > 0 %}
 <section class="section wrap" aria-labelledby="featured-title">
   <div class="section-head">
-    <p class="kicker" data-reveal>Selected</p>
-    <h2 class="h-section" id="featured-title" data-reveal="lines">
+    <p class="kicker">Selected</p>
+    <h2 class="h-section" id="featured-title">
       <span class="line"><span>Work we are</span></span>
       <span class="line"><span><em>building on now.</em></span></span>
     </h2>
   </div>
   <div class="featured-grid">
     {% for f in research.featured %}
-    <a class="feat" href="{{ f.url }}" target="_blank" rel="noopener noreferrer" data-reveal style="--d:{{ forloop.index0 | modulo: 3 | times: 0.08 }}s">
+    <a class="feat" href="{{ f.url }}" target="_blank" rel="noopener noreferrer">
       <div class="feat-top"><span class="feat-venue">{{ f.venue_short | default: f.venue }}</span><span>{{ f.year }}</span></div>
       <h3 class="feat-title">{{ f.title | escape }}</h3>
       <p class="feat-authors">{{ f.authors_html | default: f.authors }}</p>
@@ -108,8 +108,8 @@ nav_active: research
 
 <section class="section wrap" aria-labelledby="all-title">
   <div class="section-head" style="margin-bottom:24px">
-    <p class="kicker" data-reveal>Index</p>
-    <h2 class="h-section" id="all-title" data-reveal="lines">
+    <p class="kicker">Index</p>
+    <h2 class="h-section" id="all-title">
       <span class="line"><span>All publications</span></span>
     </h2>
   </div>

@@ -3,7 +3,6 @@
   'use strict';
 
   var root = document.documentElement;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
@@ -53,46 +52,6 @@
     menuBtn.addEventListener('click', function () { setMenu(!root.classList.contains('menu-open')); });
     $$('#site-nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-  }
-
-  /* ---------- Count-up numbers ---------- */
-
-  function countUp(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    if (!target || reduceMotion) return;
-    var start = performance.now();
-    var dur = 1600;
-    function frame(now) {
-      var p = Math.min(1, (now - start) / dur);
-      var eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = Math.round(target * eased);
-      if (p < 1) requestAnimationFrame(frame);
-    }
-    el.textContent = '0';
-    requestAnimationFrame(frame);
-  }
-
-  /* ---------- Reveal on scroll ---------- */
-
-  function reveal(el) {
-    el.classList.add('is-in');
-    $$('[data-count]', el).forEach(countUp);
-    if (el.hasAttribute('data-count')) countUp(el);
-  }
-
-  var revealables = $$('[data-reveal], .person');
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          reveal(entry.target);
-          io.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    revealables.forEach(function (el) { io.observe(el); });
-  } else {
-    revealables.forEach(function (el) { el.classList.add('is-in'); });
   }
 
   /* ---------- Reading progress ---------- */

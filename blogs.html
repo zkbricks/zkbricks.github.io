@@ -6,20 +6,20 @@ description: "Writing from zkBricks on threshold cryptography, zero-knowledge pr
 nav_active: blog
 ---
 <header class="page-head wrap">
-  <p class="kicker" data-reveal>Blog</p>
-  <h1 class="display" data-reveal="lines">
+  <p class="kicker">Blog</p>
+  <h1 class="display">
     <span class="line"><span>Notes from</span></span>
     <span class="line"><span><em>the lab.</em></span></span>
   </h1>
   <div class="page-head-grid">
-    <p class="lede" data-reveal>Long-form explanations of the ideas behind our work: what problem they solve, why they are secure, and how they get deployed.</p>
+    <p class="lede">Long-form explanations of the ideas behind our work: what problem they solve, why they are secure, and how they get deployed.</p>
   </div>
 </header>
 
 <section class="wrap" style="padding-bottom: clamp(80px, 12vw, 180px)">
   <div class="post-list">
     {% for post in site.posts %}
-    <article class="post-item" data-reveal>
+    <article class="post-item">
       <div class="post-item-body">
         <h2 class="post-item-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <div class="post-item-excerpt"><p>{{ post.description | default: post.excerpt | strip_html }}</p></div>

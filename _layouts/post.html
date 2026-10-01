@@ -4,9 +4,9 @@ layout: default
 <div class="progress" data-progress aria-hidden="true"></div>
 
 <header class="post-head wrap">
-  <p class="kicker" data-reveal><a href="{{ '/blogs.html' | relative_url }}">Blog</a> <span aria-hidden="true">/</span> {{ page.date | date: "%B %Y" }}</p>
-  <h1 class="post-title" data-reveal style="--d:.1s">{{ page.title }}</h1>
-  <div class="post-byline" data-reveal style="--d:.2s">
+  <p class="kicker"><a href="{{ '/blogs.html' | relative_url }}">Blog</a> <span aria-hidden="true">/</span> {{ page.date | date: "%B %Y" }}</p>
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-byline">
     {% if page.authors %}<span>By <b>{{ page.authors | array_to_sentence_string }}</b></span>{% elsif page.author %}<span>By <b>{{ page.author }}</b></span>{% endif %}
     <span>{{ page.date | date: "%d %B %Y" }}</span>
     {% assign words = content | strip_html | number_of_words %}

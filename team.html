@@ -9,13 +9,13 @@ nav_active: team
 {% assign fetched_members = site.data.dblp_research.members | default: empty %}
 
 <header class="page-head wrap">
-  <p class="kicker" data-reveal>Team</p>
-  <h1 class="display" data-reveal="lines">
+  <p class="kicker">Team</p>
+  <h1 class="display">
     <span class="line"><span>The people</span></span>
     <span class="line"><span><em>behind the proofs.</em></span></span>
   </h1>
   <div class="page-head-grid">
-    <p class="lede" data-reveal>Cryptographers who publish at the field’s top venues, and who stay with their ideas all the way to working code.</p>
+    <p class="lede">Cryptographers who publish at the field’s top venues, and who stay with their ideas all the way to working code.</p>
   </div>
 </header>
 
@@ -27,7 +27,7 @@ nav_active: team
   {% assign group_members = site.data.team | where: "group", group_key %}
   {% if group_members.size > 0 %}
   <section class="people" aria-labelledby="team-{{ group_key }}">
-    <div class="group-label" data-reveal>
+    <div class="group-label">
       <h2 class="kicker" id="team-{{ group_key }}">{{ group_parts[1] }}</h2>
       <span class="kicker">{{ group_members.size }} {% if group_members.size == 1 %}member{% else %}members{% endif %}</span>
     </div>
@@ -37,7 +37,7 @@ nav_active: team
       <div class="person-img">
         <img src="{{ '/assets/team/' | append: member.photo | relative_url }}" alt="Portrait of {{ member.name }}" loading="lazy"{% if member.photo_position %} style="object-position: {{ member.photo_position }};"{% endif %}>
       </div>
-      <div class="person-text" data-reveal>
+      <div class="person-text">
         <h3 class="person-name">{{ member.name }}</h3>
         {% if member.tagline %}<p class="person-role">{{ member.tagline }}</p>{% endif %}
         <p class="person-bio">{{ member.bio }}</p>
