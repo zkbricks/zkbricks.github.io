@@ -13,7 +13,7 @@
   group: core
   photo: sanjam.jpg
   photo_position: "58% 30%"
-  tagline: "Associate Professor, UC Berkeley"
+  tagline: "Chief Scientist"
   bio: "Associate Professor in Computer Science at UC Berkeley. Research interests in cryptography and its applications to security and privacy. Ph.D. from UCLA; previously Josef Raviv Memorial Postdoctoral Fellow at IBM Research. Recipient of the ACM Doctoral Dissertation Award, Alfred P. Sloan Research Fellowship, Forbes 30 under 30, and multiple best paper awards (EUROCRYPT, CRYPTO)."
   url: https://people.eecs.berkeley.edu/~sanjamg/
   dblp: 33/5817
