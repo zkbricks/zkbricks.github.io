@@ -35,5 +35,5 @@
 </script>
 
 <link rel="preload" href="{{ '/assets/fonts/aileron/Aileron-Regular.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {% if site.plugins contains 'jekyll-feed' %}{% feed_meta %}{% endif %}

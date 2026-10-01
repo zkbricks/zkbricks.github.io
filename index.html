@@ -159,5 +159,5 @@ nav_active: home
   </div>
 </section>
 
-<script src="{{ '/assets/js/hero.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/hero-stories.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/hero.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/hero-stories.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
