@@ -1,0 +1,11 @@
+{%- comment -%}
+  Minutes to read include.content at 220 words a minute. Text inside inline SVG figures
+  (labels, chart tooltips) is skipped so figures do not inflate the estimate.
+{%- endcomment -%}
+{%- assign words = 0 -%}
+{%- assign chunks = include.content | split: '</svg>' -%}
+{%- for chunk in chunks -%}
+  {%- assign prose = chunk | split: '<svg' | first | strip_html | number_of_words -%}
+  {%- assign words = words | plus: prose -%}
+{%- endfor -%}
+{{- words | divided_by: 220 | at_least: 1 -}}

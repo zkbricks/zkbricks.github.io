@@ -1,0 +1,47 @@
+<svg class="figure-svg" viewBox="0 0 540 340" role="img" aria-label="A quorum of nine members holds shares of one key. Three of them each send a partial decryption, and together the three open the ciphertext; the other six take no part." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Any three of nine quorum members send partial decryptions; together they open the ciphertext. -->
+  <path class="diagram-body" d="M100 119.5L114.72 128V145L100 153.5L85.28 145V128Z"/>
+  <path class="diagram-top" d="M100 119.5L114.72 128L100 136.5L85.28 128Z"/>
+  <path d="M85.28 128L100 136.5L114.72 128M100 136.5V153.5"/>
+  <path d="M100 119.5L114.72 128L100 136.5L85.28 128Z" fill="var(--accent)" stroke="var(--brick-outline)"/>
+  <path class="diagram-body" d="M66 139.13L80.72 147.63V164.63L66 173.13L51.28 164.63V147.63Z"/>
+  <path class="diagram-top" d="M66 139.13L80.72 147.63L66 156.13L51.28 147.63Z"/>
+  <path d="M51.28 147.63L66 156.13L80.72 147.63M66 156.13V173.13"/>
+  <path class="diagram-body" d="M134 139.13L148.72 147.63V164.63L134 173.13L119.28 164.63V147.63Z"/>
+  <path class="diagram-top" d="M134 139.13L148.72 147.63L134 156.13L119.28 147.63Z"/>
+  <path d="M119.28 147.63L134 156.13L148.72 147.63M134 156.13V173.13"/>
+  <path class="diagram-body" d="M32 158.76L46.72 167.26V184.26L32 192.76L17.28 184.26V167.26Z"/>
+  <path class="diagram-top" d="M32 158.76L46.72 167.26L32 175.76L17.28 167.26Z"/>
+  <path d="M17.28 167.26L32 175.76L46.72 167.26M32 175.76V192.76"/>
+  <path d="M32 158.76L46.72 167.26L32 175.76L17.28 167.26Z" fill="var(--accent)" stroke="var(--brick-outline)"/>
+  <path class="diagram-body" d="M100 158.76L114.72 167.26V184.26L100 192.76L85.28 184.26V167.26Z"/>
+  <path class="diagram-top" d="M100 158.76L114.72 167.26L100 175.76L85.28 167.26Z"/>
+  <path d="M85.28 167.26L100 175.76L114.72 167.26M100 175.76V192.76"/>
+  <path class="diagram-body" d="M168 158.76L182.72 167.26V184.26L168 192.76L153.28 184.26V167.26Z"/>
+  <path class="diagram-top" d="M168 158.76L182.72 167.26L168 175.76L153.28 167.26Z"/>
+  <path d="M153.28 167.26L168 175.76L182.72 167.26M168 175.76V192.76"/>
+  <path d="M168 158.76L182.72 167.26L168 175.76L153.28 167.26Z" fill="var(--accent)" stroke="var(--brick-outline)"/>
+  <path class="diagram-body" d="M66 178.39L80.72 186.89V203.89L66 212.39L51.28 203.89V186.89Z"/>
+  <path class="diagram-top" d="M66 178.39L80.72 186.89L66 195.39L51.28 186.89Z"/>
+  <path d="M51.28 186.89L66 195.39L80.72 186.89M66 195.39V212.39"/>
+  <path class="diagram-body" d="M134 178.39L148.72 186.89V203.89L134 212.39L119.28 203.89V186.89Z"/>
+  <path class="diagram-top" d="M134 178.39L148.72 186.89L134 195.39L119.28 186.89Z"/>
+  <path d="M119.28 186.89L134 195.39L148.72 186.89M134 195.39V212.39"/>
+  <path class="diagram-body" d="M100 198.02L114.72 206.52V223.52L100 232.02L85.28 223.52V206.52Z"/>
+  <path class="diagram-top" d="M100 198.02L114.72 206.52L100 215.02L85.28 206.52Z"/>
+  <path d="M85.28 206.52L100 215.02L114.72 206.52M100 215.02V232.02"/>
+  <path class="diagram-accent-line" d="M32 158.76C32 62 198 141.5 268 141.5M100 119.5C100 88 198 169.5 268 169.5M168 158.76C168 128 198 197.5 268 197.5"/>
+  <g><rect x="268" y="132" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 138H285M273 144H281" stroke="var(--muted)"/><circle cx="292" cy="144" r="2" fill="var(--accent)" stroke="none"/></g>
+  <g><rect x="268" y="160" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 166H285M273 172H281" stroke="var(--muted)"/><circle cx="292" cy="172" r="2" fill="var(--accent)" stroke="none"/></g>
+  <g><rect x="268" y="188" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 194H285M273 200H281" stroke="var(--muted)"/><circle cx="292" cy="200" r="2" fill="var(--accent)" stroke="none"/></g>
+  <path class="diagram-guide" d="M308 170C336 160 362 160 388 170" stroke-dasharray="2 6"/>
+  <path class="diagram-body" d="M450 131L500.23 160V210L450 239L399.77 210V160Z"/>
+  <path class="diagram-blue" d="M450 131L500.23 160L450 189L399.77 160Z"/>
+  <path d="M399.77 160L450 189L500.23 160M450 189V239"/>
+  <g transform="matrix(.866025 .5 0 1 399.77 160)"><path d="M10 16H40M10 27H32M10 38H44" stroke="var(--muted)" stroke-width="2.5" stroke-dasharray="3 4"/></g>
+  <g transform="matrix(.866025 .5 -.866025 .5 450 131)"><path d="M14 14H44M14 24H36" stroke="var(--accent)" stroke-width="2.5"/></g>
+  <g transform="translate(450 92)"><circle r="17" fill="var(--paper)" class="diagram-badge"/><rect x="-7" y="-2" width="14" height="11" rx="2" stroke="var(--accent)" fill="var(--paper)"/><path d="M-4.5 -2V-6A4.5 4.5 0 0 1 4.5 -6V-8" stroke="var(--accent)"/></g>
+  <text class="diagram-label" x="100" y="307" text-anchor="middle">QUORUM · 3 OF 9</text>
+  <text class="diagram-label diagram-accent-text" x="283" y="307" text-anchor="middle">PARTIAL DECRYPTIONS</text>
+  <text class="diagram-label" x="450" y="307" text-anchor="middle">PLAINTEXT</text>
+</svg>

@@ -9,8 +9,7 @@ layout: default
   <div class="post-byline">
     {% if page.authors %}<span>By <b>{{ page.authors | array_to_sentence_string }}</b></span>{% elsif page.author %}<span>By <b>{{ page.author }}</b></span>{% endif %}
     <span>{{ page.date | date: "%d %B %Y" }}</span>
-    {% assign words = content | strip_html | number_of_words %}
-    <span>{{ words | divided_by: 220 | at_least: 1 }} min read</span>
+    <span>{% include read-time.html content=content %} min read</span>
   </div>
 </header>
 

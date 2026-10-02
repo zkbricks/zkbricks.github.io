@@ -1,0 +1,30 @@
+<svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A person hands their key to a verifier whose every face is covered in watching eyes." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Handing over the keys: the person gives up their credential to a verifier that watches everything. -->
+  <path d="M30 192C30 166 44 150 62 150C80 150 94 166 94 192Z" fill="var(--paper)"/>
+  <circle cx="62" cy="127" r="16" fill="var(--paper)"/>
+  <path d="M86 166L112 152"/>
+  <g stroke="var(--accent)">
+    <circle cx="120" cy="148" r="7" fill="var(--paper)"/>
+    <path d="M127 148H152M144 148V154M150 148V153"/>
+  </g>
+  <path class="diagram-guide" d="M158 148C166 146 172 145 180 146" stroke-dasharray="2 6"/>
+  <path class="diagram-body" d="M232 68L280 96V196L232 224L184 196V96Z"/>
+  <path class="diagram-top" d="M232 68L280 96L232 124L184 96Z"/>
+  <path d="M184 96L232 124L280 96M232 124V224"/>
+  <g transform="matrix(.866025 .5 0 1 184 96)">
+    <g transform="translate(16 26)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(40 26)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(16 58)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(40 58)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="var(--accent)" stroke="none"/></g>
+    <g transform="translate(16 90)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(40 90)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+  </g>
+  <g transform="matrix(.866025 -.5 0 1 232 124)">
+    <g transform="translate(16 26)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(40 26)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+    <g transform="translate(16 58)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="var(--accent)" stroke="none"/></g>
+    <g transform="translate(40 58)"><path d="M-10 0Q0 -8 10 0Q0 8 -10 0Z" fill="var(--paper)"/><circle r="3" fill="currentColor" stroke="none"/></g>
+  </g>
+  <text class="diagram-label" x="62" y="266" text-anchor="middle">YOU</text>
+  <text class="diagram-label" x="232" y="266" text-anchor="middle">EVERY VERIFIER</text>
+</svg>
