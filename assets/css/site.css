@@ -100,6 +100,8 @@
   --tower-left-tint: 35%;
   --tower-right-tint: 48%;
   --on-accent: #fff;
+  /* Heatmap value text on mid-strength accent cells; dark mode flips it earlier than light. */
+  --heat-mid-text: var(--ink);
 
   --emphasis-weight: 700;
 
@@ -139,6 +141,7 @@
   --tower-left-tint: 40%;
   --tower-right-tint: 30%;
   --on-accent: #0e0e0e;
+  --heat-mid-text: var(--on-accent);
   color-scheme: dark;
 }
 
@@ -168,6 +171,7 @@
     --tower-left-tint: 40%;
     --tower-right-tint: 30%;
     --on-accent: #0e0e0e;
+    --heat-mid-text: var(--on-accent);
     color-scheme: dark;
   }
 }
@@ -1328,6 +1332,33 @@ main { flex: 1 0 auto; }
 }
 .jellyk-claim-box strong { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; display: block; color: var(--accent); margin-bottom: 4px; }
 .jellyk-code-box pre { margin: 0; }
+
+/* Inline SVG figures in posts, drawn with the same tokens and line work as the homepage scenes so they follow the theme. */
+.post-figure { margin: 2.4em 0; }
+.post-figure .figure-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.post-figure figcaption { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
+.post-figure-narrow { max-width: 420px; margin-inline: auto; }
+.figure-pair { display: grid; gap: 28px; margin: 2.4em 0; }
+.figure-pair .post-figure { margin: 0; }
+@media (min-width: 720px) { .figure-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.diagram-text { font-family: var(--sans); font-size: 12px; fill: var(--ink-2); stroke: none; }
+.diagram-small { font-size: 10px; letter-spacing: .8px; }
+/* Charts: hairline grid, accent marks with a surface ring, text in text tokens only. */
+.chart-text { font-family: var(--sans); font-size: 12.5px; fill: var(--ink-2); stroke: none; font-variant-numeric: tabular-nums; }
+.chart-muted { fill: var(--muted); }
+.chart-grid { stroke: var(--rule); stroke-width: 1; }
+.chart-axis { stroke: var(--rule-strong); stroke-width: 1; }
+.chart-ref { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 4; }
+.chart-dot { fill: var(--accent); stroke: var(--paper); stroke-width: 2; transition: stroke-width .2s; }
+.chart-hit { fill: transparent; stroke: none; }
+.chart-point:hover .chart-dot { stroke: var(--ink); stroke-width: 1.5; }
+.heat-base { fill: var(--paper-2); }
+.heat-fill { fill: var(--accent); }
+.heat-ring { fill: none; stroke: none; }
+.heat-cell:hover .heat-ring { stroke: var(--ink); stroke-width: 1.5; }
+.heat-value { font-family: var(--sans); font-size: 12.5px; font-weight: 600; fill: var(--ink); stroke: none; font-variant-numeric: tabular-nums; }
+.heat-value.is-mid { fill: var(--heat-mid-text); }
+.heat-value.is-high { fill: var(--on-accent); }
 
 /* Minimal compatibility for utility classes used in post markdown */
 .row { display: flex; flex-wrap: wrap; margin-inline: -0.5rem; }

@@ -1,0 +1,28 @@
+<svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A robot clicks the I'm not a robot checkbox of a CAPTCHA, and the check passes." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- A bot ticks the "I'm not a robot" box and passes. -->
+  <path d="M100 40V30" />
+  <circle cx="100" cy="26" r="4" fill="var(--accent)" stroke="var(--accent)"/>
+  <rect x="66" y="58" width="6" height="16" rx="2" class="diagram-body"/>
+  <rect x="128" y="58" width="6" height="16" rx="2" class="diagram-body"/>
+  <rect x="72" y="40" width="56" height="50" rx="9" fill="var(--paper)"/>
+  <circle cx="88" cy="60" r="6" class="diagram-badge"/>
+  <circle cx="112" cy="60" r="6" class="diagram-badge"/>
+  <rect x="86" y="74" width="28" height="8" rx="2"/>
+  <path d="M93 74V82M100 74V82M107 74V82"/>
+  <path class="diagram-guide" d="M100 98C100 112 94 124 86 134" stroke-dasharray="2 6"/>
+  <rect x="34" y="140" width="232" height="64" rx="4" fill="var(--paper)"/>
+  <rect x="52" y="157" width="30" height="30" rx="3" class="diagram-badge"/>
+  <path d="M58 172L64.5 178.5L76 164" class="diagram-check"/>
+  <text class="diagram-text" x="96" y="177" style="font-size:13.5px">I'm not a robot</text>
+  <path d="M245 164A9 9 0 1 1 236 173" stroke="var(--muted)"/>
+  <path d="M245 158V164H239" stroke="var(--muted)"/>
+  <text class="diagram-label diagram-small chart-muted" x="258" y="196" text-anchor="end">CAPTCHA</text>
+  <path d="M74 182L74 198L78.5 193.5L82 201L85 199.5L81.5 192.5L88 192.5Z" fill="var(--paper)"/>
+  <g transform="translate(222 86)">
+    <circle r="17" fill="var(--paper)" stroke="none"/>
+    <circle r="17" class="diagram-badge"/>
+    <path d="M-7 0L-2 5L7 -5" class="diagram-check"/>
+  </g>
+  <text class="diagram-label diagram-small diagram-accent-text" x="222" y="122" text-anchor="middle">PASSED</text>
+  <text class="diagram-label" x="150" y="266" text-anchor="middle">PROVE YOU'RE HUMAN</text>
+</svg>

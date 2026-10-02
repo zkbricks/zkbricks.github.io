@@ -8,31 +8,27 @@ nav_active: blog
 authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
-featured_image: /assets/images/proofs-personhood-handing-keys.webp
+featured_image: /assets/images/proofs-of-personhood-cover.webp
 ---
 
 
 
 *“On the Internet, nobody knows you’re a dog.”* The famous 1993 New Yorker cartoon ([Wikipedia](https://en.wikipedia.org/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog)) was a joke—but it pointed at a real problem. How do you know you’re interacting with a real human online? Or a human of the right age, with the right credentials? Today that question is sharper than ever.
-<figure class="jellyk-figure" style="max-width: 14rem; margin: 1.25rem auto;">
-  <img src="/assets/images/proofs-personhood-nobody-knows-dog.webp" alt="On the Internet, nobody knows you're a dog" class="img-fluid rounded">
-  <figcaption class="small text-body-secondary mt-2">Who's on the other side? Sometimes even "verified" isn't.</figcaption>
+
+<figure class="post-figure">
+{% include figures/pp-nobody-knows.svg %}
+<figcaption>Who’s on the other side? Sometimes even “verified” isn’t.</figcaption>
 </figure>
 
-
-<div class="row g-3 my-4">
-  <div class="col-12 col-md-6">
-    <figure class="jellyk-figure mb-0" style="max-width: 18rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-phone-calls.webp" alt="Phone overwhelmed by unknown calls" class="img-fluid rounded">
-      <figcaption class="small text-body-secondary mt-2">Who's really on the other end? It's getting harder to tell.</figcaption>
-    </figure>
-  </div>
-  <div class="col-12 col-md-6">
-    <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-captcha-fails.webp" alt="Akirabot passing a human verification" class="img-fluid rounded">
-  <figcaption class="small text-body-secondary mt-2">Bots like Akirabot[^3] can pass the "prove you're human" test. We need something stronger.</figcaption>
-    </figure>
-  </div>
+<div class="figure-pair">
+<figure class="post-figure">
+{% include figures/pp-unknown-calls.svg %}
+<figcaption>Who’s really on the other end? It’s getting harder to tell.</figcaption>
+</figure>
+<figure class="post-figure">
+{% include figures/pp-captcha.svg %}
+<figcaption>Bots like Akirabot can pass the “prove you’re human” test. We need something stronger.</figcaption>
+</figure>
 </div>
 
 
@@ -44,19 +40,15 @@ Early systems like CAPTCHA[^1] (Eurocrypt ’03) were built on a simple idea: gi
 
 And personhood isn’t only “am I human?” Online we also need **relationship-backed trust**, **reputation**, **membership in a community**, or **context-specific endorsements**—age verification, attestations, “who vouches for you”—and all of that should preserve privacy. Yet many current approaches are ad-hoc and privacy-hostile. Mobile driver’s licenses (mDLs) can let the verifier query the DMV on every check, so the DMV can see and record every verification. Discord had **over 70,000 government IDs** stolen, then required government ID for “adult” content. Worldcoin’s global biometric system has been called a “privacy nightmare” and has faced shutdowns or strict limits in Spain, Bavaria, Hong Kong, and Kenya. So: *how do we prove personhood without handing over the keys?*
 
-<div class="row g-3 my-4">
-  <div class="col-12 col-md-6">
-    <figure class="jellyk-figure mb-0" style="max-width: 14rem; margin-left: auto; margin-right: auto;">
-    <img src="/assets/images/proofs-personhood-trust-badges.webp" alt="Trust, reputation, and endorsements" class="img-fluid rounded">
-    <figcaption class="small text-body-secondary mt-2">It’s not just “am I human?”—it’s trust, reputation, and who stands behind you.</figcaption>
-    </figure>
-  </div>
-  <div class="col-12 col-md-6">
-    <figure class="jellyk-figure mb-0" style="max-width: 16rem; margin-left: auto; margin-right: auto;">
-      <img src="/assets/images/proofs-personhood-handing-keys.webp" alt="Handing over the keys" class="img-fluid rounded">
-      <figcaption class="small text-body-secondary mt-2">Proving who you are shouldn't mean handing over the keys.</figcaption>
-    </figure>
-  </div>
+<div class="figure-pair">
+<figure class="post-figure">
+{% include figures/pp-trust.svg %}
+<figcaption>It’s not just “am I human?”—it’s trust, reputation, and who stands behind you.</figcaption>
+</figure>
+<figure class="post-figure">
+{% include figures/pp-handing-keys.svg %}
+<figcaption>Proving who you are shouldn’t mean handing over the keys.</figcaption>
+</figure>
 </div>
 
 In this blog we explain our recent work[^2]: we show how to construct proofs of personhood so that humans can prove their reputation and credentials online in a **privacy-preserving** way. The design is **decentralized**—no reliance on centralized parties for setup—and we use **zero-knowledge (ZK) proofs** so people can prove what they need without leaking the rest. This work contributes to the vision of the [First Person Network](https://www.firstperson.network/)[^4]: a global infrastructure for real people and real trust, with no intermediaries. Below we walk through a typical protocol with a running example and highlight the key ideas and security requirements at each stage. No prior work considers the goal of constructing efficient zk proofs for this setting.

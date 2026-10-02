@@ -29,7 +29,8 @@ Landing page and blog for [zkBricks](https://zkbricks.github.io). Built with [Je
 
 - **Home** – `index.html` (hero, mission, capabilities, track record, selected work, writing, people)
 - **Blog list** – `blogs.html`
-- **Blog posts** – add a file in `_posts/` with name `YYYY-MM-DD-slug.md` and front matter (`layout: post`, `title`, `date`, `description`, `authors`, `featured_image`). Use `permalink` if you want a custom URL (e.g. `/blogposts/your-post.html`). Prefer `.webp` images around 1400px wide.
+- **Blog posts** – add a file in `_posts/` with name `YYYY-MM-DD-slug.md` and front matter (`layout: post`, `title`, `date`, `description`, `authors`, `featured_image`). Use `permalink` if you want a custom URL (e.g. `/blogposts/your-post.html`).
+- **Post figures** – drawn as inline SVG in `_includes/figures/`, using the same line work and tokens as the homepage scenes (`diagram-*` classes; `chart-*` and `heat-*` for charts), so they follow light and dark mode. Place one with `<figure class="post-figure">{% include figures/name.svg %}<figcaption>…</figcaption></figure>`, and wrap two in `<div class="figure-pair">` to sit side by side on wide screens. Full-width figures use a 540-wide viewBox; paired figures use 300. `featured_image` (the blog-list thumbnail, always shown on white) is a light-mode `.webp` render of the post's cover figure, around 1400px wide.
 - **Team** – `_data/team.yml` (names, `tagline`, bios, photos, `photo_position`, URLs, optional `dblp` person id, e.g. `33/5817` from `https://dblp.org/pid/33/5817`). Photos live in `assets/team/`.
 - **Research** – publications are loaded from DBLP at **build time** by `scripts/fetch-dblp.js`, which writes `_data/dblp_research.json`. The Research page is static and does not call DBLP when the site loads.
   - If DBLP fails or rate-limits, the script exits with an error and **keeps the existing data** rather than overwriting it with an empty list.
