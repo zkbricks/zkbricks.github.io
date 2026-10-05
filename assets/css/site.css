@@ -853,11 +853,14 @@ main { flex: 1 0 auto; }
 .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .footer-col a { position: relative; transition: color 0.3s; }
 .footer-col a:hover { color: var(--accent); }
-.footer-statement { grid-column: 1 / -1; font-family: var(--sans); font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; max-width: 14em; margin: 0; }
+.footer-intro { grid-column: 1 / -1; min-width: 0; }
+.footer-contact { display: inline-block; margin-top: 20px; color: var(--accent); overflow-wrap: anywhere; }
+.footer-contact:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-statement { font-family: var(--sans); font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; max-width: 14em; margin: 0; }
 .footer-statement em { font-style: normal; font-weight: var(--emphasis-weight); }
 @media (min-width: 900px) {
   .footer-grid { grid-template-columns: 6fr 2fr 2fr 2fr; }
-  .footer-statement { grid-column: auto; }
+  .footer-intro { grid-column: auto; }
 }
 .footer-mark {
   display: block;
@@ -903,6 +906,17 @@ main { flex: 1 0 auto; }
 .stat-inline .stat-year-range { display: inline-grid; justify-items: end; font-variant-numeric: tabular-nums; }
 .stat-year-range > span { white-space: nowrap; }
 .stat-year-dash { opacity: .3; }
+
+/* ---------- Contact ---------- */
+
+.contact-head .display { margin-top: 0; font-weight: var(--emphasis-weight); }
+.contact-head .lede { margin-top: clamp(28px, 4vw, 48px); }
+.contact-details { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 32px; margin-top: clamp(36px, 5vw, 64px); }
+.contact-email { color: var(--accent); font-size: clamp(1.5rem, 4.5vw, 3.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.025em; overflow-wrap: anywhere; }
+.contact-email:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+.contact-copy { flex-shrink: 0; }
+.contact-copy[hidden] { display: none; }
+.contact-status { min-height: 1.5em; margin-top: 16px; font-size: 14px; color: var(--ink-2); }
 
 /* ---------- Research: publication wall ---------- */
 

@@ -4,6 +4,7 @@ description: "Translating cutting-edge cryptography into practical tools for pri
 url: "https://zkbricks.com"
 baseurl: ""
 author: zkBricks
+contact_email: contact@zkbricks.com
 
 # Build
 markdown: kramdown
