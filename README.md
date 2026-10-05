@@ -35,6 +35,7 @@ Landing page and blog for [zkBricks](https://zkbricks.github.io). Built with [Je
 - **Research** – publications are loaded from DBLP at **build time** by `scripts/fetch-dblp.js`, which writes `_data/dblp_research.json`. The Research page is static and does not call DBLP when the site loads.
   - If DBLP fails or rate-limits, the script exits with an error and **keeps the existing data** rather than overwriting it with an empty list.
   - After changing venue names or areas in the script, run `node scripts/fetch-dblp.js --redecorate` to reapply them to the existing JSON without fetching.
+- **Link previews** – `_includes/head.html` uses `assets/images/social/zkbricks-preview.png` by default: a 1200 × 630 opaque white card with a padded original logo. Its SVG layout source is `zkbricks-preview.svg` in the same folder; export it at its native dimensions when updating the PNG. Keep the background opaque and the margins intact for messaging clients. Posts retain their own `featured_image`; optional `featured_image_alt` describes it.
 - **Layout / nav / footer** – `_layouts/default.html`, `_layouts/post.html`, `_includes/nav.html`, `_includes/footer.html`, `_includes/head.html`
 
 ## Design system
