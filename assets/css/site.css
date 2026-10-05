@@ -503,7 +503,8 @@ main { flex: 1 0 auto; }
     z-index: 1;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
+    justify-content: safe center;
+    overflow-y: auto;
     gap: 40px;
     padding: calc(var(--nav-h) + 24px) var(--gutter) 40px;
     background: var(--paper);
@@ -513,7 +514,7 @@ main { flex: 1 0 auto; }
   }
   .menu-open .nav { clip-path: inset(0); visibility: visible; transition: clip-path 0.8s var(--ease); }
   .menu-open .site-header { background: transparent; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
-  .nav-links { flex-direction: column; align-items: stretch; gap: 0; }
+  .nav-links { flex-direction: column; align-items: stretch; gap: 0; flex-shrink: 0; }
   .nav-links li { border-bottom: 1px solid var(--rule); }
   .nav-links a {
     display: flex;
@@ -529,7 +530,7 @@ main { flex: 1 0 auto; }
   .nav-links a[aria-current="page"]::before { display: none; }
   .nav-links a[aria-current="page"] { font-weight: 600; }
   .nav-links .arrow-ne { font-size: 0.6em; align-self: center; }
-  .theme-toggle { margin: 0; align-self: flex-start; }
+  .theme-toggle { margin: 0; align-self: flex-start; flex-shrink: 0; }
 }
 
 /* ---------- Home: hero ---------- */
