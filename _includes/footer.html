@@ -1,13 +1,17 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <p class="footer-statement">Cryptography for privacy, safety, and trust, <em>built as open infrastructure.</em></p>
+      <div class="footer-intro">
+        <p class="footer-statement">Cryptography for privacy, safety, and trust, <em>built as open infrastructure.</em></p>
+        <a class="footer-contact" href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+      </div>
       <div class="footer-col">
         <h2>Explore</h2>
         <ul>
           <li><a href="{{ '/research.html' | relative_url }}">Research</a></li>
           <li><a href="{{ '/blogs.html' | relative_url }}">Blog</a></li>
           <li><a href="{{ '/team.html' | relative_url }}">Team</a></li>
+          <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">

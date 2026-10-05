@@ -1,0 +1,74 @@
+<svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A private key passes from a person toward three spherical eyes representing verifiers, all looking at the key." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Handing over the keys: the person gives up their credential to watching verifiers. -->
+  <g transform="translate(62 127) scale(.68)" stroke-width="2.2">
+    {% include figures/isometric-person.svg %}
+  </g>
+  <!-- The key is a separate object; the dashed arrow denotes transfer, not an arm. -->
+  <g transform="translate(118 142)"><g transform="matrix(.866025 -.5 .866025 .5 0 0)" stroke="var(--accent)">
+    <!-- A depth vector of (-5, 5) projects to five pixels vertically below the top. -->
+    <g fill="var(--paper-2)">
+      <path transform="translate(-5 5)" d="M9 -4H42V3H36V8H30V3H24V8H18V3H9A10 10 0 1 1 9 -4Z"/>
+      <path d="M9 3A10 10 0 1 1 9 -4L4 1A10 10 0 1 0 4 8Z"/>
+      <path d="M42 3L36 3L31 8L37 8Z"/>
+      <path d="M36 8L30 8L25 13L31 13Z"/>
+      <path d="M30 8L30 3L25 8L25 13Z"/>
+      <path d="M30 3L24 3L19 8L25 8Z"/>
+      <path d="M24 8L18 8L13 13L19 13Z"/>
+      <path d="M18 8L18 3L13 8L13 13Z"/>
+      <path d="M18 3L9 3L4 8L13 8Z"/>
+    </g>
+    <path d="M9 -4H42V3H36V8H30V3H24V8H18V3H9A10 10 0 1 1 9 -4Z" fill="var(--paper)"/>
+    <path d="M9 -4H42V3H36V8H30V3H24V8H18V3H9A10 10 0 1 1 9 -4Z" fill="var(--accent-surface)"/>
+    <circle r="4" fill="var(--paper)"/>
+  </g></g>
+  <path class="diagram-guide" d="M112 180H174" stroke-dasharray="2 6"/>
+  <path d="M168 175L174 180L168 185" stroke="var(--muted)"/>
+  <text class="diagram-label diagram-small" x="142" y="208" text-anchor="middle">PRIVATE KEY</text>
+  <!-- Horizontal eyes wrap around the key-facing rim; each sphere clips the far corner. -->
+  <defs>
+    <clipPath id="pp-key-eye-sphere-1" clipPathUnits="userSpaceOnUse"><circle cx="226" cy="103" r="24"/></clipPath>
+    <clipPath id="pp-key-eye-sphere-2" clipPathUnits="userSpaceOnUse"><circle cx="253" cy="164" r="26"/></clipPath>
+    <clipPath id="pp-key-eye-sphere-3" clipPathUnits="userSpaceOnUse"><circle cx="226" cy="225" r="23"/></clipPath>
+  </defs>
+  <g class="verifier-eye">
+    <circle cx="226" cy="103" r="24" fill="var(--paper)" stroke="none"/>
+    <g clip-path="url(#pp-key-eye-sphere-1)">
+      <g class="verifier-eye-face" transform="translate(203.90 107.38) scale(1.6)" stroke-width=".9375">
+        <path d="M-11 0Q0 -14 11 0Q0 14 -11 0Z" fill="var(--paper)"/>
+        <g transform="rotate(157.65)">
+          <ellipse rx="4.5" ry="6" fill="var(--accent-surface)" stroke="var(--accent)"/>
+          <circle cx="1.5" r="2.3" fill="currentColor" stroke="none"/>
+        </g>
+      </g>
+    </g>
+    <circle cx="226" cy="103" r="24" fill="none"/>
+  </g>
+  <g class="verifier-eye">
+    <circle cx="253" cy="164" r="26" fill="var(--paper)" stroke="none"/>
+    <g clip-path="url(#pp-key-eye-sphere-2)">
+      <g class="verifier-eye-face" transform="translate(228.62 161.49) scale(1.6)" stroke-width=".9375">
+        <path d="M-11 0Q0 -14 11 0Q0 14 -11 0Z" fill="var(--paper)"/>
+        <g transform="rotate(-168.41)">
+          <ellipse rx="4.5" ry="6" fill="var(--accent-surface)" stroke="var(--accent)"/>
+          <circle cx="1.5" r="2.3" fill="currentColor" stroke="none"/>
+        </g>
+      </g>
+    </g>
+    <circle cx="253" cy="164" r="26" fill="none"/>
+  </g>
+  <g class="verifier-eye">
+    <circle cx="226" cy="225" r="23" fill="var(--paper)" stroke="none"/>
+    <g clip-path="url(#pp-key-eye-sphere-3)">
+      <g class="verifier-eye-face" transform="translate(205.79 217.42) scale(1.6)" stroke-width=".9375">
+        <path d="M-11 0Q0 -14 11 0Q0 14 -11 0Z" fill="var(--paper)"/>
+        <g transform="rotate(-136.64)">
+          <ellipse rx="4.5" ry="6" fill="var(--accent-surface)" stroke="var(--accent)"/>
+          <circle cx="1.5" r="2.3" fill="currentColor" stroke="none"/>
+        </g>
+      </g>
+    </g>
+    <circle cx="226" cy="225" r="23" fill="none"/>
+  </g>
+  <text class="diagram-label" x="62" y="266" text-anchor="middle">YOU</text>
+  <text class="diagram-label" x="232" y="266" text-anchor="middle">EVERY VERIFIER</text>
+</svg>

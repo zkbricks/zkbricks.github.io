@@ -1,0 +1,30 @@
+<svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A person surrounded by four badges: trust, reputation, membership and endorsement." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Personhood is more than "human": trust, reputation, membership and endorsements surround the person. -->
+  <path class="diagram-guide" d="M128 112L80 78M172 112L220 78M128 156L80 188M172 156L220 188" stroke-dasharray="2 6"/>
+  <g transform="translate(150 113) scale(.68)" stroke-width="2.2">
+    {% include figures/isometric-person.svg %}
+  </g>
+  <g transform="translate(62 64)">
+    <circle r="19" fill="var(--paper)" stroke="none"/><circle r="19" class="diagram-badge"/>
+    <circle cx="-4" r="6" stroke="var(--accent)"/><circle cx="4" r="6" stroke="var(--accent)"/>
+  </g>
+  <g transform="translate(238 64)">
+    <circle r="19" fill="var(--paper)" stroke="none"/><circle r="19" class="diagram-badge"/>
+    <path d="M0 -9L2.6 -3.4L8.6 -2.8L4.1 1.3L5.3 7.3L0 4.3L-5.3 7.3L-4.1 1.3L-8.6 -2.8L-2.6 -3.4Z" stroke="var(--accent)"/>
+  </g>
+  <g transform="translate(62 204)">
+    <circle r="19" fill="var(--paper)" stroke="none"/><circle r="19" class="diagram-badge"/>
+    <g stroke="var(--accent)"><circle cx="-6" cy="-3" r="2.6"/><circle cx="6" cy="-3" r="2.6"/><circle cx="0" cy="-5" r="3"/><path d="M-11 6C-11 2 -9 0.5 -6 0.5C-4.6 0.5 -3.5 0.8 -2.8 1.4M11 6C11 2 9 0.5 6 0.5C4.6 0.5 3.5 0.8 2.8 1.4M-5 8C-5 3.5 -3 1.5 0 1.5C3 1.5 5 3.5 5 8"/></g>
+  </g>
+  <g transform="translate(238 204)">
+    <circle r="19" fill="var(--paper)" stroke="none"/><circle r="19" class="diagram-badge"/>
+    <path d="M-7 0L-2 5L7 -5" class="diagram-check"/>
+  </g>
+  <g class="diagram-label diagram-small" text-anchor="middle">
+    <text x="62" y="102">TRUST</text>
+    <text x="238" y="102">REPUTATION</text>
+    <text x="62" y="242">MEMBER</text>
+    <text x="238" y="242">ENDORSED</text>
+  </g>
+  <text class="diagram-label diagram-accent-text" x="150" y="210" text-anchor="middle">YOU</text>
+</svg>

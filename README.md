@@ -29,11 +29,13 @@ Landing page and blog for [zkBricks](https://zkbricks.github.io). Built with [Je
 
 - **Home** – `index.html` (hero, mission, capabilities, track record, selected work, writing, people)
 - **Blog list** – `blogs.html`
-- **Blog posts** – add a file in `_posts/` with name `YYYY-MM-DD-slug.md` and front matter (`layout: post`, `title`, `date`, `description`, `authors`, `featured_image`). Use `permalink` if you want a custom URL (e.g. `/blogposts/your-post.html`). Prefer `.webp` images around 1400px wide.
+- **Blog posts** – add a file in `_posts/` with name `YYYY-MM-DD-slug.md` and front matter (`layout: post`, `title`, `date`, `description`, `authors`, `featured_image`). Use `permalink` if you want a custom URL (e.g. `/blogposts/your-post.html`).
+- **Post figures** – drawn as inline SVG in `_includes/figures/`, using the same line work and tokens as the homepage scenes (`diagram-*` classes; `chart-*` and `heat-*` for charts), so they follow light and dark mode. Place one with `<figure class="post-figure">{% include figures/name.svg %}<figcaption>…</figcaption></figure>`, and wrap two in `<div class="figure-pair">` to sit side by side on wide screens. Full-width figures use a 540-wide viewBox; paired figures use 300. Set `featured_figure: figures/name.svg` in post front matter to reuse the same SVG on the blog index and homepage cards, including its light/dark theme colors. `featured_image` remains the raster social-preview image and the fallback for posts without an inline cover. Figures combine isometric people and selected props with flat interface illustrations and circular check badges; all use flat fills.
 - **Team** – `_data/team.yml` (names, `tagline`, bios, photos, `photo_position`, URLs, optional `dblp` person id, e.g. `33/5817` from `https://dblp.org/pid/33/5817`). Photos live in `assets/team/`.
 - **Research** – publications are loaded from DBLP at **build time** by `scripts/fetch-dblp.js`, which writes `_data/dblp_research.json`. The Research page is static and does not call DBLP when the site loads.
   - If DBLP fails or rate-limits, the script exits with an error and **keeps the existing data** rather than overwriting it with an empty list.
   - After changing venue names or areas in the script, run `node scripts/fetch-dblp.js --redecorate` to reapply them to the existing JSON without fetching.
+- **Link previews** – `_includes/head.html` uses `assets/images/social/zkbricks-preview.png` by default: a 1200 × 630 opaque white card with a padded original logo. Its SVG layout source is `zkbricks-preview.svg` in the same folder; export it at its native dimensions when updating the PNG. Keep the background opaque and the margins intact for messaging clients. Posts retain their own `featured_image`; optional `featured_image_alt` describes it.
 - **Layout / nav / footer** – `_layouts/default.html`, `_layouts/post.html`, `_includes/nav.html`, `_includes/footer.html`, `_includes/head.html`
 
 ## Design system

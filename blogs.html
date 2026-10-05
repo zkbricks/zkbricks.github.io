@@ -26,11 +26,12 @@ nav_active: blog
         <div class="post-item-meta">
           <span>{{ post.date | date: "%d %B %Y" }}</span>
           {% if post.authors %}<span>{{ post.authors | array_to_sentence_string }}</span>{% elsif post.author %}<span>{{ post.author }}</span>{% endif %}
-          {% assign words = post.content | strip_html | number_of_words %}
-          <span>{{ words | divided_by: 220 | at_least: 1 }} min read</span>
+          <span>{% include read-time.html content=post.content %} min read</span>
         </div>
       </div>
-      {% if post.featured_image %}
+      {% if post.featured_figure %}
+      <div class="post-item-thumb post-thumb-figure" aria-hidden="true">{% include {{ post.featured_figure }} %}</div>
+      {% elsif post.featured_image %}
       <div class="post-item-thumb"><img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy"></div>
       {% endif %}
     </article>

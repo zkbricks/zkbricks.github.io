@@ -1,0 +1,30 @@
+<svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A phone whose screen lists missed calls from Unknown, Spam risk, Unknown caller and Possible scam, with a 99+ badge." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- A phone full of missed calls from senders it cannot identify. -->
+  <rect x="76" y="22" width="148" height="214" rx="16" class="diagram-body"/>
+  <rect x="84" y="44" width="132" height="170" rx="4" fill="var(--paper)" stroke="var(--rule-strong)" stroke-width="1"/>
+  <path d="M136 33H164" stroke="var(--muted)"/>
+  <path d="M138 225H162" stroke="var(--muted)"/>
+  <g stroke="var(--rule)" stroke-width="1"><path d="M90 86H210M90 128H210M90 170H210"/></g>
+  <g stroke="var(--accent)">
+    <path d="M103 54L95 62M95 57V62H100"/>
+    <path d="M103 96L95 104M95 99V104H100"/>
+    <path d="M103 138L95 146M95 141V146H100"/>
+    <path d="M103 180L95 188M95 183V188H100"/>
+  </g>
+  <g class="diagram-text">
+    <text x="110" y="62">Unknown</text>
+    <text x="110" y="104">Spam risk</text>
+    <text x="110" y="146">Unknown caller</text>
+    <text x="110" y="188">Possible scam</text>
+  </g>
+  <g class="diagram-text chart-muted" style="font-size:10px">
+    <text x="110" y="76">Missed call</text>
+    <text x="110" y="118">Missed call</text>
+    <text x="110" y="160">Missed call</text>
+    <text x="110" y="202">Missed call</text>
+  </g>
+  <circle cx="222" cy="26" r="15" fill="var(--accent)" stroke="var(--paper)" stroke-width="2"/>
+  <text x="222" y="30" text-anchor="middle" fill="var(--on-accent)" stroke="none" style="font-family:var(--sans);font-size:10.5px;font-weight:700">99+</text>
+  <g class="diagram-text chart-muted" style="font-size:32px"><text x="240" y="96">?</text><text x="256" y="128">?</text><text x="44" y="150">?</text></g>
+  <text class="diagram-label" x="150" y="266" text-anchor="middle">WHO IS CALLING?</text>
+</svg>

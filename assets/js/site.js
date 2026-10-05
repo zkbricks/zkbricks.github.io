@@ -54,6 +54,23 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
+  /* ---------- Contact: copy email ---------- */
+
+  var copyEmail = $('[data-copy-email]');
+  var copyStatus = $('[data-copy-status]');
+  if (copyEmail && copyStatus && navigator.clipboard && navigator.clipboard.writeText) {
+    copyEmail.hidden = false;
+    copyEmail.addEventListener('click', async function () {
+      copyStatus.textContent = '';
+      try {
+        await navigator.clipboard.writeText(copyEmail.getAttribute('data-copy-email'));
+        copyStatus.textContent = 'Email address copied.';
+      } catch (e) {
+        copyStatus.textContent = 'Couldn’t copy automatically. Select the email address above to copy it.';
+      }
+    });
+  }
+
   /* ---------- Reading progress ---------- */
 
   var progress = $('[data-progress]');

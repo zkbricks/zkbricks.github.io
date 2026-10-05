@@ -8,14 +8,16 @@ nav_active: blog
 authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
-featured_image: /assets/images/threshold-decryption.webp
+featured_image: /assets/images/threshold-encryption-cover.webp
+featured_figure: figures/threshold-quorum.svg
 ---
 
 Threshold encryption is a foundational primitive for building distributed systems that need confidentiality without relying on any single party. A sender encrypts a message to a *quorum* of $n$ users such that **any** set of $t$ users can decrypt the ciphertext, while **no** set of $t-1$ users can. Importantly, the ciphertext can be *succinct*: it does not grow with $n$ (or $t$).
 
-![Threshold decryption in action: a quorum of nodes; a subset (highlighted) contributes partial decryptions to unlock the ciphertext.](/assets/images/threshold-decryption.webp){: .img-fluid }
-
-*The padlock is the ciphertext; the key and light represent successful decryption. The nodes are quorum members; those connected by the active (red) lines are the $t$ participants whose partial decryptions combine to unlock the secret. The others hold shares but do not participate in this decryption.*
+<figure class="post-figure">
+{% include figures/threshold-quorum.svg %}
+<figcaption>Threshold decryption in action. The bricks are quorum members, each holding a share. The three highlighted members are the \(t\) participants: each sends a partial decryption, and together the partials open the ciphertext. The others hold shares but take no part in this decryption.</figcaption>
+</figure>
 
 As threshold encryption moves from theory into production—especially in systems like blockchains—two practical bottlenecks quickly become dominant:
 

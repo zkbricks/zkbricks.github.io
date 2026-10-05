@@ -9,18 +9,27 @@
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-black.png' | relative_url }}" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-white.png' | relative_url }}" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="{{ '/assets/images/logos/zkBricks-brick-black.png' | relative_url }}">
-{% assign og_image = page.featured_image | default: '/assets/images/logos/zkBricks-vertical-outline.png' %}
+{% assign og_image = page.featured_image | default: '/assets/images/social/zkbricks-preview.png' %}
+{% assign og_image_alt = page.featured_image_alt | default: page.title | default: site.title %}
+{% unless page.featured_image %}{% assign og_image_alt = 'zkBricks logo on a white background' %}{% endunless %}
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:image" content="{{ og_image | absolute_url }}">
+<meta property="og:image:alt" content="{{ og_image_alt | escape }}">
+{% unless page.featured_image %}
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% endunless %}
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
 <meta name="twitter:image" content="{{ og_image | absolute_url }}">
+<meta name="twitter:image:alt" content="{{ og_image_alt | escape }}">
 
 <script>
   (function () {
