@@ -25,6 +25,6 @@
   </g>
   <circle cx="222" cy="26" r="15" fill="var(--accent)" stroke="var(--paper)" stroke-width="2"/>
   <text x="222" y="30" text-anchor="middle" fill="var(--on-accent)" stroke="none" style="font-family:var(--sans);font-size:10.5px;font-weight:700">99+</text>
-  <g class="diagram-text chart-muted" style="font-size:22px"><text x="240" y="96">?</text><text x="256" y="128">?</text><text x="44" y="150">?</text></g>
+  <g class="diagram-text chart-muted" style="font-size:32px"><text x="240" y="96">?</text><text x="256" y="128">?</text><text x="44" y="150">?</text></g>
   <text class="diagram-label" x="150" y="266" text-anchor="middle">WHO IS CALLING?</text>
 </svg>

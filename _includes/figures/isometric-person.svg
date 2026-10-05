@@ -1,0 +1,8 @@
+<!-- Original landing-page person: circular head, hemispherical body, flat translucent fill.
+     Opaque underlays keep guides and the body outline from showing through the head. -->
+<g fill="{{ include.fill | default: 'var(--accent-surface)' }}">
+  <path d="M-47 79C-47 50 -25 26 0 26C25 26 47 50 47 79A47 23.5 0 0 1 -47 79Z" fill="var(--paper)" stroke="none"/>
+  <path d="M-47 79C-47 50 -25 26 0 26C25 26 47 50 47 79A47 23.5 0 0 1 -47 79Z"/>
+  <circle cy="8" r="28" fill="var(--paper)" stroke="none"/>
+  <circle cy="8" r="28"/>
+</g>

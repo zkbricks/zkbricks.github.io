@@ -107,7 +107,9 @@ nav_active: home
     <div class="posts-grid">
       {% for post in site.posts limit: 2 %}
       <a class="post-card" href="{{ post.url | relative_url }}">
-        {% if post.featured_image %}
+        {% if post.featured_figure %}
+        <div class="post-card-img post-thumb-figure" aria-hidden="true">{% include {{ post.featured_figure }} %}</div>
+        {% elsif post.featured_image %}
         <div class="post-card-img"><img src="{{ post.featured_image | relative_url }}" alt="" loading="lazy"></div>
         {% endif %}
         <div class="post-card-meta"><span>{{ post.date | date: "%b %Y" }}</span>{% if post.authors %}<span>{{ post.authors | size }} authors</span>{% endif %}</div>

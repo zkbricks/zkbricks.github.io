@@ -9,6 +9,7 @@ authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
 featured_image: /assets/images/threshold-encryption-cover.webp
+featured_figure: figures/threshold-quorum.svg
 ---
 
 Threshold encryption is a foundational primitive for building distributed systems that need confidentiality without relying on any single party. A sender encrypts a message to a *quorum* of $n$ users such that **any** set of $t$ users can decrypt the ciphertext, while **no** set of $t-1$ users can. Importantly, the ciphertext can be *succinct*: it does not grow with $n$ (or $t$).

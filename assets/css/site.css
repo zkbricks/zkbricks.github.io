@@ -1152,6 +1152,10 @@ main { flex: 1 0 auto; }
   .post-item-body { display: grid; gap: 20px; }
 }
 
+/* Reuse article SVGs for covers so artwork and theme colors stay in sync. */
+.post-thumb-figure { background: var(--paper); color: var(--ink); }
+.post-thumb-figure .figure-svg { width: 100%; height: 100%; padding: 5%; }
+
 /* ---------- Post ---------- */
 
 .progress {

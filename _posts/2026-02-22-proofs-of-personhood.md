@@ -9,6 +9,7 @@ authors:
   - Arka Rai Choudhuri
   - Sanjam Garg
 featured_image: /assets/images/proofs-of-personhood-cover.webp
+featured_figure: figures/pp-nobody-knows.svg
 ---
 
 

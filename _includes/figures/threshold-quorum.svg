@@ -30,11 +30,30 @@
   <path class="diagram-body" d="M100 198.02L114.72 206.52V223.52L100 232.02L85.28 223.52V206.52Z"/>
   <path class="diagram-top" d="M100 198.02L114.72 206.52L100 215.02L85.28 206.52Z"/>
   <path d="M85.28 206.52L100 215.02L114.72 206.52M100 215.02V232.02"/>
-  <path class="diagram-accent-line" d="M32 158.76C32 62 198 141.5 268 141.5M100 119.5C100 88 198 169.5 268 169.5M168 158.76C168 128 198 197.5 268 197.5"/>
-  <g><rect x="268" y="132" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 138H285M273 144H281" stroke="var(--muted)"/><circle cx="292" cy="144" r="2" fill="var(--accent)" stroke="none"/></g>
-  <g><rect x="268" y="160" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 166H285M273 172H281" stroke="var(--muted)"/><circle cx="292" cy="172" r="2" fill="var(--accent)" stroke="none"/></g>
-  <g><rect x="268" y="188" width="30" height="19" rx="2" fill="var(--paper)"/><path d="M273 194H285M273 200H281" stroke="var(--muted)"/><circle cx="292" cy="200" r="2" fill="var(--accent)" stroke="none"/></g>
-  <path class="diagram-guide" d="M308 170C336 160 362 160 388 170" stroke-dasharray="2 6"/>
+  <!-- Match hero.js: quadratic arcs with midpoint control x and control y above both endpoints.
+       Vertically spaced, left-aligned destinations keep the arcs nested and separate; each starts at a highlighted top-face center. -->
+  <g class="threshold-share-arcs" stroke="var(--accent)">
+    <path d="M32 167.26Q150 20 268 90"/>
+    <path d="M100 128Q184 60 268 135"/>
+    <path d="M168 167.26Q218 105 268 180"/>
+    <g fill="var(--accent)" stroke="none"><circle cx="32" cy="167.26" r="2.5"/><circle cx="100" cy="128" r="2.5"/><circle cx="168" cy="167.26" r="2.5"/></g>
+  </g>
+  <g class="partial-decryption" transform="translate(268 90)">
+    <rect y="-9.5" width="30" height="19" rx="2" fill="var(--paper)"/>
+    <path d="M5 -3.5H17M5 2.5H13" stroke="var(--muted)"/>
+    <circle cx="24" cy="2.5" r="2" fill="var(--accent)" stroke="none"/>
+  </g>
+  <g class="partial-decryption" transform="translate(268 135)">
+    <rect y="-9.5" width="30" height="19" rx="2" fill="var(--paper)"/>
+    <path d="M5 -3.5H17M5 2.5H13" stroke="var(--muted)"/>
+    <circle cx="24" cy="2.5" r="2" fill="var(--accent)" stroke="none"/>
+  </g>
+  <g class="partial-decryption" transform="translate(268 180)">
+    <rect y="-9.5" width="30" height="19" rx="2" fill="var(--paper)"/>
+    <path d="M5 -3.5H17M5 2.5H13" stroke="var(--muted)"/>
+    <circle cx="24" cy="2.5" r="2" fill="var(--accent)" stroke="none"/>
+  </g>
+  <path class="diagram-guide" d="M308 180C334 170 362 170 388 180" stroke-dasharray="2 6"/>
   <path class="diagram-body" d="M450 131L500.23 160V210L450 239L399.77 210V160Z"/>
   <path class="diagram-blue" d="M450 131L500.23 160L450 189L399.77 160Z"/>
   <path d="M399.77 160L450 189L500.23 160M450 189V239"/>

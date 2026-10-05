@@ -1,11 +1,8 @@
 <svg class="figure-svg" viewBox="0 0 300 280" role="img" aria-label="A person surrounded by four badges: trust, reputation, membership and endorsement." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <!-- Personhood is more than "human": trust, reputation, membership and endorsements surround the person. -->
   <path class="diagram-guide" d="M128 112L80 78M172 112L220 78M128 156L80 188M172 156L220 188" stroke-dasharray="2 6"/>
-  <g fill="var(--accent-surface)">
-    <path d="M118 176C118 152 132 136 150 136C168 136 182 152 182 176Z" fill="var(--paper)" stroke="none"/>
-    <path d="M118 176C118 152 132 136 150 136C168 136 182 152 182 176Z"/>
-    <circle cx="150" cy="113" r="17" fill="var(--paper)" stroke="none"/>
-    <circle cx="150" cy="113" r="17"/>
+  <g transform="translate(150 113) scale(.68)" stroke-width="2.2">
+    {% include figures/isometric-person.svg %}
   </g>
   <g transform="translate(62 64)">
     <circle r="19" fill="var(--paper)" stroke="none"/><circle r="19" class="diagram-badge"/>

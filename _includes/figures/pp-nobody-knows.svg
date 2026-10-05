@@ -1,38 +1,52 @@
-<svg class="figure-svg" viewBox="0 0 540 330" role="img" aria-label="A website sees a verified human profile with a check mark. Behind the screen, the one typing is a dog wearing a verified tag and thinking: I'm human." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- What the site sees (a verified profile) versus who is actually typing (a dog with a verified tag). -->
+<svg class="figure-svg" viewBox="0 0 570 330" role="img" aria-label="A website sees a verified human profile. Behind an isometric laptop, an abstract dog with a circular head and rounded snout thinks: I'm human." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- What the site sees (a verified profile) versus who is actually typing (a dog). -->
   <path class="diagram-body" d="M100 118L112 111L185 153V236L173 243L100 201Z"/>
   <path class="diagram-top" d="M100 118L173 160V243L100 201Z"/>
   <path d="M100 118L112 111L185 153L173 160M173 160V243"/>
   <g transform="matrix(.866025 .5 0 1 100 118)">
     <circle cx="34" cy="22" r="10" fill="var(--paper)"/>
     <path d="M18 50C18 38 25 32 34 32C43 32 50 38 50 50Z" fill="var(--paper)"/>
-    <circle cx="62" cy="24" r="8" class="diagram-badge"/>
-    <path d="M58 24L61 27L66 21" stroke="var(--accent)"/>
     <path d="M18 64H62M18 73H48" stroke="var(--muted)" stroke-width="3"/>
   </g>
+  <g transform="translate(154 173)">
+    <circle r="8" fill="var(--paper)" stroke="none"/><circle r="8" class="diagram-badge"/>
+    <path d="M-4 0L-1 3L4 -3" stroke="var(--accent)"/>
+  </g>
   <path class="diagram-guide" d="M206 178C246 166 292 166 330 178" stroke-dasharray="2 6"/>
-  <!-- The dog: shoulders, collar with a verified tag, head with floppy ears. -->
-  <path d="M350 262C350 222 372 190 400 190C428 190 450 222 450 262Z" fill="var(--paper)"/>
-  <path d="M383 192Q400 201 417 192"/>
-  <circle cx="400" cy="208" r="7" class="diagram-badge"/>
-  <path d="M396.5 208L399 210.5L403.5 205.5" stroke="var(--accent)"/>
-  <path d="M378 140C378 116 422 116 422 140C422 166 413 182 400 182C387 182 378 166 378 140Z" fill="var(--paper)"/>
-  <path d="M382 128C366 124 358 148 363 170C372 168 378 158 381 146Z" class="diagram-body"/>
-  <path d="M418 128C434 124 442 148 437 170C428 168 422 158 419 146Z" class="diagram-body"/>
-  <circle cx="391" cy="145" r="2.4" fill="currentColor" stroke="none"/>
-  <circle cx="409" cy="145" r="2.4" fill="currentColor" stroke="none"/>
-  <ellipse cx="400" cy="164" rx="11" ry="9" fill="var(--paper)"/>
-  <ellipse cx="400" cy="159.5" rx="4.5" ry="3.2" fill="currentColor" stroke="none"/>
-  <path d="M395 168.5Q400 172 405 168.5"/>
-  <!-- Laptop seen from behind: the lid faces the dog. -->
-  <rect x="356" y="222" width="88" height="54" rx="4" class="diagram-body"/>
-  <path d="M338 284L346 276H454L462 284Z" fill="var(--paper)"/>
-  <circle cx="400" cy="249" r="5" stroke="var(--muted)"/>
+  <!-- Align the dog's leftmost body point with the keyboard edge from north (411,199) to east (476,237): midpoint (443.5,218). -->
+  <g class="typing-dog" transform="translate(443.5 218) scale(1.2) translate(-360.76 -202.68)" stroke-width="1.25">
+  <!-- The same circular head and hemispherical body as the isometric person. -->
+  <ellipse cx="380" cy="141" rx="8" ry="19" transform="rotate(18 380 141)" class="diagram-body"/>
+  <g transform="translate(404 130) scale(.92)" stroke-width="1.36">
+    {% include figures/isometric-person.svg fill="var(--paper)" %}
+  </g>
+  <!-- The nearer ear overlaps the head; the far ear stays behind it. -->
+  <ellipse cx="428" cy="141" rx="8" ry="19" transform="rotate(-18 428 141)" class="diagram-body"/>
+  <!-- A small hemisphere projects from the lower part of the head; no eyes. -->
+  <g transform="translate(397 159)">
+    <path d="M-15 0C-15 -9 -8 -16 0 -16C8 -16 15 -9 15 0A15 7.5 0 0 1 -15 0Z" class="diagram-body"/>
+    <circle cx="-5" cy="-3" r="4.5" fill="currentColor" stroke="none"/>
+  </g>
+  </g>
+  <!-- Raise and center the laptop in front of the torso, with its keyboard within reach. -->
+  <g class="dog-laptop" transform="translate(24 -12)">
+  <path d="M332 243L387 211L452 249V255L397 287L332 249Z" class="diagram-body"/>
+  <path d="M332 243L387 211L452 249L397 281Z" fill="var(--paper)"/>
+  <path d="M397 281V287"/>
+  <g transform="matrix(.866025 .5 -.866025 .5 387 218)" stroke="var(--rule-strong)">
+    <path d="M8 6H65V38H8ZM8 16H65M8 27H65M19 6V38M31 6V38M43 6V38M55 6V38"/>
+  </g>
+  <path d="M332 190L338 186L403 224V277L397 281L332 243Z" class="diagram-body"/>
+  <path d="M332 190L397 228V281L332 243Z" fill="var(--paper)"/>
+  <path d="M332 190L397 228V281L332 243Z" fill="var(--accent-surface)"/>
+  <path d="M332 190L397 228L403 224M397 228V281"/>
+  <g transform="matrix(.866025 .5 0 1 332 190)"><circle cx="37" cy="26" r="5" stroke="var(--muted)"/></g>
+  </g>
   <!-- Thought bubble. -->
-  <circle cx="433" cy="118" r="2.5" fill="var(--paper)"/>
-  <circle cx="442" cy="104" r="4" fill="var(--paper)"/>
-  <rect x="448" y="62" width="82" height="32" rx="16" fill="var(--paper)"/>
-  <text class="diagram-label diagram-small" x="489" y="82" text-anchor="middle">I'M HUMAN</text>
+  <circle cx="486" cy="96" r="2.5" fill="var(--paper)"/>
+  <circle cx="500" cy="88" r="4" fill="var(--paper)"/>
+  <rect x="448" y="48" width="82" height="32" rx="16" fill="var(--paper)"/>
+  <text class="diagram-label diagram-small" x="489" y="68" text-anchor="middle">I'M HUMAN</text>
   <text class="diagram-label" x="142" y="315" text-anchor="middle">WHAT THE SITE SEES</text>
-  <text class="diagram-label diagram-accent-text" x="400" y="315" text-anchor="middle">WHO IS TYPING</text>
+  <text class="diagram-label diagram-accent-text" x="450" y="315" text-anchor="middle">WHO IS TYPING</text>
 </svg>
