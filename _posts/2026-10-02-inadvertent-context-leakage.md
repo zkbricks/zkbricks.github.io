@@ -21,15 +21,11 @@ featured_figure: figures/context-leakage-scene.svg
 
 AI agents are increasingly entrusted with secrets: credentials, calendars, health records. Personal agents such as OpenClaw[^openclaw] load this information into every conversation and routinely send what they write to third parties. The prevailing safeguard is *behavioral*: the model is instructed not to disclose a secret, and an evaluator checks that the secret never appears, verbatim or paraphrased, in its output[^secret].
 
-In our NeurIPS 2026 paper[^paper], we show that this safeguard does not provide secrecy. A model can refuse every direct request for a secret and still leak it: its responses to unrelated, benign requests depend on the secret, and an adversary who observes them can recover it.
+In our NeurIPS 2026 paper[^paper], we show that this safeguard does not provide secrecy. A model can refuse every direct request for a secret and still leak it: its responses to unrelated, benign requests depend on the secret, and an adversary who observes them can recover it. We call this *inadvertent context leakage*.
 
 ## Refusal is not secrecy
 
 Cryptography explains why. An encryption scheme is secure not because its ciphertexts fail to "contain" the message, but because ciphertexts of different messages are *indistinguishable*[^gm]. Likewise, the question for a language model is not whether it *states* the secret, but whether the *distribution* of its outputs depends on it. Any such dependence, whether in the numbers the model picks, the length of its response, or its phrasing, is a channel.
-
-<div class="jellyk-highlight-box">
-  <p><strong>Inadvertent context leakage.</strong> A model’s responses to benign queries depend on a secret in its context, even though the model never states the secret.</p>
-</div>
 
 ## Recovering the secret
 
