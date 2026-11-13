@@ -1,36 +1,57 @@
-<svg class="figure-svg" viewBox="0 0 540 340" role="img" aria-label="A private context holds the PIN 7249. The AI agent refuses to reveal it, but its ordinary replies flow to a grid that reconstructs the digits 7, 2, 4 and 9." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Static version of the homepage AI-safety scene: the agent refuses, yet its replies reconstruct the secret. -->
+<svg class="figure-svg" viewBox="0 0 540 340" role="img" aria-label="A private context holds the PIN 7249. Asked for it, the AI agent refuses and shows only masked digits. Its ordinary replies, containing unrelated numbers such as 1987, 4,217 and 372, flow into the attacker’s decoder, which reconstructs the digits 7, 2, 4 and 9." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- The homepage AI-safety scene, drawn to be read as a still: the secret, the refusal, the ordinary replies, and the decoder that recovers the secret. -->
+  <!-- Private context: the PIN is legible here so it can be matched against the reconstruction. -->
   <g transform="translate(-8 0)">
     <path class="diagram-body" d="M44 112L56 105L125 145V223L113 230L44 190Z"/>
     <path class="diagram-top" d="M44 112L113 152V230L44 190Z"/>
     <path d="M44 112L56 105L125 145L113 152M113 152V230"/>
     <g transform="matrix(.866025 .5 0 1 44 112)">
-      <path d="M10 18H62M10 30H46" stroke="var(--muted)" stroke-width="3"/>
-      <g class="diagram-badge"><rect x="10" y="44" width="11" height="14"/><rect x="24" y="44" width="11" height="14"/><rect x="38" y="44" width="11" height="14"/><rect x="52" y="44" width="11" height="14"/></g>
-      <!-- The secret is present but faint: it is in context, never shown. -->
-      <g class="leak-secret" text-anchor="middle"><text x="15.5" y="55">7</text><text x="29.5" y="55">2</text><text x="43.5" y="55">4</text><text x="57.5" y="55">9</text></g>
+      <path d="M9 16H70M9 27H48" stroke="var(--muted)" stroke-width="3"/>
+      <g class="diagram-badge"><rect x="9" y="41" width="13" height="18"/><rect x="25" y="41" width="13" height="18"/><rect x="41" y="41" width="13" height="18"/><rect x="57" y="41" width="13" height="18"/></g>
+      <g text-anchor="middle" fill="var(--accent)" stroke="none" style="font-family:var(--sans);font-size:12.5px;font-weight:600"><text x="15.5" y="54.5">7</text><text x="31.5" y="54.5">2</text><text x="47.5" y="54.5">4</text><text x="63.5" y="54.5">9</text></g>
     </g>
   </g>
-  <path class="diagram-guide" d="M120 182C138 174 150 172 162 174" stroke-dasharray="2 6"/>
+  <path class="diagram-guide" d="M120 182C133 176 143 174 154 174" stroke-dasharray="2 6"/>
+  <path d="M149.5 169.5L155 174L149.5 178.5" stroke="var(--muted)"/>
+  <!-- The agent. -->
   <g transform="translate(222 186)">
     <path class="diagram-body" d="M0 -60L62.352 -24L62.352 36L0 72L-62.352 36L-62.352 -24Z"/>
     <path class="diagram-top" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
     <path class="diagram-blue" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
     <path d="M-62.352 -24L0 12L62.352 -24M0 12V72"/>
   </g>
-  <g class="leak-refuse">
-    <circle cx="222" cy="84" r="17" fill="var(--paper)" stroke="var(--rule-strong)"/>
-    <path d="M216 78L228 90M228 78L216 90" stroke="var(--ink-2)" stroke-width="2"/>
+  <!-- The refusal: the agent answers a direct request with the digits masked. -->
+  <text class="diagram-label diagram-small" x="222" y="57" text-anchor="middle">REFUSAL</text>
+  <path d="M192 68H252A9 9 0 0 1 261 77V89A9 9 0 0 1 252 98H229L222 108L215 98H192A9 9 0 0 1 183 89V77A9 9 0 0 1 192 68Z" fill="var(--paper)"/>
+  <path d="M189.5 78.5L198.5 87.5M198.5 78.5L189.5 87.5" stroke-width="2"/>
+  <g fill="var(--paper-2)" stroke="var(--rule-strong)" stroke-width="1"><rect x="205.5" y="76.5" width="10" height="13"/><rect x="218.5" y="76.5" width="10" height="13"/><rect x="231.5" y="76.5" width="10" height="13"/><rect x="244.5" y="76.5" width="10" height="13"/></g>
+  <g fill="var(--muted)" stroke="none"><circle cx="210.5" cy="83" r="1.8"/><circle cx="223.5" cy="83" r="1.8"/><circle cx="236.5" cy="83" r="1.8"/><circle cx="249.5" cy="83" r="1.8"/></g>
+  <!-- Ordinary replies: unrelated numbers, each carrying a trace of the secret (the accent dot). -->
+  <g>
+    <g transform="translate(296 140)"><rect y="-9" width="50" height="18" rx="9" fill="var(--paper)"/><circle cx="41.5" cy="0" r="1.8" fill="var(--accent)" stroke="none"/></g>
+    <g transform="translate(296 166)"><rect y="-9" width="50" height="18" rx="9" fill="var(--paper)"/><circle cx="41.5" cy="0" r="1.8" fill="var(--accent)" stroke="none"/></g>
+    <g transform="translate(296 192)"><rect y="-9" width="50" height="18" rx="9" fill="var(--paper)"/><circle cx="41.5" cy="0" r="1.8" fill="var(--accent)" stroke="none"/></g>
+    <g fill="var(--ink-2)" stroke="none" style="font-family:var(--sans);font-size:9.5px;font-weight:600"><text x="305" y="143.4">1987</text><text x="305" y="169.4">4,217</text><text x="305" y="195.4">372</text></g>
   </g>
-  <g transform="translate(296 160)"><g transform="translate(0 -28)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g transform="translate(20 0)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g transform="translate(40 28)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g></g>
+  <text class="diagram-label diagram-small" text-anchor="middle"><tspan x="321" y="222">ORDINARY</tspan><tspan x="321" y="234">REPLIES</tspan></text>
+  <path class="diagram-guide" d="M354 166H378" stroke-dasharray="2 6"/>
+  <path d="M374.5 161.5L380 166L374.5 170.5" stroke="var(--muted)"/>
+  <!-- The decoder: one column per digit of the secret, one row per candidate value. Faint cells are residual uncertainty. -->
+  <text class="diagram-label diagram-small" x="453" y="34" text-anchor="middle">DECODER</text>
   <g class="leak-board">
-    <g class="leak-rows" text-anchor="end"><text x="384" y="56">0</text><text x="384" y="74">1</text><text x="384" y="92">2</text><text x="384" y="110">3</text><text x="384" y="128">4</text><text x="384" y="146">5</text><text x="384" y="164">6</text><text x="384" y="182">7</text><text x="384" y="200">8</text><text x="384" y="218">9</text></g>
-    <g class="diagram-top" stroke="var(--rule-strong)" stroke-width="1"><rect x="392" y="46" width="22" height="13"/><rect x="392" y="64" width="22" height="13"/><rect x="392" y="82" width="22" height="13"/><rect x="392" y="100" width="22" height="13"/><rect x="392" y="118" width="22" height="13"/><rect x="392" y="136" width="22" height="13"/><rect x="392" y="154" width="22" height="13"/><rect x="392" y="172" width="22" height="13"/><rect x="392" y="190" width="22" height="13"/><rect x="392" y="208" width="22" height="13"/><rect x="420" y="46" width="22" height="13"/><rect x="420" y="64" width="22" height="13"/><rect x="420" y="82" width="22" height="13"/><rect x="420" y="100" width="22" height="13"/><rect x="420" y="118" width="22" height="13"/><rect x="420" y="136" width="22" height="13"/><rect x="420" y="154" width="22" height="13"/><rect x="420" y="172" width="22" height="13"/><rect x="420" y="190" width="22" height="13"/><rect x="420" y="208" width="22" height="13"/><rect x="448" y="46" width="22" height="13"/><rect x="448" y="64" width="22" height="13"/><rect x="448" y="82" width="22" height="13"/><rect x="448" y="100" width="22" height="13"/><rect x="448" y="118" width="22" height="13"/><rect x="448" y="136" width="22" height="13"/><rect x="448" y="154" width="22" height="13"/><rect x="448" y="172" width="22" height="13"/><rect x="448" y="190" width="22" height="13"/><rect x="448" y="208" width="22" height="13"/><rect x="476" y="46" width="22" height="13"/><rect x="476" y="64" width="22" height="13"/><rect x="476" y="82" width="22" height="13"/><rect x="476" y="100" width="22" height="13"/><rect x="476" y="118" width="22" height="13"/><rect x="476" y="136" width="22" height="13"/><rect x="476" y="154" width="22" height="13"/><rect x="476" y="172" width="22" height="13"/><rect x="476" y="190" width="22" height="13"/><rect x="476" y="208" width="22" height="13"/></g>
-    <g fill="var(--accent)" stroke="none"><rect x="392" y="172" width="22" height="13"/><rect x="420" y="82" width="22" height="13"/><rect x="448" y="118" width="22" height="13"/><rect x="476" y="208" width="22" height="13"/></g>
+    <g class="leak-rows" text-anchor="end"><text x="392" y="56">0</text><text x="392" y="74">1</text><text x="392" y="92">2</text><text x="392" y="110">3</text><text x="392" y="128">4</text><text x="392" y="146">5</text><text x="392" y="164">6</text><text x="392" y="182">7</text><text x="392" y="200">8</text><text x="392" y="218">9</text></g>
+    <g class="diagram-top" stroke="var(--rule-strong)" stroke-width="1"><rect x="400" y="46" width="22" height="13"/><rect x="400" y="64" width="22" height="13"/><rect x="400" y="82" width="22" height="13"/><rect x="400" y="100" width="22" height="13"/><rect x="400" y="118" width="22" height="13"/><rect x="400" y="136" width="22" height="13"/><rect x="400" y="154" width="22" height="13"/><rect x="400" y="172" width="22" height="13"/><rect x="400" y="190" width="22" height="13"/><rect x="400" y="208" width="22" height="13"/><rect x="428" y="46" width="22" height="13"/><rect x="428" y="64" width="22" height="13"/><rect x="428" y="82" width="22" height="13"/><rect x="428" y="100" width="22" height="13"/><rect x="428" y="118" width="22" height="13"/><rect x="428" y="136" width="22" height="13"/><rect x="428" y="154" width="22" height="13"/><rect x="428" y="172" width="22" height="13"/><rect x="428" y="190" width="22" height="13"/><rect x="428" y="208" width="22" height="13"/><rect x="456" y="46" width="22" height="13"/><rect x="456" y="64" width="22" height="13"/><rect x="456" y="82" width="22" height="13"/><rect x="456" y="100" width="22" height="13"/><rect x="456" y="118" width="22" height="13"/><rect x="456" y="136" width="22" height="13"/><rect x="456" y="154" width="22" height="13"/><rect x="456" y="172" width="22" height="13"/><rect x="456" y="190" width="22" height="13"/><rect x="456" y="208" width="22" height="13"/><rect x="484" y="46" width="22" height="13"/><rect x="484" y="64" width="22" height="13"/><rect x="484" y="82" width="22" height="13"/><rect x="484" y="100" width="22" height="13"/><rect x="484" y="118" width="22" height="13"/><rect x="484" y="136" width="22" height="13"/><rect x="484" y="154" width="22" height="13"/><rect x="484" y="172" width="22" height="13"/><rect x="484" y="190" width="22" height="13"/><rect x="484" y="208" width="22" height="13"/></g>
+    <g fill="var(--accent)" stroke="none">
+      <rect x="400" y="64" width="22" height="13" fill-opacity=".12"/><rect x="400" y="154" width="22" height="13" fill-opacity=".3"/><rect x="400" y="190" width="22" height="13" fill-opacity=".18"/>
+      <rect x="428" y="46" width="22" height="13" fill-opacity=".12"/><rect x="428" y="100" width="22" height="13" fill-opacity=".3"/><rect x="428" y="136" width="22" height="13" fill-opacity=".16"/>
+      <rect x="456" y="100" width="22" height="13" fill-opacity=".16"/><rect x="456" y="136" width="22" height="13" fill-opacity=".28"/><rect x="456" y="208" width="22" height="13" fill-opacity=".12"/>
+      <rect x="484" y="82" width="22" height="13" fill-opacity=".12"/><rect x="484" y="154" width="22" height="13" fill-opacity=".16"/><rect x="484" y="190" width="22" height="13" fill-opacity=".3"/>
+      <rect x="400" y="172" width="22" height="13"/><rect x="428" y="82" width="22" height="13"/><rect x="456" y="118" width="22" height="13"/><rect x="484" y="208" width="22" height="13"/>
+    </g>
   </g>
-  <path class="diagram-guide" d="M392 250H498"/>
-  <g text-anchor="middle"><text class="leak-digit" x="403" y="268">7</text><text class="leak-digit" x="431" y="268">2</text><text class="leak-digit" x="459" y="268">4</text><text class="leak-digit" x="487" y="268">9</text></g>
+  <path class="diagram-guide" d="M400 250H506"/>
+  <g text-anchor="middle"><text class="leak-digit" x="411" y="268">7</text><text class="leak-digit" x="439" y="268">2</text><text class="leak-digit" x="467" y="268">4</text><text class="leak-digit" x="495" y="268">9</text></g>
   <text class="diagram-label" x="76" y="307" text-anchor="middle">PRIVATE CONTEXT</text>
   <text class="diagram-label" x="222" y="307" text-anchor="middle">AI AGENT</text>
-  <text class="diagram-label diagram-accent-text" x="445" y="307" text-anchor="middle">RECONSTRUCTED</text>
+  <text class="diagram-label diagram-accent-text" x="453" y="307" text-anchor="middle">RECONSTRUCTED</text>
 </svg>
