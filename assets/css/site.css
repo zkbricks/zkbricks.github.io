@@ -582,11 +582,15 @@ main { flex: 1 0 auto; }
 .story-impact ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--rule); border: 1px solid var(--rule); }
 /* An odd card out spans the full row instead of leaving a gap. */
 .story-impact li:last-child:nth-child(odd) { grid-column: 1 / -1; }
-.story-impact a { display: flex; flex-direction: column; gap: 3px; height: 100%; padding: 10px 12px; background: var(--paper); color: var(--ink); text-decoration: none; }
+.story-impact li > a, .story-impact-card { display: flex; flex-direction: column; gap: 3px; height: 100%; padding: 10px 12px; background: var(--paper); color: var(--ink); text-decoration: none; }
 .story-impact b { font-size: 13.5px; font-weight: 700; }
 .story-impact b::after { content: " ↗"; font-weight: 400; color: var(--muted); }
 .story-impact span { font-size: 12.5px; line-height: 1.35; color: var(--ink-2); }
 .story-impact a:hover b, .story-impact a:hover b::after { color: var(--accent); }
+/* A card whose description carries its own links: only the title links the card. */
+.story-impact-card > a { display: flex; }
+.story-impact span a { text-decoration: underline; text-decoration-color: var(--rule-strong); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.story-impact span a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 /* Stack the panels in one cell so switching stories never changes the hero's height. */
 .js .hero-stories { display: grid; grid-template-columns: minmax(0, 1fr); }
 .js .story-panel { grid-row: 3; grid-column: 1; }
