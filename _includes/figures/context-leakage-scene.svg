@@ -1,0 +1,36 @@
+<svg class="figure-svg" viewBox="0 0 540 340" role="img" aria-label="A private context holds the PIN 7249. The AI agent refuses to reveal it, but its ordinary replies flow to a grid that reconstructs the digits 7, 2, 4 and 9." fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Static version of the homepage AI-safety scene: the agent refuses, yet its replies reconstruct the secret. -->
+  <g transform="translate(-8 0)">
+    <path class="diagram-body" d="M44 112L56 105L125 145V223L113 230L44 190Z"/>
+    <path class="diagram-top" d="M44 112L113 152V230L44 190Z"/>
+    <path d="M44 112L56 105L125 145L113 152M113 152V230"/>
+    <g transform="matrix(.866025 .5 0 1 44 112)">
+      <path d="M10 18H62M10 30H46" stroke="var(--muted)" stroke-width="3"/>
+      <g class="diagram-badge"><rect x="10" y="44" width="11" height="14"/><rect x="24" y="44" width="11" height="14"/><rect x="38" y="44" width="11" height="14"/><rect x="52" y="44" width="11" height="14"/></g>
+      <!-- The secret is present but faint: it is in context, never shown. -->
+      <g class="leak-secret" text-anchor="middle"><text x="15.5" y="55">7</text><text x="29.5" y="55">2</text><text x="43.5" y="55">4</text><text x="57.5" y="55">9</text></g>
+    </g>
+  </g>
+  <path class="diagram-guide" d="M120 182C138 174 150 172 162 174" stroke-dasharray="2 6"/>
+  <g transform="translate(222 186)">
+    <path class="diagram-body" d="M0 -60L62.352 -24L62.352 36L0 72L-62.352 36L-62.352 -24Z"/>
+    <path class="diagram-top" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
+    <path class="diagram-blue" d="M0 -60L62.352 -24L0 12L-62.352 -24Z"/>
+    <path d="M-62.352 -24L0 12L62.352 -24M0 12V72"/>
+  </g>
+  <g class="leak-refuse">
+    <circle cx="222" cy="84" r="17" fill="var(--paper)" stroke="var(--rule-strong)"/>
+    <path d="M216 78L228 90M228 78L216 90" stroke="var(--ink-2)" stroke-width="2"/>
+  </g>
+  <g transform="translate(296 160)"><g transform="translate(0 -28)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g transform="translate(20 0)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g><g transform="translate(40 28)"><rect y="-9" width="30" height="18" rx="9" fill="var(--paper)"/><path d="M8 -2H22M8 3H17" stroke="var(--muted)"/><circle cx="25" cy="3" r="1.6" fill="var(--accent)" stroke="none"/></g></g>
+  <g class="leak-board">
+    <g class="leak-rows" text-anchor="end"><text x="384" y="56">0</text><text x="384" y="74">1</text><text x="384" y="92">2</text><text x="384" y="110">3</text><text x="384" y="128">4</text><text x="384" y="146">5</text><text x="384" y="164">6</text><text x="384" y="182">7</text><text x="384" y="200">8</text><text x="384" y="218">9</text></g>
+    <g class="diagram-top" stroke="var(--rule-strong)" stroke-width="1"><rect x="392" y="46" width="22" height="13"/><rect x="392" y="64" width="22" height="13"/><rect x="392" y="82" width="22" height="13"/><rect x="392" y="100" width="22" height="13"/><rect x="392" y="118" width="22" height="13"/><rect x="392" y="136" width="22" height="13"/><rect x="392" y="154" width="22" height="13"/><rect x="392" y="172" width="22" height="13"/><rect x="392" y="190" width="22" height="13"/><rect x="392" y="208" width="22" height="13"/><rect x="420" y="46" width="22" height="13"/><rect x="420" y="64" width="22" height="13"/><rect x="420" y="82" width="22" height="13"/><rect x="420" y="100" width="22" height="13"/><rect x="420" y="118" width="22" height="13"/><rect x="420" y="136" width="22" height="13"/><rect x="420" y="154" width="22" height="13"/><rect x="420" y="172" width="22" height="13"/><rect x="420" y="190" width="22" height="13"/><rect x="420" y="208" width="22" height="13"/><rect x="448" y="46" width="22" height="13"/><rect x="448" y="64" width="22" height="13"/><rect x="448" y="82" width="22" height="13"/><rect x="448" y="100" width="22" height="13"/><rect x="448" y="118" width="22" height="13"/><rect x="448" y="136" width="22" height="13"/><rect x="448" y="154" width="22" height="13"/><rect x="448" y="172" width="22" height="13"/><rect x="448" y="190" width="22" height="13"/><rect x="448" y="208" width="22" height="13"/><rect x="476" y="46" width="22" height="13"/><rect x="476" y="64" width="22" height="13"/><rect x="476" y="82" width="22" height="13"/><rect x="476" y="100" width="22" height="13"/><rect x="476" y="118" width="22" height="13"/><rect x="476" y="136" width="22" height="13"/><rect x="476" y="154" width="22" height="13"/><rect x="476" y="172" width="22" height="13"/><rect x="476" y="190" width="22" height="13"/><rect x="476" y="208" width="22" height="13"/></g>
+    <g fill="var(--accent)" stroke="none"><rect x="392" y="172" width="22" height="13"/><rect x="420" y="82" width="22" height="13"/><rect x="448" y="118" width="22" height="13"/><rect x="476" y="208" width="22" height="13"/></g>
+  </g>
+  <path class="diagram-guide" d="M392 250H498"/>
+  <g text-anchor="middle"><text class="leak-digit" x="403" y="268">7</text><text class="leak-digit" x="431" y="268">2</text><text class="leak-digit" x="459" y="268">4</text><text class="leak-digit" x="487" y="268">9</text></g>
+  <text class="diagram-label" x="76" y="307" text-anchor="middle">PRIVATE CONTEXT</text>
+  <text class="diagram-label" x="222" y="307" text-anchor="middle">AI AGENT</text>
+  <text class="diagram-label diagram-accent-text" x="445" y="307" text-anchor="middle">RECONSTRUCTED</text>
+</svg>
