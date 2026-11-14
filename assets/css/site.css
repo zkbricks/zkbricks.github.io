@@ -1359,6 +1359,10 @@ main { flex: 1 0 auto; }
 /* Inline SVG figures in posts, drawn with the same tokens and line work as the homepage scenes so they follow the theme. */
 .post-figure { margin: 2.4em 0; }
 .post-figure .figure-svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* Animated figures are rendered for light mode. In dark mode they are inverted (keeping hues) and blended into the page. */
+.post-figure-anim img { display: block; width: 100%; height: auto; }
+:root[data-theme="dark"] .post-figure-anim img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .post-figure-anim img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; } }
 .post-figure figcaption { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
 .post-figure-narrow { max-width: 420px; margin-inline: auto; }
 .figure-pair { display: grid; gap: 28px; margin: 2.4em 0; }
