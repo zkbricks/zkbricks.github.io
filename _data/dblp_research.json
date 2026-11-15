@@ -7,6 +7,26 @@
   ],
   "papers": [
     {
+      "title": "Bypassing Prompt Guards in Production with Controlled-Release Prompting",
+      "authors": "Jaiden Fairoze, Sanjam Garg, Keewoo Lee, Mingyuan Wang",
+      "authors_html": "Jaiden Fairoze, <span class=\"is-team\">Sanjam Garg</span>, Keewoo Lee, <span class=\"is-team\">Mingyuan Wang</span>",
+      "venue": "USENIX Security Symposium",
+      "venue_short": "USENIX Security",
+      "area": "security",
+      "year": "2026",
+      "url": "https://www.usenix.org/conference/usenixsecurity26/presentation/fairoze"
+    },
+    {
+      "title": "Collaborative Incrementally Verifiable Computation",
+      "authors": "Eden Aldema Tshuva, Sanjam Garg, Abhiram Kothapalli, Rotem Oshman, Omkant Pandey, Bhaskar Roberts",
+      "authors_html": "Eden Aldema Tshuva, <span class=\"is-team\">Sanjam Garg</span>, Abhiram Kothapalli, Rotem Oshman, Omkant Pandey, Bhaskar Roberts",
+      "venue": "TCC (3)",
+      "venue_short": "TCC",
+      "area": "crypto",
+      "year": "2026",
+      "url": "https://eprint.iacr.org/2026/410.pdf"
+    },
+    {
       "title": "Generic-Group Barriers for Function-Hiding and Multi-input Functional Encryption",
       "authors": "Mohammad Hajiabadi, Roman Langrehr, Mingyuan Wang",
       "authors_html": "Mohammad Hajiabadi, Roman Langrehr, <span class=\"is-team\">Mingyuan Wang</span>",
@@ -25,6 +45,16 @@
       "area": "security",
       "year": "2026",
       "url": "https://doi.org/10.1109/SP63933.2026.00109"
+    },
+    {
+      "title": "Lighthouse: Single-Server Secure Aggregation with O(1) Server-Committee Communication at Scale",
+      "authors": "Sanjam Garg, Alireza Kavousi, Dimitris Kolonelos, Erkan Tairi, Zhipeng Wang",
+      "authors_html": "<span class=\"is-team\">Sanjam Garg</span>, Alireza Kavousi, <span class=\"is-team\">Dimitris Kolonelos</span>, Erkan Tairi, Zhipeng Wang",
+      "venue": "USENIX Security Symposium",
+      "venue_short": "USENIX Security",
+      "area": "security",
+      "year": "2026",
+      "url": "https://eprint.iacr.org/2026/346.pdf"
     },
     {
       "title": "Multiparty Computation with Minimal Overhead Without Circuit Transformation",
@@ -1836,7 +1866,7 @@
     },
     {
       "name": "TCC",
-      "count": 31
+      "count": 32
     },
     {
       "name": "EUROCRYPT",
@@ -1867,6 +1897,10 @@
       "count": 5
     },
     {
+      "name": "USENIX Security",
+      "count": 5
+    },
+    {
       "name": "ISIT",
       "count": 4
     },
@@ -1880,10 +1914,6 @@
     },
     {
       "name": "PETS",
-      "count": 3
-    },
-    {
-      "name": "USENIX Security",
       "count": 3
     },
     {
@@ -1958,22 +1988,22 @@
   "area_stats": [
     {
       "name": "crypto",
-      "count": 128
+      "count": 129
+    },
+    {
+      "name": "security",
+      "count": 23
     },
     {
       "name": "theory",
       "count": 23
     },
     {
-      "name": "security",
-      "count": 21
-    },
-    {
       "name": "ml",
       "count": 3
     }
   ],
-  "total_papers": 175,
+  "total_papers": 178,
   "first_year": 2007,
   "last_year": 2026
 }
